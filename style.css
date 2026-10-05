@@ -29,3 +29,6 @@ body{background:#f8f7f1}.masthead{position:absolute;inset:0 0 auto;height:70px;z
 
 .destination-landmark .place-label{display:block;font:10px var(--mono);letter-spacing:.15px;top:100%;color:#60786e;background:none;border:0;box-shadow:none;opacity:0}
 .destination-landmark:hover .place-label,.destination-landmark:focus-visible .place-label{opacity:1}
+
+/* The cargo bow may cross the picture edge without a paper fade softening it. */
+.approaching-ship .scene-stage{mask-image:none}

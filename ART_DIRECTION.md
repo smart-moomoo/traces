@@ -15,3 +15,7 @@ The approved lower half of each original poster is the visual source of truth. A
 The early instruction's very low module-count limit was followed by an explicitly preferred Seattle reference with much richer detail. Match that accepted reference's recognizable structure and material density; do not simplify it into a handful of blocks, and do not claim an exact fragment count without measuring it.
 
 Animation may show slight whole-frame motion; the user accepted a stop-motion demo. Avoid spending effort polishing one scene while leaving other destinations unfinished.
+
+Every story frame must now be a separately generated native image approximately 1448×1086 (4:3), with only minor native dimension variation (minimum 1440×1080). Never upscale or crop the old six-panel sheets and call them HD. Validate actual dimensions before integration. The story viewport is at most 1000 CSS pixels wide.
+
+Seattle's new story is an explicit exception to the usual quiet framing: the original large cargo ship approaches from the distant harbor, grows with plausible perspective while the skyline remains fixed, and finally fills/crops beyond the animation viewport. Only the ship and its associated water/reflection change scale. Do not substitute a camera zoom, a moving little ferry, an explosion or an invented human protagonist. Paper margins may be occluded by the looming ship in the final frames.

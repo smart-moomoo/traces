@@ -18,7 +18,10 @@ const filmBindings=new WeakMap(),imageLoads=new Map();
 const MAP_FILM={frames:Array.from({length:6},(_,i)=>`assets/map-frames/${i+1}.png`)};
 function loadImage(src){
   if(!imageLoads.has(src))imageLoads.set(src,new Promise((resolve,reject)=>{
-    const image=new Image();image.onload=()=>image.decode().then(()=>resolve(image),()=>resolve(image));
+    const image=new Image();image.onload=()=>{
+      const finish=()=>{resolve(image);while(imageLoads.size>24)imageLoads.delete(imageLoads.keys().next().value);};
+      image.decode().then(finish,finish);
+    };
     image.onerror=()=>{imageLoads.delete(src);reject(new Error('Image unavailable'));};image.src=src;
   }));
   return imageLoads.get(src);
@@ -37,6 +40,7 @@ function setFilm(el,film){
 async function openPoster(i){
   posterIndex=(i+places.length)%places.length;
   const p=places[posterIndex],film=FILMS[p.id],version=++loadVersion;
+  dialog.classList.toggle('approaching-ship',p.id==='Seattle'&&film.story==='cargo_approach');
   sceneReady=false;storyEnded=false;sceneFrame=0;lastScene=0;scenePaused=reduceMotion.matches;
   dialog.setAttribute('aria-label',p.name+'的逐帧故事');
   $('#story-film').setAttribute('aria-label',p.name+'：纸面材料拼贴中的光影与环境变化');
