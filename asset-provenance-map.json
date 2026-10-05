@@ -1,0 +1,22 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "assets/quiet-shell-archipelago.png",
+  "requestedSize": [
+    3072,
+    2304
+  ],
+  "actualSize": [
+    1448,
+    1086
+  ],
+  "promptTemplate": "Edit this map into ONE full-canvas 4:3 standalone animation frame {frame} of 6. NOT a grid or sheet. Highest available resolution, request 3072x2304. Preserve exact eight island locations, sizes, silhouettes, buildings, fixed camera and warm ivory background. Crisp finely detailed matte shell mosaic, pale blue water, no depth-of-field blur. Only very subtle environmental variation: water highlights and wakes shifted gently phase {frame}/6, slight foliage movement. No people, text, labels or UI. Keep entire reference composition precisely.",
+  "frames": [
+    "assets/map-frames/1.png",
+    "assets/map-frames/2.png",
+    "assets/map-frames/3.png",
+    "assets/map-frames/4.png",
+    "assets/map-frames/5.png",
+    "assets/map-frames/6.png"
+  ],
+  "notes": "Independent full-canvas frames. Source composition preserved; small water and texture variation remains. Actual resolution verified separately; not the requested 3K size."
+}
