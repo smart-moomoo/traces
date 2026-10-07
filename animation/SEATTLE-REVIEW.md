@@ -36,3 +36,23 @@ view. Extreme close-up enlarges original texture and cannot reveal new detail.
 The alpha silhouette and water/reflection treatment are authored approximations;
 complex turning would need more authored views or a local 3D asset. The existing
 production map/player have not been replaced by this POC.
+
+## Environment revision after visual feedback
+
+The first POC was rejected for concentrating motion on the vessel. The current
+renderer also animates the existing water material and city reflections with a
+masked surface response, three propagating ship-origin wave events, and moving
+cloud illumination on the sky and architecture. Paper and building geometry
+remain registered. No further generated assets were required.
+
+The review page can hide the ship/reflection/wake to inspect the environment
+independently. Actual WebGL pixel comparison with the subject hidden at 0 and 12
+seconds found 90.7% of samples in the authored central-water region changed by
+more than two channel values; four paper corner samples changed by zero. This
+proves independent environment activity at those samples, not artistic quality
+or exhaustive invariance of every paper pixel. Full visual review remains needed.
+
+Environment-enabled benchmark: 1,000 renders in 2,856 ms, maximum CPU submission
+1.2 ms, four fixed assets and zero new asset requests. Measured in the local
+browser with explicit GPU completion at batch boundaries; not a device-wide FPS
+promise. The updated combined scene was visually inspected and left playing.

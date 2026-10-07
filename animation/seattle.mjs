@@ -1,4 +1,5 @@
 import {seattleAt,wakeAt,SEATTLE_DURATION,StoryClock} from './timeline.mjs';
+import {createEnvironment,updateEnvironment} from './environment.mjs';
 
 export class SeattleScene{
   static async mount(host,{onTime=()=>{}}={}){
@@ -9,7 +10,10 @@ export class SeattleScene{
     const base=new URL('../assets/scenes/Seattle/',import.meta.url);
     scene.urls=['background.png','ship.png','water-mask.png','wake-shell.png'].map(s=>new URL(s,base).href);
     const [bg,ship,water,foam]=await Promise.all(scene.urls.map(s=>PIXI.Assets.load(s)));
-    const stage=scene.app.stage;stage.addChild(new PIXI.Sprite(bg));
+    const stage=scene.app.stage;const background=new PIXI.Sprite(bg);stage.addChild(background);
+    scene.environment=createEnvironment(water);background.filters=[scene.environment];
+    background.filterArea=new PIXI.Rectangle(0,0,1024,768);
+    scene.waveEvents=[4,10,16].map(born=>{const s=seattleAt(born);return {born,x:s.x-110*s.scale,y:s.y,strength:1};});
     scene.water=new PIXI.Container();stage.addChild(scene.water);
     const mask=new PIXI.Sprite(water);stage.addChild(mask);scene.water.mask=mask;
     // Reflection is the actual ship texture, upside down, split into bounded
@@ -35,16 +39,31 @@ export class SeattleScene{
     scene.raf=requestAnimationFrame(scene.tick);return scene;
   }
   render(t){
+    updateEnvironment(this.environment,t,this.waveEvents);
     const s=seattleAt(t);this.ship.position.set(s.x,s.y);this.ship.scale.set(s.scale);this.ship.rotation=s.roll;
     this.reflection.position.set(s.x,s.y);this.reflection.scale.set(s.scale);
     for(const b of this.bands)b.sprite.x=Math.sin(t*1.3+b.y*.09)*(1+b.y*.006);
     this.wakes.forEach((pair,i)=>{const w=wakeAt(t,i);pair.forEach((p,side)=>{p.visible=w.visible;if(!w.visible)return;p.position.set(w.x+(side?1:-1)*w.spread,w.y+Math.abs(w.spread)*.14);p.width=w.width;p.height=Math.max(1,s.scale*1.7);p.alpha=w.alpha;p.rotation=side?.12:-.12;});});
     this.contact.position.set(s.x-16*s.scale,s.y-1);this.contact.width=245*s.scale;this.contact.height=2.2*s.scale;this.contact.alpha=.34;
+    if(this.environmentOnly){this.ship.visible=false;this.reflection.visible=false;this.contact.visible=false;this.wakes.flat().forEach(p=>p.visible=false);}
+    else {this.ship.visible=true;this.reflection.visible=true;this.contact.visible=true;}
     this.app.render();this.onTime(t,s);this.frames=(this.frames||0)+1;
   }
   seek(t){this.clock.seek(t);this.render(this.clock.time);}
   play(){this.clock.play();}
   pause(){this.clock.pause();}
+  async auditEnvironment(){
+    this.pause();const time=this.clock.time,previous=this.environmentOnly;this.environmentOnly=true;
+    const gl=this.app.renderer.gl;
+    const capture=t=>{this.render(t);gl.finish();const [,,w,h]=gl.getParameter(gl.VIEWPORT),pixels=new Uint8Array(w*h*4);gl.readPixels(0,0,w,h,gl.RGBA,gl.UNSIGNED_BYTE,pixels);return {pixels,w,h};};
+    const a=capture(0),b=capture(12);
+    const difference=(x,y)=>{const i=(Math.min(a.h-1,Math.floor((768-y)/768*a.h))*a.w+Math.floor(x/1024*a.w))*4;return Math.max(...[0,1,2].map(c=>Math.abs(a.pixels[i+c]-b.pixels[i+c])));};
+    let changed=0,total=0;
+    for(let y=480;y<570;y+=3)for(let x=200;x<610;x+=3){total++;if(difference(x,y)>2)changed++;}
+    const paperDifference=Math.max(...[[8,8],[1015,12],[12,740],[1000,740]].map(([x,y])=>difference(x,y)));
+    this.environmentOnly=previous;this.seek(time);
+    return {subjectHidden:true,waterChangedPercent:+(100*changed/total).toFixed(1),paperCornerDifference:paperDifference,comparisonSeconds:[0,12]};
+  }
   async benchmark(count=1000){
     this.pause();const previous=this.clock.time,begin=performance.now();let max=0;
     const requestsBefore=performance.getEntriesByType("resource").filter(e=>this.urls.includes(e.name)).length;
