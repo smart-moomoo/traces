@@ -11,6 +11,42 @@ in scope for the full project, not implicitly completed by this milestone.
 
 ## Architecture
 
+### Revision after systemic feedback
+
+The Seattle engineering POC is **not visually accepted**. The user rejected the
+inaccurate cutout, the oversized ship against the flat collage, and object motion
+being presented as a complete story. Neither 1,000 rendered frames nor changing
+pixels is an artistic acceptance criterion. No expansion may treat that POC as
+the final visual template.
+
+The production unit is a complete authored scene, with four linked deliverables:
+
+1. **Representation:** approved source crop, semantic layers, exact alpha,
+   reconstructed hidden areas, attachment points, foreground occlusion and a
+   shared material scale. Choose rigid fragments, deformable mesh, light field or
+   authored alternate pose for each layer before choosing its motion.
+2. **Causal score:** setup, a readable change and resolution; events reference
+   their causes and targets. Effects share the same state, rather than independent
+   sine waves pretending to interact. Path and velocity are explicit tracks.
+3. **Reconstruction:** first evaluate the unanimated layered scene. Compare with
+   the approved art at 1:1 and the final viewing size. Inspect alpha on light and
+   dark mattes, thin structures, hidden-area repairs and shared texture scale.
+4. **Whole-scene review:** inspect the complete event in context, including
+   negative space, rhythm, contact and ending. Only then run performance and
+   deployment checks. Engineering success cannot override a failed visual review.
+
+`scene-contract.mjs` makes references, event order, transform constraints and
+independently evidenced review outcomes explicit. `seattle-spec.mjs` records the
+current failed/pending verdicts honestly. It defines a bounded material-tableau
+passage instead of promoting a giant foreground cutout as the solution. The
+renderer still needs to implement that revised score before acceptance.
+
+Asset extraction is not automatically reliable. Generative cutouts are candidates,
+because they may redraw texture or geometry. They must be compared with the
+original; exact source masks are preferred when reliable. Rejected candidates
+stay outside production assets. If a required view cannot be represented by the
+available layers, author the missing view or revise the staging explicitly.
+
 - Self-hosted, pinned PixiJS 8 renderer, static hosting on existing GitHub Pages.
 - Pure deterministic timeline functions: seconds in, transforms/events out.
 - Source artwork, clean plate, extracted subject textures, occlusion masks and
@@ -32,13 +68,13 @@ in scope for the full project, not implicitly completed by this milestone.
 
 ## Seattle milestone
 
-Use the original poster lower half, extract the original cargo ship, reconstruct
-the water/sky behind it once, and render its approach with fixed heading and
-perspective. Do not zoom the entire composition or move the little ferry. The
-ship's projected size grows as its depth decreases; reflection and wake follow.
-At the end the hull fills the view without collision or explosion. Add only
-subtle contact movement consistent with a heavy vessel. Use sufficient extracted
-texture detail and cap extreme enlargement where it stops being credible.
+Use the original poster lower half, extract the original cargo ship and reconstruct
+the water/sky behind it once. The revised score keeps a shared 2D material scale;
+reflection and wake follow the same authored vessel state. Do not zoom the
+entire composition or default to a giant foreground vessel.
+The original enlarged-hull ending has been rejected in the systemic review.
+Revise the staging to retain a shared 2D material scale and a complete harbor
+event; implement the revised scene contract before claiming visual completion.
 
 ## All-place story and asset specification
 
@@ -107,3 +143,15 @@ generation count or downloaded image count. Complex turns revealing unseen sides
 need authored poses or a local 3D asset; a single cutout cannot supply that detail.
 Do not substitute scaling for a rotating object. Keep such scenes within their
 available perspective or author the additional asset explicitly.
+
+## Authoring implementation
+
+`assets/scenes/Seattle/layers.json` now declares semantic extraction operations;
+`scripts/prepare-scene.py` builds masks, cutouts, repairs and material samples
+from the manifest and writes source/output hashes. It preserves source RGB for
+cutouts and marks builds as not visually accepted. `asset-review.html` displays
+source, clean plate and cutout on multiple mattes. The rendering timeline now
+reads authored tracks from the scene specification, including bounded constant
+material scale. Current Seattle alpha and overall story verdicts remain failed
+or pending; these tools make the defects reviewable, they do not fix them by
+declaration. The isolated imagegen candidate was retained outside production.

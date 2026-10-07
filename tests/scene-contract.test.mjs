@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {validateScene,evaluateTrack,REQUIRED_REVIEWS} from '../animation/scene-contract.mjs';
+import {seattleSpec} from '../animation/seattle-spec.mjs';
+assert.equal(validateScene(seattleSpec).valid,true);
+assert.equal(validateScene(seattleSpec,{release:true}).valid,false,'Performance success must not release a visually rejected scene.');
+const bad=structuredClone(seattleSpec);bad.events[0].causes=['reflected-light'];
+assert.ok(validateScene(bad).errors.some(e=>e.includes('cycle')));
+const missing=structuredClone(seattleSpec);missing.layers.find(l=>l.id==='reflection').follows='missing';
+assert.equal(validateScene(missing).valid,false);
+const approved=structuredClone(seattleSpec);approved.status='reviewed';
+for(const key of REQUIRED_REVIEWS)approved.review[key]={verdict:'pass',evidence:'test fixture only'};
+assert.equal(validateScene(approved,{release:true}).valid,true);
+const track=[{time:0,value:0},{time:10,value:1}];
+assert.equal(evaluateTrack(track,-1),0);assert.equal(evaluateTrack(track,11),1);assert.equal(evaluateTrack(track,5),.5);
+for(let i=1;i<=1000;i++)assert.ok(evaluateTrack(track,i*.01)>=evaluateTrack(track,(i-1)*.01));
+console.log('PASS: rejected visual work stays unreleasable; causal cycles and missing dependencies rejected; deterministic continuous tracks.');
