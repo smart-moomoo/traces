@@ -1,0 +1,13 @@
+{
+  "source": "assets/posters/Seattle.png",
+  "sourceRegion": "lower half, 1024 x 768",
+  "ship": "Original pixels, authored silhouette extraction; no frame generation",
+  "background": "One imagegen clean-plate repair composited into original artwork only around removed ship and reflection",
+  "water-mask": "Authored original-art water coverage",
+  "wake-shell": "Small original shell texture sample",
+  "generatedAssetCount": 1,
+  "generatedAnimationFrameCount": 0,
+  "runtimeImageAssets": 4,
+  "timeline": "animation/timeline.mjs",
+  "preparation": "scripts/prepare-seattle.py"
+}
