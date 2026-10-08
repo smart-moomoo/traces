@@ -84,7 +84,7 @@ If absent, replace that action with an environmental event supported by the art.
 
 | Place | Event | Required layers and invariant |
 |---|---|---|
-| Seattle | Cargo approaches from harbor into foreground | Ship, clean plate, reflection, wake; fixed skyline and ferry, stable heading |
+| Seattle | A harbor breeze accompanies a bounded cargo passage; reflections break and settle | Original ship and authored reflection at constant material scale, clean plate, contact-driven wake; fixed skyline and paper margins |
 | Bellevue | Duck crosses and wake settles | Existing duck, water mask, bank occlusion; monotonic path |
 | San Francisco | Gust fills sail, boat advances, wind eases | Existing vessel/sail, sea, wake; shared heading and wind |
 | Stanford | Breeze dislodges leaf which rests on ground | Existing foliage, leaf, trunk occlusion, ground; no new palm branch |
@@ -155,3 +155,12 @@ reads authored tracks from the scene specification, including bounded constant
 material scale. Current Seattle alpha and overall story verdicts remain failed
 or pending; these tools make the defects reviewable, they do not fix them by
 declaration. The isolated imagegen candidate was retained outside production.
+
+
+### Resumed implementation checkpoint
+
+The common workbench now loads all 23 original-art scenes. The material object pass supports original-pixel fragments, explicit background repair samples, deterministic position/rotation tracks and foreground occlusion masks. New Orleans exercises that path with an original green shell fragment falling and resting near the tree. Seattle now preserves its original authored reflection rather than reflecting the vessel texture. Neither example has been promoted to a completed visual review.
+
+Source cropping is explicit per poster rather than assuming all photo/art splits fall at the center. Region definitions retain their original source coordinates when the crop changes. The workbench can show motion regions and object paths for comparison against the actual composition. Santa Monica's sea/flag regions and foreground exclusions were corrected using that review. Remaining locations still require this same regional/occlusion review and their missing events; a successful 23-scene lifecycle run does not complete that work.
+
+The previously rejected large foreground ship has been removed from the current art-direction rules. The old Seattle preparation command now delegates to the single manifest builder, preventing it from overwriting reviewed masks with obsolete geometry.

@@ -9,15 +9,18 @@ export function seattleAt(seconds){
   const tracks=seattleSpec.tracks,scale=evaluateTrack(tracks.scale,t),wind=evaluateTrack(tracks.wind,t);
   return {t,progress:p,z:1/scale,scale,x:evaluateTrack(tracks.x,t),y:evaluateTrack(tracks.y,t),
     roll:Math.sin(t*.65)*.001*wind,speed:Math.abs(evaluateTrack(tracks.x,t+.001)-evaluateTrack(tracks.x,t-.001))/.002,
+    wind, surfaceEnergy:clamp(wind*.5 + Math.sin(Math.PI*clamp((t-5)/30))*.5),
     ended:t>=SEATTLE_DURATION};
 }
 
 export function wakeAt(seconds,index){
-  const born=1+index*.55,age=seconds-born;
+  const passage=seattleSpec.events.find(e=>e.id==='passage');
+  const born=passage.start+.3+index*.55,age=seconds-born;
+  if(born>=passage.end)return {visible:false};
   if(age<0||age>9)return {visible:false};
   const origin=seattleAt(born),life=age/9;
   return {visible:true,x:origin.x+130*origin.scale,y:origin.y-16*origin.scale,
-    spread:(8+age*11)*origin.scale,alpha:Math.sin(Math.PI*life)*.32,
+    spread:(8+age*11)*origin.scale,alpha:Math.sin(Math.PI*life)*.32*clamp(origin.speed/6),
     width:(13+age*12)*origin.scale};
 }
 

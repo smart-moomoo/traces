@@ -1,7 +1,7 @@
 // Procedural light and surface response, sampled from the original material.
 // Only the authored water mask permits displacement. Paper and architecture
 // retain their original geometry, and no new raster frames are produced.
-const vertex=`
+export const vertex=`
 precision highp float;
 in vec2 aPosition;
 out vec2 vTextureCoord;
@@ -26,6 +26,8 @@ uniform sampler2D uWaterMask;
 uniform vec4 uInputSize;
 uniform vec4 uInputClamp;
 uniform float uTime;
+uniform float uEnergy;
+uniform float uWind;
 uniform vec4 uWave0;
 uniform vec4 uWave1;
 uniform vec4 uWave2;
@@ -47,27 +49,27 @@ void main(){
  vec2 patch=floor(p/vec2(18.0,12.0))*vec2(18.0,12.0)+vec2(9.0,6.0);
  float swell=wave(patch,uWave0)+wave(patch,uWave1)+wave(patch,uWave2);
  float breeze=sin(patch.y*.11+patch.x*.012-uTime*1.1);
- vec2 offset=vec2(breeze*1.6+swell*4.3,sin(patch.x*.04-uTime*.8)*.45+swell*.9)*water;
+ vec2 offset=vec2(breeze*1.6+swell*4.3,sin(patch.x*.04-uTime*.8)*.45+swell*.9)*water*uEnergy;
  vec4 material=texture(uTexture,clamp(uv+offset*uInputSize.zw,uInputClamp.xy,uInputClamp.zw));
  float chroma=max(original.r,max(original.g,original.b))-min(original.r,min(original.g,original.b));
  float pigment=smoothstep(.035,.13,chroma);
  float cloud=sin(p.x*.004+p.y*.002-uTime*.19);
  float sky=(1.0-smoothstep(280.0,450.0,p.y));
- float daylight=(cloud*.055+sin(p.x*.009-uTime*.33)*.018)*pigment;
- float sheen=(breeze*.033+swell*.065)*water;
+ float daylight=(cloud*.055+sin(p.x*.009-uTime*.33)*.018)*pigment*uWind;
+ float sheen=(breeze*.033+swell*.065)*water*uEnergy;
  material.rgb*=1.0+daylight+sheen;
- material.rgb+=vec3(.009,.006,.001)*max(cloud,0.0)*pigment*sky;
+ material.rgb+=vec3(.009,.006,.001)*max(cloud,0.0)*pigment*sky*uWind;
  finalColor=material;
 }`;
 
 export function createEnvironment(waterTexture){
   return new PIXI.Filter({glProgram:PIXI.GlProgram.from({vertex,fragment}),resources:{
     uWaterMask:waterTexture.source,
-    environmentUniforms:{uTime:{value:0,type:'f32'},uWave0:{value:new Float32Array(4),type:'vec4<f32>'},uWave1:{value:new Float32Array(4),type:'vec4<f32>'},uWave2:{value:new Float32Array(4),type:'vec4<f32>'}}
+    environmentUniforms:{uEnergy:{value:0,type:'f32'},uWind:{value:0,type:'f32'},uTime:{value:0,type:'f32'},uWave0:{value:new Float32Array(4),type:'vec4<f32>'},uWave1:{value:new Float32Array(4),type:'vec4<f32>'},uWave2:{value:new Float32Array(4),type:'vec4<f32>'}}
   }});
 }
 
-export function updateEnvironment(filter,time,events){
-  const u=filter.resources.environmentUniforms.uniforms;u.uTime=time;
+export function updateEnvironment(filter,time,events,state){
+  const u=filter.resources.environmentUniforms.uniforms;u.uTime=time;u.uEnergy=state.surfaceEnergy;u.uWind=state.wind;
   events.forEach((e,i)=>{u['uWave'+i].set([e.x,e.y,time-e.born,e.strength]);});
 }

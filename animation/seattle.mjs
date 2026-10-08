@@ -8,29 +8,36 @@ export class SeattleScene{
     await scene.app.init({width:1024,height:768,resolution:Math.min(devicePixelRatio,2),autoDensity:true,antialias:true,autoStart:false,preference:'webgl',background:0xf8f6f1});
     scene.app.canvas.style.cssText='width:100%;height:100%;display:block;object-fit:contain';host.append(scene.app.canvas);
     const base=new URL('../assets/scenes/Seattle/',import.meta.url);
-    scene.urls=['background.png','ship.png','water-mask.png','wake-shell.png'].map(s=>new URL(s,base).href);
-    const [bg,ship,water,foam]=await Promise.all(scene.urls.map(s=>PIXI.Assets.load(s)));
+    scene.urls=['background.png','ship.png','water-mask.png','wake-shell.png','reflection.png'].map(s=>new URL(s,base).href);
+    const [bg,ship,water,foam,reflectedArt]=await Promise.all(scene.urls.map(s=>PIXI.Assets.load(s)));
+    const manifest=await fetch(new URL('layers.json',base)).then(r=>{if(!r.ok)throw new Error('Layer manifest unavailable');return r.json();});
+    const definition=manifest.layers.find(l=>l.id==='ship'),[left,top,right,bottom]=definition.bounds;
+    const shipWidth=right-left,shipHeight=bottom-top;
+    scene.shipPivot=[definition.anchor[0]-left,definition.anchor[1]-top];
     const stage=scene.app.stage;const background=new PIXI.Sprite(bg);stage.addChild(background);
     scene.environment=createEnvironment(water);background.filters=[scene.environment];
     background.filterArea=new PIXI.Rectangle(0,0,1024,768);
-    scene.waveEvents=[4,10,16].map(born=>{const s=seattleAt(born);return {born,x:s.x-110*s.scale,y:s.y,strength:1};});
+    scene.waveEvents=[8,14,20].map(born=>{const s=seattleAt(born);return {born,x:s.x-110*s.scale,y:s.y,strength:1};});
     scene.water=new PIXI.Container();stage.addChild(scene.water);
     const mask=new PIXI.Sprite(water);stage.addChild(mask);scene.water.mask=mask;
-    // Reflection is the actual ship texture, upside down, split into bounded
-    // bands so horizontal surface ripples never distort the fixed artwork.
+    // Preserve the authored reflection: its shell fragments are artwork,
+    // not a photorealistic mirror synthesized by flipping the vessel.
+    const reflectionDefinition=manifest.layers.find(l=>l.id==='reflection');
+    const [rx,ry,rr,rb]=reflectionDefinition.bounds;
+    const [ax,ay]=reflectionDefinition.anchor;
     scene.reflection=new PIXI.Container();scene.water.addChild(scene.reflection);
     scene.bands=[];
-    for(let y=0;y<300;y+=8){
-      const texture=new PIXI.Texture({source:ship.source,frame:new PIXI.Rectangle(0,y,346,Math.min(8,300-y))});
-      const s=new PIXI.Sprite(texture);s.pivot.set(190,0);s.y=(300-y)*.48;s.scale.y=-.48;s.alpha=.26*(y/300)**.7;
-      scene.reflection.addChild(s);scene.bands.push({sprite:s,y});
+    for(let y=0;y<rb-ry;y+=8){
+      const texture=new PIXI.Texture({source:reflectedArt.source,frame:new PIXI.Rectangle(0,y,rr-rx,Math.min(8,rb-ry-y))});
+      const sprite=new PIXI.Sprite(texture);sprite.pivot.set(ax-rx,0);sprite.y=ry+y-ay;
+      scene.reflection.addChild(sprite);scene.bands.push({sprite,y});
     }
     scene.wakes=[];
     for(let i=0;i<64;i++){
       const pair=[new PIXI.Sprite(foam),new PIXI.Sprite(foam)];
       pair.forEach(s=>{s.anchor.set(.5);scene.water.addChild(s);});scene.wakes.push(pair);
     }
-    scene.ship=new PIXI.Sprite(ship);scene.ship.pivot.set(190,296);stage.addChild(scene.ship);
+    scene.ship=new PIXI.Sprite(ship);scene.ship.pivot.set(...scene.shipPivot);stage.addChild(scene.ship);
     // Thin shell-textured contact line stays attached to the hull, not the sky.
     scene.contact=new PIXI.Sprite(foam);scene.contact.anchor.set(.5);scene.water.addChild(scene.contact);
     scene.clock=new StoryClock(SEATTLE_DURATION);scene.render(0);
@@ -39,12 +46,13 @@ export class SeattleScene{
     scene.raf=requestAnimationFrame(scene.tick);return scene;
   }
   render(t){
-    updateEnvironment(this.environment,t,this.waveEvents);
-    const s=seattleAt(t);this.ship.position.set(s.x,s.y);this.ship.scale.set(s.scale);this.ship.rotation=s.roll;
+    const s=seattleAt(t);
+    updateEnvironment(this.environment,t,this.waveEvents,s);
+    this.ship.position.set(s.x,s.y);this.ship.scale.set(s.scale);this.ship.rotation=s.roll;
     this.reflection.position.set(s.x,s.y);this.reflection.scale.set(s.scale);
-    for(const b of this.bands)b.sprite.x=Math.sin(t*1.3+b.y*.09)*(1+b.y*.006);
+    for(const b of this.bands)b.sprite.x=Math.sin(t*1.3+b.y*.09)*(1+b.y*.006)*s.surfaceEnergy;
     this.wakes.forEach((pair,i)=>{const w=wakeAt(t,i);pair.forEach((p,side)=>{p.visible=w.visible;if(!w.visible)return;p.position.set(w.x+(side?1:-1)*w.spread,w.y+Math.abs(w.spread)*.14);p.width=w.width;p.height=Math.max(1,s.scale*1.7);p.alpha=w.alpha;p.rotation=side?.12:-.12;});});
-    this.contact.position.set(s.x-16*s.scale,s.y-1);this.contact.width=245*s.scale;this.contact.height=2.2*s.scale;this.contact.alpha=.34;
+    this.contact.position.set(s.x-16*s.scale,s.y-1);this.contact.width=245*s.scale;this.contact.height=2.2*s.scale;this.contact.alpha=.12+.22*Math.min(1,s.speed/6);
     if(this.environmentOnly){this.ship.visible=false;this.reflection.visible=false;this.contact.visible=false;this.wakes.flat().forEach(p=>p.visible=false);}
     else {this.ship.visible=true;this.reflection.visible=true;this.contact.visible=true;}
     this.app.render();this.onTime(t,s);this.frames=(this.frames||0)+1;

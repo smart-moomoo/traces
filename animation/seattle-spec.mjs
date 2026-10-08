@@ -6,16 +6,16 @@ export const seattleSpec={
   representation:'2D material tableau; shared scale, light and spatial rules',
   tracks:{
     x:[{time:0,value:826},{time:5,value:826},{time:15,value:774,velocity:-6},{time:26,value:712},{time:36,value:712}],
-    y:[{time:0,value:532},{time:5,value:532},{time:26,value:542},{time:36,value:542}],
+    y:[{time:0,value:535},{time:5,value:535},{time:26,value:542},{time:36,value:542}],
     scale:[{time:0,value:1},{time:36,value:1}],
     wind:[{time:0,value:0},{time:4,value:0},{time:10,value:1},{time:22,value:0},{time:36,value:0}]
   },
   layers:[
     {id:'plate',role:'reconstructed background',material:'original shell artwork'},
     {id:'waterMask',role:'water coverage',material:'alpha'},
-    {id:'ship',role:'original cargo vessel',material:'original shell artwork',motion:'cutout',anchor:[190,296],maxTransform:{scale:[.85,1.05],rotation:.005},cleanPlate:'plate',alphaReview:'revision-required'},
+    {id:'ship',role:'original cargo vessel',material:'original shell artwork',motion:'cutout',anchor:[826,535],maxTransform:{scale:[.85,1.05],rotation:.005},cleanPlate:'plate',alphaReview:'revision-required'},
     {id:'water',role:'surface and city reflection',material:'original shell artwork',motion:'surface',anchor:[0,460],maxTransform:{displacement:4.5},mask:'waterMask'},
-    {id:'reflection',role:'vessel reflection',material:'derived ship texture',motion:'surface',anchor:[0,0],maxTransform:{displacement:5},follows:'ship',mask:'waterMask'},
+    {id:'reflection',role:'vessel reflection',material:'original authored reflection',motion:'surface',anchor:[0,0],maxTransform:{displacement:5},follows:'ship',mask:'waterMask'},
     {id:'light',role:'cloud-modulated illumination',material:'original pigment',motion:'light',anchor:[0,0],maxTransform:{gain:[.9,1.1]}},
     {id:'wake',role:'historical ship-water contact',material:'original shell texture',motion:'surface',anchor:[0,0],maxTransform:{displacement:100},follows:'ship',mask:'waterMask'}
   ],

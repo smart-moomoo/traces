@@ -1,7 +1,7 @@
 {
   "source": "source.png",
   "sourceSha256": "540715adc36731850f6fcef02799ee3a0154b583b905d2f4a04cc5fd94f160ad",
-  "manifestSha256": "3fcac55b16e492b97db5b7b1856131fb6e534c49f77da68e91603f1819402bd6",
+  "manifestSha256": "491dc016b8b267bea57b7a395ff2817a95302b383d705bc3ea7cfded78328244",
   "status": "built-not-visually-accepted",
   "layers": [
     {
@@ -12,15 +12,19 @@
       "rgbSource": "exact original pixels",
       "bounds": [
         636,
-        242,
+        230,
         982,
         542
       ],
+      "anchor": [
+        826,
+        535
+      ],
       "size": [
         346,
-        300
+        312
       ],
-      "sha256": "caab43a9082861f5e245f4874b820c6a9edde3ffe138ffc4a4e3fc8fabcfbc28"
+      "sha256": "414026fe2ee96690b4a9ac2bc61ff2cfe3279ee42fc63facd2dd03e6fcfb2af5"
     },
     {
       "id": "background",
@@ -33,7 +37,7 @@
         1024,
         768
       ],
-      "sha256": "846a36fb806c8606167027092d1a44b470faae86d0ec63953300922443f78f6d"
+      "sha256": "568938bc6ff7bff29267070d7cc258dddc04fb6237e4dd944b323f6ed4b3c78a"
     },
     {
       "id": "water",
@@ -56,6 +60,38 @@
         5
       ],
       "sha256": "bb6e07faba4a9c0b1faac221a0b189ecda32baa5818a19804128af1239ce49fc"
+    },
+    {
+      "id": "reflection",
+      "op": "cutout",
+      "file": "reflection.png",
+      "visualVerdict": "pending",
+      "rgbSource": "exact original pixels",
+      "bounds": [
+        648,
+        530,
+        872,
+        728
+      ],
+      "anchor": [
+        826,
+        535
+      ],
+      "size": [
+        224,
+        198
+      ],
+      "sha256": "395fdd55cdc34d32812b311dbdb1c5dc5657ecdff972afcc2723e241436e0987"
     }
-  ]
+  ],
+  "reconstruction": {
+    "file": "reconstruction.png",
+    "meanAbsoluteChannelError": [
+      0.753173828125,
+      0.6681709289550781,
+      0.9258588155110677
+    ],
+    "visualVerdict": "pending",
+    "note": "Numerical similarity does not approve edges, material scale, or motion."
+  }
 }

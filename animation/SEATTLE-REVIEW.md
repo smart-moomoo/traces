@@ -56,3 +56,12 @@ Environment-enabled benchmark: 1,000 renders in 2,856 ms, maximum CPU submission
 1.2 ms, four fixed assets and zero new asset requests. Measured in the local
 browser with explicit GPU completion at batch boundaries; not a device-wide FPS
 promise. The updated combined scene was visually inspected and left playing.
+
+
+## Resumed revision — October 7
+
+The source-pixel silhouette now includes the crane crosspieces, railings and thin rigging. Crop bounds and anchor are read from the layer manifest. The reflected image is a separate cutout of the original artwork, preserving its warm shell composition instead of mirroring the ship. Surface energy and reflected motion now decay with the authored event; wakes cannot be emitted before vessel passage or remain at the final frame.
+
+The reusable asset builder writes a resting reconstruction alongside the original, cutouts and repaired plate, for explicit inspection of seams and lost material. Numerical reconstruction similarity is diagnostic only. Dark/checker/light matte inspection completed; the current result remains subject to full playback review. No scene has been automatically promoted to visually accepted.
+
+Latest actual browser benchmark: 1,000 rendered frames, five fixed textures, zero new texture requests, zero generated frames. This supersedes the earlier four-texture figure; performance is not evidence of a complete story. The all-location workbench remains partial and unpublished.

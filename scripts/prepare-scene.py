@@ -20,6 +20,7 @@ for layer in spec['layers']:
  if op=='cutout':
   mask=shapes(layer);masks[layer['id']]=mask;result=source.copy();result.putalpha(mask);result=result.crop(tuple(layer['bounds']))
   record['rgbSource']='exact original pixels';record['bounds']=layer['bounds']
+  if 'anchor' in layer: record['anchor']=layer['anchor']
  elif op=='repair':
   mask=masks[layer['fromMask']].filter(ImageFilter.MaxFilter(layer.get('dilate',1)))
   d=ImageDraw.Draw(mask)
@@ -37,3 +38,17 @@ for layer in spec['layers']:
 report={'source':spec['source'],'sourceSha256':hashlib.sha256(source_path.read_bytes()).hexdigest(),'manifestSha256':hashlib.sha256(manifest.read_bytes()).hexdigest(),'status':'built-not-visually-accepted','layers':records}
 (folder/'build-report.json').write_text(json.dumps(report,indent=2)+'\n')
 print('Built',len(records),'layers; visual acceptance remains pending.')
+
+# Reconstruct the resting composition independently of the runtime. This makes
+# repair seams and missing original material inspectable before motion hides it.
+plate=next((l for l in spec['layers'] if l['op']=='repair'),None)
+if plate:
+ reconstruction=Image.open(folder/plate['file']).convert('RGBA')
+ for layer in reversed([l for l in spec['layers'] if l['op']=='cutout']):
+  reconstruction.alpha_composite(Image.open(folder/layer['file']).convert('RGBA'),tuple(layer['bounds'][:2]))
+ reconstruction.save(folder/'reconstruction.png')
+ from PIL import ImageChops,ImageStat
+ difference=ImageChops.difference(source.convert('RGB'),reconstruction.convert('RGB'))
+ mean=ImageStat.Stat(difference).mean
+ report['reconstruction']={'file':'reconstruction.png','meanAbsoluteChannelError':mean,'visualVerdict':'pending','note':'Numerical similarity does not approve edges, material scale, or motion.'}
+ (folder/'build-report.json').write_text(json.dumps(report,indent=2)+'\n')
