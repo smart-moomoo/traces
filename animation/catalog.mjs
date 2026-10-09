@@ -147,3 +147,51 @@ sanDiego.remaining=['Review shore-following approach, textured break and withdra
 const beach=catalog.find(s=>s.id==='Miami-Beach');
 beach.surf={shore:[[.53,.38],[.38,.47],[.29,.56],[.21,.64],[.13,.77]],start:3,break:14,hold:18,end:31,reach:150,width:26};
 beach.remaining=['Review incoming swell and withdrawal along the jetty, with source-texture highlights restricted to the water masks.'];
+
+const stanford=catalog.find(s=>s.id==='Stanford');
+stanford.objects=[{
+ id:'courtyard-leaf',crop:[256,494,24,23],pivot:[12,11],anchor:[268,505],
+ outline:[[1,6],[5,2],[10,5],[12,0],[17,3],[19,1],[23,7],[21,14],[17,16],[15,22],[9,20],[6,15],[2,13]],
+ repairSample:[235,516,24,23],
+ occluders:[[[461,427],[466,427],[468,571],[473,579],[470,587],[457,587],[455,580],[461,571]]],
+ tracks:{x:keys([[0,268],[5,268],[10,319],[15,392],[19,464],[24,500],[30,500]]),
+ y:keys([[0,505],[5,505],[10,526],[15,549],[19,577],[24,626],[30,626]]),
+ rotation:keys([[0,0],[5,0],[10,.4],[15,-.35],[19,.25],[24,.12],[30,.12]])}
+}];
+stanford.remaining=['Review the source leaf removal, lamp-post occlusion and persistent landing through complete playback.'];
+// The reflecting pool starts at the far bank, below the lawn and white tree.
+const fort=catalog.find(s=>s.id==='Fort-Worth');
+fort.regions.find(r=>r.id==='pool').points=poly([.45,.55],[.9,.50],[.91,.81],[.49,.82]);
+fort.probes={fixed:[[.52,.46],[.32,.7]],moving:[[.65,.65],[.81,.72]]};
+
+// Moss is hung from individual branches. Narrow strand groups replace broad
+// canopy displacement; their attachment remains fixed while the tips lag.
+const savannah=catalog.find(s=>s.id==='Savannah');
+savannah.regions=savannah.regions.filter(r=>r.kind!=='foliage');
+savannah.regions.push(
+ region('left-high-moss','moss',poly([.286,.25],[.333,.257],[.332,.352],[.292,.35]),[.31,.25],.85),
+ region('left-low-moss','moss',poly([.324,.384],[.372,.393],[.367,.501],[.335,.492]),[.346,.385],.9),
+ region('right-high-moss','moss',poly([.665,.168],[.698,.177],[.7,.292],[.671,.287]),[.681,.168],.8),
+ region('right-low-moss','moss',poly([.638,.358],[.681,.364],[.686,.46],[.647,.456]),[.66,.358],.8)
+);
+savannah.remaining=['Review four attached moss groups at source scale; pale-strand masking and tip lag now replace whole-canopy movement.'];
+
+const autumn=catalog.find(s=>s.id==='Champaign-Urbana');
+for(const r of autumn.regions.filter(r=>r.kind==='foliage'))r.palette='warm';
+autumn.regions.find(r=>r.id==='autumn-left').exclusions=[poly([.116,.56],[.138,.555],[.153,.669],[.116,.674])];
+autumn.regions.find(r=>r.id==='autumn-right').exclusions=[poly([.801,.48],[.829,.48],[.841,.69],[.804,.69])];
+autumn.remaining=['Warm leaf selection now includes orange material and excludes the two foreground trunks; review shadow movement and whole-scene pacing.'];
+const reeds=catalog.find(s=>s.id==='Mountain-View');
+reeds.regions.find(r=>r.id==='reeds').palette='warm';
+
+const chicago=catalog.find(s=>s.id==='Chicago');
+chicago.objects=[{
+ id:'river-launch',crop:[426,505,50,51],pivot:[25,48],anchor:[451,553],
+ outline:[[22,0],[25,0],[26,8],[33,9],[38,14],[39,26],[46,27],[49,44],[42,48],[24,51],[2,45],[0,32],[4,27],[11,27],[12,13],[18,9],[21,8]],
+ repairSample:[497,571,50,51],
+ occluders:[[[364,450],[568,450],[568,514],[364,514]]],
+ tracks:{x:keys([[0,451],[4,451],[12,451],[24,449],[34,449]]),y:keys([[0,498],[4,498],[12,523],[24,568],[34,568]])}
+}];
+chicago.contacts=[{object:'river-launch',time:12,offset:[0,0],strength:.7},{object:'river-launch',time:17,offset:[0,0],strength:.9},{object:'river-launch',time:22,offset:[0,0],strength:.7}];
+chicago.regions[0].exclusions=[rect(.06,.64,.105,.085),rect(.18,.62,.135,.105),rect(.645,.655,.19,.088),rect(.47,.655,.032,.03),rect(.359,.64,.22,.033)];
+chicago.remaining=['Review the launch emerging below the bridge, original-water repair and unchanged moored vessels; confirm the bounded constant-scale passage remains natural.'];

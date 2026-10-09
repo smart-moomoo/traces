@@ -47,7 +47,9 @@ void main(){
  float localTime=t-delay;
  float energy=smoothstep(uTiming.x,uTiming.y,localTime)*(1.-smoothstep(uTiming.z,uTiming.w,t));
  float leafPigment=smoothstep(.015,.08,original.g-original.b)*(1.-smoothstep(.035,.14,original.r-original.g));
- float foliage=regions.g*mix(leafPigment,1.,anchor.b);
+ float mossPigment=smoothstep(.46,.72,min(original.r,original.g))*(1.-smoothstep(.01,.13,original.b-original.g));
+ float warmPigment=smoothstep(.02,.10,original.r-original.b)*smoothstep(.4,.65,max(original.r,original.g));
+ float foliage=regions.g*(anchor.b>.75?1.:anchor.b>.25?mossPigment:anchor.b>.075?max(leafPigment,warmPigment):leafPigment);
  vec2 patch=floor(p/vec2(16.,12.))*vec2(16.,12.);
  float travelling=sin(dot(patch,uDirection)*.045-localTime*1.45);
  float distance=length((p-uOrigin*uSize)*vec2(1.,2.6));
@@ -60,8 +62,8 @@ void main(){
   crest=exp(-pow((shore-uSurf.x)/uSurf.y,2.))*uSurf.z;
   wave=sin((shore-uSurf.x)*.11)*crest;
  }
- float attachment=clamp(length((n-anchor.rg)*vec2(uSize.x/uSize.y,1.))*(anchor.b>.5?28.:4.),0.,1.);
- float sway=sin(localTime*1.4-patch.x*.008)*attachment*energy;
+ float attachment=anchor.b>.25&&anchor.b<.75?clamp((n.y-anchor.g)*10.,0.,1.):clamp(length((n-anchor.rg)*vec2(uSize.x/uSize.y,1.))*(anchor.b>.75?28.:4.),0.,1.);
+ float sway=sin(localTime*1.4-patch.x*.008-attachment*.8)*attachment*energy;
  vec2 offset=vec2((wave*2.5*regions.r+sway*2.*foliage),wave*.6*regions.r+sway*.25*foliage)*pigment;
  vec4 color=texture(uTexture,clamp(uv+offset*uInputSize.zw,uInputClamp.xy,uInputClamp.zw));
  float cloud=exp(-pow((position-(-.3+progress*1.6))/.23,2.));
@@ -109,11 +111,11 @@ export class MaterialScene{
    ctx.save();ctx.fillStyle=color;ctx.beginPath();path(r.points);ctx.clip();ctx.beginPath();path(r.points);
    for(const polygon of r.exclusions||[])path(polygon);ctx.fill('evenodd');ctx.restore();
   };
-  const priority={water:0,light:1,foliage:2,cloth:3};
+  const priority={water:0,light:1,foliage:2,moss:3,cloth:4};
   for(const r of [...scene.regions].sort((a,b)=>priority[a.kind]-priority[b.kind])){
    const strength=Math.round(Math.min(1,r.gain)*255),channel=r.kind==='water'?[strength,0,0]:r.kind==='light'?[0,0,strength]:[0,strength,0];
    rc.globalCompositeOperation='lighter';draw(rc,r,`rgb(${channel.join(',')})`);
-   draw(ac,r,`rgb(${Math.round(r.anchor[0]*255)},${Math.round(r.anchor[1]*255)},${r.kind==='cloth'?255:0})`);
+   draw(ac,r,`rgb(${Math.round(r.anchor[0]*255)},${Math.round(r.anchor[1]*255)},${r.kind==='cloth'?255:r.kind==='moss'?128:r.palette==='warm'?32:0})`);
   }
   player.regionTexture=PIXI.Texture.from(regions);player.anchorTexture=PIXI.Texture.from(anchors);
   const origin=scene.regions.find(r=>r.kind==='water')?.anchor||[.5,.5];

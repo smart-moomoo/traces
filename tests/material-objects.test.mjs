@@ -35,3 +35,14 @@ for(const id of ['Bellevue','San-Francisco']){
  }
 }
 assert.throws(()=>contactOrigins({...sf,contacts:[{object:'missing',time:5}]}),/Unknown contact actor/);
+
+const courtyard=catalog.find(s=>s.id==='Stanford'),falling=courtyard.objects[0];
+assert.deepEqual(objectPose(falling,0),objectPose(falling,5));
+assert.deepEqual(objectPose(falling,24),objectPose(falling,30));
+let prior=objectPose(falling,0);
+for(let i=1;i<=1000;i++){
+ const p=objectPose(falling,courtyard.duration*i/1000);
+ assert.ok(p.y>=prior.y-1e-8);assert.ok(Math.hypot(p.x-prior.x,p.y-prior.y)<2);
+ assert.equal(p.scaleX,1);assert.equal(p.scaleY,1);prior=p;
+}
+assert.ok(falling.occluders.length,'Courtyard leaf must pass behind the original lamp');

@@ -186,3 +186,19 @@ San Diego and Miami Beach now have explicit shoreline curves and one timed
 approach, break and withdrawal. The crest still needs stronger visual readability
 in pale source areas. None of these additions silently changes visualReview to
 accepted, and they have not replaced the public exhibition's old films.
+
+### Exhibition integration checkpoint
+
+The opt-in `?animation=continuous` route now loads the same 23 scene implementations
+inside the existing map and poster dialog. Normal visitors still get the released
+films. Lazy renderer loading, stale-load disposal, closing, scene switching,
+pause/resume and full-poster view are connected to the continuous player. All 23
+scene switches were exercised through the actual dialog with one canvas at a
+time and no console errors. This is integration evidence, not artistic approval.
+
+Stanford now uses an original leaf with lamp occlusion and a persistent landing.
+Chicago reuses its small launch, emerging below an explicit bridge occluder;
+moored boats are protected from water displacement. Savannah has four narrow
+attached moss groups; warm foliage selection supports orange leaves and dry
+reeds. Fort Worth's water boundary no longer includes the lawn and white tree.
+The remaining story and full-playback issues remain in `visual-review.json`.

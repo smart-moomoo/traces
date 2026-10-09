@@ -30,12 +30,12 @@
     },
     {
       "id": "Stanford",
-      "finding": "Composition and courtyard remain recognizable. Planned falling fragment and branch occlusion are missing.",
+      "finding": "Original warm leaf now detaches, crosses behind a lamp-post mask and rests on the ground. Key stages and ending were checked; uninterrupted visual review remains pending.",
       "status": "revision-required"
     },
     {
       "id": "Mountain-View",
-      "finding": "Directed wind propagation now reaches regions in sequence. Pale dry reed selection and event readability still need review.",
+      "finding": "Directed wind and warm reed material selection implemented. Full playback and pale-reed motion readability remain pending.",
       "status": "revision-required"
     },
     {
@@ -80,17 +80,17 @@
     },
     {
       "id": "Fort-Worth",
-      "finding": "Sculpture remains compositionally stable. A defined contact and correctly placed ripple source are still needed.",
+      "finding": "Pool boundary moved below lawn and white tree; sculpture remains fixed. Causal contact story still needs implementation.",
       "status": "revision-required"
     },
     {
       "id": "Chicago",
-      "finding": "Buildings remain stable; existing vessels still lack independent movement, bridge occlusion and trailing wakes.",
+      "finding": "Original launch emerges below bridge occlusion at constant material scale, producing historical contact waves. Moored boats are excluded from water deformation. Key stages checked; full playback acceptance pending.",
       "status": "revision-required"
     },
     {
       "id": "Champaign-Urbana",
-      "finding": "Snow and clock tower are preserved. Green-biased foliage selection misses orange leaves; tree-shadow movement needs authored geometry.",
+      "finding": "Warm material selector includes orange foliage; foreground trunks have explicit exclusions. Ground shadow story still needs full review.",
       "status": "revision-required"
     },
     {
@@ -110,7 +110,7 @@
     },
     {
       "id": "Savannah",
-      "finding": "Avenue composition is preserved. Hanging moss still needs anchored strand groups and delayed settling, rather than a broad canopy effect.",
+      "finding": "Four narrowly traced moss groups with branch attachments and delayed tip sway replace broad canopy displacement. Source-region overlay checked; full playback acceptance pending.",
       "status": "revision-required"
     },
     {
@@ -128,5 +128,6 @@
       "finding": "Art/photo crop corrected. Alligator remains static; body/contact treatment and reed response are not complete.",
       "status": "revision-required"
     }
-  ]
+  ],
+  "exhibitionPreview": "?animation=continuous integrates authoring scenes into the existing map/dialog without replacing default exhibition films."
 }
