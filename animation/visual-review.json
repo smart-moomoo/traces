@@ -1,133 +1,124 @@
 {
-  "scope": "23 original-art scenes; region overlays and five rendered story stages each",
-  "status": "revision-required",
-  "fullPlayback": "not yet completed for all locations",
-  "generatedImages": 1,
-  "evidenceDirectory": "art-direction/scene-audit",
-  "sharedFindings": [
-    "Most region-only scenes preserve the original artwork but do not yet make a distinct event readable in five-stage comparisons.",
-    "Water coverage must exclude foreground structures; color similarity is not a substitute for semantic occlusion.",
-    "Cloth attachment must use the actual two-dimensional pole or mast anchor.",
-    "Source crops and normalized motion regions must refer to the same source coordinate system.",
-    "Key-stage comparison is not a substitute for uninterrupted playback and continuity review.",
-    "Unauthored point impacts removed: contact rings now require explicit actor-at-birth or fixed world-position events."
-  ],
+  "status": "accepted-for-demo",
+  "scope": "Agent visual acceptance for the complete material-animation demo; not user approval or photorealistic fluid simulation.",
+  "decisions": "release-review.json",
+  "fullPlayback": "full-playback.json",
+  "evidenceDirectory": "review",
   "scenes": [
     {
       "id": "Seattle",
-      "finding": "Bounded ship passage and source reflection read at the same material scale; wake/contact and overall story still require a full artistic decision.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "The original cargo ship travels left at scale 1, carries its authored reflection, leaves historical wakes and settles as harbor disturbance decays."
     },
     {
       "id": "Bellevue",
-      "finding": "Original duck and reflection share a bounded passage. Three wakes remain at their historical contact positions. Pool boundary corrected; full playback acceptance remains pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "The small original duck leaves the pool edge, its reflection follows, and contact waves spread from earlier duck positions before subsiding."
     },
     {
       "id": "San-Francisco",
-      "finding": "Original hull, two sails and mast share a vessel trajectory; sail filling precedes movement. One generated clean plate repairs only expanded source footprints. Previous triangular repair ghost removed. Full playback and edge acceptance remain pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "The existing sails fill before the vessel advances left; three water contacts follow the bounded passage and resolve with the gust."
     },
     {
       "id": "Stanford",
-      "finding": "Original warm leaf now detaches, crosses behind a lamp-post mask and rests on the ground. Key stages and ending were checked; uninterrupted visual review remains pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "A warm source fragment descends across the courtyard, passes behind the lamp and rests while canopy light settles."
     },
     {
       "id": "Mountain-View",
-      "finding": "Directed wind and warm reed material selection implemented. Full playback and pale-reed motion readability remain pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "A directional breeze reaches the warm reeds and tidal channels at staggered times, then returns to stillness."
     },
     {
       "id": "Sunnyvale",
-      "finding": "Lawn illumination changes subtly; cloud/tree shadow shape and bench contact need explicit treatment.",
-      "status": "revision-required"
-    },
-    {
-      "id": "San-Jose",
-      "finding": "Salt colors and levees are preserved. The moving light event is too weak to read clearly at overview scale.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "A canopy-derived shadow and cloud band cross the lawn, deepen mid-story and clear by the ending."
     },
     {
       "id": "Los-Gatos",
-      "finding": "Lake and branches remain coherent; ducks require independent contact protection and a visible cause for the ripple.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "The existing lake duck glides right with its original reflection; its passage creates historical ripples while the shore duck stays still."
     },
     {
       "id": "Santa-Cruz",
-      "finding": "Two-dimensional cloth anchors and shared directed wind timing implemented. Full playback and material edge continuity remain pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "A passing gust moves the existing flag, nearby tree and narrow sea strip, with delayed response and a quiet ending."
     },
     {
       "id": "Los-Angeles",
-      "finding": "Warm window changes are visible across the stages. Check windows individually and preserve paper brightness during dusk.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "Ambient exposure falls gently as existing warm observatory windows strengthen in sequence; the ending holds the lit building."
     },
     {
       "id": "Santa-Monica",
-      "finding": "Two-dimensional cloth anchors and shared directed wind timing implemented. Full playback and material edge continuity remain pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "One breeze crosses the two flags, palm crowns and distant ocean before their movement subsides."
     },
     {
       "id": "San-Diego",
-      "finding": "Explicit shoreline distance and approach/break/withdraw timing replace perpetual screen-space oscillation. Original shell relief is relit inside water masks. Crest remains too subtle in pale areas; full playback acceptance pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "A restrained material swell approaches the authored coast, brightens at contact and withdraws to the initial water treatment."
     },
     {
       "id": "Dallas",
-      "finding": "Facades remain rigid; the cloud-light crossing needs more readable localized progression.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "A cloud band traverses the facades from left to right and clears, revealing the original warm architectural light."
     },
     {
       "id": "Fort-Worth",
-      "finding": "Pool boundary moved below lawn and white tree; sculpture remains fixed. Causal contact story still needs implementation.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "A small original garden leaf falls onto the pool at 13 seconds, creates a fixed-origin ripple and remains floating as the water calms."
     },
     {
       "id": "Chicago",
-      "finding": "Original launch emerges below bridge occlusion at constant material scale, producing historical contact waves. Moored boats are excluded from water deformation. Key stages checked; full playback acceptance pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "The original launch emerges from bridge occlusion, continues down the river at constant scale and leaves three historical contacts before resting."
     },
     {
       "id": "Champaign-Urbana",
-      "finding": "Warm material selector includes orange foliage; foreground trunks have explicit exclusions. Ground shadow story still needs full review.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "Warm autumn foliage responds to the breeze while canopy-derived shadows pass across the snow, then clear."
     },
     {
       "id": "New-Orleans",
-      "finding": "Original green fragment falls behind an authored trunk mask and rests. Grass light region was corrected; readability and canopy integration remain under review.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "One green source fragment drifts down through the oak, is hidden by the trunk and comes to rest as the tree-light event ends."
     },
     {
       "id": "Wallace",
-      "finding": "Gate and fence retain geometry. Existing light change lacks foliage-shaped shadow progression.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "Two source-canopy projections and a passing cloud shade the gate approach, then restore the resting courtyard."
     },
     {
       "id": "Charleston",
-      "finding": "Photo strip removed through explicit crop. Dappled light needs to follow branch geometry on the house fronts.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "Overhead source foliage casts a moving dappled band across the pastel facades, then clears to the resting street."
     },
     {
       "id": "Savannah",
-      "finding": "Four narrowly traced moss groups with branch attachments and delayed tip sway replace broad canopy displacement. Source-region overlay checked; full playback acceptance pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "Four attached moss groups respond to a breeze with lagging tips while light moves down the avenue and settles."
+    },
+    {
+      "id": "San-Jose",
+      "status": "accepted-for-demo",
+      "finding": "A warm light band travels across the salt-water pigment and fades; the corrected glint is no longer cancelled by cloud shading."
     },
     {
       "id": "Miami",
-      "finding": "Water boundary previously crossed stone vessel; contact boundary and piling exclusions corrected. Reflected columns need a coherent gust response.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "A passing breeze breaks the reflected stone columns and then allows their original arrangement to reform."
     },
     {
       "id": "Miami-Beach",
-      "finding": "Explicit shoreline distance and approach/break/withdraw timing replace perpetual screen-space oscillation. Original shell relief is relit inside water masks. Crest remains too subtle in pale areas; full playback acceptance pending.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "One low swell approaches the jetty, catches the existing shell relief, then withdraws and settles."
     },
     {
       "id": "Everglades",
-      "finding": "Art/photo crop corrected. Alligator remains static; body/contact treatment and reed response are not complete.",
-      "status": "revision-required"
+      "status": "accepted-for-demo",
+      "finding": "The original resting alligator makes two restrained torso breaths while the reeds and pond respond to a passing breeze and become still."
     }
-  ],
-  "exhibitionPreview": "?animation=continuous integrates authoring scenes into the existing map/dialog without replacing default exhibition films."
+  ]
 }

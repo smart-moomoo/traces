@@ -1,0 +1,209 @@
+[
+  {
+    "id": "Seattle",
+    "duration": 36,
+    "wallSeconds": 36.03,
+    "renderedFrames": 4319,
+    "maxTimelineStep": 0.031,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Bellevue",
+    "duration": 28,
+    "wallSeconds": 28.03,
+    "renderedFrames": 3364,
+    "maxTimelineStep": 0.014,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "San-Francisco",
+    "duration": 32,
+    "wallSeconds": 32.03,
+    "renderedFrames": 3844,
+    "maxTimelineStep": 0.015,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Stanford",
+    "duration": 30,
+    "wallSeconds": 30.02,
+    "renderedFrames": 3604,
+    "maxTimelineStep": 0.014,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Mountain-View",
+    "duration": 30,
+    "wallSeconds": 30.02,
+    "renderedFrames": 3604,
+    "maxTimelineStep": 0.016,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Sunnyvale",
+    "duration": 32,
+    "wallSeconds": 32.02,
+    "renderedFrames": 3842,
+    "maxTimelineStep": 0.017,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "San-Jose",
+    "duration": 30,
+    "wallSeconds": 30.02,
+    "renderedFrames": 3558,
+    "maxTimelineStep": 0.041,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Los-Gatos",
+    "duration": 28,
+    "wallSeconds": 28.02,
+    "renderedFrames": 3363,
+    "maxTimelineStep": 0.015,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Santa-Cruz",
+    "duration": 30,
+    "wallSeconds": 30.02,
+    "renderedFrames": 3604,
+    "maxTimelineStep": 0.015,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Los-Angeles",
+    "duration": 34,
+    "wallSeconds": 34.03,
+    "renderedFrames": 4082,
+    "maxTimelineStep": 0.026,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Santa-Monica",
+    "duration": 30,
+    "wallSeconds": 30.05,
+    "renderedFrames": 3416,
+    "maxTimelineStep": 0.038,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "San-Diego",
+    "duration": 32,
+    "wallSeconds": 32.07,
+    "renderedFrames": 2717,
+    "maxTimelineStep": 0.038,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Dallas",
+    "duration": 30,
+    "wallSeconds": 30.07,
+    "renderedFrames": 2553,
+    "maxTimelineStep": 0.037,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Fort-Worth",
+    "duration": 28,
+    "wallSeconds": 28.04,
+    "renderedFrames": 2704,
+    "maxTimelineStep": 0.038,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Chicago",
+    "duration": 34,
+    "wallSeconds": 34.03,
+    "renderedFrames": 3620,
+    "maxTimelineStep": 0.033,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Champaign-Urbana",
+    "duration": 30,
+    "wallSeconds": 30.02,
+    "renderedFrames": 3603,
+    "maxTimelineStep": 0.012,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "New-Orleans",
+    "duration": 34,
+    "wallSeconds": 34.05,
+    "renderedFrames": 3576,
+    "maxTimelineStep": 0.161,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Wallace",
+    "duration": 30,
+    "wallSeconds": 30.03,
+    "renderedFrames": 3403,
+    "maxTimelineStep": 0.035,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Charleston",
+    "duration": 30,
+    "wallSeconds": 30.03,
+    "renderedFrames": 3604,
+    "maxTimelineStep": 0.011,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Savannah",
+    "duration": 34,
+    "wallSeconds": 34.03,
+    "renderedFrames": 4083,
+    "maxTimelineStep": 0.024,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Miami",
+    "duration": 30,
+    "wallSeconds": 30.02,
+    "renderedFrames": 3604,
+    "maxTimelineStep": 0.011,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Miami-Beach",
+    "duration": 32,
+    "wallSeconds": 32.02,
+    "renderedFrames": 3843,
+    "maxTimelineStep": 0.026,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Everglades",
+    "duration": 32,
+    "wallSeconds": 32.05,
+    "renderedFrames": 3794,
+    "maxTimelineStep": 0.049,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

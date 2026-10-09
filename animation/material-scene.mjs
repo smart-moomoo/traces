@@ -2,6 +2,7 @@ import {vertex} from './environment.mjs';
 import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs';
 import {StoryClock} from './timeline.mjs';
 import {surfAt,shorelineSegments} from './surf.mjs';
+import {makeShadowMap} from './shadows.mjs';
 
 const fragment=`
 precision highp float;
@@ -10,6 +11,7 @@ in vec2 vSceneCoord;
 uniform sampler2D uTexture;
 uniform sampler2D uRegions;
 uniform sampler2D uAnchors;
+uniform sampler2D uShadows;
 uniform vec4 uInputSize;
 uniform vec4 uInputClamp;
 uniform vec2 uSize;
@@ -49,7 +51,8 @@ void main(){
  float leafPigment=smoothstep(.015,.08,original.g-original.b)*(1.-smoothstep(.035,.14,original.r-original.g));
  float mossPigment=smoothstep(.46,.72,min(original.r,original.g))*(1.-smoothstep(.01,.13,original.b-original.g));
  float warmPigment=smoothstep(.02,.10,original.r-original.b)*smoothstep(.4,.65,max(original.r,original.g));
- float foliage=regions.g*(anchor.b>.75?1.:anchor.b>.25?mossPigment:anchor.b>.075?max(leafPigment,warmPigment):leafPigment);
+ float body=regions.g*(anchor.b>.625&&anchor.b<.875?1.:0.);
+ float foliage=body>0.?0.:regions.g*(anchor.b>.875?1.:anchor.b>.25?mossPigment:anchor.b>.075?max(leafPigment,warmPigment):leafPigment);
  vec2 patch=floor(p/vec2(16.,12.))*vec2(16.,12.);
  float travelling=sin(dot(patch,uDirection)*.045-localTime*1.45);
  float distance=length((p-uOrigin*uSize)*vec2(1.,2.6));
@@ -65,9 +68,12 @@ void main(){
  float attachment=anchor.b>.25&&anchor.b<.75?clamp((n.y-anchor.g)*10.,0.,1.):clamp(length((n-anchor.rg)*vec2(uSize.x/uSize.y,1.))*(anchor.b>.75?28.:4.),0.,1.);
  float sway=sin(localTime*1.4-patch.x*.008-attachment*.8)*attachment*energy;
  vec2 offset=vec2((wave*2.5*regions.r+sway*2.*foliage),wave*.6*regions.r+sway*.25*foliage)*pigment;
+ float breath=pow(sin(clamp((t-4.)/20.,0.,1.)*6.2831853),2.)*smoothstep(0.,.08,anchor.g-n.y);
+ offset.y+=body*breath*1.8;
  vec4 color=texture(uTexture,clamp(uv+offset*uInputSize.zw,uInputClamp.xy,uInputClamp.zw));
  float cloud=exp(-pow((position-(-.3+progress*1.6))/.23,2.));
- float shade=-cloud*.12*regions.b*energy;
+ float projected=texture(uShadows,clamp(n+vec2(sin(localTime*.55)*.014,cos(localTime*.4)*.004)*energy,vec2(0.),vec2(1.))).r;
+ float shade=uMode==4.?0.:-(cloud*.18+projected*.16)*regions.b*energy;
  float sparkle=(travelling*.027+ring*.04)*regions.r*energy;
  float foliarLight=sin(patch.x*.017+patch.y*.009-t*.7)*foliage*.035*energy;
  color.rgb*=1.+(shade+sparkle+foliarLight)*pigment;
@@ -79,7 +85,7 @@ void main(){
    float warmth=smoothstep(.14,.28,original.r-original.b)*regions.b;
    color.rgb+=vec3(.18,.10,.016)*warmth*smoothstep(.1,.75,progress-n.x*.2);
  }
- if(uMode==4.)color.rgb+=vec3(.035,.024,.012)*regions.b*cloud*energy*pigment;
+ if(uMode==4.)color.rgb+=vec3(.10,.073,.035)*regions.b*cloud*energy*pigment;
  finalColor=color;
 }`;
 
@@ -101,6 +107,7 @@ export class MaterialScene{
   const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;canvas.getContext('2d').drawImage(im,sx,sy,w,h,0,0,w,h);
   let repairPlate=null;
   if(scene.repairPlate){player.repairUrl=new URL('../'+scene.repairPlate,import.meta.url).href;repairPlate=new Image();repairPlate.src=player.repairUrl;await repairPlate.decode();}
+  player.shadowTexture=PIXI.Texture.from(makeShadowMap(canvas,scene));
   const objectMaterials=prepareObjects(canvas,scene.objects,repairPlate);
   player.art=PIXI.Texture.from(canvas);
   const makeCanvas=()=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c;};
@@ -108,20 +115,20 @@ export class MaterialScene{
   rc.fillStyle='#000';rc.fillRect(0,0,w,h);ac.fillStyle='#808080';ac.fillRect(0,0,w,h);
   const draw=(ctx,r,color)=>{
    const path=polygon=>{polygon.forEach(([x,y],i)=>i?ctx.lineTo(x*w,y*h):ctx.moveTo(x*w,y*h));ctx.closePath();};
-   ctx.save();ctx.fillStyle=color;ctx.beginPath();path(r.points);ctx.clip();ctx.beginPath();path(r.points);
+   ctx.save();ctx.fillStyle=color;ctx.beginPath();path(r.points);ctx.clip();if(r.kind==='body')ctx.filter='blur(2px)';ctx.beginPath();path(r.points);
    for(const polygon of r.exclusions||[])path(polygon);ctx.fill('evenodd');ctx.restore();
   };
-  const priority={water:0,light:1,foliage:2,moss:3,cloth:4};
+  const priority={water:0,light:1,foliage:2,moss:3,body:4,cloth:5};
   for(const r of [...scene.regions].sort((a,b)=>priority[a.kind]-priority[b.kind])){
    const strength=Math.round(Math.min(1,r.gain)*255),channel=r.kind==='water'?[strength,0,0]:r.kind==='light'?[0,0,strength]:[0,strength,0];
    rc.globalCompositeOperation='lighter';draw(rc,r,`rgb(${channel.join(',')})`);
-   draw(ac,r,`rgb(${Math.round(r.anchor[0]*255)},${Math.round(r.anchor[1]*255)},${r.kind==='cloth'?255:r.kind==='moss'?128:r.palette==='warm'?32:0})`);
+   draw(ac,r,`rgb(${Math.round(r.anchor[0]*255)},${Math.round(r.anchor[1]*255)},${r.kind==='cloth'?255:r.kind==='body'?192:r.kind==='moss'?128:r.palette==='warm'?32:0})`);
   }
   player.regionTexture=PIXI.Texture.from(regions);player.anchorTexture=PIXI.Texture.from(anchors);
   const origin=scene.regions.find(r=>r.kind==='water')?.anchor||[.5,.5];
   const shore=shorelineSegments(scene);while(shore.length<4)shore.push([0,0,0,0]);
   const contacts=contactOrigins(scene).slice(0,3);while(contacts.length<3)contacts.push([0,0,0,0]);
-  player.filter=new PIXI.Filter({glProgram:PIXI.GlProgram.from({vertex,fragment}),resources:{uRegions:player.regionTexture.source,uAnchors:player.anchorTexture.source,sceneUniforms:{uShore0:{value:new Float32Array(shore[0]),type:'vec4<f32>'},uShore1:{value:new Float32Array(shore[1]),type:'vec4<f32>'},uShore2:{value:new Float32Array(shore[2]),type:'vec4<f32>'},uShore3:{value:new Float32Array(shore[3]),type:'vec4<f32>'},uSurf:{value:new Float32Array(4),type:'vec4<f32>'},uSize:{value:new Float32Array([w,h]),type:'vec2<f32>'},uScore:{value:new Float32Array(4),type:'vec4<f32>'},uOrigin:{value:new Float32Array(origin),type:'vec2<f32>'},uDirection:{value:new Float32Array(scene.score.direction),type:'vec2<f32>'},uTiming:{value:new Float32Array([scene.score.onset,scene.score.peak,scene.score.decay,scene.score.settle]),type:'vec4<f32>'},uContact0:{value:new Float32Array(contacts[0]),type:'vec4<f32>'},uContact1:{value:new Float32Array(contacts[1]),type:'vec4<f32>'},uContact2:{value:new Float32Array(contacts[2]),type:'vec4<f32>'},uMode:{value:({ripple:1,surf:2,dusk:3,glint:4})[scene.mode]||0,type:'f32'}}}});
+  player.filter=new PIXI.Filter({glProgram:PIXI.GlProgram.from({vertex,fragment}),resources:{uShadows:player.shadowTexture.source,uRegions:player.regionTexture.source,uAnchors:player.anchorTexture.source,sceneUniforms:{uShore0:{value:new Float32Array(shore[0]),type:'vec4<f32>'},uShore1:{value:new Float32Array(shore[1]),type:'vec4<f32>'},uShore2:{value:new Float32Array(shore[2]),type:'vec4<f32>'},uShore3:{value:new Float32Array(shore[3]),type:'vec4<f32>'},uSurf:{value:new Float32Array(4),type:'vec4<f32>'},uSize:{value:new Float32Array([w,h]),type:'vec2<f32>'},uScore:{value:new Float32Array(4),type:'vec4<f32>'},uOrigin:{value:new Float32Array(origin),type:'vec2<f32>'},uDirection:{value:new Float32Array(scene.score.direction),type:'vec2<f32>'},uTiming:{value:new Float32Array([scene.score.onset,scene.score.peak,scene.score.decay,scene.score.settle]),type:'vec4<f32>'},uContact0:{value:new Float32Array(contacts[0]),type:'vec4<f32>'},uContact1:{value:new Float32Array(contacts[1]),type:'vec4<f32>'},uContact2:{value:new Float32Array(contacts[2]),type:'vec4<f32>'},uMode:{value:({ripple:1,surf:2,dusk:3,glint:4})[scene.mode]||0,type:'f32'}}}});
   const sprite=new PIXI.Sprite(player.art);sprite.filters=[player.filter];sprite.filterArea=new PIXI.Rectangle(0,0,w,h);player.app.stage.addChild(sprite);
   player.objects=mountObjects(player.app.stage,objectMaterials,w,h);
   player.clock=new StoryClock(scene.duration);player.render(0);
@@ -142,7 +149,7 @@ export class MaterialScene{
  async benchmark(count=1000){
   this.pause();const restore=this.clock.time,start=performance.now(),before=performance.getEntriesByType('resource').length;let max=0;
   for(let i=0;i<count;i++){const b=performance.now();this.render(this.scene.duration*i/(count-1));max=Math.max(max,performance.now()-b);if(i%25===24){this.app.renderer.gl.finish();await new Promise(requestAnimationFrame);}}
-  const result={frames:count,elapsedMs:Math.round(performance.now()-start),maxSubmissionMs:+max.toFixed(2),downloadedImages:1+(this.repairUrl?1:0),derivedMaskTextures:2+this.objects.filter(o=>o.maskTexture).length,derivedObjectTextures:this.objects.length,newRequests:performance.getEntriesByType('resource').length-before,visualReview:this.scene.visualReview};this.seek(restore);return result;
+  const result={frames:count,elapsedMs:Math.round(performance.now()-start),maxSubmissionMs:+max.toFixed(2),downloadedImages:1+(this.repairUrl?1:0),derivedMaskTextures:3+this.objects.filter(o=>o.maskTexture).length,derivedObjectTextures:this.objects.length,newRequests:performance.getEntriesByType('resource').length-before,visualReview:this.scene.visualReview};this.seek(restore);return result;
  }
- async destroy(){cancelAnimationFrame(this.raf);document.removeEventListener('visibilitychange',this.visibility);this.app.destroy(true,{children:true,texture:false});this.filter.destroy();for(const o of this.objects){o.texture.destroy(true);o.maskTexture?.destroy(true);}this.art.destroy(true);this.regionTexture.destroy(true);this.anchorTexture.destroy(true);}
+ async destroy(){cancelAnimationFrame(this.raf);document.removeEventListener('visibilitychange',this.visibility);this.app.destroy(true,{children:true,texture:false});this.filter.destroy();for(const o of this.objects){o.texture.destroy(true);o.maskTexture?.destroy(true);}this.art.destroy(true);this.regionTexture.destroy(true);this.anchorTexture.destroy(true);this.shadowTexture.destroy(true);}
 }

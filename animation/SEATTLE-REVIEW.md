@@ -1,3 +1,18 @@
+# Current Seattle review — October 8
+
+The revised fixed-scale material passage is accepted for this demo after a
+36-second real-time playback and inspection of 24 observations. The vessel,
+original warm reflection, historical wakes and environment settle together.
+The source silhouette preserves cranes and rigging, and no giant approach
+remains. See `release-review.json`, `full-playback.json` and `review/Seattle.jpg`.
+The five-texture 1,000-frame run uses no per-frame generated images or new asset
+requests. Engineering measurements and visual decisions remain separate.
+
+The earlier notes below are historical and describe the rejected POC and its
+intermediate fixes; they do not describe the current release status.
+
+---
+
 # Seattle continuous-scene POC
 
 ## Implemented

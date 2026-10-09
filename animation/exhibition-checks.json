@@ -1,154 +1,131 @@
 {
-  "scope": "23 scene mounts through exhibition controls; not full visual acceptance",
+  "scope": "Default exhibition UI, desktop and 390px CSS iframe layout; not physical phone testing",
   "scenes": [
     {
-      "scene": "山景城的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "西雅图的材料故事"
     },
     {
-      "scene": "森尼韦尔的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "贝尔维尤的材料故事"
     },
     {
-      "scene": "圣何塞的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "旧金山的材料故事"
     },
     {
-      "scene": "洛斯盖图斯的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "斯坦福的材料故事"
     },
     {
-      "scene": "圣克鲁兹的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "山景城的材料故事"
     },
     {
-      "scene": "洛杉矶的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "森尼韦尔的材料故事"
     },
     {
-      "scene": "圣莫尼卡的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "圣何塞的材料故事"
     },
     {
-      "scene": "圣迭戈的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "洛斯盖图斯的材料故事"
     },
     {
-      "scene": "达拉斯的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "圣克鲁兹的材料故事"
     },
     {
-      "scene": "沃思堡的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "洛杉矶的材料故事"
     },
     {
-      "scene": "芝加哥的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "圣莫尼卡的材料故事"
     },
     {
-      "scene": "香槟–厄巴纳的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "圣迭戈的材料故事"
     },
     {
-      "scene": "新奥尔良的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "达拉斯的材料故事"
     },
     {
-      "scene": "华莱士的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "沃思堡的材料故事"
     },
     {
-      "scene": "查尔斯顿的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "芝加哥的材料故事"
     },
     {
-      "scene": "萨凡纳的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "香槟–厄巴纳的材料故事"
     },
     {
-      "scene": "迈阿密的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "新奥尔良的材料故事"
     },
     {
-      "scene": "迈阿密海滩的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "华莱士的材料故事"
     },
     {
-      "scene": "大沼泽地的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "查尔斯顿的材料故事"
     },
     {
-      "scene": "西雅图的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "萨凡纳的材料故事"
     },
     {
-      "scene": "贝尔维尤的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "迈阿密的材料故事"
     },
     {
-      "scene": "旧金山的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "迈阿密海滩的材料故事"
     },
     {
-      "scene": "斯坦福的材料故事",
-      "canvases": 1
+      "canvases": 1,
+      "errorVisible": false,
+      "scene": "大沼泽地的材料故事"
     }
   ],
-  "vegetationBenchmarks": [
-    {
-      "id": "Stanford",
-      "frames": 1000,
-      "elapsedMs": 2453,
-      "maxSubmissionMs": 0.6,
-      "downloadedImages": 1,
-      "derivedMaskTextures": 3,
-      "derivedObjectTextures": 1,
-      "newRequests": 0,
-      "visualReview": "pending"
-    },
-    {
-      "id": "Savannah",
-      "frames": 1000,
-      "elapsedMs": 1622,
-      "maxSubmissionMs": 0.3,
-      "downloadedImages": 1,
-      "derivedMaskTextures": 2,
-      "derivedObjectTextures": 0,
-      "newRequests": 0,
-      "visualReview": "pending"
-    },
-    {
-      "id": "Champaign-Urbana",
-      "frames": 1000,
-      "elapsedMs": 1530,
-      "maxSubmissionMs": 0.3,
-      "downloadedImages": 1,
-      "derivedMaskTextures": 2,
-      "derivedObjectTextures": 0,
-      "newRequests": 0,
-      "visualReview": "pending"
-    },
-    {
-      "id": "Mountain-View",
-      "frames": 1000,
-      "elapsedMs": 1690,
-      "maxSubmissionMs": 0.3,
-      "downloadedImages": 1,
-      "derivedMaskTextures": 2,
-      "derivedObjectTextures": 0,
-      "newRequests": 0,
-      "visualReview": "pending"
-    },
-    {
-      "id": "Fort-Worth",
-      "frames": 1000,
-      "elapsedMs": 1555,
-      "maxSubmissionMs": 0.4,
-      "downloadedImages": 1,
-      "derivedMaskTextures": 2,
-      "derivedObjectTextures": 0,
-      "newRequests": 0,
-      "visualReview": "pending"
-    }
-  ]
+  "controls": {
+    "pause": true,
+    "posterPreservesPause": true,
+    "endShowsReplay": true,
+    "replay": true
+  },
+  "responsive": {
+    "width": 390,
+    "posterAndControls": true
+  },
+  "consoleErrors": []
 }

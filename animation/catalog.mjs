@@ -195,3 +195,42 @@ chicago.objects=[{
 chicago.contacts=[{object:'river-launch',time:12,offset:[0,0],strength:.7},{object:'river-launch',time:17,offset:[0,0],strength:.9},{object:'river-launch',time:22,offset:[0,0],strength:.7}];
 chicago.regions[0].exclusions=[rect(.06,.64,.105,.085),rect(.18,.62,.135,.105),rect(.645,.655,.19,.088),rect(.47,.655,.032,.03),rect(.359,.64,.22,.033)];
 chicago.remaining=['Review the launch emerging below the bridge, original-water repair and unchanged moored vessels; confirm the bounded constant-scale passage remains natural.'];
+
+// Project original canopy texture onto the authored receiver regions. The
+// geometry/colour of buildings, benches and paving remains the source artwork.
+const shadowStudies={
+ Sunnyvale:[{source:[.58,.1,.29,.34],target:[.3,.59,.58,.24]}],
+ Wallace:[{source:[.1,.14,.3,.3],target:[.12,.49,.43,.3]},{source:[.7,.1,.21,.32],target:[.56,.5,.32,.28]}],
+ Charleston:[{source:[.15,.02,.68,.25],target:[.18,.36,.64,.43]}],
+ 'Champaign-Urbana':[{source:[.07,.34,.22,.27],target:[.13,.67,.31,.15],warm:true},{source:[.71,.23,.22,.38],target:[.52,.68,.37,.14],warm:true}],
+ 'New-Orleans':[{source:[.14,.1,.66,.36],target:[.22,.78,.59,.11]}],
+ Stanford:[{source:[.07,.42,.27,.3],target:[.16,.73,.45,.09]}]
+};
+for(const [id,shadows] of Object.entries(shadowStudies))catalog.find(s=>s.id===id).shadows=shadows;
+
+const gatos=catalog.find(s=>s.id==='Los-Gatos');
+const duckPath={x:keys([[0,284],[5,284],[11,298],[19,324],[28,324]]),y:keys([[0,542],[5,542],[11,543],[19,545],[28,545]])};
+gatos.objects=[
+ {id:'lake-duck-reflection',crop:[256,542,54,25],pivot:[28,0],anchor:[284,542],outline:[[3,0],[47,0],[47,22],[32,25],[28,14],[10,10],[0,7]],repairSample:[330,550,54,25],tracks:duckPath},
+ {id:'lake-duck',crop:[256,519,54,25],pivot:[28,23],anchor:[284,542],outline:[[0,11],[9,13],[20,10],[35,10],[35,4],[39,0],[46,0],[49,5],[54,7],[52,10],[47,9],[47,16],[44,22],[30,25],[12,22],[5,18]],repairSample:[330,522,54,25],tracks:duckPath}
+];
+gatos.contacts=[{object:'lake-duck',time:7,offset:[-13,0],strength:.65},{object:'lake-duck',time:12,offset:[-13,0],strength:.8},{object:'lake-duck',time:17,offset:[-13,0],strength:.6}];
+gatos.regions.push(water('duck-channel',rect(.25,.64,.16,.1),[.28,.68],.7));
+gatos.regions.find(r=>r.id==='lake').exclusions=[rect(.455,.72,.086,.06),rect(.712,.69,.038,.052)];
+gatos.remaining=['Review the swimming duck and authored reflection together, repaired water and persistent shore duck; no new animal introduced.'];
+
+fort.objects=[{
+ id:'pond-leaf',crop:[651,304,13,15],pivot:[6,7],anchor:[657,311],
+ outline:[[1,4],[5,1],[9,0],[12,4],[11,10],[7,14],[3,11],[0,7]],repairSample:[640,317,13,15],
+ tracks:{x:keys([[0,657],[5,657],[9,666],[13,678],[19,685],[28,685]]),y:keys([[0,311],[5,311],[9,373],[13,460],[19,463],[28,463]]),rotation:keys([[0,0],[5,0],[9,.5],[13,-.2],[19,.05],[28,.05]])}
+}];
+fort.contacts=[{object:'pond-leaf',time:13,offset:[0,1],strength:1.2}];
+fort.remaining=['Review the original leaf landing on the pool, its persistent floating position and one fixed impact ring; sculpture, far lawn and tree must stay stable.'];
+
+const everglades=catalog.find(s=>s.id==='Everglades');
+everglades.regions.push(region('resting-torso','body',poly([.32,.448],[.51,.467],[.61,.498],[.58,.54],[.47,.564],[.37,.546],[.31,.51]),[.45,.564],.8));
+everglades.remaining=['Review two restrained torso breaths within the source silhouette; skull, feet and tail stay fixed while the reed breeze settles.'];
+
+// Explicitly reviewed demo set. New scenes stay in authoring until separately reviewed.
+const reviewedIds=new Set(["Seattle", "Bellevue", "San-Francisco", "Stanford", "Mountain-View", "Sunnyvale", "Los-Gatos", "Santa-Cruz", "Los-Angeles", "Santa-Monica", "San-Diego", "Dallas", "Fort-Worth", "Chicago", "Champaign-Urbana", "New-Orleans", "Wallace", "Charleston", "Savannah", "San-Jose", "Miami", "Miami-Beach", "Everglades"]);
+for(const scene of catalog)if(reviewedIds.has(scene.id)){scene.status="reviewed";scene.visualReview="accepted-for-demo";scene.remaining=[];}

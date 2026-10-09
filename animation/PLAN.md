@@ -2,12 +2,37 @@
 
 ## Objective and delivery
 
-All 23 places retain the approved poster lower-half artwork and get a causal,
-continuous environmental story. Image generation creates assets, never output
-frames. The renderer evaluates scene state at time t; 1,000 output frames reuse
-the same assets. Tonight's explicitly requested milestone is a complete Seattle
-proof of concept after documenting the full migration. The other places remain
-in scope for the full project, not implicitly completed by this milestone.
+Complete the migration for all 23 places, preserving the approved poster lower-half
+artwork and individually authored, continuous environmental stories. Image generation
+creates assets, never output frames; 1,000 output frames reuse the same assets.
+
+The goal is complete only when every location has its missing actions, clean layers,
+occlusion and cause/effect implemented; complete playback and exhibition controls
+have been checked with recorded evidence; the continuous renderer is the default
+on the public homepage; the deployment succeeds and the public site is verified.
+Preview publication, a POC, five sampled stages, a performance benchmark, or a
+subset of locations is progress, never a stopping condition. Continue across
+locations without asking the user to repeat “continue.” Do not label an unfinished
+story accepted to satisfy the release criteria. Personal memories remain empty
+until the user supplies them.
+
+## Delivery record — October 8
+
+The complete 23-scene demo now uses original-material procedural animation in
+the default exhibition entry point. Every scene has a recorded visual decision,
+a real-time beginning-to-end playback with 24 inspected observations, and a
+1,000-render fixed-asset check. The atlas uses one native 1448 × 1086 source
+with localized motion instead of six whole-image replacements.
+
+`release-review.json` is the current acceptance record. `full-playback.json`
+records actual playback; `region-benchmark.json` records engineering measurements.
+`review/` contains all 23 inspected contact sheets. The GitHub Pages workflow
+checks these records and source hashes before publishing.
+
+The demo retains a fixed 2D viewpoint and quiet environmental events. It does
+not claim 3D rotation, fluid simulation, or a user-authored personal memory.
+The earlier checkpoints below document the rejected POC and intermediate
+work; they are superseded by this delivery record and the release review.
 
 ## Architecture
 

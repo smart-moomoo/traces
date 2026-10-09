@@ -1,0 +1,706 @@
+{
+  "status": "accepted-for-demo",
+  "scope": "Agent visual acceptance for the complete material-animation demo; not user approval or photorealistic fluid simulation.",
+  "scenes": [
+    {
+      "id": "Seattle",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Seattle: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Hull, cranes and thin rigging remain a material cutout without a carried rectangular background; open-water travel never crosses the skyline."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Hull, cranes and thin rigging remain a material cutout without a carried rectangular background; open-water travel never crosses the skyline."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "The original cargo ship travels left at scale 1, carries its authored reflection, leaves historical wakes and settles as harbor disturbance decays."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "The original cargo ship travels left at scale 1, carries its authored reflection, leaves historical wakes and settles as harbor disturbance decays."
+      },
+      "visualEvidence": "animation/review/Seattle.jpg"
+    },
+    {
+      "id": "Bellevue",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Bellevue: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Pool coping and skyline stay fixed; the two duck layers maintain water contact and remain at their original scale."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Pool coping and skyline stay fixed; the two duck layers maintain water contact and remain at their original scale."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "The small original duck leaves the pool edge, its reflection follows, and contact waves spread from earlier duck positions before subsiding."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "The small original duck leaves the pool edge, its reflection follows, and contact waves spread from earlier duck positions before subsiding."
+      },
+      "visualEvidence": "animation/review/Bellevue.jpg"
+    },
+    {
+      "id": "San-Francisco",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "San-Francisco: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Hull, mast and two sails retain a shared anchor; the repaired source footprint no longer carries a triangular mountain ghost."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Hull, mast and two sails retain a shared anchor; the repaired source footprint no longer carries a triangular mountain ghost."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "The existing sails fill before the vessel advances left; three water contacts follow the bounded passage and resolve with the gust."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "The existing sails fill before the vessel advances left; three water contacts follow the bounded passage and resolve with the gust."
+      },
+      "visualEvidence": "animation/review/San-Francisco.jpg"
+    },
+    {
+      "id": "Stanford",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Stanford: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "The lamp occlusion holds the leaf behind its vertical post; original building edges and fragment scale remain stable."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "The lamp occlusion holds the leaf behind its vertical post; original building edges and fragment scale remain stable."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "A warm source fragment descends across the courtyard, passes behind the lamp and rests while canopy light settles."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "A warm source fragment descends across the courtyard, passes behind the lamp and rests while canopy light settles."
+      },
+      "visualEvidence": "animation/review/Stanford.jpg"
+    },
+    {
+      "id": "Mountain-View",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Mountain-View: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Reed motion is bounded near its attachment; the horizon and dispersed material edges remain registered."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Reed motion is bounded near its attachment; the horizon and dispersed material edges remain registered."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "A directional breeze reaches the warm reeds and tidal channels at staggered times, then returns to stillness."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "A directional breeze reaches the warm reeds and tidal channels at staggered times, then returns to stillness."
+      },
+      "visualEvidence": "animation/review/Mountain-View.jpg"
+    },
+    {
+      "id": "Sunnyvale",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Sunnyvale: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Bench and trunks keep their contours; lighting remains within original lawn pigment rather than adding a new object."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Bench and trunks keep their contours; lighting remains within original lawn pigment rather than adding a new object."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "A canopy-derived shadow and cloud band cross the lawn, deepen mid-story and clear by the ending."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "A canopy-derived shadow and cloud band cross the lawn, deepen mid-story and clear by the ending."
+      },
+      "visualEvidence": "animation/review/Sunnyvale.jpg"
+    },
+    {
+      "id": "Los-Gatos",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Los-Gatos: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Only the swimmer and reflection were separated; shoreline birds are protected from water deformation, without rectangular water patches in reviewed views."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Only the swimmer and reflection were separated; shoreline birds are protected from water deformation, without rectangular water patches in reviewed views."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "The existing lake duck glides right with its original reflection; its passage creates historical ripples while the shore duck stays still."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "The existing lake duck glides right with its original reflection; its passage creates historical ripples while the shore duck stays still."
+      },
+      "visualEvidence": "animation/review/Los-Gatos.jpg"
+    },
+    {
+      "id": "Santa-Cruz",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Santa-Cruz: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "The flag remains attached at its pole; lighthouse masonry, railings and shell-paper silhouette stay fixed."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "The flag remains attached at its pole; lighthouse masonry, railings and shell-paper silhouette stay fixed."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "A passing gust moves the existing flag, nearby tree and narrow sea strip, with delayed response and a quiet ending."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "A passing gust moves the existing flag, nearby tree and narrow sea strip, with delayed response and a quiet ending."
+      },
+      "visualEvidence": "animation/review/Santa-Cruz.jpg"
+    },
+    {
+      "id": "Los-Angeles",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Los-Angeles: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Window warmth stays on original coloured material; dome contours and near-white paper retain their shape and brightness."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Window warmth stays on original coloured material; dome contours and near-white paper retain their shape and brightness."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "Ambient exposure falls gently as existing warm observatory windows strengthen in sequence; the ending holds the lit building."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "Ambient exposure falls gently as existing warm observatory windows strengthen in sequence; the ending holds the lit building."
+      },
+      "visualEvidence": "animation/review/Los-Angeles.jpg"
+    },
+    {
+      "id": "Santa-Monica",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Santa-Monica: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Cloth motion uses actual pole anchors; palm trunks, shop geometry and the tiny original beach figures are unchanged."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Cloth motion uses actual pole anchors; palm trunks, shop geometry and the tiny original beach figures are unchanged."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "One breeze crosses the two flags, palm crowns and distant ocean before their movement subsides."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "One breeze crosses the two flags, palm crowns and distant ocean before their movement subsides."
+      },
+      "visualEvidence": "animation/review/Santa-Monica.jpg"
+    },
+    {
+      "id": "San-Diego",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "San-Diego: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "The wave follows the shore-distance field; rocky headland, palm line and paper edges remain fixed. White foam is relit source texture."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "The wave follows the shore-distance field; rocky headland, palm line and paper edges remain fixed. White foam is relit source texture."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "A restrained material swell approaches the authored coast, brightens at contact and withdraws to the initial water treatment."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "A restrained material swell approaches the authored coast, brightens at contact and withdraws to the initial water treatment."
+      },
+      "visualEvidence": "animation/review/San-Diego.jpg"
+    },
+    {
+      "id": "Dallas",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Dallas: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Facades are relit without displacement; antennas, building edges and fragment scale remain stable."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Facades are relit without displacement; antennas, building edges and fragment scale remain stable."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "A cloud band traverses the facades from left to right and clears, revealing the original warm architectural light."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "A cloud band traverses the facades from left to right and clears, revealing the original warm architectural light."
+      },
+      "visualEvidence": "animation/review/Dallas.jpg"
+    },
+    {
+      "id": "Fort-Worth",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Fort-Worth: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Pool exclusions preserve the sculpture, far lawn and white tree; the leaf remains small and retains source pigment."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Pool exclusions preserve the sculpture, far lawn and white tree; the leaf remains small and retains source pigment."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "A small original garden leaf falls onto the pool at 13 seconds, creates a fixed-origin ripple and remains floating as the water calms."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "A small original garden leaf falls onto the pool at 13 seconds, creates a fixed-origin ripple and remains floating as the water calms."
+      },
+      "visualEvidence": "animation/review/Fort-Worth.jpg"
+    },
+    {
+      "id": "Chicago",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Chicago: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Bridge remains in front until the launch emerges; moored boats stay protected and the source-water repair does not carry a rectangular vessel ghost."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Bridge remains in front until the launch emerges; moored boats stay protected and the source-water repair does not carry a rectangular vessel ghost."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "The original launch emerges from bridge occlusion, continues down the river at constant scale and leaves three historical contacts before resting."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "The original launch emerges from bridge occlusion, continues down the river at constant scale and leaves three historical contacts before resting."
+      },
+      "visualEvidence": "animation/review/Chicago.jpg"
+    },
+    {
+      "id": "Champaign-Urbana",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Champaign-Urbana: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Foreground trunks are excluded; the snow retains its original blue shell structure under changing light."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Foreground trunks are excluded; the snow retains its original blue shell structure under changing light."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "Warm autumn foliage responds to the breeze while canopy-derived shadows pass across the snow, then clear."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "Warm autumn foliage responds to the breeze while canopy-derived shadows pass across the snow, then clear."
+      },
+      "visualEvidence": "animation/review/Champaign-Urbana.jpg"
+    },
+    {
+      "id": "New-Orleans",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "New-Orleans: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Original trunk and branch structure stay registered; source-fragment scale is constant and its ground ending persists."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Original trunk and branch structure stay registered; source-fragment scale is constant and its ground ending persists."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "One green source fragment drifts down through the oak, is hidden by the trunk and comes to rest as the tree-light event ends."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "One green source fragment drifts down through the oak, is hidden by the trunk and comes to rest as the tree-light event ends."
+      },
+      "visualEvidence": "animation/review/New-Orleans.jpg"
+    },
+    {
+      "id": "Wallace",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Wallace: inspected 24 real-time playback observations against the original lower-half composition; existing light palette, material relief, dispersed edges and paper space are retained."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "The wrought-iron gate and pale wall remain rigid; no invented foliage or moving fence geometry appears."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "The wrought-iron gate and pale wall remain rigid; no invented foliage or moving fence geometry appears."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The inspected sequence preserves original fragment scale and fixed viewpoint; no oversized foreground zoom or replacement protagonist."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "Two source-canopy projections and a passing cloud shade the gate approach, then restore the resting courtyard."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "Two source-canopy projections and a passing cloud shade the gate approach, then restore the resting courtyard."
+      },
+      "visualEvidence": "animation/review/Wallace.jpg"
+    },
+    {
+      "id": "Charleston",
+      "visualEvidence": "animation/review/Charleston.jpg",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Charleston: inspected 24 real-time observations; original lower-half composition, paper edges and shell colour remain coherent."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Rooflines, shutters and balconies stay rigid; canopy material is retained, and no photographic strip leaks into the scene."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Rooflines, shutters and balconies stay rigid; canopy material is retained, and no photographic strip leaks into the scene."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "Original material scale and fixed viewpoint hold throughout the observed sequence, without replacement characters."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "Overhead source foliage casts a moving dappled band across the pastel facades, then clears to the resting street."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "Overhead source foliage casts a moving dappled band across the pastel facades, then clears to the resting street."
+      }
+    },
+    {
+      "id": "Savannah",
+      "visualEvidence": "animation/review/Savannah.jpg",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Savannah: inspected 24 real-time observations; original lower-half composition, paper edges and shell colour remain coherent."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Narrow strand masks keep branch attachments and oak trunks fixed; no whole-canopy rubber-sheet motion is used."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Narrow strand masks keep branch attachments and oak trunks fixed; no whole-canopy rubber-sheet motion is used."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "Original material scale and fixed viewpoint hold throughout the observed sequence, without replacement characters."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "Four attached moss groups respond to a breeze with lagging tips while light moves down the avenue and settles."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "Four attached moss groups respond to a breeze with lagging tips while light moves down the avenue and settles."
+      }
+    },
+    {
+      "id": "San-Jose",
+      "visualEvidence": "animation/review/San-Jose.jpg",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "San-Jose: inspected 24 real-time observations; approved lower-half composition, original shell pigment and paper edges remain coherent."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Salt field geometry and levees remain fixed. The revised 30-second playback was rerun separately and all 24 observations inspected."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Salt field geometry and levees remain fixed. The revised 30-second playback was rerun separately and all 24 observations inspected."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The original viewpoint and material scale stay fixed throughout the sequence; no foreground magnification or replacement character."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "A warm light band travels across the salt-water pigment and fades; the corrected glint is no longer cancelled by cloud shading."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "A warm light band travels across the salt-water pigment and fades; the corrected glint is no longer cancelled by cloud shading."
+      }
+    },
+    {
+      "id": "Miami",
+      "visualEvidence": "animation/review/Miami.jpg",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Miami: inspected 24 real-time observations; approved lower-half composition, original shell pigment and paper edges remain coherent."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "The stone vessel, poles and shoreline remain fixed; only the authored water regions respond."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "The stone vessel, poles and shoreline remain fixed; only the authored water regions respond."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The original viewpoint and material scale stay fixed throughout the sequence; no foreground magnification or replacement character."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "A passing breeze breaks the reflected stone columns and then allows their original arrangement to reform."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "A passing breeze breaks the reflected stone columns and then allows their original arrangement to reform."
+      }
+    },
+    {
+      "id": "Miami-Beach",
+      "visualEvidence": "animation/review/Miami-Beach.jpg",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Miami-Beach: inspected 24 real-time observations; approved lower-half composition, original shell pigment and paper edges remain coherent."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "Two separated water regions preserve the diagonal stone jetty; the crest remains material light rather than a smooth white overlay."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "Two separated water regions preserve the diagonal stone jetty; the crest remains material light rather than a smooth white overlay."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The original viewpoint and material scale stay fixed throughout the sequence; no foreground magnification or replacement character."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "One low swell approaches the jetty, catches the existing shell relief, then withdraws and settles."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "One low swell approaches the jetty, catches the existing shell relief, then withdraws and settles."
+      }
+    },
+    {
+      "id": "Everglades",
+      "visualEvidence": "animation/review/Everglades.jpg",
+      "sourceFidelity": {
+        "verdict": "pass",
+        "evidence": "Everglades: inspected 24 real-time observations; approved lower-half composition, original shell pigment and paper edges remain coherent."
+      },
+      "alphaEdges": {
+        "verdict": "pass",
+        "evidence": "The body mask stays inside the original torso; skull, feet, tail and bank retain their positions. No new animal or human appears."
+      },
+      "occlusion": {
+        "verdict": "pass",
+        "evidence": "The body mask stays inside the original torso; skull, feet, tail and bank retain their positions. No new animal or human appears."
+      },
+      "materialScale": {
+        "verdict": "pass",
+        "evidence": "The original viewpoint and material scale stay fixed throughout the sequence; no foreground magnification or replacement character."
+      },
+      "causalMotion": {
+        "verdict": "pass",
+        "evidence": "The original resting alligator makes two restrained torso breaths while the reeds and pond respond to a passing breeze and become still."
+      },
+      "storyArc": {
+        "verdict": "pass",
+        "evidence": "The original resting alligator makes two restrained torso breaths while the reeds and pond respond to a passing breeze and become still."
+      }
+    }
+  ],
+  "sourceHashes": {
+    "animation/seattle-spec.mjs": "6755bfbeaf4bfee38a4660fceccada3aca396d205c2c2c01ea66ce549de9cbb0",
+    "animation/timeline.mjs": "a8c49fa4149d07f24d85223b00ccf8e97029d1d29e5756d89e9dea6fa1718560",
+    "animation/shadows.mjs": "18ff4518cd8cd1e7540045eb140dbd10ff454589644df2d303e55ed2ef116f7b",
+    "animation/surf.mjs": "eb2f5e732398d6d00e21c39d058cf17cba82b9764e7f9b5e6e802b37abf05249",
+    "animation/environment.mjs": "728bd8083071f0ea21efccfcf95dd092b70a58e51cb126301699d5a9cec94468",
+    "animation/seattle.mjs": "7ba25595769466f046f8394d87012e45f9bc689590f00aaf3e85fea4bf5da181",
+    "animation/catalog.mjs": "07ec7044aa1379d8ee6cfbc29aec3be79d466cfd4521f44321177c1ff5697b61",
+    "animation/material-objects.mjs": "d9f61a674c3dc6118e2f83ddd0417acc485bfc0e7632564b62a53f6944561343",
+    "animation/scene-contract.mjs": "907ca57758449cb7022367198d44f04b291c14c2f496b9feb9ce8f514711b083",
+    "animation/map-scene.mjs": "af9cab7814b57ec232ede248f03734080fff82a9506685310564a0b37f722147",
+    "animation/material-scene.mjs": "7b77303ea17b60153057c566d171d9bb0815421a9b0bd953f7446d8145626660",
+    "app.js": "749301d59ba6c0596884cae4e614e4618e0a62536bbc515860bd32a6585c42a7",
+    "index.html": "d4095d034028870d6d467393bb1e0240141262b6f39d45cf56620c1f2af60039",
+    "style.css": "94d7c4b87b0651569d97f65f7eb94a83fb561bf004b24d32cdbc3c2033385c95",
+    "assets/scenes/Seattle/reconstruction.png": "2b0578896b4070ad107db422631908aa724a215fe73405ddbd02b1207920689e",
+    "assets/scenes/Seattle/clean-plate-source.png": "e8b5d56b2831bdeadf8ee09f6448571be0b0e0e4ab15d63d32c68a76cdda14cf",
+    "assets/scenes/Seattle/ship.png": "414026fe2ee96690b4a9ac2bc61ff2cfe3279ee42fc63facd2dd03e6fcfb2af5",
+    "assets/scenes/Seattle/water-mask.png": "95b74fa3112315c71615d3720df6dc7ff55621e78daf46ee9576c56ce47948a8",
+    "assets/scenes/Seattle/reflection.png": "395fdd55cdc34d32812b311dbdb1c5dc5657ecdff972afcc2723e241436e0987",
+    "assets/scenes/Seattle/background.png": "568938bc6ff7bff29267070d7cc258dddc04fb6237e4dd944b323f6ed4b3c78a",
+    "assets/scenes/Seattle/wake-shell.png": "bb6e07faba4a9c0b1faac221a0b189ecda32baa5818a19804128af1239ce49fc",
+    "assets/scenes/Seattle/source.png": "540715adc36731850f6fcef02799ee3a0154b583b905d2f4a04cc5fd94f160ad",
+    "assets/scenes/Seattle/layers.json": "491dc016b8b267bea57b7a395ff2817a95302b383d705bc3ea7cfded78328244",
+    "assets/scenes/San-Francisco/clean-plate-v1.png": "4c5e3034460bd1793a95928adb7032ea025d469abcba93631e7c4cd849b931b2",
+    "assets/quiet-shell-archipelago.png": "90273245615b5f732dcaa02883c49b06b6c5419a15fd5d9c740cfa0b10c4a6e0",
+    "assets/posters/Santa-Cruz.png": "c25c8999e0015795339fc847daac6d725e0fa2334f526fc4e3f21b1583cfcf3c",
+    "assets/posters/Los-Gatos.png": "96cf9fccaf98578a89ca8e7da649ea48580c594025bbb7f01569bbe4a06c5e55",
+    "assets/posters/Seattle.png": "2a9b650c32a013ae73fabc7df282ffabda5cfa2eae9aec887a18cb550e78498f",
+    "assets/posters/Sunnyvale.png": "a738994026f424709d2bfd5ff2c4646d08926663a0eea5d34481d9ddc017c206",
+    "assets/posters/Chicago.png": "63a316c00143627f53e8b3c37185241c68ae0e27feac3ffe72449fc14916cc51",
+    "assets/posters/Savannah.png": "d49f5aa8767040d0d195f29fe98602bde9adbd52507a570260d761003672ec6f",
+    "assets/posters/Mountain-View.png": "62d6e353bf4b9530dfffa4720811260669ceaa4b53e00b8c4b74987cc58c5a01",
+    "assets/posters/Miami-Beach.png": "9355b667904cc4066b3d21aed3cf008a37cd7f8108dad793590e8ede861b60b5",
+    "assets/posters/New-Orleans.png": "4b9d37f9ca847c16e34ebc15e5051e8c562ce52a4b05dda54c196b40916ef39f",
+    "assets/posters/San-Francisco.png": "c1653329f21cc17948c142be94693db9d559a35440d8feb5dc8094752b1e679f",
+    "assets/posters/Santa-Monica.png": "ce0b31259dbd95a76beb4f4d53786f3af8e16863ca041b212279d2f842ca45a1",
+    "assets/posters/Champaign-Urbana.png": "3c4240bc0b6d90238dab5ec54d05953a3d381db2ceaa7cecd26de7b09efd4ef3",
+    "assets/posters/Los-Angeles.png": "5fe0e0c4ca7a0b9091708e6285738a48852b64cebfbed27d8a2751ee81d3f28d",
+    "assets/posters/San-Diego.png": "9340d3228494516cdcf61fe2a8abd23c336277e25c0735911a53c3c9b706e282",
+    "assets/posters/Everglades.png": "802eabc648c3ce46367e79ffeee5ac78aa39ab7f04d7be1b5489b815a4461e26",
+    "assets/posters/San-Jose.png": "b2eb5bd3fa6cf1b223d8bd8de86758619fe44edba8035fa47b6efc980b6d0cfb",
+    "assets/posters/Wallace.png": "24763ba9d963708e8e7f8fb0fb9ba0db94399834337a2570fad1cf44db9bf97c",
+    "assets/posters/Fort-Worth.png": "8946722ebb5199bcad501c9fdb233bdf8e3e8fa4cfd0eeb56dfb8d9dcc375143",
+    "assets/posters/Bellevue.png": "8880cd11b50e7f647ae1622c392661ddc46c8ed6308e3e98fc497baad20f84c5",
+    "assets/posters/Miami.png": "606ce53528dead4fa030e368c8572017f380cd993cae4f6663b17d3309e178e5",
+    "assets/posters/Stanford.png": "37f58a6049d42be4ee337cd7a4b9c13aaf3c7882bf363cc894a1f6319fa964e5",
+    "assets/posters/Dallas.png": "f3407890cf2d4aa658fa75d60d9d0f56d6c5f4f4a105f4a78dd1edae004b6f5e",
+    "assets/posters/Charleston.png": "6ed09268a75f126c07617b2e2b30163079d0f3ef2b887aabf385920f09db12ca"
+  },
+  "reviewedAt": "2026-10-08",
+  "limitations": [
+    "Visual review uses 24 inspected observations per real-time full playback, not inspection of every rendered frame.",
+    "Motion intentionally stays within a fixed-view 2D material tableau. Small light, breath and foliage events are subtle; this is not a 3D film or fluid simulation.",
+    "Personal memories and emotional writing remain unfilled by design."
+  ]
+}
