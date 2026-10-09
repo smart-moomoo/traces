@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "purpose": "single reusable clean plate for the original right sailboat footprint",
+  "editTarget": "source.png",
+  "output": "clean-plate-v1.png",
+  "compositing": "Only feathered object footprints enter the original image; all other original pixels remain the runtime source.",
+  "prompt": "Use case: precise-object-edit. Edit target: the attached original San Francisco shell-collage artwork. Create ONE clean background plate, same full composition and aspect ratio. Remove ONLY the LARGE WHITE SAILBOAT on the RIGHT (both white sails, mast, beige hull and tiny associated reflection). Reconstruct the small background it concealed: green mineral-shell hillside and tiny distant shoreline buildings above the waterline, turquoise shell-tile water below it. The SMALL WHITE BOAT on the LEFT stays unchanged. Absolutely preserve the red Golden Gate Bridge, hills, shoreline, cloud and sky shell mosaic, paper margins, scattered fragments, lettering, camera, module sizes, precise geometric positions, original pale palette and matte tactile shell/mineral textures. Do not redesign or simplify the artwork. No new people, vessels, effects, text or props. Fill the removed right boat footprint naturally without triangular silhouettes, ghost sails, repeated patch seams or color stains. This is a single reusable background asset, NOT animation frames or a contact sheet. Return the complete image."
+}

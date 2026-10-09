@@ -1,0 +1,132 @@
+{
+  "scope": "23 original-art scenes; region overlays and five rendered story stages each",
+  "status": "revision-required",
+  "fullPlayback": "not yet completed for all locations",
+  "generatedImages": 1,
+  "evidenceDirectory": "art-direction/scene-audit",
+  "sharedFindings": [
+    "Most region-only scenes preserve the original artwork but do not yet make a distinct event readable in five-stage comparisons.",
+    "Water coverage must exclude foreground structures; color similarity is not a substitute for semantic occlusion.",
+    "Cloth attachment must use the actual two-dimensional pole or mast anchor.",
+    "Source crops and normalized motion regions must refer to the same source coordinate system.",
+    "Key-stage comparison is not a substitute for uninterrupted playback and continuity review.",
+    "Unauthored point impacts removed: contact rings now require explicit actor-at-birth or fixed world-position events."
+  ],
+  "scenes": [
+    {
+      "id": "Seattle",
+      "finding": "Bounded ship passage and source reflection read at the same material scale; wake/contact and overall story still require a full artistic decision.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Bellevue",
+      "finding": "Original duck and reflection share a bounded passage. Three wakes remain at their historical contact positions. Pool boundary corrected; full playback acceptance remains pending.",
+      "status": "revision-required"
+    },
+    {
+      "id": "San-Francisco",
+      "finding": "Original hull, two sails and mast share a vessel trajectory; sail filling precedes movement. One generated clean plate repairs only expanded source footprints. Previous triangular repair ghost removed. Full playback and edge acceptance remain pending.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Stanford",
+      "finding": "Composition and courtyard remain recognizable. Planned falling fragment and branch occlusion are missing.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Mountain-View",
+      "finding": "Directed wind propagation now reaches regions in sequence. Pale dry reed selection and event readability still need review.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Sunnyvale",
+      "finding": "Lawn illumination changes subtly; cloud/tree shadow shape and bench contact need explicit treatment.",
+      "status": "revision-required"
+    },
+    {
+      "id": "San-Jose",
+      "finding": "Salt colors and levees are preserved. The moving light event is too weak to read clearly at overview scale.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Los-Gatos",
+      "finding": "Lake and branches remain coherent; ducks require independent contact protection and a visible cause for the ripple.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Santa-Cruz",
+      "finding": "Two-dimensional cloth anchors and shared directed wind timing implemented. Full playback and material edge continuity remain pending.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Los-Angeles",
+      "finding": "Warm window changes are visible across the stages. Check windows individually and preserve paper brightness during dusk.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Santa-Monica",
+      "finding": "Two-dimensional cloth anchors and shared directed wind timing implemented. Full playback and material edge continuity remain pending.",
+      "status": "revision-required"
+    },
+    {
+      "id": "San-Diego",
+      "finding": "Explicit shoreline distance and approach/break/withdraw timing replace perpetual screen-space oscillation. Original shell relief is relit inside water masks. Crest remains too subtle in pale areas; full playback acceptance pending.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Dallas",
+      "finding": "Facades remain rigid; the cloud-light crossing needs more readable localized progression.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Fort-Worth",
+      "finding": "Sculpture remains compositionally stable. A defined contact and correctly placed ripple source are still needed.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Chicago",
+      "finding": "Buildings remain stable; existing vessels still lack independent movement, bridge occlusion and trailing wakes.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Champaign-Urbana",
+      "finding": "Snow and clock tower are preserved. Green-biased foliage selection misses orange leaves; tree-shadow movement needs authored geometry.",
+      "status": "revision-required"
+    },
+    {
+      "id": "New-Orleans",
+      "finding": "Original green fragment falls behind an authored trunk mask and rests. Grass light region was corrected; readability and canopy integration remain under review.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Wallace",
+      "finding": "Gate and fence retain geometry. Existing light change lacks foliage-shaped shadow progression.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Charleston",
+      "finding": "Photo strip removed through explicit crop. Dappled light needs to follow branch geometry on the house fronts.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Savannah",
+      "finding": "Avenue composition is preserved. Hanging moss still needs anchored strand groups and delayed settling, rather than a broad canopy effect.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Miami",
+      "finding": "Water boundary previously crossed stone vessel; contact boundary and piling exclusions corrected. Reflected columns need a coherent gust response.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Miami-Beach",
+      "finding": "Explicit shoreline distance and approach/break/withdraw timing replace perpetual screen-space oscillation. Original shell relief is relit inside water masks. Crest remains too subtle in pale areas; full playback acceptance pending.",
+      "status": "revision-required"
+    },
+    {
+      "id": "Everglades",
+      "finding": "Art/photo crop corrected. Alligator remains static; body/contact treatment and reed response are not complete.",
+      "status": "revision-required"
+    }
+  ]
+}

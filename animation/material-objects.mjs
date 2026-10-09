@@ -4,9 +4,24 @@ import {evaluateTrack} from './scene-contract.mjs';
 // time score. No generated frames and no free-running physics state.
 export function objectPose(object,time){
  const read=(name,fallback)=>object.tracks[name]?evaluateTrack(object.tracks[name],time):fallback;
- return {x:read('x',object.anchor[0]),y:read('y',object.anchor[1]),rotation:read('rotation',0),scale:read('scale',1)};
+ return {x:read('x',object.anchor[0]),y:read('y',object.anchor[1]),rotation:read('rotation',0),scale:read('scale',1),scaleX:read('scaleX',read('scale',1)),scaleY:read('scaleY',read('scale',1))};
 }
-export function prepareObjects(canvas,definitions=[]){
+// A wake belongs to the position where contact happened, not the current actor
+// position. Missing authored contacts produce no invented impact rings.
+export function contactOrigins(scene){
+ const [,,width,height]=scene.crop;
+ return (scene.contacts||[]).map(event=>{
+  if(event.object){
+   const object=scene.objects?.find(o=>o.id===event.object);
+   if(!object)throw new Error(`Unknown contact actor: ${event.object}`);
+   const pose=objectPose(object,event.time);
+   return [pose.x+(event.offset?.[0]||0),pose.y+(event.offset?.[1]||0),event.time,event.strength??1];
+  }
+  if(!event.position)throw new Error('Contact needs an actor or authored position');
+  return [event.position[0]*width,event.position[1]*height,event.time,event.strength??1];
+ });
+}
+export function prepareObjects(canvas,definitions=[],repairPlate=null){
  const source=document.createElement('canvas');source.width=canvas.width;source.height=canvas.height;
  source.getContext('2d').drawImage(canvas,0,0);
  return definitions.map(definition=>{
@@ -15,7 +30,15 @@ export function prepareObjects(canvas,definitions=[]){
   definition.outline.forEach(([px,py],i)=>i?ctx.lineTo(px,py):ctx.moveTo(px,py));ctx.closePath();ctx.clip();ctx.drawImage(source,-x,-y);
   // Repair only the exact source footprint, with a declared existing material
   // sample. The extracted fragment is restored at its original pose at t=0.
-  const plate=canvas.getContext('2d');plate.save();plate.beginPath();
+  const plate=canvas.getContext('2d');
+  if(repairPlate){
+   const pad=3,patch=document.createElement('canvas'),mask=document.createElement('canvas');patch.width=mask.width=w+pad*2;patch.height=mask.height=h+pad*2;
+   const pc=patch.getContext('2d'),mc=mask.getContext('2d');pc.drawImage(repairPlate,-x+pad,-y+pad,canvas.width,canvas.height);
+   mc.fillStyle=mc.strokeStyle='white';mc.lineWidth=4;mc.lineJoin='round';mc.beginPath();definition.outline.forEach(([px,py],i)=>i?mc.lineTo(px+pad,py+pad):mc.moveTo(px+pad,py+pad));mc.closePath();mc.fill();mc.stroke();
+   pc.globalCompositeOperation='destination-in';pc.filter='blur(1px)';pc.drawImage(mask,0,0);plate.drawImage(patch,x-pad,y-pad);
+   return {definition,texture:PIXI.Texture.from(cutout)};
+  }
+  plate.save();plate.beginPath();
   const pad=definition.repairPadding||0;
   if(pad)plate.rect(x-pad,y-pad,w+pad*2,h+pad*2);else definition.outline.forEach(([px,py],i)=>i?plate.lineTo(x+px,y+py):plate.moveTo(x+px,y+py));plate.closePath();plate.clip();
   const [sx,sy,sw,sh]=definition.repairSample;plate.drawImage(source,sx,sy,sw,sh,x-pad,y-pad,w+pad*2,h+pad*2);plate.restore();
@@ -35,5 +58,5 @@ export function mountObjects(stage,prepared,width,height){
  });
 }
 export function renderObjects(objects,time){
- for(const {definition,sprite} of objects){const pose=objectPose(definition,time);sprite.position.set(pose.x,pose.y);sprite.rotation=pose.rotation;sprite.scale.set(pose.scale);}
+ for(const {definition,sprite} of objects){const pose=objectPose(definition,time);sprite.position.set(pose.x,pose.y);sprite.rotation=pose.rotation;sprite.scale.set(pose.scaleX,pose.scaleY);}
 }

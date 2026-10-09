@@ -164,3 +164,25 @@ The common workbench now loads all 23 original-art scenes. The material object p
 Source cropping is explicit per poster rather than assuming all photo/art splits fall at the center. Region definitions retain their original source coordinates when the crop changes. The workbench can show motion regions and object paths for comparison against the actual composition. Santa Monica's sea/flag regions and foreground exclusions were corrected using that review. Remaining locations still require this same regional/occlusion review and their missing events; a successful 23-scene lifecycle run does not complete that work.
 
 The previously rejected large foreground ship has been removed from the current art-direction rules. The old Seattle preparation command now delegates to the single manifest builder, preventing it from overwriting reviewed masks with obsolete geometry.
+
+### October 8 scene review checkpoint
+
+All 23 scenes were inspected with region overlays and five rendered time samples;
+`visual-review.json` records the remaining issues. This is not uninterrupted
+playback acceptance. The production dialog still uses the existing films while
+`scene-workbench.html` exposes the new renderer for review.
+
+Water masks now exclude the Miami stone vessel and Miami Beach jetty. Cloth
+attachment uses two-dimensional anchors. Shared wind propagation has authored
+scene directions. Bellevue reuses the original duck and reflection; San Francisco
+reuses four original vessel pieces with one common trajectory and separate sail
+width tracks. Contacts are emitted at historical actor positions. Scenes without
+an authored contact no longer invent a point impact.
+
+San Francisco needed one generated clean plate. Its pixels are composited only
+inside feathered original-object footprints; the rest of the original artwork
+is retained. The prompt and asset provenance live beside that scene's assets.
+San Diego and Miami Beach now have explicit shoreline curves and one timed
+approach, break and withdrawal. The crest still needs stronger visual readability
+in pale source areas. None of these additions silently changes visualReview to
+accepted, and they have not replaced the public exhibition's old films.

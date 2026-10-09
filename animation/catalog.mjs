@@ -66,6 +66,32 @@ santa.regions.find(r=>r.id==='ocean').exclusions=[
  rect(.257,.433,.046,.031),rect(.53,.438,.042,.046)
 ];
 
+// Region audit corrections: masks follow physical contact boundaries, and
+// foreground structures are holes in water coverage, not water-coloured actors.
+const normalize=points=>points.map(([x,y])=>[x/1024,y/768]);
+const miami=catalog.find(s=>s.id==='Miami').regions[0];
+miami.points=poly([.05,.552],[.18,.562],[.36,.571],[.60,.586],[.85,.59],[.91,.575],[.94,.61],[.9,.78],[.15,.83]);
+miami.exclusions=[rect(.922,.43,.033,.18),rect(.121,.49,.026,.085),rect(.238,.49,.024,.09)];
+const jetty=normalize([[570,275],[500,309],[458,329],[404,371],[339,423],[284,472],[229,515],[193,550],[135,594],[53,607],[44,540],[65,465],[110,422],[165,384],[229,361],[309,330],[385,310],[469,292]]);
+for(const r of catalog.find(s=>s.id==='Miami-Beach').regions)r.exclusions=[jetty];
+const sf=catalog.find(s=>s.id==='San-Francisco');
+sf.regions[0].points=poly([.05,.636],[.94,.636],[.86,.82],[.2,.85]);
+sf.regions[0].exclusions=[normalize([[836,511],[850,506],[880,406],[923,508],[927,520],[911,528],[852,527],[837,521]]),rect(.105,.615,.058,.032)];
+sf.regions[1].points=poly([.861,.535],[.897,.662],[.855,.66]);sf.regions[1].anchor=[.86,.66];
+sf.regions.push(region('jib','cloth',poly([.856,.565],[.853,.661],[.831,.661]),[.855,.66],.5));
+const pool=catalog.find(s=>s.id==='Bellevue').regions[0];
+pool.points=normalize([[90,505],[176,505],[263,528],[456,535],[638,567],[895,541],[893,566],[725,604],[530,644],[391,660],[230,620],[91,578]]);
+pool.exclusions=[normalize([[480,548],[495,548],[508,557],[519,551],[529,551],[527,561],[518,568],[487,569],[481,563]])];
+oak.regions.find(r=>r.id==='grass').points=rect(.14,.775,.74,.12);
+
+const probes={
+ 'Miami':{fixed:[[.6,.56],[.94,.55]],moving:[[.55,.71],[.72,.73]]},
+ 'Miami-Beach':{fixed:[[.2,.6],[.3,.5]],moving:[[.7,.65],[.8,.72]]},
+ 'San-Francisco':{fixed:[[.55,.61],[.86,.68]],moving:[[.45,.74],[.6,.75]]},
+ 'Bellevue':{fixed:[[.62,.7],[.49,.73]],moving:[[.35,.78],[.51,.8]]}
+};
+for(const scene of catalog)if(probes[scene.id])scene.probes=probes[scene.id];
+
 // Explicit photo/art boundaries verified against each original source. Remap
 // existing authored regions in source space; never stretch the artwork.
 const sourceStarts={'Charleston':841,'Santa-Cruz':771,'Everglades':776,'Mountain-View':735,'Los-Gatos':737,'Sunnyvale':742,'Santa-Monica':738,'Chicago':769,'Los-Angeles':769,'San-Diego':769,'San-Francisco':769,'Stanford':769};
@@ -73,5 +99,51 @@ for(const scene of catalog){
  const start=sourceStarts[scene.id];if(!start)continue;
  const height=1536-start,remap=([x,y])=>[x,(768+y*768-start)/height];
  scene.crop=[0,start,1024,height];
+ if(scene.probes){scene.probes.fixed=scene.probes.fixed.map(remap);scene.probes.moving=scene.probes.moving.map(remap);}
  for(const r of scene.regions){r.points=r.points.map(remap);r.anchor=remap(r.anchor);if(r.exclusions)r.exclusions=r.exclusions.map(p=>p.map(remap));}
 }
+
+const directions={'Mountain-View':[0,-1],'Sunnyvale':[-1,.15],'Santa-Cruz':[-1,.5],'Santa-Monica':[1,-.3],'San-Jose':[1,.05],'Dallas':[1,.5],'Champaign-Urbana':[-1,-.2],'Charleston':[-.5,1],'Savannah':[0,-1]};
+for(const scene of catalog)if(directions[scene.id])scene.score.direction=directions[scene.id];
+
+const bellevue=catalog.find(s=>s.id==='Bellevue');
+bellevue.title='离开池沿';
+const duckTracks={x:keys([[0,505],[5,505],[12,480],[21,443],[28,443]]),y:keys([[0,565],[5,565],[12,576],[21,584],[28,584]])};
+bellevue.objects=[
+ {id:'duck-reflection',crop:[483,565,47,17],anchor:[505,565],pivot:[22,0],outline:[[3,0],[42,0],[44,6],[37,14],[8,16],[0,9]],repairSample:[430,565,47,17],tracks:duckTracks},
+ {id:'pool-duck',crop:[478,548,53,19],anchor:[505,565],pivot:[27,17],outline:[[0,7],[4,5],[7,0],[13,0],[20,4],[19,11],[31,10],[38,9],[40,3],[45,0],[49,0],[53,3],[49,6],[47,13],[38,17],[27,19],[12,18],[8,15],[8,10]],repairSample:[425,548,53,19],tracks:duckTracks}
+];
+bellevue.contacts=[8,13,18].map((time,i)=>({object:'pool-duck',time,offset:[-5,3],strength:1-i*.15}));
+bellevue.regions[0].exclusions=[];
+bellevue.remaining=['Review the original duck and reflection cutouts, clean water repair and historical contact ripples in full playback.'];
+
+// Separate sails, mast and hull share a world-space contact pivot. A small
+// authored sail deformation precedes translation; no added character or zoom.
+const sailboatTracks={x:keys([[0,880],[8,880],[16,848],[27,801],[32,801]]),y:keys([[0,523],[8,523],[16,528],[27,534],[32,534]])};
+const part=(id,crop,outline,repairSample,tracks=sailboatTracks)=>({id,crop,outline,repairSample,anchor:[880,523],pivot:[880-crop[0],523-crop[1]],tracks});
+sf.objects=[
+ part('vessel-hull',[833,505,96,25],[[0,5],[16,6],[27,7],[48,8],[72,8],[94,6],[92,16],[81,21],[41,23],[14,18],[6,15]], [722,505,96,25]),
+ part('main-sail',[879,406,44,102],[[1,0],[43,101],[0,98]],[728,406,44,102],{...sailboatTracks,scaleX:keys([[0,1],[5,1],[10,1.06],[17,1.035],[27,1],[32,1]])}),
+ part('jib',[846,429,32,80],[[31,0],[29,78],[1,75]],[724,429,32,80],{...sailboatTracks,scaleX:keys([[0,1],[5,1],[11,1.07],[18,1.03],[27,1],[32,1]])}),
+ part('mast',[878,405,3,113],[[0,0],[2,0],[3,112],[0,112]],[736,405,3,113])
+];
+sf.contacts=[10,16,22].map((time,i)=>({object:'vessel-hull',time,offset:[-31,2],strength:1-i*.1}));
+sf.regions=sf.regions.filter(r=>r.kind!=='cloth');
+sf.regions[0].exclusions=sf.regions[0].exclusions.slice(1);
+sf.remaining=['Review separated sail edges and repaired shoreline, sail-fill timing, hull contact and final reflection/water consistency.'];
+bellevue.probes.fixed=[[.62,.7],[.5,.66]];
+// A vessel is now intentionally moving; protect the bridge and second vessel.
+sf.probes.fixed=[[.55,(768+.61*768-sf.crop[1])/sf.crop[3]],[.13,(768+.64*768-sf.crop[1])/sf.crop[3]]];
+
+sf.repairPlate='assets/scenes/San-Francisco/clean-plate-v1.png';
+
+// Shore curves are traced in the final source crop. Water-only masks protect
+// the rock faces; the wave measures distance from the actual coast, not screen y.
+const sanDiego=catalog.find(s=>s.id==='San-Diego');
+sanDiego.regions[0].points=poly([.08,.34],[.5,.34],[.56,.38],[.52,.43],[.57,.49],[.61,.55],[.7,.65],[.67,.7],[.6,.73],[.57,.8],[.34,.76],[.08,.49]);
+sanDiego.surf={shore:[[.56,.38],[.52,.45],[.61,.55],[.7,.65],[.57,.8]],start:3,break:13,hold:17,end:30,reach:130,width:24};
+sanDiego.probes={fixed:[[.83,.56],[.68,.5]],moving:[[.46,.51],[.55,.67]]};
+sanDiego.remaining=['Review shore-following approach, textured break and withdrawal in full playback; confirm all rock silhouettes remain fixed.'];
+const beach=catalog.find(s=>s.id==='Miami-Beach');
+beach.surf={shore:[[.53,.38],[.38,.47],[.29,.56],[.21,.64],[.13,.77]],start:3,break:14,hold:18,end:31,reach:150,width:26};
+beach.remaining=['Review incoming swell and withdrawal along the jetty, with source-texture highlights restricted to the water masks.'];

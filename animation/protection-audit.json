@@ -1,0 +1,62 @@
+[
+  {
+    "id": "Miami",
+    "fixedDifferences": [
+      0,
+      0
+    ],
+    "movingDifferences": [
+      9,
+      12
+    ],
+    "scope": "Authored point samples, not visual acceptance."
+  },
+  {
+    "id": "Miami-Beach",
+    "fixedDifferences": [
+      0,
+      0
+    ],
+    "movingDifferences": [
+      5,
+      5
+    ],
+    "scope": "Authored point samples, not visual acceptance."
+  },
+  {
+    "id": "Bellevue",
+    "fixedDifferences": [
+      0,
+      0
+    ],
+    "movingDifferences": [
+      11,
+      3
+    ],
+    "scope": "Authored point samples, not visual acceptance."
+  },
+  {
+    "id": "San-Francisco",
+    "fixedDifferences": [
+      0,
+      0
+    ],
+    "movingDifferences": [
+      2,
+      5
+    ],
+    "scope": "Authored point samples, not visual acceptance."
+  },
+  {
+    "id": "San-Diego",
+    "fixedDifferences": [
+      0,
+      0
+    ],
+    "movingDifferences": [
+      4,
+      0
+    ],
+    "scope": "Authored point samples, not visual acceptance."
+  }
+]
