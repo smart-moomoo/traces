@@ -7,6 +7,27 @@ The October 8 release is a fixed-asset procedural baseline, not evidence that th
 requested expressive animation is complete. This revision is a plan; its new
 capabilities have not yet been implemented or visually accepted.
 
+### Subject action comes first — latest user correction
+
+The current priority is multiple meaningful subjects and articulated actions.
+Water, wind, light and other background effects are optional support. A boat's
+hull, mast, two sails and reflection count as ONE subject, not five actors.
+
+- For each source, record a semantic cast, its parts, genuine action vocabulary
+  and interactions. Start with the two original San Francisco sailboats, the two
+  Bellevue ducks and the three Los Gatos ducks. Do not invent human protagonists.
+- Build anticipation, articulation, locomotion, reaction and recovery separately.
+  Motion paths alone do not satisfy the action requirement. Bind body parts to a
+  parent and coordinate actions with other subjects through the master timeline.
+- Review each episode with background effects OFF. Viewers must still see what
+  the subjects do, how their poses change, and the sequence of events. Turning
+  background shaders up cannot rescue a weak subject performance.
+- Static architecture is not a reason to fake unrelated actors. Audit original
+  movable subjects first; author necessary few pose assets when a single cutout
+  cannot perform the chosen action. Flag missing action capability explicitly.
+- Do not call metadata, object counts, parameter changes or rendering throughput
+  visual acceptance. Inspect source reconstruction and watch the full actions.
+
 ### Decision
 
 Keep PixiJS 8 and GitHub Pages. Add GSAP for nested authored timelines and paths;

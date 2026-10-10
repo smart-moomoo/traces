@@ -29,13 +29,25 @@ export function inspectPoses(player,host){
  for(const t of [...new Set([0,3,5,8,scene.duration*.5,scene.duration*.8,scene.duration])]){
   player.seek(t);const poses=actorsAt(scene,t);
   for(const object of scene.objects.filter(o=>!o.follows)){
-   const pose=poses.get(object.id),pad=20,w=object.crop[2]+pad*2,h=object.crop[3]+pad*2;
-   const x=pose.x-object.pivot[0]-pad,y=pose.y-object.pivot[1]-pad;
+   // Follow the whole semantic subject, including articulated children. A hull
+   // crop alone hid both sails and made rig-action inspection meaningless.
+   const subject=scene.subjects?.find(s=>s.root===object.id);
+   const parts=scene.objects.filter(o=>subject?subject.parts.includes(o.id):o.id===object.id||o.follows?.actor===object.id);
+   const bounds=[Infinity,Infinity,-Infinity,-Infinity];
+   for(const part of parts){
+    const p=poses.get(part.id),c=Math.cos(p.rotation),s=Math.sin(p.rotation),pad=12+Math.abs(part.rig?.amplitude||0);
+    for(const [xx,yy] of part.outline){
+     const dx=(xx-part.pivot[0])*p.scaleX,dy=(yy-part.pivot[1])*p.scaleY;
+     const x=p.x+dx*c-dy*s,y=p.y+dx*s+dy*c;
+     bounds[0]=Math.min(bounds[0],x-pad);bounds[1]=Math.min(bounds[1],y-pad);bounds[2]=Math.max(bounds[2],x+pad);bounds[3]=Math.max(bounds[3],y+pad);
+    }
+   }
+   const [x,y]=bounds,w=Math.ceil(bounds[2]-x),h=Math.ceil(bounds[3]-y);
    const figure=document.createElement('figure'),canvas=document.createElement('canvas'),label=document.createElement('figcaption');
    canvas.width=w;canvas.height=h;canvas.style.cssText='width:100%;max-height:300px;object-fit:contain';
    const sx=player.app.canvas.width/scene.crop[2],sy=player.app.canvas.height/scene.crop[3];
    canvas.getContext('2d').drawImage(player.app.canvas,x*sx,y*sy,w*sx,h*sy,0,0,w,h);
-   label.textContent=`${object.id} · ${t.toFixed(1)} 秒 · 实际合成局部`;
+   label.textContent=`${subject?.label||object.id} · ${t.toFixed(1)} 秒 · 实际合成局部`;
    figure.style.margin='0';figure.append(canvas,label);host.append(figure);
   }
  }

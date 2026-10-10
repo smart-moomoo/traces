@@ -8,10 +8,13 @@
     "pinned mesh with inversion/strain checks",
     "shared actor/joint/reflection state and historical contacts",
     "source/alpha/pose inspection views and swept bounds",
-    "one 23 x 1000 render lifecycle pass with no new requests (before latest Bellevue/Chicago edits)"
+    "one 23 x 1000 render lifecycle pass with no new requests (before latest Bellevue/Chicago edits)",
+    "Semantic subject ownership distinct from rendering parts; deterministic multi-subject choreography",
+    "Background-effects-off preview; independent source repair and render silhouettes"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
+    "Subject-first priority: San Francisco has two independent original sailboats with sail/heel/crossing/recovery actions; Los Gatos has three original ducks with articulated preening, feeding and travel. Both are local, visual acceptance pending. Other scenes still require this upgrade.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -25,7 +28,15 @@
     {
       "path": "assets/scenes/Bellevue/duck-clean-plate-v2.png",
       "use": "Only original swimming duck/reflection footprints"
+    },
+    {
+      "path": "assets/scenes/San-Francisco/two-vessels-clean-plate-v2.png",
+      "use": "Only vacated original vessel and rigging footprints"
+    },
+    {
+      "path": "assets/scenes/Los-Gatos/three-ducks-clean-plate-v2.png",
+      "use": "Only vacated original duck/head/reflection footprints; rock feet remain original"
     }
   ],
-  "tests": "expressive-rig, scene-state and existing functional tests passed; exhibition-release source hash gate intentionally remains stale until new visual review. Do not bypass it."
+  "tests": "Nine functional test files passed including multi-subject ownership, articulated action, parent attachments, separate boat lanes, random seek, mesh bounds and legacy regression. Release hash and final visual acceptance remain pending."
 }

@@ -139,6 +139,88 @@
       "status": "source-audit",
       "objects": [
         {
+          "id": "far-hull",
+          "representation": "rigid",
+          "rest": [
+            137,
+            489
+          ],
+          "sweptBounds": [
+            112.75510803880321,
+            482,
+            659.0000000000001,
+            504.00000000000006
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "far-main-sail",
+          "representation": "cloth",
+          "rest": [
+            137,
+            489
+          ],
+          "sweptBounds": [
+            132.22772630829414,
+            431.64074801124764,
+            659.3500000000001,
+            496.3500000000001
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "far-jib",
+          "representation": "cloth",
+          "rest": [
+            137,
+            489
+          ],
+          "sweptBounds": [
+            113.4624142217056,
+            442.8,
+            635.2000000000002,
+            495.20000000000005
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "far-mast",
+          "representation": "rigid",
+          "rest": [
+            137,
+            489
+          ],
+          "sweptBounds": [
+            134.08551080142942,
+            423.96924708372666,
+            637.0000000000001,
+            497.00000000000006
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
           "id": "vessel-hull",
           "representation": "rigid",
           "rest": [
@@ -146,10 +228,10 @@
             523
           ],
           "sweptBounds": [
-            754,
-            510,
+            447,
+            508.90088713412047,
             927.0000000000001,
-            539
+            536
           ],
           "issues": [],
           "visualStatus": "unreviewed"
@@ -162,10 +244,10 @@
             523
           ],
           "sweptBounds": [
-            792,
-            403,
+            485,
+            402.92860403400056,
             929.0000000000001,
-            523
+            520
           ],
           "issues": [
             {
@@ -184,10 +266,10 @@
             523
           ],
           "sweptBounds": [
-            770.5,
+            463.5,
             429.5,
             883.5000000000001,
-            517.5
+            514.5
           ],
           "issues": [
             {
@@ -206,10 +288,10 @@
             523
           ],
           "sweptBounds": [
-            800,
-            400,
+            493,
+            399.8984160983988,
             885.0000000000001,
-            525
+            522
           ],
           "issues": [
             {
@@ -412,18 +494,12 @@
             542
           ],
           "sweptBounds": [
-            256,
-            541.9999999999999,
-            343,
-            570.0000000000001
+            255.83428102742087,
+            541.3771015047006,
+            454,
+            585
           ],
-          "issues": [
-            {
-              "kind": "source",
-              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
-              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
-            }
-          ],
+          "issues": [],
           "visualStatus": "unreviewed"
         },
         {
@@ -435,17 +511,91 @@
           ],
           "sweptBounds": [
             256,
-            518.9999999999999,
-            350,
-            547.0000000000001
+            527.9999999999999,
+            454,
+            562
           ],
-          "issues": [
-            {
-              "kind": "source",
-              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
-              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
-            }
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "lake-duck-head",
+          "representation": "rigid",
+          "rest": [
+            297,
+            533
           ],
+          "sweptBounds": [
+            290,
+            518.8689427755901,
+            461,
+            556
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "shore-duck-body",
+          "representation": "rigid",
+          "rest": [
+            516,
+            617
+          ],
+          "sweptBounds": [
+            471.6298570124121,
+            590,
+            536,
+            617.5699145038474
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "shore-duck-head",
+          "representation": "rigid",
+          "rest": [
+            529,
+            595
+          ],
+          "sweptBounds": [
+            521.517385258687,
+            576.9415734492567,
+            547.8491535785115,
+            607.2069542035763
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "feeding-duck",
+          "representation": "rigid",
+          "rest": [
+            750,
+            587
+          ],
+          "sweptBounds": [
+            715,
+            559.2505802725972,
+            772.8977682553194,
+            602.1191674244616
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "feeding-duck-reflection",
+          "representation": "rigid",
+          "rest": [
+            750,
+            587
+          ],
+          "sweptBounds": [
+            714,
+            595.1007287338056,
+            770.3647069142266,
+            625.034271121358
+          ],
+          "issues": [],
           "visualStatus": "unreviewed"
         }
       ],

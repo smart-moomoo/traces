@@ -1,0 +1,53 @@
+{
+  "scope": "Local v2 subject-first revision; not deployed or full 23-scene acceptance",
+  "priority": "Several semantic subjects with their own actions. Background effects are optional.",
+  "scenes": [
+    {
+      "id": "San-Francisco",
+      "subjects": 2,
+      "parts": 8,
+      "actions": [
+        "staggered sail fill and release",
+        "hull heel and recovery",
+        "opposite travel in distinct depth lanes",
+        "pass and settle"
+      ],
+      "observed": "32-second playback completed; 24 captured states inspected with background effects disabled. Original rigging/hull residuals discovered and fixed using a separate source footprint; final still inspected afterward. Final version also completed 32.02 seconds (3,843 rendered frames, maximum step 0.016 s); enlarged whole-subject views inspected at seven timestamps.",
+      "remaining": [
+        "Materials/contact/full-site visual acceptance"
+      ]
+    },
+    {
+      "id": "Los-Gatos",
+      "subjects": 3,
+      "parts": 7,
+      "actions": [
+        "standing duck braces and preens breast",
+        "swimmer bends neck then approaches, pauses and feeds",
+        "existing upended duck shifts balance while foraging"
+      ],
+      "observed": "Seven enlarged composite poses inspected. Head remains at neck, standing feet stay on source rock, three subjects have distinct pose changes. Reflection added to follow the right feeding duck. A 28-second complete playback finished (3,363 rendered frames, maximum timeline step 0.011 s), 24 full-scene states inspected after reflection addition; no browser errors.",
+      "remaining": [
+        "Tiny source edge and reflection quality at display scale",
+        "Full-site visual acceptance"
+      ]
+    }
+  ],
+  "otherScenes": "Not yet upgraded to this multi-subject action standard; do not count background effects as completion.",
+  "runtime": {
+    "San-Francisco": {
+      "frames": 1000,
+      "derivedObjectTextures": 8,
+      "downloadedImages": 2,
+      "newRequests": 0
+    },
+    "Los-Gatos": {
+      "frames": 1000,
+      "derivedObjectTextures": 7,
+      "downloadedImages": 2,
+      "newRequests": 0
+    },
+    "artisticAcceptance": "pending, not implied by runtime measurements"
+  },
+  "screenshot": "animation/review/subject-actions-local.jpg"
+}

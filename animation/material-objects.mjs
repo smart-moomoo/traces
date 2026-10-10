@@ -42,9 +42,10 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
   // Repair only the exact source footprint, with a declared existing material
   // sample. The extracted fragment is restored at its original pose at t=0.
   const plate=canvas.getContext('2d');
+  if(definition.repair===false)return {definition,cutout,texture:PIXI.Texture.from(cutout)};
   if(repairPlate){
    if(preciseRepair){
-    plate.save();plate.beginPath();definition.outline.forEach(([px,py],i)=>i?plate.lineTo(x+px,y+py):plate.moveTo(x+px,y+py));plate.closePath();plate.clip();plate.drawImage(repairPlate,0,0,canvas.width,canvas.height);plate.restore();
+    plate.save();plate.beginPath();(definition.eraseOutline||definition.outline).forEach(([px,py],i)=>i?plate.lineTo(x+px,y+py):plate.moveTo(x+px,y+py));plate.closePath();plate.clip();plate.drawImage(repairPlate,0,0,canvas.width,canvas.height);plate.restore();
     return {definition,cutout,texture:PIXI.Texture.from(cutout)};
    }
    const pad=3,patch=document.createElement('canvas'),mask=document.createElement('canvas');patch.width=mask.width=w+pad*2;patch.height=mask.height=h+pad*2;

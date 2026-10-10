@@ -1,4 +1,5 @@
 import {catalog} from './catalog.mjs';
+import {directBayDuet,directLakeTrio} from './subject-direction.mjs';
 
 // Version 2 is explicit and local until all production gates have passed.
 // Previous demo acceptance is never inherited by the new scene definitions.
@@ -116,3 +117,6 @@ for(const scene of expressiveCatalog){
  scene.expression.channels.wind={initial:0,keys};
  scene.expression.channels.lightPosition={initial:-.3,keys:[{time:3,value:-.3},{time:scene.duration*.42,value:.35},{time:scene.duration*.77,value:.8},{time:scene.duration,value:1.3}]};
 }
+
+directBayDuet(sf);
+directLakeTrio(expressiveCatalog.find(s=>s.id==='Los-Gatos'));

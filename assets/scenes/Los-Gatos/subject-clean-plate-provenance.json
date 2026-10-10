@@ -1,0 +1,7 @@
+{
+  "tool": "image_gen.imagegen",
+  "purpose": "One fixed clean plate for original multi-subject cutouts; no per-frame image generation",
+  "generation": "exec-bdac84eb-f5b4-4bc5-a95a-e60038e3ac86.png",
+  "source": "Original approved poster lower artwork",
+  "compositionReplacement": false
+}
