@@ -1,0 +1,39 @@
+{
+  "status": "in-progress",
+  "scope": "Observed defects and repairs; not final acceptance",
+  "findings": [
+    {
+      "scene": "San-Francisco",
+      "layer": "jib,mast,main-sail",
+      "gate": "source",
+      "observation": "Workbench dark/light alpha views showed green hillside, blue sky and orange roof pixels along extracted jib and mast; inspected source detail confirmed old crop coordinates were offset.",
+      "action": "Retraced source-coordinate polygons and recomputed pivots; replaced global sail width scaling with pinned mesh deformation. V2 repair no longer dilates into surrounding original artwork.",
+      "status": "source-repair-inspected; full playback pending",
+      "followup": "Main sail and mast background strips removed in alpha review; jib revised again to trace its actual narrow upper section. Final full-speed review still required."
+    },
+    {
+      "scene": "Chicago",
+      "layer": "river-launch",
+      "gate": "source",
+      "observation": "Structural audit: initial y=498 differs from extracted source anchor y=553. Initial composite cannot reconstruct source at rest.",
+      "action": "Inspect original launch and bridge geometry before revising initial placement and event.",
+      "status": "initial-placement-repaired; visual-review-pending"
+    },
+    {
+      "scene": "Bellevue",
+      "layer": "pool-duck,duck-head,duck-reflection",
+      "gate": "source/rig",
+      "observation": "Alpha inspection showed a cyan water wedge beyond the tail and hard water edges in the reflection; pose closeups showed the head joint stays connected through 0/3/5/8/14/22.4/28 seconds.",
+      "action": "Retraced tail, split original head at neck pivot, added rest/nod/recovery before swimming, and retained warm original reflected pigment instead of transporting cyan background. Added generated clean plate used only inside source footprints.",
+      "status": "pose-closeups-inspected; full-playback-and-reflection-review-pending"
+    },
+    {
+      "scene": "Seattle",
+      "layer": "harbor-ferry",
+      "gate": "source/interaction",
+      "observation": "Five stage views show small original ferry traversing the harbor and passing behind the unchanged cargo ship at constant material scale.",
+      "action": "Moved to common actor renderer, added silhouette-limited clean plate and historical contact events.",
+      "status": "source-and-contact-closeup-review-pending"
+    }
+  ]
+}

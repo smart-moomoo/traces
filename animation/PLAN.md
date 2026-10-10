@@ -1,5 +1,266 @@
 # Footprints continuous material scenes
 
+## Expressive animation revision — October 10, 2026
+
+This revision supersedes the quiet-motion scope and acceptance criteria below.
+The October 8 release is a fixed-asset procedural baseline, not evidence that the
+requested expressive animation is complete. This revision is a plan; its new
+capabilities have not yet been implemented or visually accepted.
+
+### Decision
+
+Keep PixiJS 8 and GitHub Pages. Add GSAP for nested authored timelines and paths;
+use Pixi MeshGeometry/MeshRope for controlled deformation, and articulated
+Containers for rigid material pieces. Do not replace the website with a game
+engine simply to gain tweens. GSAP is a sequencing tool, not a rigging, physics,
+segmentation or storytelling solution.
+
+Spine Professional is the preferred optional visual rig-authoring tool when
+editor-based production is wanted: weighted meshes, constraints and reusable
+animation clips, with the official spine-pixi-v8 runtime. It requires an
+appropriate paid license and authored rigs. It is not an automatic conversion
+of paintings into animation. The baseline plan does not depend on purchasing it;
+provide a rig adapter so Spine assets can be used later without rewriting scenes.
+Do not build a general-purpose animation editor or skeleton engine from scratch.
+
+Official references, checked October 10:
+- https://pixijs.com/8.x/guides/components/scene-objects/mesh
+- https://gsap.com/docs/v3/GSAP/Timeline/
+- https://gsap.com/docs/v3/Plugins/MotionPathPlugin/
+- https://en.esotericsoftware.com/spine-pixi
+- https://us.esotericsoftware.com/spine-purchase
+- https://docs.phaser.io/phaser/concepts/physics
+
+### Representation and runtime
+
+1. Each scene owns a scene graph: fixed art, rigid pieces, articulated groups,
+   deformable surfaces, alternate poses, foreground masks and reaction receivers.
+   Preserve approved source pigments, shell texture, geometric foundation and
+   60–70% composition footprint. Do not distort every shell tile like rubber.
+2. Rigid mineral fragments move through joints or relative placement. Deformable
+   surfaces use pinned meshes with bounded strain; sails attach to masts, branches
+   to trunks. Pose changes requiring unseen surfaces need a few authored texture
+   variants, not extreme scaling of one cutout. Image generation is only for
+   necessary missing assets/clean plates and is never proportional to frame count.
+3. Author reusable clips (bend/release, billow/slacken, detach/tumble/settle,
+   approach/break/recede, turn/paddle/glide), with per-scene parameters and timing.
+   Clips bind to actual geometry and attachment points. A common wind/contact
+   state drives dependent reactions, shadows and reflections.
+4. GSAP timelines evaluate numeric controls from the existing master clock.
+   Seek must reconstruct state, not rely on callbacks firing in forward order.
+   Seed particle trajectories; use fixed-step simulation with cached checkpoints
+   or baked numeric trajectories for secondary motion. Baking motion data does
+   not mean generating bitmap frames. Pause/replay/seek must agree at equal time.
+5. Reflection and wake derive from object pose/velocity and receiver boundaries;
+   depth changes update occlusion order. No disconnected generic ripple overlay.
+   Shell-textured particles remain sparse and subordinate to the original art.
+6. Extend the existing workbench with attachment/mesh/occlusion overlays, editable
+   clip parameters, timeline beats and state comparison at arbitrary timestamps.
+   Keep authoring controls out of the public exhibition interface.
+
+### Naturalness production contract — required before increasing complexity
+
+Success means a coherent animated material artwork, not photorealism. A frozen
+frame must still look like the approved collage; motion must respect its material
+logic. Treat the current 23 animations as assets to audit, not accepted templates.
+The first work product is an issue ledger with a source image, timestamp, observed
+symptom, responsible layer and proposed repair for each scene. Distinguish source,
+rig, motion, interaction and staging defects; do not prescribe a shader for all five.
+
+#### 1. Source-first asset construction
+
+For every moving subject, declare a bounded motion envelope before extraction.
+That envelope determines which hidden pixels must be reconstructed and which
+foreground masks are needed. Separate moving subject, its painted reflection or
+shadow, clean plate and foreground: otherwise the original object can remain as
+a ghost after movement. Keep a source-to-layer coordinate transform and provenance
+for every derived asset. Thin masts, ropes and negative spaces require explicit
+alpha inspection; a coarse bounding polygon is insufficient.
+
+Produce a rest-pose reconstruction and compare it with the approved original at
+native resolution and public display size, on both light and dark alpha mattes.
+Protected regions must remain unchanged; permitted repair regions are explicit.
+Inspect the entire swept area with the subject hidden, not just its starting point.
+If segmentation or the hidden-area repair fails, repair/rebuild the asset before
+animating it. A smaller motion envelope is acceptable only when it still expresses
+the intended event; imperceptible movement is not a workaround for bad extraction.
+
+#### 2. Choose the representation from the material
+
+| Representation | Appropriate use | Forbidden shortcut | Required checks |
+| --- | --- | --- | --- |
+| Rigid fragment/group | Hull, stone, architecture, mineral tiles | Stretching a solid object to simulate turning | Stable proportions and consistent tile scale |
+| Articulated groups | Branch hierarchy, reeds, existing animal parts | Whole-object pivot unrelated to an attachment | Parent/child joints remain connected; angle limits |
+| Pinned surface | Sail/flag support surface, selective water patch | Rubber deformation of the entire collage | Pins, no triangle inversion, bounded stretch |
+| Fragment field | Shell-based foam, moving reflection, loose leaves | Smooth vector particles unrelated to source texture | Source-derived appearance, bounded density and footprint |
+| Authored alternate poses | Heading changes exposing new surfaces | Mirroring asymmetric art or flattening it through zero scale | Consistent silhouette, pigment, texture scale and transitions |
+| Light/receiver layer | Existing shadow, reflected light, water reflection | Generic dark blob or global brightness pulse | Receiver boundary and causal alignment |
+
+For shell-based cloth, preferentially articulate tiles over a deforming support
+rather than stretching the visible mineral texture. Test this at display size;
+use limited mesh deformation only where the approved material can tolerate it.
+Large perspective changes require new views and are out of scope for a single
+flat cutout. A runtime cannot recover unseen geometry from the reference.
+
+#### 3. One scene state drives interacting objects
+
+Each actor defines anchors, material class, allowed degrees of freedom, pose set,
+rest pose, motion envelope and depth band. Each receiver defines its surface,
+obstacles and contact rules. Each event defines its cause, onset, active interval,
+release and residual effects. Values have explicit source-pixel or normalized
+scene units; display resizing must not alter physical relationships.
+
+Evaluate in this order: master time -> authored event state -> rig/pose -> world
+anchors and contacts -> dependent wake/reflection/shadow -> depth/masks -> render.
+Do not independently tween a reflection, shadow or wake to approximately follow
+an actor. Use pose for reflection alignment and historical trajectory/velocity for
+wake emission; a wake must remain where it was emitted instead of riding along
+with the vessel. Water effects must exclude fixed hull/shore/stone masks. A leaf
+contacts a specified receiver before it settles; it does not stop at an arbitrary
+screen coordinate. Stylized response is authored, but cause and consequence agree.
+
+#### 4. Author movement, including its transitions
+
+Every main action specifies preparation, acceleration, action, recovery and hold
+where appropriate; stages can overlap, and not every scene needs the same rhythm.
+Define attachment-aware arcs, velocity continuity, follow-through and rest states.
+Secondary motion has bounded delay/damping driven by the primary event. Remove
+constant universal sine-wave motion from event-critical actors. Ambient motion
+may remain, but must not compete with the focal action or pretend to be the story.
+
+For each scene, write a short visible event description and mark which image
+features convey each beat. Limit simultaneous focal actions. Preserve the paper
+boundary, negative space and tile scale throughout the action, not only at t=0.
+Do not enlarge a vessel towards the viewer merely to make the animation noticeable.
+When a pose change needs additional images, specify those few assets up front;
+never silently substitute a crossfade with a doubled silhouette for a real turn.
+
+#### 5. Review gates and failure routing
+
+These are internal implementation gates, not repeated requests for user approval.
+
+| Gate | Evidence | Failure routes back to |
+| --- | --- | --- |
+| A: artwork reconstruction | Original/rest composite, alpha mattes, exposed clean plate across full motion envelope | Extraction or repair assets |
+| B: rig validity | Extreme poses, attachment overlay, mesh strain/inversion checks, silhouette comparison | Representation, joints or additional poses |
+| C: contact and depth | Contact-time closeups; before/during/after occlusion; reflection/wake alignment | Shared state, receiver or masks |
+| D: complete animated artwork | Full-speed viewing at desktop/mobile display sizes; event described without labels; beginning/end comparison | Choreography and scene composition, or earlier gates |
+| E: runtime and delivery | Repeatable seeks, fixed asset count, frame-time/memory record, page controls and deployed verification | Runtime, resource lifecycle or deployment |
+
+Quantitative checks catch specific defects; none establishes visual naturalness.
+Review the whole clip at playback speed plus slow inspection near contacts and
+pose transitions. Contact sheets alone cannot prove continuous motion is natural.
+Record actual viewing evidence and remaining defects; do not mark an entire set
+accepted from automatic loading or pixel-change tests. Separate engineering pass,
+internal visual review and any explicit user acceptance in the release record.
+
+### Implementation packages and migration boundaries
+
+The following are planned modules/contracts, not claims of existing functionality:
+
+- Extend the existing scene contract with actor, rig, receiver and event schemas;
+  retain original scene IDs and route selection. Version new scene definitions.
+- Add a GSAP score adapter that samples numeric controls from master time; keep
+  state reconstruction independent of callback order and GSAP's wall-clock ticker.
+- Add small rigid-group, pinned-mesh and pose-set adapters; optional Spine adapter
+  implements the same sampling interface. Use library primitives rather than
+  writing a full skeleton editor or general-purpose physics engine.
+- Replace transform-only object mounting incrementally with these adapters;
+  bind contacts, depth masks and dependent effects to the evaluated actor state.
+- Extend asset preparation manifests with swept repair areas, alpha, pivots and
+  receivers. Add workbench views for gates A–D and a per-scene defect ledger.
+- Track each of 23 scenes through source audited -> assets ready -> rig ready ->
+  interactions ready -> whole-scene reviewed -> release verified. A generic effect
+  applied to a scene does not advance it directly to whole-scene reviewed.
+
+Ship the new renderer through explicit per-scene version selection during local
+migration. Keep the current release available until the upgraded scene passes the
+visual gates. Do not turn a failed new rig into a silent static or micro-motion
+fallback and count it as completed. Retain original artwork as reduced-motion
+presentation; that is an accessibility mode, not animation acceptance.
+
+Dependencies are pinned and self-hosted for the static site. Measure on named
+hardware/browser combinations: target 60 fps desktop and at least 30 fps on the
+chosen mobile test device, documenting measured frame times and memory rather
+than promising universal performance. Use bounded caches and dispose textures on
+scene changes. Simulate deterministically or bake numeric motion for reliable
+seeking; all variants must retain fixed image assets across 1,000 output frames.
+No paid editor is purchased as part of this plan update.
+
+### Scene programme (proposals, not invented personal memories)
+
+Every sequence must make a visible change and a consequent response readable at
+normal viewing size. These beats are adapted after checking source geometry;
+never invent a conspicuous new protagonist just to satisfy a template.
+
+| Place | Main event and consequent development | Capability family |
+| --- | --- | --- |
+| Seattle | Existing small ferry crosses; its spreading wake interrupts the cargo reflection, which reassembles after passage | path, receivers, fragment displacement |
+| Bellevue | Duck paddles, changes heading, then glides; wake changes with speed and dissipates | articulated/pose variants, contacts |
+| San Francisco | Gust tensions the sail from its fixed mast, propels the vessel, then sail slackens and wake subsides | pinned mesh, coupled motion |
+| Stanford | Branch flexes; a leaf detaches, passes the lamp, touches down and settles | joints, release, occlusion, contact |
+| Mountain View | Gust traverses reeds in depth order; tips recover with delayed motion as water responds | articulated chains, shared field |
+| Sunnyvale | Canopy parts under wind; a moving sun patch crosses lawn and closes again | mesh/groups, source-derived shadow |
+| San Jose | Cloud boundary reveals successive facade planes; highlights resolve into a changed light balance | layered light masks |
+| Los Gatos | Source duck changes course along shore; reflection follows, crossing ripples fade | pose/path, receiver interaction |
+| Santa Cruz | Flag tightens, folds and releases while nearby foliage responds to the same gust | pinned cloth, secondary motion |
+| Los Angeles | Cloud shadow traverses the observatory; evening illumination resolves across architectural planes | depth-aware light score |
+| Santa Monica | Palm fronds bend with lag; flag follows the gust; a shoreline wave completes its arrival and retreat | joints, cloth, surf |
+| San Diego | Wave front approaches, breaks at the actual shore and drains back through the material fragments | segmented wave mesh, sparse particles |
+| Dallas | Cloud shadow passes between facade groups, revealing distinct depth and reflected light changes | grouped masks, delayed reflection |
+| Fort Worth | Source leaf tumbles onto the pool, makes contact, then drifts with decaying ripples | pose changes, collision event, receiver |
+| Chicago | Existing launch emerges from bridge occlusion; wake remains behind and reaches the bank | depth/path, persistent trail |
+| Champaign | Branch releases autumn fragments; they turn, settle on snow and leave a changed composition | joints, seeded particles, settlement |
+| New Orleans | Oak branch gives under wind; leaf releases, catches a second gust and lands behind a root | articulated chain, multistage trajectory |
+| Wallace | Canopy opens and closes over the gate, exposing and concealing a coherent patch of light | joint groups, projected mask |
+| Charleston | Moving canopy shadow traverses successive facade/porch planes and resolves | layered light, occlusion |
+| Savannah | Moss strands bend from fixed attachments; a travelling gust produces delayed recovery | rope mesh, damped response |
+| Miami | Water divides around the fixed stone vessel; reflection separates and closes after the swell | obstacle-aware wave/receiver |
+| Miami Beach | Wave reaches the jetty, splits, breaks at exposed edges and retreats with sparse foam fragments | segmented mesh, obstacle contacts |
+| Everglades | Existing animal makes a restrained articulated adjustment; nearby reeds and water respond only at contact | source-compatible joints/poses |
+
+### Implementation order and deliverables
+
+A. Audit all 23 scenes and build the source/rig/motion/interaction defect ledger.
+Complete rest reconstruction and motion-envelope asset inspection first. Replace
+transform-only object definitions with typed rig/attachment/receiver contracts. Add GSAP behind the existing clock and renderer adapter. Keep public
+interaction, original art and current fallback working during migration.
+B. Pass asset and rig gates for the relevant scene before choreography. Implement
+the action families in production modules: articulated rigid groups,
+pinned surfaces, curve paths/pose transitions, material particles, contact-driven
+reflection/wakes and layered light. Each family is used by the catalogue rather
+than existing as an isolated demonstration.
+C. Finish Seattle, San Francisco and New Orleans as complete sequences covering
+water interaction, cloth and organic motion. These are integration milestones,
+not permission gates or the final stopping point. Fix shared defects in the
+capabilities, then author the remaining scenes using their individual programmes.
+D. Review all 23 full sequences at actual exhibition size, including transition
+into/out of the scene. Preserve texture scale, whitespace and readable silhouettes.
+Record unresolved visual faults honestly; the prior release review cannot approve
+changed rigs/assets. Refresh source-hashed evidence only after reviewing changes.
+E. Verify determinism on backward seeks/replay; alpha/occlusion/attachment bounds;
+no frame-dependent image requests over 1,000 renders; representative desktop and
+mobile performance, resource disposal and reduced-motion presentation. Reduce
+mesh/particle complexity before degrading source resolution. Export is optional:
+use the same clock and renderer to capture frames, not an image-generation loop.
+F. Push through the existing Pages workflow after visual and functional review,
+verify deployed asset versions and all destination entries, and report limitations.
+
+### Acceptance change
+
+Movement must be perceptible at normal scale without a debug pixel comparison.
+A viewer should be able to describe what happened and its consequence without
+reading text. More amplitude or more objects moving is not by itself improvement.
+At least the event-relevant shape/pose or interaction must develop; generic ambient
+oscillation alone does not pass. Frame count, clean console and performance do
+not substitute for this review. No unsupported claim of user approval is permitted.
+
+Implementation effort scales with unique assets, rigs and authored events. Runtime
+and optional export still cost compute per rendered frame, but increasing duration
+to 1,000 frames must not incur 1,000 image-generation calls or bitmap downloads.
+
+---
+
 ## Objective and delivery
 
 Complete the migration for all 23 places, preserving the approved poster lower-half

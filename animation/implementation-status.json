@@ -1,0 +1,31 @@
+{
+  "goal": "active",
+  "release": "not-published",
+  "version": 2,
+  "completedEngineering": [
+    "23-scene structural asset preflight",
+    "pinned local GSAP 3.15.0 sampling",
+    "pinned mesh with inversion/strain checks",
+    "shared actor/joint/reflection state and historical contacts",
+    "source/alpha/pose inspection views and swept bounds",
+    "one 23 x 1000 render lifecycle pass with no new requests (before latest Bellevue/Chicago edits)"
+  ],
+  "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
+  "currentWork": [
+    "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
+    "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
+    "Review all source masks and protected structures against new forcing amplitude",
+    "Complete 23 individual stories and full playback, refresh release evidence only afterward"
+  ],
+  "generatedAssets": [
+    {
+      "path": "assets/scenes/Seattle/ferry-clean-plate-v2.png",
+      "use": "Only original ferry silhouette; full generated composition is never substituted for original art"
+    },
+    {
+      "path": "assets/scenes/Bellevue/duck-clean-plate-v2.png",
+      "use": "Only original swimming duck/reflection footprints"
+    }
+  ],
+  "tests": "expressive-rig, scene-state and existing functional tests passed; exhibition-release source hash gate intentionally remains stale until new visual review. Do not bypass it."
+}

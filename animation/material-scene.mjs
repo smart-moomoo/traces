@@ -3,6 +3,8 @@ import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './materi
 import {StoryClock} from './timeline.mjs';
 import {surfAt,shorelineSegments} from './surf.mjs';
 import {makeShadowMap} from './shadows.mjs';
+import {loadScoreEngine,createScore} from './expressive-score.mjs';
+import {actorsAt,receiversAt} from './scene-state.mjs';
 
 const fragment=`
 precision highp float;
@@ -23,6 +25,11 @@ uniform float uMode;
 uniform vec4 uContact0;
 uniform vec4 uContact1;
 uniform vec4 uContact2;
+uniform vec4 uMotion0;
+uniform vec4 uMotion1;
+uniform vec4 uMotion2;
+uniform float uVersion;
+uniform vec4 uControls;
 uniform vec4 uShore0;
 uniform vec4 uShore1;
 uniform vec4 uShore2;
@@ -33,8 +40,19 @@ float shoreDistance(vec2 p,vec4 edge){
  vec2 v=edge.zw-edge.xy;
  return length(p-edge.xy-v*clamp(dot(p-edge.xy,v)/max(dot(v,v),1.),0.,1.));
 }
-float contactWave(vec2 p,vec4 contact,float t){
+float contactWave(vec2 p,vec4 contact,vec4 motion,float t){
  float age=t-contact.z;if(age<0.||contact.w<=0.)return 0.;
+ if(uVersion>1.){
+  vec2 direction=motion.xy/max(length(motion.xy),.001),normal=vec2(-direction.y,direction.x);
+  if(length(motion.xy)<.1){direction=vec2(1.,0.);normal=vec2(0.,1.);}
+  vec2 delta=p-contact.xy;
+  float along=dot(delta,direction),across=dot(delta,normal)*2.6;
+  float distance=length(vec2(along*.7,across));
+  float front=age*19.;
+  float birth=smoothstep(0.,.65,age),death=1.-smoothstep(8.,15.,age);
+  float velocityGain=mix(.5,1.,clamp(length(motion.xy)/18.,0.,1.));
+  return sin((distance-front)*.12)*exp(-pow((distance-front)/24.,2.))*birth*death*contact.w*velocityGain;
+ }
  float distance=length((p-contact.xy)*vec2(1.,2.6));
  float front=age*28.;return sin((distance-front)*.11)*exp(-pow((distance-front)/70.,2.))*exp(-age*.09)*contact.w;
 }
@@ -48,6 +66,7 @@ void main(){
  float delay=clamp(position,0.,1.)*2.8;
  float localTime=t-delay;
  float energy=smoothstep(uTiming.x,uTiming.y,localTime)*(1.-smoothstep(uTiming.z,uTiming.w,t));
+ if(uVersion>1.)energy=mix(uControls.x,uControls.y,clamp(position,0.,1.))*(1.-smoothstep(uTiming.w-2.8,uTiming.w,t));
  float leafPigment=smoothstep(.015,.08,original.g-original.b)*(1.-smoothstep(.035,.14,original.r-original.g));
  float mossPigment=smoothstep(.46,.72,min(original.r,original.g))*(1.-smoothstep(.01,.13,original.b-original.g));
  float warmPigment=smoothstep(.02,.10,original.r-original.b)*smoothstep(.4,.65,max(original.r,original.g));
@@ -57,7 +76,7 @@ void main(){
  float travelling=sin(dot(patch,uDirection)*.045-localTime*1.45);
  float distance=length((p-uOrigin*uSize)*vec2(1.,2.6));
  float radius=max(0.,t-5.)*28.;
- float ring=(contactWave(p,uContact0,t)+contactWave(p,uContact1,t)+contactWave(p,uContact2,t))*energy;
+ float ring=(contactWave(p,uContact0,uMotion0,t)+contactWave(p,uContact1,uMotion1,t)+contactWave(p,uContact2,uMotion2,t))*energy;
  float wave=mix(travelling*energy,ring,uMode==1.? .75:.2);
  float crest=0.;
  if(uMode==2.){
@@ -67,11 +86,12 @@ void main(){
  }
  float attachment=anchor.b>.25&&anchor.b<.75?clamp((n.y-anchor.g)*10.,0.,1.):clamp(length((n-anchor.rg)*vec2(uSize.x/uSize.y,1.))*(anchor.b>.75?28.:4.),0.,1.);
  float sway=sin(localTime*1.4-patch.x*.008-attachment*.8)*attachment*energy;
- vec2 offset=vec2((wave*2.5*regions.r+sway*2.*foliage),wave*.6*regions.r+sway*.25*foliage)*pigment;
+ if(uVersion>1.)sway=attachment*(energy+.24*(uControls.y-uControls.x))*4.;
+ vec2 offset=vec2((wave*(uVersion>1.?5.:2.5)*regions.r+sway*2.*foliage),wave*(uVersion>1.?1.2:.6)*regions.r+sway*.25*foliage)*pigment;
  float breath=pow(sin(clamp((t-4.)/20.,0.,1.)*6.2831853),2.)*smoothstep(0.,.08,anchor.g-n.y);
  offset.y+=body*breath*1.8;
  vec4 color=texture(uTexture,clamp(uv+offset*uInputSize.zw,uInputClamp.xy,uInputClamp.zw));
- float cloud=exp(-pow((position-(-.3+progress*1.6))/.23,2.));
+ float cloud=exp(-pow((position-(uVersion>1.?uControls.z:-.3+progress*1.6))/.23,2.));
  float projected=texture(uShadows,clamp(n+vec2(sin(localTime*.55)*.014,cos(localTime*.4)*.004)*energy,vec2(0.),vec2(1.))).r;
  float shade=uMode==4.?0.:-(cloud*.18+projected*.16)*regions.b*energy;
  float sparkle=(travelling*.027+ring*.04)*regions.r*energy;
@@ -99,6 +119,7 @@ export function scoreAt(scene,time){
 export class MaterialScene{
  static async mount(host,{scene,onTime=()=>{}}){
   const player=new MaterialScene();player.scene=scene;player.onTime=onTime;
+  if(scene.expression)player.expression=createScore(scene.expression,await loadScoreEngine());
   player.app=new PIXI.Application();const [sx,sy,w,h]=scene.crop;
   await player.app.init({width:w,height:h,resolution:Math.min(devicePixelRatio,2),autoDensity:true,antialias:true,autoStart:false,preference:'webgl',background:0xf8f6f1});
   player.app.canvas.style.cssText='width:100%;height:100%;object-fit:contain;display:block';host.append(player.app.canvas);
@@ -108,7 +129,8 @@ export class MaterialScene{
   let repairPlate=null;
   if(scene.repairPlate){player.repairUrl=new URL('../'+scene.repairPlate,import.meta.url).href;repairPlate=new Image();repairPlate.src=player.repairUrl;await repairPlate.decode();}
   player.shadowTexture=PIXI.Texture.from(makeShadowMap(canvas,scene));
-  const objectMaterials=prepareObjects(canvas,scene.objects,repairPlate);
+  const objectMaterials=prepareObjects(canvas,scene.objects,repairPlate,{preciseRepair:scene.version===2});
+  player.auditAssets={source:im,cleanPlate:canvas,objects:objectMaterials};
   player.art=PIXI.Texture.from(canvas);
   const makeCanvas=()=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c;};
   const regions=makeCanvas(),anchors=makeCanvas(),rc=regions.getContext('2d'),ac=anchors.getContext('2d');
@@ -127,8 +149,9 @@ export class MaterialScene{
   player.regionTexture=PIXI.Texture.from(regions);player.anchorTexture=PIXI.Texture.from(anchors);
   const origin=scene.regions.find(r=>r.kind==='water')?.anchor||[.5,.5];
   const shore=shorelineSegments(scene);while(shore.length<4)shore.push([0,0,0,0]);
-  const contacts=contactOrigins(scene).slice(0,3);while(contacts.length<3)contacts.push([0,0,0,0]);
-  player.filter=new PIXI.Filter({glProgram:PIXI.GlProgram.from({vertex,fragment}),resources:{uShadows:player.shadowTexture.source,uRegions:player.regionTexture.source,uAnchors:player.anchorTexture.source,sceneUniforms:{uShore0:{value:new Float32Array(shore[0]),type:'vec4<f32>'},uShore1:{value:new Float32Array(shore[1]),type:'vec4<f32>'},uShore2:{value:new Float32Array(shore[2]),type:'vec4<f32>'},uShore3:{value:new Float32Array(shore[3]),type:'vec4<f32>'},uSurf:{value:new Float32Array(4),type:'vec4<f32>'},uSize:{value:new Float32Array([w,h]),type:'vec2<f32>'},uScore:{value:new Float32Array(4),type:'vec4<f32>'},uOrigin:{value:new Float32Array(origin),type:'vec2<f32>'},uDirection:{value:new Float32Array(scene.score.direction),type:'vec2<f32>'},uTiming:{value:new Float32Array([scene.score.onset,scene.score.peak,scene.score.decay,scene.score.settle]),type:'vec4<f32>'},uContact0:{value:new Float32Array(contacts[0]),type:'vec4<f32>'},uContact1:{value:new Float32Array(contacts[1]),type:'vec4<f32>'},uContact2:{value:new Float32Array(contacts[2]),type:'vec4<f32>'},uMode:{value:({ripple:1,surf:2,dusk:3,glint:4})[scene.mode]||0,type:'f32'}}}});
+  const contacts=(scene.version===2?receiversAt(scene,0).map(c=>[...c.position,c.born,c.strength]):contactOrigins(scene)).slice(0,3);while(contacts.length<3)contacts.push([0,0,0,0]);
+  const emissions=scene.version===2?receiversAt(scene,0).map(c=>[c.velocity?.vx||0,c.velocity?.vy||0,0,0]):[];while(emissions.length<3)emissions.push([0,0,0,0]);
+  player.filter=new PIXI.Filter({glProgram:PIXI.GlProgram.from({vertex,fragment}),resources:{uShadows:player.shadowTexture.source,uRegions:player.regionTexture.source,uAnchors:player.anchorTexture.source,sceneUniforms:{uControls:{value:new Float32Array(4),type:'vec4<f32>'},uVersion:{value:scene.version||1,type:'f32'},uMotion0:{value:new Float32Array(emissions[0]),type:'vec4<f32>'},uMotion1:{value:new Float32Array(emissions[1]),type:'vec4<f32>'},uMotion2:{value:new Float32Array(emissions[2]),type:'vec4<f32>'},uShore0:{value:new Float32Array(shore[0]),type:'vec4<f32>'},uShore1:{value:new Float32Array(shore[1]),type:'vec4<f32>'},uShore2:{value:new Float32Array(shore[2]),type:'vec4<f32>'},uShore3:{value:new Float32Array(shore[3]),type:'vec4<f32>'},uSurf:{value:new Float32Array(4),type:'vec4<f32>'},uSize:{value:new Float32Array([w,h]),type:'vec2<f32>'},uScore:{value:new Float32Array(4),type:'vec4<f32>'},uOrigin:{value:new Float32Array(origin),type:'vec2<f32>'},uDirection:{value:new Float32Array(scene.score.direction),type:'vec2<f32>'},uTiming:{value:new Float32Array([scene.score.onset,scene.score.peak,scene.score.decay,scene.score.settle]),type:'vec4<f32>'},uContact0:{value:new Float32Array(contacts[0]),type:'vec4<f32>'},uContact1:{value:new Float32Array(contacts[1]),type:'vec4<f32>'},uContact2:{value:new Float32Array(contacts[2]),type:'vec4<f32>'},uMode:{value:({ripple:1,surf:2,dusk:3,glint:4})[scene.mode]||0,type:'f32'}}}});
   const sprite=new PIXI.Sprite(player.art);sprite.filters=[player.filter];sprite.filterArea=new PIXI.Rectangle(0,0,w,h);player.app.stage.addChild(sprite);
   player.objects=mountObjects(player.app.stage,objectMaterials,w,h);
   player.clock=new StoryClock(scene.duration);player.render(0);
@@ -136,7 +159,10 @@ export class MaterialScene{
   player.visibility=()=>player.clock.suspend();document.addEventListener('visibilitychange',player.visibility);player.raf=requestAnimationFrame(player.tick);
   return player;
  }
- render(t){const s=scoreAt(this.scene,t),surf=surfAt(this.scene,t);this.filter.resources.sceneUniforms.uniforms.uScore.set([t,s.energy,s.progress,0]);this.filter.resources.sceneUniforms.uniforms.uSurf.set([surf.front,surf.width,surf.energy,surf.foam]);renderObjects(this.objects,t);this.app.render();this.onTime(t,s);}
+ render(t){
+  const s=scoreAt(this.scene,t),surf=surfAt(this.scene,t);
+  const delayed=this.expression?.sample(Math.max(0,t-2.8)),controls=this.expression?.sample(t);
+  if(controls)this.filter.resources.sceneUniforms.uniforms.uControls.set([controls.wind||0,delayed.wind||0,controls.lightPosition||0,0]);this.filter.resources.sceneUniforms.uniforms.uScore.set([t,s.energy,s.progress,0]);this.filter.resources.sceneUniforms.uniforms.uSurf.set([surf.front,surf.width,surf.energy,surf.foam]);renderObjects(this.objects,t,controls,this.scene.version===2?actorsAt(this.scene,t):null);this.app.render();this.onTime(t,s);}
  play(){this.clock.play();} pause(){this.clock.pause();} seek(t){this.clock.seek(t);this.render(this.clock.time);}
  async auditStability(){
   if(!this.scene.probes)return {available:false,reason:'No authored protection probes for this scene.'};
@@ -151,5 +177,5 @@ export class MaterialScene{
   for(let i=0;i<count;i++){const b=performance.now();this.render(this.scene.duration*i/(count-1));max=Math.max(max,performance.now()-b);if(i%25===24){this.app.renderer.gl.finish();await new Promise(requestAnimationFrame);}}
   const result={frames:count,elapsedMs:Math.round(performance.now()-start),maxSubmissionMs:+max.toFixed(2),downloadedImages:1+(this.repairUrl?1:0),derivedMaskTextures:3+this.objects.filter(o=>o.maskTexture).length,derivedObjectTextures:this.objects.length,newRequests:performance.getEntriesByType('resource').length-before,visualReview:this.scene.visualReview};this.seek(restore);return result;
  }
- async destroy(){cancelAnimationFrame(this.raf);document.removeEventListener('visibilitychange',this.visibility);this.app.destroy(true,{children:true,texture:false});this.filter.destroy();for(const o of this.objects){o.texture.destroy(true);o.maskTexture?.destroy(true);}this.art.destroy(true);this.regionTexture.destroy(true);this.anchorTexture.destroy(true);this.shadowTexture.destroy(true);}
+ async destroy(){cancelAnimationFrame(this.raf);document.removeEventListener('visibilitychange',this.visibility);this.expression?.destroy();this.app.destroy(true,{children:true,texture:false});this.filter.destroy();for(const o of this.objects){o.rig?.geometry?.destroy(true);o.texture.destroy(true);o.maskTexture?.destroy(true);}this.art.destroy(true);this.regionTexture.destroy(true);this.anchorTexture.destroy(true);this.shadowTexture.destroy(true);}
 }

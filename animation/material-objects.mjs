@@ -1,4 +1,5 @@
 import {evaluateTrack} from './scene-contract.mjs';
+import {mountRig,sampleRig} from './material-rig.mjs';
 
 // Small authored fragments share the original material, world coordinates and
 // time score. No generated frames and no free-running physics state.
@@ -21,42 +22,56 @@ export function contactOrigins(scene){
   return [event.position[0]*width,event.position[1]*height,event.time,event.strength??1];
  });
 }
-export function prepareObjects(canvas,definitions=[],repairPlate=null){
+export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRepair=false}={}){
  const source=document.createElement('canvas');source.width=canvas.width;source.height=canvas.height;
  source.getContext('2d').drawImage(canvas,0,0);
  return definitions.map(definition=>{
   const [x,y,w,h]=definition.crop,cutout=document.createElement('canvas');cutout.width=w;cutout.height=h;
   const ctx=cutout.getContext('2d');ctx.beginPath();
   definition.outline.forEach(([px,py],i)=>i?ctx.lineTo(px,py):ctx.moveTo(px,py));ctx.closePath();ctx.clip();ctx.drawImage(source,-x,-y);
+  if(definition.matte==='warm-reflection'){
+   // Retain warm/dark reflected pigment, not the surrounding cyan water tile.
+   // This is a source-pixel matte; no synthetic mirrored replacement artwork.
+   const data=ctx.getImageData(0,0,w,h);
+   for(let i=0;i<data.data.length;i+=4){
+    const r=data.data[i],g=data.data[i+1],b=data.data[i+2],warm=Math.max(r-b,g-b);
+    const alpha=Math.max(0,Math.min(1,(warm-3)/14));data.data[i+3]*=alpha*alpha*(3-2*alpha);
+   }
+   ctx.putImageData(data,0,0);
+  }
   // Repair only the exact source footprint, with a declared existing material
   // sample. The extracted fragment is restored at its original pose at t=0.
   const plate=canvas.getContext('2d');
   if(repairPlate){
+   if(preciseRepair){
+    plate.save();plate.beginPath();definition.outline.forEach(([px,py],i)=>i?plate.lineTo(x+px,y+py):plate.moveTo(x+px,y+py));plate.closePath();plate.clip();plate.drawImage(repairPlate,0,0,canvas.width,canvas.height);plate.restore();
+    return {definition,cutout,texture:PIXI.Texture.from(cutout)};
+   }
    const pad=3,patch=document.createElement('canvas'),mask=document.createElement('canvas');patch.width=mask.width=w+pad*2;patch.height=mask.height=h+pad*2;
    const pc=patch.getContext('2d'),mc=mask.getContext('2d');pc.drawImage(repairPlate,-x+pad,-y+pad,canvas.width,canvas.height);
    mc.fillStyle=mc.strokeStyle='white';mc.lineWidth=4;mc.lineJoin='round';mc.beginPath();definition.outline.forEach(([px,py],i)=>i?mc.lineTo(px+pad,py+pad):mc.moveTo(px+pad,py+pad));mc.closePath();mc.fill();mc.stroke();
    pc.globalCompositeOperation='destination-in';pc.filter='blur(1px)';pc.drawImage(mask,0,0);plate.drawImage(patch,x-pad,y-pad);
-   return {definition,texture:PIXI.Texture.from(cutout)};
+   return {definition,cutout,texture:PIXI.Texture.from(cutout)};
   }
   plate.save();plate.beginPath();
   const pad=definition.repairPadding||0;
   if(pad)plate.rect(x-pad,y-pad,w+pad*2,h+pad*2);else definition.outline.forEach(([px,py],i)=>i?plate.lineTo(x+px,y+py):plate.moveTo(x+px,y+py));plate.closePath();plate.clip();
   const [sx,sy,sw,sh]=definition.repairSample;plate.drawImage(source,sx,sy,sw,sh,x-pad,y-pad,w+pad*2,h+pad*2);plate.restore();
-  return {definition,texture:PIXI.Texture.from(cutout)};
+  return {definition,cutout,texture:PIXI.Texture.from(cutout)};
  });
 }
 export function mountObjects(stage,prepared,width,height){
  return prepared.map(({definition,texture})=>{
-  const group=new PIXI.Container(),sprite=new PIXI.Sprite(texture);sprite.pivot.set(...definition.pivot);group.addChild(sprite);stage.addChild(group);
+  const group=new PIXI.Container(),rig=mountRig(texture,definition),sprite=rig.display;sprite.pivot.set(...definition.pivot);group.addChild(sprite);stage.addChild(group);
   let maskTexture;
   if(definition.occluders?.length){
    const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,width,height);ctx.globalCompositeOperation='destination-out';
    for(const polygon of definition.occluders){ctx.beginPath();polygon.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();}
    maskTexture=PIXI.Texture.from(canvas);const mask=new PIXI.Sprite(maskTexture);stage.addChild(mask);group.mask=mask;
   }
-  return {definition,texture,maskTexture,sprite};
+  return {definition,texture,maskTexture,sprite,rig};
  });
 }
-export function renderObjects(objects,time){
- for(const {definition,sprite} of objects){const pose=objectPose(definition,time);sprite.position.set(pose.x,pose.y);sprite.rotation=pose.rotation;sprite.scale.set(pose.scaleX,pose.scaleY);}
+export function renderObjects(objects,time,state={},poses=null){
+ for(const {definition,sprite,rig} of objects){const pose=poses?.get(definition.id)||objectPose(definition,time);sprite.position.set(pose.x,pose.y);sprite.rotation=pose.rotation;sprite.scale.set(pose.scaleX,pose.scaleY);sampleRig(rig,definition,state);}
 }

@@ -1,0 +1,1063 @@
+{
+  "scope": "Structural preflight only; no visual acceptance inferred",
+  "scenes": [
+    {
+      "id": "Seattle",
+      "source": "assets/posters/Seattle.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [
+        {
+          "id": "harbor-ferry",
+          "representation": "rigid",
+          "rest": [
+            160,
+            470
+          ],
+          "sweptBounds": [
+            107,
+            440,
+            775.0000000000001,
+            489
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "environment": [
+        {
+          "id": "harbor",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ],
+      "note": "V2 uses the common renderer and the original small ferry; source/interaction review is pending."
+    },
+    {
+      "id": "Bellevue",
+      "source": "assets/posters/Bellevue.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [
+        {
+          "id": "duck-reflection",
+          "representation": "rigid",
+          "rest": [
+            505,
+            565
+          ],
+          "sweptBounds": [
+            416,
+            564.9999999999999,
+            527,
+            600
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "pool-duck",
+          "representation": "rigid",
+          "rest": [
+            505,
+            565
+          ],
+          "sweptBounds": [
+            419,
+            548.9999999999999,
+            526,
+            585
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "duck-head",
+          "representation": "rigid",
+          "rest": [
+            492,
+            560
+          ],
+          "sweptBounds": [
+            412,
+            547.9999999999999,
+            496.00000000000006,
+            584
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "environment": [
+        {
+          "id": "pool",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "park-trees",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "San-Francisco",
+      "source": "assets/posters/San-Francisco.png",
+      "crop": [
+        0,
+        769,
+        1024,
+        767
+      ],
+      "status": "source-audit",
+      "objects": [
+        {
+          "id": "vessel-hull",
+          "representation": "rigid",
+          "rest": [
+            880,
+            523
+          ],
+          "sweptBounds": [
+            754,
+            510,
+            927.0000000000001,
+            539
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "main-sail",
+          "representation": "cloth",
+          "rest": [
+            880,
+            523
+          ],
+          "sweptBounds": [
+            792,
+            403,
+            929.0000000000001,
+            523
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "jib",
+          "representation": "cloth",
+          "rest": [
+            880,
+            523
+          ],
+          "sweptBounds": [
+            770.5,
+            429.5,
+            883.5000000000001,
+            517.5
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "mast",
+          "representation": "rigid",
+          "rest": [
+            880,
+            523
+          ],
+          "sweptBounds": [
+            800,
+            400,
+            885.0000000000001,
+            525
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "environment": [
+        {
+          "id": "bay",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Stanford",
+      "source": "assets/posters/Stanford.png",
+      "crop": [
+        0,
+        769,
+        1024,
+        767
+      ],
+      "status": "source-audit",
+      "objects": [
+        {
+          "id": "courtyard-leaf",
+          "representation": "rigid",
+          "rest": [
+            268,
+            505
+          ],
+          "sweptBounds": [
+            257,
+            494,
+            511.39974382354825,
+            637.2800316162593
+          ],
+          "issues": [
+            {
+              "kind": "source",
+              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
+              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "environment": [
+        {
+          "id": "left-canopy",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "right-canopy",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "courtyard",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Mountain-View",
+      "source": "assets/posters/Mountain-View.png",
+      "crop": [
+        0,
+        735,
+        1024,
+        801
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "tidal-channels",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "reeds",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Sunnyvale",
+      "source": "assets/posters/Sunnyvale.png",
+      "crop": [
+        0,
+        742,
+        1024,
+        794
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "right-tree",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "left-tree",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "lawn",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "San-Jose",
+      "source": "assets/posters/San-Jose.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "salt-pond",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Los-Gatos",
+      "source": "assets/posters/Los-Gatos.png",
+      "crop": [
+        0,
+        737,
+        1024,
+        799
+      ],
+      "status": "source-audit",
+      "objects": [
+        {
+          "id": "lake-duck-reflection",
+          "representation": "rigid",
+          "rest": [
+            284,
+            542
+          ],
+          "sweptBounds": [
+            256,
+            541.9999999999999,
+            343,
+            570.0000000000001
+          ],
+          "issues": [
+            {
+              "kind": "source",
+              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
+              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "lake-duck",
+          "representation": "rigid",
+          "rest": [
+            284,
+            542
+          ],
+          "sweptBounds": [
+            256,
+            518.9999999999999,
+            350,
+            547.0000000000001
+          ],
+          "issues": [
+            {
+              "kind": "source",
+              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
+              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "environment": [
+        {
+          "id": "lake",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "left-branches",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "right-branches",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "duck-channel",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Santa-Cruz",
+      "source": "assets/posters/Santa-Cruz.png",
+      "crop": [
+        0,
+        771,
+        1024,
+        765
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "flag",
+          "kind": "cloth",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "tree",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "sea",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Los-Angeles",
+      "source": "assets/posters/Los-Angeles.png",
+      "crop": [
+        0,
+        769,
+        1024,
+        767
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "windows",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Santa-Monica",
+      "source": "assets/posters/Santa-Monica.png",
+      "crop": [
+        0,
+        738,
+        1024,
+        798
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "palm-crowns",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-flag",
+          "kind": "cloth",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "east-flag",
+          "kind": "cloth",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "ocean",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "San-Diego",
+      "source": "assets/posters/San-Diego.png",
+      "crop": [
+        0,
+        769,
+        1024,
+        767
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "surf",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Dallas",
+      "source": "assets/posters/Dallas.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "facades",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Fort-Worth",
+      "source": "assets/posters/Fort-Worth.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [
+        {
+          "id": "pond-leaf",
+          "representation": "rigid",
+          "rest": [
+            657,
+            311
+          ],
+          "sweptBounds": [
+            650.9999999999999,
+            303.99999999999994,
+            691.142439070182,
+            470.0412309920355
+          ],
+          "issues": [
+            {
+              "kind": "source",
+              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
+              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "environment": [
+        {
+          "id": "pool",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "garden",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Chicago",
+      "source": "assets/posters/Chicago.png",
+      "crop": [
+        0,
+        769,
+        1024,
+        767
+      ],
+      "status": "source-audit",
+      "objects": [
+        {
+          "id": "river-launch",
+          "representation": "rigid",
+          "rest": [
+            451,
+            553
+          ],
+          "sweptBounds": [
+            414.99999999999994,
+            505,
+            475.00000000000006,
+            615
+          ],
+          "issues": [
+            {
+              "kind": "source",
+              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
+              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "environment": [
+        {
+          "id": "river",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Champaign-Urbana",
+      "source": "assets/posters/Champaign-Urbana.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "autumn-left",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "autumn-right",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "snow",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "New-Orleans",
+      "source": "assets/posters/New-Orleans.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [
+        {
+          "id": "falling-shell-leaf",
+          "representation": "rigid",
+          "rest": [
+            253,
+            49
+          ],
+          "sweptBounds": [
+            241.99999999999997,
+            37.99999999999999,
+            591.7442726708323,
+            648.9747275634318
+          ],
+          "issues": [
+            {
+              "kind": "source",
+              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
+              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
+            },
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "environment": [
+        {
+          "id": "oak-crown",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "grass",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Wallace",
+      "source": "assets/posters/Wallace.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "oak-left",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "oak-right",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "gate-ground",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Charleston",
+      "source": "assets/posters/Charleston.png",
+      "crop": [
+        0,
+        841,
+        1024,
+        695
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "canopy",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "house-fronts",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Savannah",
+      "source": "assets/posters/Savannah.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "avenue",
+          "kind": "light",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "left-high-moss",
+          "kind": "moss",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "left-low-moss",
+          "kind": "moss",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "right-high-moss",
+          "kind": "moss",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "right-low-moss",
+          "kind": "moss",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Miami",
+      "source": "assets/posters/Miami.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "reflected-stone",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Miami-Beach",
+      "source": "assets/posters/Miami-Beach.png",
+      "crop": [
+        0,
+        768,
+        1024,
+        768
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "right-sea",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "left-sea",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    },
+    {
+      "id": "Everglades",
+      "source": "assets/posters/Everglades.png",
+      "crop": [
+        0,
+        776,
+        1024,
+        760
+      ],
+      "status": "source-audit",
+      "objects": [],
+      "environment": [
+        {
+          "id": "pond",
+          "kind": "water",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "reeds-left",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "reeds-right",
+          "kind": "foliage",
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "resting-torso",
+          "kind": "body",
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "requiredEvidence": [
+        "rest-reconstruction",
+        "exposed-repair",
+        "alpha-mattes",
+        "rig-extremes",
+        "contact-depth",
+        "full-speed-playback"
+      ]
+    }
+  ]
+}
