@@ -1,0 +1,680 @@
+{
+  "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
+  "total": 23,
+  "authored": 6,
+  "scenes": [
+    {
+      "id": "Seattle",
+      "source": "assets/posters/Seattle.png",
+      "subjects": 0,
+      "renderParts": 1,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [
+        "harbor-ferry"
+      ],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence",
+        "Existing moving layers have not been assigned to semantic subjects"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Bellevue",
+      "source": "assets/posters/Bellevue.png",
+      "subjects": 2,
+      "renderParts": 5,
+      "rigs": [],
+      "joints": [
+        {
+          "part": "duck-head",
+          "parent": "pool-duck"
+        },
+        {
+          "part": "ledge-duck-head",
+          "parent": "ledge-duck-body"
+        }
+      ],
+      "actions": [
+        "brace-on-ledge",
+        "preen",
+        "look-up",
+        "dip-bill",
+        "paddle-away",
+        "pause-and-feed",
+        "glide"
+      ],
+      "unassigned": [],
+      "missing": [],
+      "errors": [],
+      "authored": true,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "San-Francisco",
+      "source": "assets/posters/San-Francisco.png",
+      "subjects": 2,
+      "renderParts": 8,
+      "rigs": [
+        {
+          "part": "far-main-sail",
+          "kind": "cloth",
+          "pin": "left"
+        },
+        {
+          "part": "far-jib",
+          "kind": "cloth",
+          "pin": "right"
+        },
+        {
+          "part": "main-sail",
+          "kind": "cloth",
+          "pin": "left"
+        },
+        {
+          "part": "jib",
+          "kind": "cloth",
+          "pin": "right"
+        }
+      ],
+      "joints": [],
+      "actions": [
+        "catch-gust",
+        "heel-and-recover",
+        "cross-bay",
+        "ease-sails"
+      ],
+      "unassigned": [],
+      "missing": [],
+      "errors": [],
+      "authored": true,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Stanford",
+      "source": "assets/posters/Stanford.png",
+      "subjects": 0,
+      "renderParts": 1,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [
+        "courtyard-leaf"
+      ],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence",
+        "Existing moving layers have not been assigned to semantic subjects"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Mountain-View",
+      "source": "assets/posters/Mountain-View.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Sunnyvale",
+      "source": "assets/posters/Sunnyvale.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "San-Jose",
+      "source": "assets/posters/San-Jose.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Los-Gatos",
+      "source": "assets/posters/Los-Gatos.png",
+      "subjects": 3,
+      "renderParts": 7,
+      "rigs": [],
+      "joints": [
+        {
+          "part": "lake-duck-head",
+          "parent": "lake-duck"
+        },
+        {
+          "part": "shore-duck-head",
+          "parent": "shore-duck-body"
+        }
+      ],
+      "actions": [
+        "brace",
+        "preen-breast",
+        "raise-head",
+        "dip-bill",
+        "glide",
+        "pause-and-forage",
+        "resume",
+        "upend-balance",
+        "probe-underwater",
+        "recover-balance"
+      ],
+      "unassigned": [],
+      "missing": [],
+      "errors": [],
+      "authored": true,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Santa-Cruz",
+      "source": "assets/posters/Santa-Cruz.png",
+      "subjects": 2,
+      "renderParts": 2,
+      "rigs": [
+        {
+          "part": "hanging-flag",
+          "kind": "hanging",
+          "pin": "top"
+        }
+      ],
+      "joints": [],
+      "actions": [
+        "bend-from-hoist",
+        "fold",
+        "lag-and-recover",
+        "yield",
+        "overshoot",
+        "settle"
+      ],
+      "unassigned": [],
+      "missing": [],
+      "errors": [],
+      "authored": true,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Los-Angeles",
+      "source": "assets/posters/Los-Angeles.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Santa-Monica",
+      "source": "assets/posters/Santa-Monica.png",
+      "subjects": 2,
+      "renderParts": 2,
+      "rigs": [
+        {
+          "part": "california-flag",
+          "kind": "flag",
+          "pin": "right"
+        },
+        {
+          "part": "us-flag",
+          "kind": "flag",
+          "pin": "right"
+        }
+      ],
+      "joints": [],
+      "actions": [
+        "free-edge-lift",
+        "fold-travel",
+        "tension",
+        "release",
+        "delayed-lift"
+      ],
+      "unassigned": [],
+      "missing": [],
+      "errors": [],
+      "authored": true,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "San-Diego",
+      "source": "assets/posters/San-Diego.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Dallas",
+      "source": "assets/posters/Dallas.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Fort-Worth",
+      "source": "assets/posters/Fort-Worth.png",
+      "subjects": 0,
+      "renderParts": 1,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [
+        "pond-leaf"
+      ],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence",
+        "Existing moving layers have not been assigned to semantic subjects"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Chicago",
+      "source": "assets/posters/Chicago.png",
+      "subjects": 0,
+      "renderParts": 1,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [
+        "river-launch"
+      ],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence",
+        "Existing moving layers have not been assigned to semantic subjects"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Champaign-Urbana",
+      "source": "assets/posters/Champaign-Urbana.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "New-Orleans",
+      "source": "assets/posters/New-Orleans.png",
+      "subjects": 0,
+      "renderParts": 1,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [
+        "falling-shell-leaf"
+      ],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence",
+        "Existing moving layers have not been assigned to semantic subjects"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Wallace",
+      "source": "assets/posters/Wallace.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Charleston",
+      "source": "assets/posters/Charleston.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Savannah",
+      "source": "assets/posters/Savannah.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Miami",
+      "source": "assets/posters/Miami.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Miami-Beach",
+      "source": "assets/posters/Miami-Beach.png",
+      "subjects": 0,
+      "renderParts": 0,
+      "rigs": [],
+      "joints": [],
+      "actions": [],
+      "unassigned": [],
+      "missing": [
+        "No semantic subject/action programme is wired to the renderer",
+        "No staged subject event sequence"
+      ],
+      "errors": [],
+      "authored": false,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    },
+    {
+      "id": "Everglades",
+      "source": "assets/posters/Everglades.png",
+      "subjects": 3,
+      "renderParts": 4,
+      "rigs": [
+        {
+          "part": "alligator-head",
+          "kind": "spine",
+          "pin": "right"
+        },
+        {
+          "part": "alligator-tail",
+          "kind": "spine",
+          "pin": "left"
+        },
+        {
+          "part": "near-lotus-leaf",
+          "kind": "blade",
+          "pin": "bottom"
+        },
+        {
+          "part": "far-lotus-leaf",
+          "kind": "blade",
+          "pin": "bottom"
+        }
+      ],
+      "joints": [],
+      "actions": [
+        "raise-head",
+        "hold-attention",
+        "sweep-tail",
+        "lower-head",
+        "rest",
+        "cup-blade",
+        "unfurl",
+        "settle",
+        "delayed-cup"
+      ],
+      "unassigned": [],
+      "missing": [],
+      "errors": [],
+      "authored": true,
+      "visualReview": "pending",
+      "gates": {
+        "source": "pending",
+        "rig": "pending",
+        "interaction": "pending",
+        "artwork": "pending",
+        "runtime": "pending"
+      }
+    }
+  ]
+}

@@ -31,9 +31,66 @@
         "Tiny source edge and reflection quality at display scale",
         "Full-site visual acceptance"
       ]
+    },
+    {
+      "id": "Bellevue",
+      "subjects": 2,
+      "parts": 5,
+      "actions": [
+        "ledge duck braces, preens and raises its head",
+        "swimmer dips, pauses, feeds and paddles away"
+      ],
+      "observed": "Seven enlarged poses inspected; standing feet remain at the ledge. Source footprint extended to remove original swimmer head residue. Final browser benchmark: 1000 frames, 2 downloaded images, 5 object textures, no new requests. Exact full-playback counters were not recovered after output truncation; do not infer them.",
+      "remaining": [
+        "Complete visual acceptance of source edges and reflection",
+        "Final full-speed evidence record"
+      ]
+    },
+    {
+      "id": "Santa-Monica",
+      "subjects": 2,
+      "parts": 2,
+      "actions": [
+        "California flag free-edge lift, folds, release",
+        "USA flag delayed lift, independent folds, settle"
+      ],
+      "observed": "Seven enlarged poses inspected. 30.02-second real-time pass, 3603 rendered frames, maximum timeline step 0.017 s, 24 sampled states with background effects off. Later water-mask exclusion protects poles and does not change subject motion.",
+      "remaining": [
+        "Final visual and integration acceptance",
+        "Palm articulation remains outside this revision"
+      ]
+    },
+    {
+      "id": "Santa-Cruz",
+      "subjects": 2,
+      "parts": 2,
+      "actions": [
+        "flag bends from fixed hoist, folds and releases",
+        "rooted tree tip yields, overshoots and settles"
+      ],
+      "observed": "30.03-second real-time pass, 3604 rendered frames, max timeline step 0.011 s, 24 sampled states. Afterward improved foliage-only repair and removed conflicting tree shader; seven current composite poses inspected.",
+      "remaining": [
+        "Full-speed final source-repair review",
+        "Final visual and integration acceptance"
+      ]
+    },
+    {
+      "id": "Everglades",
+      "subjects": 3,
+      "parts": 4,
+      "actions": [
+        "original alligator raises head, holds, sweeps tail, lowers head and rests",
+        "two original lotus leaves cup and unfurl with separate timings"
+      ],
+      "observed": "Original source reconstruction and seven sampled poses inspected. Found tail ridge residue and foreground leaf carried by tail; retraced tail and introduced source-exclusion plus world occlusion. Current version completed 32.02 seconds, 3842 rendered frames, max timeline step 0.016 s, 24 captured states. Current peak still inspected with background effects off. No browser errors.",
+      "remaining": [
+        "Fine source-seam and reed foreground separation",
+        "Review complete visual sequence for material plausibility; playback counters do not pass this gate",
+        "Final visual and integration acceptance"
+      ]
     }
   ],
-  "otherScenes": "Not yet upgraded to this multi-subject action standard; do not count background effects as completion.",
+  "otherScenes": "17 scenes have no explicit semantic subject programme yet. All 23 final visual gates remain pending.",
   "runtime": {
     "San-Francisco": {
       "frames": 1000,
@@ -47,7 +104,39 @@
       "downloadedImages": 2,
       "newRequests": 0
     },
-    "artisticAcceptance": "pending, not implied by runtime measurements"
+    "artisticAcceptance": "pending, not implied by runtime measurements",
+    "Bellevue": {
+      "frames": 1000,
+      "derivedObjectTextures": 5,
+      "downloadedImages": 2,
+      "newRequests": 0,
+      "elapsedMs": 328
+    },
+    "Santa-Monica": {
+      "frames": 1000,
+      "derivedObjectTextures": 2,
+      "downloadedImages": 2,
+      "newRequests": 0,
+      "elapsedMs": 354
+    },
+    "Santa-Cruz": {
+      "frames": 1000,
+      "derivedObjectTextures": 2,
+      "downloadedImages": 2,
+      "newRequests": 0,
+      "elapsedMs": 329
+    },
+    "Everglades": {
+      "frames": 1000,
+      "derivedObjectTextures": 4,
+      "downloadedImages": 2,
+      "newRequests": 0,
+      "elapsedMs": 1459
+    }
   },
-  "screenshot": "animation/review/subject-actions-local.jpg"
+  "screenshot": "animation/review/subject-actions-local.jpg",
+  "screenshots": [
+    "animation/review/subject-actions-local.jpg",
+    "animation/review/wetland-subject-actions.jpg"
+  ]
 }

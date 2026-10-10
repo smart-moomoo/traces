@@ -1,0 +1,8 @@
+{
+  "tool": "image_gen.imagegen",
+  "asset": "flags-clean-plate-v2.png",
+  "reference": "source-v2.png",
+  "generatedFile": "exec-0e752ccd-3662-47c3-8af4-c5f7be702b24.png",
+  "use": "Only fixed source-object repair footprints; original source cutouts supply all moving pixels",
+  "perFrameGeneration": false
+}

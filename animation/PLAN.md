@@ -217,16 +217,16 @@ never invent a conspicuous new protagonist just to satisfy a template.
 | Place | Main event and consequent development | Capability family |
 | --- | --- | --- |
 | Seattle | Existing small ferry crosses; its spreading wake interrupts the cargo reflection, which reassembles after passage | path, receivers, fragment displacement |
-| Bellevue | Duck paddles, changes heading, then glides; wake changes with speed and dissipates | articulated/pose variants, contacts |
-| San Francisco | Gust tensions the sail from its fixed mast, propels the vessel, then sail slackens and wake subsides | pinned mesh, coupled motion |
+| Bellevue | Two original ducks: ledge duck braces/preens/raises its head, swimmer dips/pauses/departs; feet and reflections stay attached | paired subjects, neck joints, contacts |
+| San Francisco | Both original boats fill sails at different times, heel/recover, cross in separate lanes and release wind pressure | multiple subjects, pinned mesh, coupled motion |
 | Stanford | Branch flexes; a leaf detaches, passes the lamp, touches down and settles | joints, release, occlusion, contact |
 | Mountain View | Gust traverses reeds in depth order; tips recover with delayed motion as water responds | articulated chains, shared field |
 | Sunnyvale | Canopy parts under wind; a moving sun patch crosses lawn and closes again | mesh/groups, source-derived shadow |
-| San Jose | Cloud boundary reveals successive facade planes; highlights resolve into a changed light balance | layered light masks |
-| Los Gatos | Source duck changes course along shore; reflection follows, crossing ripples fade | pose/path, receiver interaction |
-| Santa Cruz | Flag tightens, folds and releases while nearby foliage responds to the same gust | pinned cloth, secondary motion |
+| San Jose | Original source is salt ponds, not facades. Author a material crystallization/redistribution event along existing pond boundaries; a light sweep alone is insufficient | source fragment assembly, boundary constraints |
+| Los Gatos | Three source ducks: shore bird preens, swimmer dips/approaches/feeds, upended bird balances while feeding | semantic cast, neck joints, contact/receiver |
+| Santa Cruz | Hanging flag bends and recovers from its top attachment; original tree tip yields and rebounds with a delay | hanging cloth, fold score, rooted rigid branch |
 | Los Angeles | Cloud shadow traverses the observatory; evening illumination resolves across architectural planes | depth-aware light score |
-| Santa Monica | Palm fronds bend with lag; flag follows the gust; a shoreline wave completes its arrival and retreat | joints, cloth, surf |
+| Santa Monica | Two original flags lift, fold and relax at different times; source palm-frond articulation remains to implement | independent side-pinned cloth, branch joints |
 | San Diego | Wave front approaches, breaks at the actual shore and drains back through the material fragments | segmented wave mesh, sparse particles |
 | Dallas | Cloud shadow passes between facade groups, revealing distinct depth and reflected light changes | grouped masks, delayed reflection |
 | Fort Worth | Source leaf tumbles onto the pool, makes contact, then drifts with decaying ripples | pose changes, collision event, receiver |
@@ -238,7 +238,7 @@ never invent a conspicuous new protagonist just to satisfy a template.
 | Savannah | Moss strands bend from fixed attachments; a travelling gust produces delayed recovery | rope mesh, damped response |
 | Miami | Water divides around the fixed stone vessel; reflection separates and closes after the swell | obstacle-aware wave/receiver |
 | Miami Beach | Wave reaches the jetty, splits, breaks at exposed edges and retreats with sparse foam fragments | segmented mesh, obstacle contacts |
-| Everglades | Existing animal makes a restrained articulated adjustment; nearby reeds and water respond only at contact | source-compatible joints/poses |
+| Everglades | Original animal raises its head, holds, sweeps its tail and rests; two source lotus blades cup/unfurl at different times | Root-preserving backbone and leaf meshes implemented locally; source seams, foreground occlusion and full visual acceptance remain pending |
 
 ### Implementation order and deliverables
 
@@ -413,7 +413,7 @@ If absent, replace that action with an environmental event supported by the art.
 | Savannah | Hanging moss sways and settles | Moss clusters, trunks/ground; attachment points fixed, no disappearing moss |
 | Miami | Gust disturbs stone-boat reflections | Water/reflection masks; stone boat remains fixed |
 | Miami Beach | Wave runs along jetty and recedes | Sea, jetty occlusion, foam; wave follows actual shore |
-| Everglades | Existing animal stirs water, reeds respond | Original animal if visible, water and reeds; no invented animal |
+| Everglades | Original alligator raises head and sweeps tail on dry bank; two original lotus leaves cup and release | One animal subject, two plant subjects. No invented splash: tail does not touch water. |
 
 ## Migration steps
 

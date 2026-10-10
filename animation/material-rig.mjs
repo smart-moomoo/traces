@@ -8,15 +8,35 @@ export function restGrid(width,height,columns=10,rows=14){
  }
  return {vertices,uvs,indices:new Uint32Array(indices),width,height};
 }
-export function deformGrid(grid,rig,amount,output=new Float32Array(grid.vertices.length)){
+export function deformGrid(grid,rig,amount,output=new Float32Array(grid.vertices.length),secondary=0){
  const {width,height,vertices}=grid;
  for(let i=0;i<vertices.length;i+=2){
   const x=vertices[i],y=vertices[i+1],u=x/width,v=y/height;
+  if(rig.kind==='spine'){
+   // Constant-curvature backbone with rigid cross sections. Its root has an
+   // exact position and tangent, unlike translating or scaling a whole cutout.
+   const right=rig.pin==='right',q=right?width-x:x,angle=(rig.angle||0)*amount;
+   const center=height*(rig.center??.5),dy=y-center,k=angle/width,theta=k*q;
+   const along=Math.abs(k)<1e-9?q:Math.sin(theta)/k;
+   const bend=Math.abs(k)<1e-9?0:(1-Math.cos(theta))/k;
+   output[i]=(right?width-along:along)+(right?1:-1)*dy*Math.sin(theta);
+   output[i+1]=center+bend+dy*Math.cos(theta);
+   continue;
+  }
+  if(rig.kind==='blade'){
+   // A leaf cups around its stem; the attachment edge stays at rest.
+   const free=1-v;
+   output[i]=x+(u-.5)*rig.amplitude*amount*free;
+   output[i+1]=y-(rig.lift||0)*amount*Math.sin(Math.PI*u)*free;
+   continue;
+  }
   // Cloth is pinned along its mast edge and at both top/bottom boundaries.
   // Hanging forms are pinned across the top and bend progressively to the tip.
-  const weight=rig.kind==='hanging'?v*v:(rig.pin==='right'?1-u:u)*Math.sin(Math.PI*v);
-  output[i]=x+rig.amplitude*amount*weight;
-  output[i+1]=y+(rig.lift||0)*amount*weight;
+  const free=rig.pin==='right'?1-u:u;
+  const weight=rig.kind==='hanging'?v*v:rig.kind==='flag'?free:free*Math.sin(Math.PI*v);
+  const fold=rig.kind==='hanging'?Math.sin(Math.PI*v)*v:Math.sin(2*Math.PI*free+v*Math.PI/2)*free;
+  output[i]=x+rig.amplitude*amount*weight+(rig.flutter||0)*secondary*fold;
+  output[i+1]=y+(rig.lift||0)*amount*weight+(rig.flutter||0)*secondary*fold*.35;
  }
  return output;
 }
@@ -31,6 +51,11 @@ export function inspectGrid(grid,vertices){
  }
  return {valid:minArea>0&&Number.isFinite(maxStretch),minAreaRatio:minArea,maxStretch};
 }
+export function rigPadding(actor){
+ const rig=actor.rig;if(!rig)return 0;
+ if(rig.kind==='spine')return (actor.crop[2]+actor.crop[3])*Math.abs(rig.angle||0);
+ return Math.abs(rig.amplitude||0)+Math.abs(rig.lift||0)+Math.abs(rig.flutter||0)*1.35;
+}
 export function mountRig(texture,definition){
  const rig=definition.rig;
  if(!rig)return {display:new PIXI.Sprite(texture)};
@@ -41,6 +66,6 @@ export function mountRig(texture,definition){
 }
 export function sampleRig(mounted,definition,state){
  if(!mounted.grid)return;
- deformGrid(mounted.grid,definition.rig,state[definition.rig.channel]||0,mounted.positions);
+ deformGrid(mounted.grid,definition.rig,state[definition.rig.channel]||0,mounted.positions,state[definition.rig.secondaryChannel]||0);
  mounted.geometry.getBuffer('aPosition').update();
 }

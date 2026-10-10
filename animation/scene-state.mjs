@@ -1,4 +1,5 @@
 import {objectPose} from './material-objects.mjs';
+import {rigPadding} from './material-rig.mjs';
 
 function transformOffset(pose,[x,y]){
  const c=Math.cos(pose.rotation),s=Math.sin(pose.rotation);
@@ -60,7 +61,7 @@ export function validateActors(scene){
 
 export function sweptBounds(scene,id,samples=240){
  const actor=scene.objects.find(o=>o.id===id);if(!actor)throw new Error(`Missing actor: ${id}`);
- const bounds=[Infinity,Infinity,-Infinity,-Infinity],pad=Math.abs(actor.rig?.amplitude||0)+Math.abs(actor.rig?.lift||0);
+ const bounds=[Infinity,Infinity,-Infinity,-Infinity],pad=rigPadding(actor);
  for(let i=0;i<=samples;i++){
   const pose=actorsAt(scene,scene.duration*i/samples).get(id);
   for(const [x,y] of actor.outline){

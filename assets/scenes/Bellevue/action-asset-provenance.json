@@ -1,0 +1,8 @@
+{
+  "tool": "image_gen.imagegen",
+  "asset": "two-ducks-clean-plate-v3.png",
+  "reference": "source-v2.png",
+  "generatedFile": "exec-33a5d965-985f-4b17-9489-cb7b6f9b31df.png",
+  "use": "Only fixed source-object repair footprints; original source cutouts supply all moving pixels",
+  "perFrameGeneration": false
+}

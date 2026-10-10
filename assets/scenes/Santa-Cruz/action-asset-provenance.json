@@ -1,0 +1,8 @@
+{
+  "tool": "image_gen.imagegen",
+  "asset": "flag-twig-clean-plate-v2.png",
+  "reference": "source-v2.png",
+  "generatedFile": "exec-81b084e3-7235-4f9f-9688-8e741bb685ca.png",
+  "use": "Only fixed source-object repair footprints; original source cutouts supply all moving pixels",
+  "perFrameGeneration": false
+}

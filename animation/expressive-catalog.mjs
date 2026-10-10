@@ -1,5 +1,7 @@
 import {catalog} from './catalog.mjs';
-import {directBayDuet,directLakeTrio} from './subject-direction.mjs';
+import {directBayDuet,directLakeTrio,directParkPair} from './subject-direction.mjs';
+import {directCoastalFlags} from './cloth-direction.mjs';
+import {directWetland} from './wetland-direction.mjs';
 
 // Version 2 is explicit and local until all production gates have passed.
 // Previous demo acceptance is never inherited by the new scene definitions.
@@ -120,3 +122,6 @@ for(const scene of expressiveCatalog){
 
 directBayDuet(sf);
 directLakeTrio(expressiveCatalog.find(s=>s.id==='Los-Gatos'));
+directParkPair(bellevue);
+for(const id of ['Santa-Monica','Santa-Cruz'])directCoastalFlags(expressiveCatalog.find(s=>s.id===id));
+directWetland(expressiveCatalog.find(s=>s.id==='Everglades'));

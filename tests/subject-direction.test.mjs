@@ -5,9 +5,11 @@ import {actorsAt} from '../animation/scene-state.mjs';
 
 const bay=expressiveCatalog.find(s=>s.id==='San-Francisco');
 const lake=expressiveCatalog.find(s=>s.id==='Los-Gatos');
+const park=expressiveCatalog.find(s=>s.id==='Bellevue');
 assert.equal(subjectInventory(bay).subjects,2,'Eight boat parts represent two subjects, not eight');
 assert.equal(subjectInventory(lake).subjects,3,'Heads and reflections must not inflate the cast');
-for(const scene of [bay,lake]){
+assert.equal(subjectInventory(park).subjects,2,'Standing and swimming ducks are separate subjects');
+for(const scene of [bay,lake,park]){
  assert.deepEqual(subjectInventory(scene).errors,[]);
  for(const subject of scene.subjects){
   assert.ok(subject.actions.length>=3,'A subject needs distinct authored actions');
@@ -31,4 +33,8 @@ assert.ok(preening.get('shore-duck-head').rotation-still.get('shore-duck-head').
 assert.equal(preening.get('shore-duck-body').x,still.get('shore-duck-body').x,'Preening does not slide the planted duck');
 const duplicate=structuredClone(bay);duplicate.subjects[1].parts.push('far-hull');
 assert.ok(subjectInventory(duplicate).errors.some(e=>e.includes('two subjects')),'Part ownership cannot be double-counted');
+const parkStart=actorsAt(park,0),parkPreen=actorsAt(park,5);
+assert.equal(parkPreen.get('ledge-duck-body').x,parkStart.get('ledge-duck-body').x);
+assert.equal(parkPreen.get('ledge-duck-body').y,parkStart.get('ledge-duck-body').y,'Ledge contact stays planted during preening');
+assert.ok(parkPreen.get('ledge-duck-head').rotation<-.8,'Standing duck has a real neck action');
 console.log('PASS: semantic cast, articulated action, attachment continuity, independent water lanes and deterministic ensemble seeking.');

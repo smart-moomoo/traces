@@ -132,3 +132,44 @@ export function directLakeTrio(scene){
  scene.contacts=[{object:'lake-duck',time:8,offset:[-13,0],strength:.5},{object:'feeding-duck',time:11,offset:[5,4],strength:.5},{object:'lake-duck',time:19,offset:[16,0],strength:.5}];
  scene.remaining=['Three original ducks have distinct joint/feeding/travel actions; source mattes and full-speed joint continuity require visual review.'];
 }
+
+export function directParkPair(scene){
+ scene.title='池沿与水面之间';
+ scene.repairPlate='assets/scenes/Bellevue/two-ducks-clean-plate-v3.png';
+ const swimmer=scene.objects.find(o=>o.id==='pool-duck');
+ swimmer.eraseOutline=[[-1,6],[3,5],[7,-1],[12,-1],[17,3],[17,7],[23,6],[32,8],[37,6],[38,1],[42,-1],[47,-1],[51,2],[48,5],[47,10],[44,16],[31,20],[11,20],[5,15],[4,10]];
+ swimmer.tracks={
+  x:track([[0,505],[4,505],[9,483],[13,479],[17,479],[23,447],[28,438]]),
+  y:track([[0,565],[4,565],[9,571],[13,573],[17,573],[23,583],[28,584]]),
+  rotation:track([[0,0],[3,0],[5,-.025],[9,0],[12,-.02],[17,0],[22,.02],[26,0],[28,0]])
+ };
+ const head=scene.objects.find(o=>o.id==='duck-head');
+ head.repair=false;
+ head.tracks.rotation=track([[0,0],[2,0],[3,-.55],[4,0],[11,0],[13,-.65],[15,-.45],[17,0],[28,0]]);
+ head.motionBounds=[421,548,495,587];
+ const make=(id,crop,anchor,outline,tracks,extra={})=>({id,crop,anchor,pivot:[anchor[0]-crop[0],anchor[1]-crop[1]],outline,tracks,
+  materialClass:'rigid-shell',...extra});
+ scene.objects.push(
+  make('ledge-duck-body',[504,504,29,16],[516,518],
+   [[3,0],[10,1],[17,4],[22,8],[28,12],[28,15],[15,15],[7,12],[2,8],[0,4]],
+   {rotation:track([[0,0],[2,0],[5,.035],[8,.035],[10,0],[17,0],[20,.025],[24,0],[28,0]])},
+   {motionBounds:[515,517,517,519],eraseOutline:[[-5,-1],[-6,-4],[-1,-5],[0,-8],[7,-8],[11,-4],[11,0],[19,3],[23,7],[30,12],[29,16],[14,16],[5,12],[1,7],[0,2]]}),
+  make('ledge-duck-head',[498,496,17,17],[508,508],
+   [[0,7],[5,5],[7,1],[12,0],[16,3],[16,8],[13,11],[12,16],[7,17],[6,10],[1,10]],
+   {rotation:track([[0,0],[2,0],[4,-.8],[5,-1],[6,-.75],[7,-1],[8,-.8],[10,0],[17,0],[19,-.5],[21,-.7],[24,0],[28,0]])},
+   {follows:{kind:'joint',actor:'ledge-duck-body',offset:[-8,-10]},repair:false,motionBounds:[506,506,510,510]})
+ );
+ scene.subjects=[
+  {id:'ledge-duck',label:'池沿鸭子',root:'ledge-duck-body',parts:['ledge-duck-body','ledge-duck-head'],actions:['brace-on-ledge','preen','look-up']},
+  {id:'pool-swimmer',label:'池中游鸭',root:'pool-duck',parts:['pool-duck','duck-head','duck-reflection'],actions:['dip-bill','paddle-away','pause-and-feed','glide']}
+ ];
+ scene.subjectBeats=[
+  {from:0,to:4,label:'池沿鸭子站稳后低头梳羽，游鸭俯嘴。',subjects:['ledge-duck','pool-swimmer']},
+  {from:4,to:10,label:'游鸭离开池沿，岸边鸭子梳羽后抬头。',subjects:['ledge-duck','pool-swimmer']},
+  {from:10,to:17,label:'游鸭放慢并低头觅食，池沿鸭子停下动作。',subjects:['pool-swimmer','ledge-duck']},
+  {from:17,to:24,label:'游鸭继续游开，岸边鸭子再整理一次羽毛。',subjects:['pool-swimmer','ledge-duck']},
+  {from:24,to:28,label:'游鸭滑行收稳，池沿鸭子抬头。',subjects:['pool-swimmer','ledge-duck']}
+ ];
+ scene.contacts=[{object:'pool-duck',time:7,offset:[12,2],strength:.65},{object:'pool-duck',time:14,offset:[-12,2],strength:.4},{object:'pool-duck',time:21,offset:[12,2],strength:.7}];
+ scene.remaining=['Both original ducks now have independent body/neck actions. Verify planted feet, small neck mattes and shared water contact in full playback.'];
+}

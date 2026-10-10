@@ -29,13 +29,21 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
   const [x,y,w,h]=definition.crop,cutout=document.createElement('canvas');cutout.width=w;cutout.height=h;
   const ctx=cutout.getContext('2d');ctx.beginPath();
   definition.outline.forEach(([px,py],i)=>i?ctx.lineTo(px,py):ctx.moveTo(px,py));ctx.closePath();ctx.clip();ctx.drawImage(source,-x,-y);
-  if(definition.matte==='warm-reflection'){
+  // Foreground leaves/rails belong to their own depth plane. Removing their
+  // source pixels from an actor prevents the actor carrying a second copy.
+  if(definition.sourceExclusions?.length){
+   ctx.save();ctx.globalCompositeOperation='destination-out';
+   for(const polygon of definition.sourceExclusions){ctx.beginPath();polygon.forEach(([px,py],i)=>i?ctx.lineTo(px-x,py-y):ctx.moveTo(px-x,py-y));ctx.closePath();ctx.fill();}
+   ctx.restore();
+  }
+  if(definition.matte==='warm-reflection'||definition.matte==='foliage'){
    // Retain warm/dark reflected pigment, not the surrounding cyan water tile.
    // This is a source-pixel matte; no synthetic mirrored replacement artwork.
    const data=ctx.getImageData(0,0,w,h);
    for(let i=0;i<data.data.length;i+=4){
     const r=data.data[i],g=data.data[i+1],b=data.data[i+2],warm=Math.max(r-b,g-b);
-    const alpha=Math.max(0,Math.min(1,(warm-3)/14));data.data[i+3]*=alpha*alpha*(3-2*alpha);
+    const pigment=definition.matte==='foliage'?(Math.min(g-r,g-b)+2)/8:(warm-3)/14;
+    const alpha=Math.max(0,Math.min(1,pigment));data.data[i+3]*=alpha*alpha*(3-2*alpha);
    }
    ctx.putImageData(data,0,0);
   }
@@ -44,8 +52,17 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
   const plate=canvas.getContext('2d');
   if(definition.repair===false)return {definition,cutout,texture:PIXI.Texture.from(cutout)};
   if(repairPlate){
+   if(definition.matte==='foliage'){
+    // Repair the pigment mask, not its bounding polygon: blue/cream sky tiles
+    // between leaves must stay original instead of moving as a textured patch.
+    const patch=document.createElement('canvas');patch.width=w;patch.height=h;
+    const pc=patch.getContext('2d');pc.drawImage(repairPlate,-x,-y,canvas.width,canvas.height);
+    pc.globalCompositeOperation='destination-in';pc.drawImage(cutout,0,0);plate.drawImage(patch,x,y);
+    return {definition,cutout,texture:PIXI.Texture.from(cutout)};
+   }
    if(preciseRepair){
     plate.save();plate.beginPath();(definition.eraseOutline||definition.outline).forEach(([px,py],i)=>i?plate.lineTo(x+px,y+py):plate.moveTo(x+px,y+py));plate.closePath();plate.clip();plate.drawImage(repairPlate,0,0,canvas.width,canvas.height);plate.restore();
+    if(definition.sourceExclusions?.length){plate.save();plate.beginPath();for(const polygon of definition.sourceExclusions){polygon.forEach(([px,py],i)=>i?plate.lineTo(px,py):plate.moveTo(px,py));plate.closePath();}plate.clip();plate.drawImage(source,0,0);plate.restore();}
     return {definition,cutout,texture:PIXI.Texture.from(cutout)};
    }
    const pad=3,patch=document.createElement('canvas'),mask=document.createElement('canvas');patch.width=mask.width=w+pad*2;patch.height=mask.height=h+pad*2;

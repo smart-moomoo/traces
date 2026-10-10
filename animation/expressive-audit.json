@@ -66,8 +66,8 @@
           ],
           "sweptBounds": [
             416,
-            564.9999999999999,
-            527,
+            564.6911308472838,
+            527.0696985001217,
             600
           ],
           "issues": [],
@@ -82,7 +82,7 @@
           ],
           "sweptBounds": [
             419,
-            548.9999999999999,
+            548.7120300946133,
             526,
             585
           ],
@@ -101,6 +101,38 @@
             547.9999999999999,
             496.00000000000006,
             584
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "ledge-duck-body",
+          "representation": "rigid",
+          "rest": [
+            516,
+            518
+          ],
+          "sweptBounds": [
+            504,
+            503.69363843323214,
+            532.0601867095845,
+            519.5592732361928
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "ledge-duck-head",
+          "representation": "rigid",
+          "rest": [
+            508,
+            508
+          ],
+          "sweptBounds": [
+            496.9300894680347,
+            495.7524059970898,
+            514,
+            513.9857880329934
           ],
           "issues": [],
           "visualStatus": "unreviewed"
@@ -640,18 +672,41 @@
         765
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "hanging-flag",
+          "representation": "hanging",
+          "rest": [
+            724,
+            172
+          ],
+          "sweptBounds": [
+            709.3,
+            157.3,
+            760.7,
+            305.7
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "tree-tip",
+          "representation": "rigid",
+          "rest": [
+            221,
+            299
+          ],
+          "sweptBounds": [
+            199.4678563808778,
+            253.82261926552536,
+            241.9837354878854,
+            301
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
-        {
-          "id": "flag",
-          "kind": "cloth",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "tree",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
         {
           "id": "sea",
           "kind": "water",
@@ -704,21 +759,44 @@
         798
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "california-flag",
+          "representation": "flag",
+          "rest": [
+            308,
+            345
+          ],
+          "sweptBounds": [
+            256.015,
+            337.015,
+            314.985,
+            398.985
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "us-flag",
+          "representation": "flag",
+          "rest": [
+            582,
+            360
+          ],
+          "sweptBounds": [
+            537.92,
+            352.92,
+            589.08,
+            404.08
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
         {
           "id": "palm-crowns",
           "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "west-flag",
-          "kind": "cloth",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "east-flag",
-          "kind": "cloth",
           "visualStatus": "unreviewed"
         },
         {
@@ -1177,7 +1255,72 @@
         760
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "alligator-head",
+          "representation": "spine",
+          "rest": [
+            347,
+            377
+          ],
+          "sweptBounds": [
+            175.15,
+            297.15,
+            379.85,
+            436.85
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "alligator-tail",
+          "representation": "spine",
+          "rest": [
+            683,
+            387
+          ],
+          "sweptBounds": [
+            632.06,
+            311.06,
+            912.94,
+            501.94
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "near-lotus-leaf",
+          "representation": "blade",
+          "rest": [
+            515,
+            538
+          ],
+          "sweptBounds": [
+            453,
+            489,
+            577,
+            554
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "far-lotus-leaf",
+          "representation": "blade",
+          "rest": [
+            615,
+            569
+          ],
+          "sweptBounds": [
+            557,
+            519,
+            668,
+            584
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
         {
           "id": "pond",
@@ -1192,11 +1335,6 @@
         {
           "id": "reeds-right",
           "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "resting-torso",
-          "kind": "body",
           "visualStatus": "unreviewed"
         }
       ],

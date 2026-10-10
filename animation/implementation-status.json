@@ -10,11 +10,15 @@
     "source/alpha/pose inspection views and swept bounds",
     "one 23 x 1000 render lifecycle pass with no new requests (before latest Bellevue/Chicago edits)",
     "Semantic subject ownership distinct from rendering parts; deterministic multi-subject choreography",
-    "Background-effects-off preview; independent source repair and render silhouettes"
+    "Background-effects-off preview; independent source repair and render silhouettes",
+    "Two original Bellevue ducks with separate semantic roles and body/neck joints",
+    "Side-pinned and hanging flags with two-channel bend/fold scores and exact fixed attachments",
+    "Root-preserving constant-curvature backbone and stem-pinned leaf cupping",
+    "Foreground source exclusion shared with repair preservation and world occlusion"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Subject-first priority: San Francisco has two independent original sailboats with sail/heel/crossing/recovery actions; Los Gatos has three original ducks with articulated preening, feeding and travel. Both are local, visual acceptance pending. Other scenes still require this upgrade.",
+    "Six scenes have local explicit subject programmes: San Francisco, Los Gatos, Bellevue, Santa Monica, Santa Cruz and Everglades. Seventeen remain unimplemented at this standard. No final 23-scene acceptance or new deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -36,7 +40,23 @@
     {
       "path": "assets/scenes/Los-Gatos/three-ducks-clean-plate-v2.png",
       "use": "Only vacated original duck/head/reflection footprints; rock feet remain original"
+    },
+    {
+      "path": "assets/scenes/Bellevue/two-ducks-clean-plate-v3.png",
+      "use": "One fixed source repair plate, not per-frame generation"
+    },
+    {
+      "path": "assets/scenes/Santa-Monica/flags-clean-plate-v2.png",
+      "use": "One fixed source repair plate, not per-frame generation"
+    },
+    {
+      "path": "assets/scenes/Santa-Cruz/flag-twig-clean-plate-v2.png",
+      "use": "One fixed source repair plate, not per-frame generation"
+    },
+    {
+      "path": "assets/scenes/Everglades/animal-leaves-clean-plate-v3.png",
+      "use": "Only head, tail and two leaf footprints; original art supplies every moving surface"
     }
   ],
-  "tests": "Nine functional test files passed including multi-subject ownership, articulated action, parent attachments, separate boat lanes, random seek, mesh bounds and legacy regression. Release hash and final visual acceptance remain pending."
+  "tests": "Eleven functional test files passed: subject ownership, joints, rigid contact anchors, bounded cloth/backbone/leaf meshes, rest recovery, random seeking and legacy regression. This does not pass artistic acceptance or release evidence."
 }

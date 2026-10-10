@@ -1,0 +1,13 @@
+{
+  "tool": "Built-in imagegen",
+  "inputs": [
+    "assets/scenes/Everglades/source-v2.png",
+    "assets/scenes/Everglades/animal-leaves-clean-plate-v2.png"
+  ],
+  "prompts": [
+    "Use case: precise-object-edit. Edit target: attached Everglades shell collage. Create ONE fixed clean background repair plate, not animation frames. Remove the entire dark gray alligator including head, all four legs, curled tail and its dark reflected body. Fill its former footprint with the same pale straw reeds and stone bank above the waterline and pale blue/green shell-tile water below. Also remove exactly two foreground lily leaf blades (keep their stems): the broad leaf centered approximately (513,525) and leaf centered (614,555) in this 1024x760 image. Fill only their silhouettes with matching shell mosaic water. Preserve every other leaf, flower, reed, tree, stone, paper margin, text, original framing and exact composition. This is matte natural shell/mineral collage with existing engraved detail, pale colors and geometrical tile foundation. No animal, no new objects, no people, no uniform photograph mosaic, no change of aesthetic. The result will only be used through narrow masks under removed original objects; maintain alignment carefully.",
+    "Precise object edit for a fixed animation cleanplate. Edit the attached shell collage: remove ALL lotus leaves and ALL yellow flowers in the lower watery foreground. Replace all their leaf and petal surfaces with matching pale blue/teal square shell mosaic water. Leave the thin stems in place. The alligator has already been removed; keep it absent. Preserve tree, rocks, reeds, original composition, paper, shell texture, square tile size, framing and lettering. No new objects. Only a repair plate; do not redesign."
+  ],
+  "output": "assets/scenes/Everglades/animal-leaves-clean-plate-v3.png",
+  "use": "One fixed repair plate through head/tail and two leaf masks only; all moving pixels are the original poster. v2 intermediate retained for provenance; not used by renderer."
+}
