@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen",
+  "mode": "precise-object-edit",
+  "input": "assets/scenes/Dallas/source-v2.png",
+  "output": "assets/scenes/Dallas/facade-backing-v2.png",
+  "generatedSource": "/Users/haoren/.codex/generated_images/01a103aa-ebb7-7371-9c20-5a9727835b25/exec-15819d26-bb41-46c4-a4fe-a3235eea725d.png",
+  "promptFile": "assets/scenes/Dallas/facade-backing-prompt.txt",
+  "application": "Only traced source panel footprints. Original image supplies all moving tiles; original skyline, buildings and paper outside footprints remain fixed.",
+  "frameGeneration": false,
+  "acceptance": "pending",
+  "sha256": "dfb16e3e390450a310ffdd8e5647ec1690f8173f2808176a5e9009c6bd807311"
+}

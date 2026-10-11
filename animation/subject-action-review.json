@@ -432,15 +432,18 @@
       "parts": 18,
       "subjectClass": "material-assembly",
       "actions": [
-        "source shell pieces release in sequence",
-        "spread and hold",
-        "dock and settle"
+        "source-seam panel opening",
+        "staggered folded hold",
+        "ordered closing onto matched mineral backing"
       ],
-      "observed": "34.03-second playback completed. At 11 seconds exposed paper reads as holes in the facade, with insufficiently coherent floating-piece staging. Replaced arbitrary rectangles with seam-traced source fragments, but the visual failure remains.",
-      "visualReview": "failed",
+      "observed": "Replaced free-floating panels and white paper holes with fixed-seam planar hinges and one matched facade backing. Seven enlarged subject poses inspected; whole-view paper holes resolved. Completed 34.03 seconds, 4084 rendered frames, maximum time step .015 s. Complete source/lighting/mobile review remains pending.",
+      "visualReview": "pending",
       "remaining": [
-        "Redesign material backing and staging; this is not an accepted city scene"
-      ]
+        "Backing registration and contact shadow at native size",
+        "Full-size/mobile composition and action readability",
+        "Full-exhibition review"
+      ],
+      "previousFailure": "34.03-second playback completed. At 11 seconds exposed paper reads as holes in the facade, with insufficiently coherent floating-piece staging. Replaced arbitrary rectangles with seam-traced source fragments, but the visual failure remains."
     }
   ],
   "otherScenes": "Dallas still lacks the new programme. Miami is an environmental reflected-form sequence, explicitly distinguished from physical subject choreography. Final gates remain pending for all scenes.",

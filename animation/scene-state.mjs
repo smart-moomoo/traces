@@ -92,7 +92,7 @@ export function validateActors(scene){
    if(!Object.values(p).every(Number.isFinite))throw new Error(`${id}: non-finite pose`);
    if(b&&(p.x<b[0]||p.y<b[1]||p.x>b[2]||p.y>b[3]))throw new Error(`${id}: anchor outside authored bounds`);
    if(o.materialClass==='rigid-shell'&&(p.scaleX!==1||p.scaleY!==1))throw new Error(`${id}: rigid material scale changed`);
-   if(o.materialClass==='projected-shell'&&(p.scale!==1||p.scaleX!==1||p.scaleY<.2||p.scaleY>1))throw new Error(`${id}: invalid rigid leaf projection`);
+   if(o.materialClass==='projected-shell'){const fixed=o.projection?.axis==='y'?p.scaleY:p.scaleX,projected=o.projection?.axis==='y'?p.scaleX:p.scaleY;if(p.scale!==1||fixed!==1||projected<.2||projected>1)throw new Error(`${id}: invalid rigid material projection`);}
   }
   receiversAt(scene,scene.duration);
  }catch(e){errors.push(e.message);}

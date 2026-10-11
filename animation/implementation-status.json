@@ -57,11 +57,15 @@
     "Latest no-store 23 x 1000 lifecycle pass after immutable-region and material-swell changes: all scenes mounted and every newRequests count was zero; checkout hashes recorded in lifecycle-stone-water-v2.json",
     "Three original Santa Monica crowns join the two flags; fixed crown hearts/trunk exclusions, delayed tip curl and exact rest. One fixed crown repair image, no generated frames.",
     "Shared lift channel supports source-alpha shadows during material assembly; Dallas source-seam pieces recover exactly, but current artwork is explicitly failed.",
-    "25 functional tests passed; 23 scenes each rendered 1000 frames with zero added requests. Release test remains blocked by outstanding renewed visual review."
+    "25 functional tests passed; 23 scenes each rendered 1000 frames with zero added requests. Release test remains blocked by outstanding renewed visual review.",
+    "Vertical-axis planar projection keeps tile hinge positions fixed; contact shadow lift derives from the same angle. No generated animation frames.",
+    "Local subject-action editor supports GSAP controls and numeric actor tracks, checks finite keys/endpoints/rig strain/world bounds, resets review gates and exports an explicit draft.",
+    "Workbench arbitrary two-time comparison captures actual renderer output and reports actor/control/contact states. Apply, invalid JSON rejection and reset exercised through browser UI.",
+    "26 functional test files pass, including 23-scene authoring round-trips. All 23 scenes rendered 1000 frames after hinge integration with zero added image requests."
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "All 23 scenes now have explicit local programmes. This includes Miami reflected forms and a Dallas material-assembly programme that FAILED visual review. Seattle reflection reassembly, coastal wave development and all release gates remain; no final acceptance or deployment.",
+    "All 23 scenes have local programmes. Dallas floating panels were rejected and replaced with fixed-seam material hinges and matched backing; replacement visual review remains pending. Seattle reflection reassembly, coastal wave development and release gates remain.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -167,12 +171,16 @@
     {
       "path": "assets/scenes/Santa-Monica/crowns-flags-clean-plate-v2.png",
       "use": "One generated fixed repair under three original crown pigment masks and two flag footprints. All moving textures come from original artwork."
+    },
+    {
+      "path": "assets/scenes/Dallas/facade-backing-v2.png",
+      "use": "One fixed material backing under exact source panel masks; all original tile sprites hinge procedurally."
     }
   ],
-  "tests": "25 functional test files pass. The exhibition release gate remains failed because the revised implementation has not completed renewed visual review. Do not refresh its hashes as a substitute for review.",
+  "tests": "26 functional test files pass. New action-authoring coverage includes all 23 scene round-trips, unchanged catalogue/endpoints, rejected invalid edits and deterministic state comparisons. Exhibition release gate remains unpassed pending visual review.",
   "latestSubjectWork": {
     "Santa-Monica": "Three original crowns with fixed hearts, delayed curl/recovery, and two original flags; complete local playback recorded, visual acceptance pending.",
-    "Dallas": "18 seam-traced source pieces in three material groups. Engineering programme exists, artistic review FAILED: exposed-paper holes and weak composition.",
+    "Dallas": "Eighteen fixed-seam planar hinges in three facade groups, one backing plate; former white-paper-hole trial superseded. Full local playback recorded; source/composition/mobile acceptance pending.",
     "publication": "Local only; not released."
   }
 }

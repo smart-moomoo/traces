@@ -552,3 +552,25 @@ All 23 scenes have a programme, including the failed city trial and Miami's
 explicit reflected-form exception. This is an inventory milestone only. The
 latest 23 x 1000 rendering run added zero requests; 25 functional tests pass.
 The release test intentionally remains failed until affected artwork is reviewed.
+
+### Fixed material hinges and action authoring
+
+The failed Dallas floating-panel trial is superseded by 18 planar shell hinges
+on existing facade seams. Hinge positions remain fixed; face foreshortening and
+contact-shadow lift derive from the same authored pitch. A single generated
+mineral backing replaces the exposed white paper only under traced source masks.
+The white-hole defect is resolved in the inspected whole view; full source,
+contact and mobile artistic acceptance is still pending.
+
+The local workbench now edits actual GSAP channels and actor tracks. It validates
+numeric keys, preserved episode endpoints, world motion bounds and mesh strain
+before remounting a draft. Drafts never mutate the catalogue or public site, and
+all review gates reset after an edit. Exported JSON records the explicit actions
+for later repository integration. The two-time comparison samples actual frames
+and reports the same actor, control and receiver state used by the renderer.
+All 23 scene definitions round-trip through this authoring contract without state
+changes. Browser checks exercised applying an edit, rejecting invalid JSON,
+restoring the original score and comparing 0/11-second frames.
+
+Shared hinge changes passed 23 x 1000 fixed-asset rendering with no added image
+requests. These engineering checks remain separate from final visual acceptance.

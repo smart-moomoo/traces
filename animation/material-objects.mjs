@@ -27,8 +27,11 @@ export function closeMaterialMatte(rgba,width,height,radius,coverage){
 // time score. No generated frames and no free-running physics state.
 export function objectPose(object,time){
  const read=(name,fallback)=>object.tracks[name]?evaluateTrack(object.tracks[name],time):fallback;
- const foreshortening=object.projection?.axis==='x'?Math.cos(read('pitch',0)):1;
- return {lift:read('lift',0),x:read('x',object.anchor[0]),y:read('y',object.anchor[1]),rotation:read('rotation',0),scale:read('scale',1),scaleX:read('scaleX',read('scale',1)),scaleY:read('scaleY',read('scale',1))*foreshortening};
+ const pitch=read('pitch',0),foreshortening=Math.cos(pitch),axis=object.projection?.axis;
+ return {lift:object.projection?.shadowFromPitch?Math.abs(Math.sin(pitch)):read('lift',0),
+  x:read('x',object.anchor[0]),y:read('y',object.anchor[1]),rotation:read('rotation',0),scale:read('scale',1),
+  scaleX:read('scaleX',read('scale',1))*(axis==='y'?foreshortening:1),
+  scaleY:read('scaleY',read('scale',1))*(axis==='x'?foreshortening:1)};
 }
 // A wake belongs to the position where contact happened, not the current actor
 // position. Missing authored contacts produce no invented impact rings.

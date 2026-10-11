@@ -1,0 +1,20 @@
+import {editableActions,reviseAction,sceneSnapshot} from './action-authoring.mjs';
+
+export function mountActionWorkbench(host,ports){
+ host.innerHTML=`<fieldset><legend>主体动作编排 · 仅本地预览</legend><p>编辑关键点后会检查连接、形变和运动边界。修改会撤销验收状态，不会自动发布。</p><label>动作 <select aria-label="编辑的动作"></select></label><label style="display:block;margin-top:10px">关键点 JSON<textarea aria-label="动作关键点" rows="9" spellcheck="false" style="display:block;width:100%;box-sizing:border-box;font:12px monospace"></textarea></label><p><button type="button" data-action="apply">应用动作预览</button> <button type="button" data-action="reset">恢复原始编排</button> <button type="button" data-action="export">导出当前编排</button></p><p role="status" aria-live="polite"></p><label>时刻 A <input aria-label="对照时刻 A" type="number" min="0" step="0.1" value="0" style="width:70px"></label> <label>时刻 B <input aria-label="对照时刻 B" type="number" min="0" step="0.1" value="5" style="width:70px"></label> <button type="button" data-action="compare">对照两个时刻</button><div data-comparison style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px"></div><pre data-state style="white-space:pre-wrap;font:11px monospace;max-height:220px;overflow:auto"></pre></fieldset>`;
+ const find=s=>host.querySelector(s),select=find('select'),editor=find('textarea'),status=find('[role=status]'),field=find('fieldset');let entries=[];
+ const load=()=>{const entry=entries.find(e=>e.id===select.value);editor.value=entry?JSON.stringify(entry.value,null,2):'';};select.onchange=load;
+ const refresh=scene=>{host.hidden=scene.version!==2;const chosen=select.value;entries=editableActions(scene);select.replaceChildren(...entries.map(e=>new Option(e.label,e.id)));if(entries.some(e=>e.id===chosen))select.value=chosen;load();for(const el of host.querySelectorAll('input'))el.max=scene.duration;find('[data-comparison]').replaceChildren();find('[data-state]').textContent='';};
+ find('[data-action=apply]').onclick=async()=>{try{const draft=reviseAction(ports.scene(),select.value,JSON.parse(editor.value));await ports.apply(draft);status.textContent='已应用到本地预览。验收状态已重置，需重新检查整段动作。';}catch(e){status.textContent='未应用：'+e.message;}};
+ find('[data-action=reset]').onclick=async()=>{await ports.reset();status.textContent='已恢复仓库中的原始编排。';};
+ find('[data-action=export]').onclick=()=>{const scene=ports.scene(),blob=new Blob([JSON.stringify({sceneId:scene.id,visualReview:'pending',actions:editableActions(scene).map(({id,value})=>({id,value}))},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`${scene.id}-actions.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+ find('[data-action=compare]').onclick=()=>{
+  const player=ports.player(),scene=ports.scene(),restore=player.clock.time;try{
+   const times=[Number(find('[aria-label="对照时刻 A"]').value),Number(find('[aria-label="对照时刻 B"]').value)],states=times.map(t=>sceneSnapshot(scene,t));player.pause();const target=find('[data-comparison]');target.replaceChildren();
+   for(const t of times){player.seek(t);const figure=document.createElement('figure'),canvas=document.createElement('canvas'),caption=document.createElement('figcaption');figure.style.margin='0';canvas.width=600;canvas.height=600*scene.crop[3]/scene.crop[2];canvas.style.width='100%';canvas.getContext('2d').drawImage(player.app.canvas,0,0,canvas.width,canvas.height);caption.textContent=`${t.toFixed(2)} 秒 · 实际渲染`;figure.append(canvas,caption);target.append(figure);}
+   const changed=Object.keys(states[0].actors).filter(id=>JSON.stringify(states[0].actors[id])!==JSON.stringify(states[1].actors[id]));
+   find('[data-state]').textContent=JSON.stringify({changedActors:changed,controls:states.map(s=>s.controls),actors:states.map(s=>Object.fromEntries(changed.map(id=>[id,s.actors[id]]))),receivers:states.map(s=>s.receivers)},null,2);status.textContent='对照包含主体姿态、共享动作值和接触位置；画面相似不等于动作合格。';
+  }catch(e){status.textContent='无法对照：'+e.message;}finally{player.seek(restore);}
+ };
+ return {refresh,setDisabled(value){field.disabled=value;}};
+}
