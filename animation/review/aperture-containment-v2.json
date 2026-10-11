@@ -1,0 +1,73 @@
+{
+  "probes": {
+    "id": "Los-Angeles",
+    "fixedDifferences": [
+      0,
+      0
+    ],
+    "movingDifferences": [
+      63,
+      74
+    ],
+    "scope": "Authored point samples, not visual acceptance."
+  },
+  "apertures": {
+    "id": "Los-Angeles",
+    "width": 2048,
+    "height": 1534,
+    "backgroundEffects": false,
+    "edgeAllowanceSourcePixels": 1.5,
+    "reports": [
+      {
+        "time": 3.4000000000000004,
+        "outsideChanged": 0,
+        "insideChanged": 8377,
+        "maxOutsideDelta": 0,
+        "maxInsideDelta": 56
+      },
+      {
+        "time": 8.5,
+        "outsideChanged": 0,
+        "insideChanged": 9916,
+        "maxOutsideDelta": 0,
+        "maxInsideDelta": 193
+      },
+      {
+        "time": 13.600000000000001,
+        "outsideChanged": 0,
+        "insideChanged": 15644,
+        "maxOutsideDelta": 0,
+        "maxInsideDelta": 225
+      },
+      {
+        "time": 17,
+        "outsideChanged": 0,
+        "insideChanged": 15749,
+        "maxOutsideDelta": 0,
+        "maxInsideDelta": 224
+      },
+      {
+        "time": 22.1,
+        "outsideChanged": 0,
+        "insideChanged": 15654,
+        "maxOutsideDelta": 0,
+        "maxInsideDelta": 225
+      },
+      {
+        "time": 27.200000000000003,
+        "outsideChanged": 0,
+        "insideChanged": 14837,
+        "maxOutsideDelta": 0,
+        "maxInsideDelta": 184
+      },
+      {
+        "time": 34,
+        "outsideChanged": 0,
+        "insideChanged": 0,
+        "maxOutsideDelta": 0,
+        "maxInsideDelta": 0
+      }
+    ],
+    "scope": "Every rendered pixel outside fixed apertures compared at seven times. Engineering containment/rest evidence only, not artistic acceptance."
+  }
+}

@@ -37,6 +37,12 @@ export function inspectPoses(player,host){
    const parts=scene.objects.filter(o=>subject?subject.parts.includes(o.id):o.id===object.id||o.follows?.actor===object.id);
    const bounds=[Infinity,Infinity,-Infinity,-Infinity];
    for(const part of parts){
+    if(part.clipPolygon){
+     // Inspect the housing and its opening, not an already hidden shutter's
+     // off-screen coordinates. The latter showed only sky at full retraction.
+     for(const [x,y] of part.clipPolygon){bounds[0]=Math.min(bounds[0],x-12);bounds[1]=Math.min(bounds[1],y-12);bounds[2]=Math.max(bounds[2],x+12);bounds[3]=Math.max(bounds[3],y+12);}
+     continue;
+    }
     const p=poses.get(part.id),c=Math.cos(p.rotation),s=Math.sin(p.rotation),pad=12+rigPadding(part);
     for(const [xx,yy] of part.outline){
      const dx=(xx-part.pivot[0])*p.scaleX,dy=(yy-part.pivot[1])*p.scaleY;

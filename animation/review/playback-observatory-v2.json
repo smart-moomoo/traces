@@ -1,0 +1,18 @@
+[
+  {
+    "id": "Los-Angeles",
+    "duration": 34,
+    "frameIntervalMs": {
+      "p50": 8.3,
+      "p95": 9.9,
+      "p99": 10.3,
+      "over33ms": 0,
+      "maxEvidenceCaptureMs": 10.2
+    },
+    "wallSeconds": 34.03,
+    "renderedFrames": 4084,
+    "maxTimelineStep": 0.011,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

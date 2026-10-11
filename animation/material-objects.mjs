@@ -60,7 +60,7 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
    for(const polygon of sourceHoles){ctx.beginPath();polygon.forEach(([px,py],i)=>i?ctx.lineTo(px-x,py-y):ctx.moveTo(px-x,py-y));ctx.closePath();ctx.fill();}
    ctx.restore();
   }
-  if(['warm-reflection','foliage','vegetation','moss','salt'].includes(definition.matte)){
+  if(['warm-reflection','foliage','vegetation','moss','salt','mechanical-gold'].includes(definition.matte)){
    // Retain warm/dark reflected pigment, not the surrounding cyan water tile.
    // This is a source-pixel matte; no synthetic mirrored replacement artwork.
    const data=ctx.getImageData(0,0,w,h);
@@ -74,7 +74,8 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
     const vegetation=Math.max(green,Math.min((g-b-10)/18,(r-b-35)/25),definition.matteDark===undefined?0:(definition.matteDark-b)/24);
     const moss=Math.min((r-110)/45,(g-100)/45,(r-g+5)/12,(g-b+8)/25);
     const salt=Math.min((r-165)/25,(g-165)/25,(r-b+12)/16);
-    const pigment=definition.matte==='salt'?salt:definition.matte==='moss'?moss:definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
+    const gold=Math.min((r-60)/45,(g-35)/30,(r-b-20)/25);
+    const pigment=definition.matte==='mechanical-gold'?gold:definition.matte==='salt'?salt:definition.matte==='moss'?moss:definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
     const alpha=Math.max(0,Math.min(1,definition.matte==='vegetation'?(pigment-.25)/.5:pigment));data.data[i+3]*=alpha*alpha*(3-2*alpha);
    }
    if(coverage)closeMaterialMatte(data.data,w,h,definition.matteClose,coverage);
@@ -121,9 +122,14 @@ export function mountObjects(stage,prepared,width,height){
   if(definition.landingTime!==undefined){contactShadow=new PIXI.Sprite(texture);contactShadow.pivot.set(...definition.pivot);contactShadow.tint=0x625743;contactShadow.alpha=0;group.addChild(contactShadow);}
   group.addChild(sprite);stage.addChild(group);
   let maskTexture;
-  if(definition.occluders?.length){
-   const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,width,height);ctx.globalCompositeOperation='destination-out';
-   for(const polygon of definition.occluders){ctx.beginPath();polygon.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();}
+  if(definition.occluders?.length||definition.clipPolygon){
+   const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');ctx.fillStyle='white';
+   // Fixed apertures are world-space receiver geometry: a retracting shutter
+   // disappears behind its housing rather than sliding over the whole dome.
+   if(definition.clipPolygon){ctx.beginPath();definition.clipPolygon.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();}
+   else ctx.fillRect(0,0,width,height);
+   ctx.globalCompositeOperation='destination-out';
+   for(const polygon of definition.occluders||[]){ctx.beginPath();polygon.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();}
    maskTexture=PIXI.Texture.from(canvas);const mask=new PIXI.Sprite(maskTexture);stage.addChild(mask);group.mask=mask;
   }
   return {definition,texture,maskTexture,sprite,rig,contactShadow};

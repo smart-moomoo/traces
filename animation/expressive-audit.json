@@ -1018,7 +1018,40 @@
         767
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "east-observatory-shutter",
+          "representation": "rigid",
+          "rest": [
+            801,
+            258
+          ],
+          "sweptBounds": [
+            784,
+            104,
+            818,
+            258
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-telescope-truss",
+          "representation": "rigid",
+          "rest": [
+            214,
+            334
+          ],
+          "sweptBounds": [
+            189.8746855105564,
+            294.2500971645292,
+            233.7484503187596,
+            347.4566063766142
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
         {
           "id": "windows",

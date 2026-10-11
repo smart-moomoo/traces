@@ -1,7 +1,7 @@
 {
   "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
   "total": 23,
-  "authored": 18,
+  "authored": 19,
   "scenes": [
     {
       "id": "Seattle",
@@ -354,18 +354,25 @@
     {
       "id": "Los-Angeles",
       "source": "assets/posters/Los-Angeles.png",
-      "subjects": 0,
-      "renderParts": 0,
+      "subjects": 2,
+      "renderParts": 2,
       "rigs": [],
       "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "actions": [
+        "unlock-hold",
+        "retract-into-housing",
+        "open-hold",
+        "return-to-seal",
+        "wait",
+        "elevate-about-mount",
+        "hold-observing-angle",
+        "lower",
+        "settle"
       ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",

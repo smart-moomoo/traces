@@ -1,5 +1,5 @@
 import {vertex} from './environment.mjs';
-import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs';
+import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs?v=2-mechanical-gold';
 import {StoryClock} from './timeline.mjs';
 import {surfAt,shorelineSegments} from './surf.mjs';
 import {makeShadowMap,makeReceiverPlanes,shadowPlanesAt} from './shadows.mjs?v=2-projection-planes';
@@ -183,6 +183,30 @@ export class MaterialScene{
   const a=capture(0),b=capture(this.scene.duration*.5);
   const difference=([x,y])=>{const px=Math.min(a.w-1,Math.max(0,Math.floor(x*a.w))),py=Math.min(a.h-1,Math.max(0,Math.floor((1-y)*a.h)));const i=(py*a.w+px)*4;return Math.max(...[0,1,2].map(c=>Math.abs(a.pixels[i+c]-b.pixels[i+c])));};
   const result={id:this.scene.id,fixedDifferences:this.scene.probes.fixed.map(difference),movingDifferences:this.scene.probes.moving.map(difference),scope:'Authored point samples, not visual acceptance.'};this.seek(restore);return result;
+ }
+ async auditApertures(){
+  const objects=this.scene.objects||[];
+  if(!objects.length||objects.some(o=>!o.clipPolygon))return {available:false,reason:'This scene is not entirely confined to fixed apertures.'};
+  this.pause();const restore=this.clock.time,effects=this.backgroundEffects,gl=this.app.renderer.gl;
+  try{
+   this.setBackgroundEffects(false);
+   const capture=t=>{this.render(t);gl.finish();const [,,w,h]=gl.getParameter(gl.VIEWPORT),pixels=new Uint8Array(w*h*4);gl.readPixels(0,0,w,h,gl.RGBA,gl.UNSIGNED_BYTE,pixels);return {w,h,pixels};};
+   const base=capture(0),mask=document.createElement('canvas');mask.width=base.w;mask.height=base.h;
+   const ctx=mask.getContext('2d');ctx.scale(base.w/this.scene.crop[2],base.h/this.scene.crop[3]);ctx.fillStyle=ctx.strokeStyle='white';ctx.lineWidth=3;
+   for(const object of objects){ctx.beginPath();object.clipPolygon.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();ctx.stroke();}
+   const allowed=ctx.getImageData(0,0,base.w,base.h).data,reports=[];
+   for(const fraction of [.1,.25,.4,.5,.65,.8,1]){
+    const time=this.scene.duration*fraction,frame=capture(time);let outsideChanged=0,insideChanged=0,maxOutsideDelta=0,maxInsideDelta=0;
+    for(let y=0;y<base.h;y++)for(let x=0;x<base.w;x++){
+     const i=(y*base.w+x)*4,permitted=allowed[((base.h-1-y)*base.w+x)*4+3]>0;
+     const delta=Math.max(...[0,1,2].map(c=>Math.abs(base.pixels[i+c]-frame.pixels[i+c])));
+     if(permitted){maxInsideDelta=Math.max(maxInsideDelta,delta);if(delta>1)insideChanged++;}
+     else{maxOutsideDelta=Math.max(maxOutsideDelta,delta);if(delta>1)outsideChanged++;}
+    }
+    reports.push({time,outsideChanged,insideChanged,maxOutsideDelta,maxInsideDelta});
+   }
+   return {id:this.scene.id,width:base.w,height:base.h,backgroundEffects:false,edgeAllowanceSourcePixels:1.5,reports,scope:'Every rendered pixel outside fixed apertures compared at seven times. Engineering containment/rest evidence only, not artistic acceptance.'};
+  }finally{this.setBackgroundEffects(effects);this.seek(restore);}
  }
  async benchmark(count=1000){
   this.pause();const restore=this.clock.time,start=performance.now(),before=performance.getEntriesByType('resource').length;let max=0;

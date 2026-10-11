@@ -37,11 +37,16 @@
     "Mesh-surface attachments share the parent deformation equations and historical GSAP channel values; detachment preserves the deformed surface position and tangent",
     "Fort Worth: two original crowns articulate independently; one original leaf detaches, tumbles, flattens on pool contact and drifts with shared contact origins",
     "Stanford, New Orleans and Champaign branches now bend locally at fixed roots instead of rotating whole cutouts; attached leaves follow the deformed surface",
-    "Latest 23 x 1000 lifecycle pass includes deformed-surface attachment and four scene integrations; all zero new requests, source hashes in lifecycle-pool-v2.json"
+    "Latest 23 x 1000 lifecycle pass includes deformed-surface attachment and four scene integrations; all zero new requests, source hashes in lifecycle-pool-v2.json",
+    "Fixed world-space aperture masks constrain moving mechanisms behind their housings; inspection views include the housing after full retraction",
+    "Los Angeles: original shutter retraction/hold/closure and original telescope elevation/observation/recovery, using two fixed images",
+    "Source gold-truss alpha removes dark aperture pixels from the moving telescope",
+    "Every rendered pixel outside the fixed apertures checked at seven times with background effects disabled; final closed pose matches the initial rendered pose",
+    "Latest fixed-aperture/gold-truss 23 x 1000 lifecycle: every scene mounted, no added image requests; source-hashed evidence in lifecycle-observatory-v2.json"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Eighteen scenes now have explicit local subject programmes. Five remain unimplemented at this standard: Seattle, Los Angeles, Dallas, Chicago and Miami. Coastal wave development and Santa Monica palm articulation also remain. No final visual acceptance or public deployment.",
+    "Nineteen scenes now have explicit local subject programmes. Four remain unimplemented at this standard: Seattle, Dallas, Chicago and Miami. Coastal wave development and Santa Monica palm articulation also remain. No final visual acceptance or public deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -127,7 +132,11 @@
     {
       "path": "assets/scenes/Fort-Worth/crowns-clean-plate-v2.png",
       "use": "One fixed source repair image only under the two original crown pigment footprints; no generated animation frames"
+    },
+    {
+      "path": "assets/scenes/Los-Angeles/interiors-clean-plate-v2.png",
+      "use": "One fixed hidden-interior image only under the source shutter and telescope footprints; original pixels provide all moving mechanisms"
     }
   ],
-  "tests": "Nineteen functional test files passed, including historical GSAP parity, deforming-surface attachment, release continuity, fixed impact location, bounded branch strain, deterministic seek and prior regressions. Browser runtime evidence remains separate from artistic acceptance."
+  "tests": "Twenty functional test files passed before the final gold-alpha refinement. Observatory motion and source-matte regressions rechecked afterward. Browser runtime and source containment are separate from artistic acceptance."
 }

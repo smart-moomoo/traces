@@ -336,6 +336,40 @@
         "Leaf-water contact readability at exhibition size",
         "Full-site visual acceptance"
       ]
+    },
+    {
+      "id": "Los-Angeles",
+      "subjects": 2,
+      "parts": 2,
+      "actions": [
+        "rigid shutter retracts behind fixed housing",
+        "open observation hold",
+        "mounted telescope elevation and recovery",
+        "shutter closes to exact original rest"
+      ],
+      "observed": "Source/clean-plate/rest/difference and light/dark alpha views inspected. Gold-truss matte refined to remove the moving dark aperture background. Seven composite mechanism states inspected with effects off; fixed housing stays in view. Full playback and containment records stored separately.",
+      "remaining": [
+        "Mechanical staging at mobile exhibition size",
+        "Small truss edge/attachment quality at public display size",
+        "Whole-site source/contact/artistic acceptance"
+      ],
+      "latestPlayback": {
+        "id": "Los-Angeles",
+        "duration": 34,
+        "frameIntervalMs": {
+          "p50": 8.3,
+          "p95": 9.9,
+          "p99": 10.3,
+          "over33ms": 0,
+          "maxEvidenceCaptureMs": 10.2
+        },
+        "wallSeconds": 34.03,
+        "renderedFrames": 4084,
+        "maxTimelineStep": 0.011,
+        "sampledImages": 24,
+        "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+      },
+      "containment": "2048 x 1534 rendered pixels checked at seven timestamps with background disabled. Zero changed pixels outside aperture allowance; exact final rest recovery. This is containment evidence, not artistic acceptance."
     }
   ],
   "otherScenes": "14 scenes still lack the new explicit subject programme. All 23 final release gates remain pending; authored counts are not acceptance.",
@@ -558,6 +592,8 @@
     "animation/review/canopy-subject-actions.jpg",
     "animation/review/park-street-subject-actions.jpg",
     "animation/review/salt-subject-actions.jpg",
-    "animation/review/pool-subject-actions.jpg"
+    "animation/review/pool-subject-actions.jpg",
+    "animation/review/observatory-alpha-v2.jpg",
+    "animation/review/observatory-subject-actions.jpg"
   ]
 }

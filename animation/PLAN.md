@@ -225,7 +225,7 @@ never invent a conspicuous new protagonist just to satisfy a template.
 | San Jose | Original source is salt ponds, not facades. Author a material crystallization/redistribution event along existing pond boundaries; a light sweep alone is insufficient | source fragment assembly, boundary constraints |
 | Los Gatos | Three source ducks: shore bird preens, swimmer dips/approaches/feeds, upended bird balances while feeding | semantic cast, neck joints, contact/receiver |
 | Santa Cruz | Hanging flag bends and recovers from its top attachment; original tree tip yields and rebounds with a delay | hanging cloth, fold score, rooted rigid branch |
-| Los Angeles | Cloud shadow traverses the observatory; evening illumination resolves across architectural planes | depth-aware light score |
+| Los Angeles | Original east-dome shutter retracts inside its fixed housing; original west telescope elevates about its mount, holds, then both mechanisms recover | rigid mechanical subjects, fixed aperture clipping, original gold-truss alpha; local implementation, final visual review pending |
 | Santa Monica | Two original flags lift, fold and relax at different times; source palm-frond articulation remains to implement | independent side-pinned cloth, branch joints |
 | San Diego | Wave front approaches, breaks at the actual shore and drains back through the material fragments | segmented wave mesh, sparse particles |
 | Dallas | Cloud shadow passes between facade groups, revealing distinct depth and reflected light changes | grouped masks, delayed reflection |
