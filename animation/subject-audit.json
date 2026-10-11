@@ -1,7 +1,7 @@
 {
   "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
   "total": 23,
-  "authored": 16,
+  "authored": 17,
   "scenes": [
     {
       "id": "Seattle",
@@ -241,18 +241,21 @@
     {
       "id": "San-Jose",
       "source": "assets/posters/San-Jose.png",
-      "subjects": 0,
-      "renderParts": 0,
+      "subjects": 3,
+      "renderParts": 9,
       "rigs": [],
       "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "actions": [
+        "separate-source-pieces",
+        "drift-with-turn",
+        "approach-neighbours",
+        "edge-contact",
+        "settle-in-new-arrangement"
       ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",

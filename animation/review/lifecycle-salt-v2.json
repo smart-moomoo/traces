@@ -1,0 +1,20 @@
+{
+  "scope": "San Jose fixed-asset engineering check only; visual acceptance pending.",
+  "report": {
+    "frames": 1000,
+    "elapsedMs": 329,
+    "maxSubmissionMs": 0.2,
+    "downloadedImages": 2,
+    "derivedMaskTextures": 4,
+    "derivedObjectTextures": 9,
+    "newRequests": 0,
+    "visualReview": "pending"
+  },
+  "sourceSha256": {
+    "salt-direction.mjs": "95b15542650e1c444a6bd9f9113930e9365f5190e1a29dbe61e0c02052573f21",
+    "material-objects.mjs": "3f5553bb46d4247fa7678348eacba470f53a168abde0e5d332f46963bb88c4a3",
+    "material-scene.mjs": "6911aaba207427f42e2b2839fca575983a3b84491c81ebab3247690591bbb00c",
+    "expressive-catalog.mjs": "5ba767083ad2d8abd4bec83d5fbe441bf17e957e2d2749e1d5677e66396fdddd",
+    "scene-state.mjs": "6bbee9582e378de3aa0ca011cacb5994d808bd418e88826f712b7d3db043e889"
+  }
+}

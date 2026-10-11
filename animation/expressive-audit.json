@@ -589,14 +589,201 @@
         768
       ],
       "status": "source-audit",
-      "objects": [],
-      "environment": [
+      "objects": [
         {
-          "id": "salt-pond",
-          "kind": "light",
+          "id": "west-wide",
+          "representation": "rigid",
+          "rest": [
+            289,
+            396
+          ],
+          "sweptBounds": [
+            259,
+            387,
+            367,
+            444.0255130125241
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-small",
+          "representation": "rigid",
+          "rest": [
+            383.5,
+            385.5
+          ],
+          "sweptBounds": [
+            366.99999999999994,
+            379,
+            399.00000000000006,
+            441.298182441701
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-tip",
+          "representation": "rigid",
+          "rest": [
+            465.5,
+            404
+          ],
+          "sweptBounds": [
+            397.99999999999994,
+            394.99999999999994,
+            487.00000000000006,
+            435.9655187192414
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-wide",
+          "representation": "rigid",
+          "rest": [
+            512,
+            404
+          ],
+          "sweptBounds": [
+            493,
+            393.99999999999994,
+            543.0000000000001,
+            459.94121338323873
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-small",
+          "representation": "rigid",
+          "rest": [
+            552,
+            392
+          ],
+          "sweptBounds": [
+            536,
+            383,
+            575.4489776234568,
+            458.79818244170093
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-tip",
+          "representation": "rigid",
+          "rest": [
+            584.5,
+            411
+          ],
+          "sweptBounds": [
+            568,
+            403.99999999999994,
+            608.5034103272966,
+            456.92684123056324
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "east-wide",
+          "representation": "rigid",
+          "rest": [
+            637,
+            401
+          ],
+          "sweptBounds": [
+            613.9999999999999,
+            390.99999999999994,
+            716.0000000000001,
+            472.9718571228362
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "east-small",
+          "representation": "rigid",
+          "rest": [
+            692.5,
+            418
+          ],
+          "sweptBounds": [
+            668.9999999999999,
+            411.99999999999994,
+            763.4489776234568,
+            468.798182441701
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "east-tip",
+          "representation": "rigid",
+          "rest": [
+            848.5,
+            418.5
+          ],
+          "sweptBounds": [
+            762.9999999999999,
+            409.99999999999994,
+            872.0000000000001,
+            471.4806962306627
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
           "visualStatus": "unreviewed"
         }
       ],
+      "environment": [],
       "requiredEvidence": [
         "rest-reconstruction",
         "exposed-repair",

@@ -247,6 +247,22 @@
         "Fine twig/roof source seams and source material acceptance",
         "Final projection and full-site visual acceptance"
       ]
+    },
+    {
+      "id": "San-Jose",
+      "subjects": 3,
+      "parts": 9,
+      "actions": [
+        "nine conserved original salt pieces drift and turn in three staggered groups",
+        "approach neighbouring pieces using pigment docking extents",
+        "small contact response, then persistent new arrangement"
+      ],
+      "observed": "Seven composite stages, normal-size final arrangement, full 24-time playback contact sheet and source/alpha/repair board inspected. Initial matte made white pieces hollow; corrected warm-white selection and added bounded closing. One western tip carried reflected streaks; retraced its outline and repeated complete playback. Final 36.03-second pass: 4324 rendered frames, max step 0.011 seconds, p99 interval 10.3 ms, no intervals above 33 ms.",
+      "remaining": [
+        "Fine original footprint remnants and reflected streak ownership",
+        "Actual material contact on all fragment edges, not just declared docking extrema",
+        "Complete exhibition-scale and full-site visual acceptance"
+      ]
     }
   ],
   "otherScenes": "14 scenes still lack the new explicit subject programme. All 23 final release gates remain pending; authored counts are not acceptance.",
@@ -467,6 +483,7 @@
     "animation/review/wetland-subject-actions.jpg",
     "animation/review/arboreal-subject-actions.jpg",
     "animation/review/canopy-subject-actions.jpg",
-    "animation/review/park-street-subject-actions.jpg"
+    "animation/review/park-street-subject-actions.jpg",
+    "animation/review/salt-subject-actions.jpg"
   ]
 }

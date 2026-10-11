@@ -60,7 +60,7 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
    for(const polygon of sourceHoles){ctx.beginPath();polygon.forEach(([px,py],i)=>i?ctx.lineTo(px-x,py-y):ctx.moveTo(px-x,py-y));ctx.closePath();ctx.fill();}
    ctx.restore();
   }
-  if(['warm-reflection','foliage','vegetation','moss'].includes(definition.matte)){
+  if(['warm-reflection','foliage','vegetation','moss','salt'].includes(definition.matte)){
    // Retain warm/dark reflected pigment, not the surrounding cyan water tile.
    // This is a source-pixel matte; no synthetic mirrored replacement artwork.
    const data=ctx.getImageData(0,0,w,h);
@@ -73,7 +73,8 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
     // left half of each lit twig in the base and produced a duplicate branch.
     const vegetation=Math.max(green,Math.min((g-b-10)/18,(r-b-35)/25),definition.matteDark===undefined?0:(definition.matteDark-b)/24);
     const moss=Math.min((r-110)/45,(g-100)/45,(r-g+5)/12,(g-b+8)/25);
-    const pigment=definition.matte==='moss'?moss:definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
+    const salt=Math.min((r-165)/25,(g-165)/25,(r-b+12)/16);
+    const pigment=definition.matte==='salt'?salt:definition.matte==='moss'?moss:definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
     const alpha=Math.max(0,Math.min(1,definition.matte==='vegetation'?(pigment-.25)/.5:pigment));data.data[i+3]*=alpha*alpha*(3-2*alpha);
    }
    if(coverage)closeMaterialMatte(data.data,w,h,definition.matteClose,coverage);
@@ -84,7 +85,7 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
   const plate=canvas.getContext('2d');
   if(definition.repair===false)return {definition,cutout,texture:PIXI.Texture.from(cutout)};
   if(repairPlate){
-   if(['foliage','vegetation','moss'].includes(definition.matte)){
+   if(['foliage','vegetation','moss','salt'].includes(definition.matte)){
     // Repair the pigment mask, not its bounding polygon: blue/cream sky tiles
     // between leaves must stay original instead of moving as a textured patch.
     const patch=document.createElement('canvas');patch.width=w;patch.height=h;

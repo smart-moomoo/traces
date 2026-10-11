@@ -1,3 +1,4 @@
+import {directSaltAssembly} from './salt-direction.mjs';
 import {directParkCanopy,directStreetCanopy} from './park-street-direction.mjs';
 import {catalog} from './catalog.mjs';
 import {directBayDuet,directLakeTrio,directParkPair} from './subject-direction.mjs';
@@ -140,3 +141,5 @@ directGateCanopy(expressiveCatalog.find(s=>s.id==='Wallace'));
 
 directParkCanopy(expressiveCatalog.find(s=>s.id==='Sunnyvale'));
 directStreetCanopy(expressiveCatalog.find(s=>s.id==='Charleston'));
+
+directSaltAssembly(expressiveCatalog.find(s=>s.id==='San-Jose'));
