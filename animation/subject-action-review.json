@@ -387,9 +387,26 @@
         "Original reflection-fragment reassembly",
         "Full exhibition/mobile integration acceptance"
       ]
+    },
+    {
+      "id": "Chicago",
+      "subjects": 3,
+      "parts": 6,
+      "actions": [
+        "two bridge leaves unlock and elevate at fixed pier hinges",
+        "hold open then lower and rejoin",
+        "central launch advances in its own river lane",
+        "original tender waits, departs and recovers its heading; two antenna cutouts follow the same pose"
+      ],
+      "observed": "Seven composed poses and source/alpha sheet inspected. Green shoreline pixels in rigging were removed with a source-white matte. Initial rest and closed final bridge alignment checked in the workbench. Full 36.03-second browser playback completed: 4326 rendered frames, max step 0.015 seconds, 24 captured states.",
+      "remaining": [
+        "Final truss-hole and repair continuity review",
+        "Boat contact and reflection review",
+        "Mobile and public exhibition integration"
+      ]
     }
   ],
-  "otherScenes": "Dallas, Chicago and Miami lack the new subject programme. Twenty authored programmes are not twenty accepted scenes; all final gates remain pending.",
+  "otherScenes": "Dallas and Miami still lack a subject-action programme. Twenty-one authored programmes are not accepted scenes; all 23 final release gates remain pending.",
   "runtime": {
     "San-Francisco": {
       "frames": 1000,

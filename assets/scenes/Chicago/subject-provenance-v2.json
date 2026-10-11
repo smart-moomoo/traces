@@ -1,0 +1,18 @@
+{
+  "source": "assets/posters/Chicago.png",
+  "sourceCrop": [
+    0,
+    769,
+    1024,
+    767
+  ],
+  "sourceSubjects": [
+    "central steel bridge span",
+    "center blue-white launch",
+    "right foreground white-blue tender"
+  ],
+  "generatedRepair": "/Users/haoren/.codex/generated_images/01a103aa-ebb7-7371-9c20-5a9727835b25/exec-23ccc266-41ee-49e4-a318-a7dc17f7a5e8.png",
+  "prompt": "repair-prompt.txt",
+  "usage": "One fixed repair underneath original masks only. No per-frame image generation.",
+  "acceptance": "pending"
+}

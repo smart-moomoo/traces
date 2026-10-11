@@ -1400,6 +1400,38 @@
       "status": "source-audit",
       "objects": [
         {
+          "id": "bridge-west-leaf",
+          "representation": "rigid",
+          "rest": [
+            369,
+            488
+          ],
+          "sweptBounds": [
+            351.65585276521995,
+            407.7285012467199,
+            469.17983520636005,
+            517.0172196119765
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bridge-east-leaf",
+          "representation": "rigid",
+          "rest": [
+            566,
+            488
+          ],
+          "sweptBounds": [
+            468.8149160369425,
+            409.5678518026402,
+            581.6816720583837,
+            517.0688262357925
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
           "id": "river-launch",
           "representation": "rigid",
           "rest": [
@@ -1407,18 +1439,60 @@
             553
           ],
           "sweptBounds": [
-            414.99999999999994,
+            406,
             505,
             475.00000000000006,
-            615
+            621.0000000000001
           ],
-          "issues": [
-            {
-              "kind": "source",
-              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
-              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
-            }
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "river-tender",
+          "representation": "rigid",
+          "rest": [
+            802,
+            558
           ],
+          "sweptBounds": [
+            767.9999999999999,
+            511.9999999999999,
+            898.0000000000001,
+            621
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "tender-forward-antenna",
+          "representation": "rigid",
+          "rest": [
+            802,
+            558
+          ],
+          "sweptBounds": [
+            805.9999999999999,
+            470.9999999999999,
+            868.0000000000001,
+            591
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "tender-aft-antenna",
+          "representation": "rigid",
+          "rest": [
+            802,
+            558
+          ],
+          "sweptBounds": [
+            777.9999999999999,
+            501.9999999999999,
+            839.0000000000001,
+            593
+          ],
+          "issues": [],
           "visualStatus": "unreviewed"
         }
       ],

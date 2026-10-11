@@ -1,7 +1,7 @@
 {
   "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
   "total": 23,
-  "authored": 20,
+  "authored": 21,
   "scenes": [
     {
       "id": "Seattle",
@@ -549,21 +549,31 @@
     {
       "id": "Chicago",
       "source": "assets/posters/Chicago.png",
-      "subjects": 0,
-      "renderParts": 1,
+      "subjects": 3,
+      "renderParts": 6,
       "rigs": [],
       "joints": [],
-      "actions": [],
-      "unassigned": [
-        "river-launch"
+      "actions": [
+        "unlock",
+        "raise-two-leaves",
+        "hold-open",
+        "lower-in-sequence",
+        "join-and-rest",
+        "hold-course",
+        "accelerate",
+        "ride-swell",
+        "clear-bridge",
+        "settle",
+        "wait-at-quay",
+        "ease-away",
+        "turn-into-river",
+        "recover-heading",
+        "slow"
       ],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence",
-        "Existing moving layers have not been assigned to semantic subjects"
-      ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",

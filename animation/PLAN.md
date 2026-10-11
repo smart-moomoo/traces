@@ -230,7 +230,7 @@ never invent a conspicuous new protagonist just to satisfy a template.
 | San Diego | Wave front approaches, breaks at the actual shore and drains back through the material fragments | segmented wave mesh, sparse particles |
 | Dallas | Cloud shadow passes between facade groups, revealing distinct depth and reflected light changes | grouped masks, delayed reflection |
 | Fort Worth | Source leaf tumbles onto the pool, makes contact, then drifts with decaying ripples | pose changes, collision event, receiver |
-| Chicago | Existing launch emerges from bridge occlusion; wake remains behind and reaches the bank | depth/path, persistent trail |
+| Chicago | Two source bridge leaves rise/hold/close about fixed pier hinges; original front-facing launch passes and original tender departs later in a separate lane, with source rigging attached | three subjects, paired rigid hinges, staged navigation, historical contacts; local implementation, final review pending |
 | Champaign | Original overhead twig releases two distinct source leaves at different times; each turns, descends and stays flat on snow | two deterministic releases from one attachment, separate trajectories and persistent contact; final visual review pending |
 | New Orleans | Two source oak twig groups yield; a leaf attached to the upper twig releases, catches a second gust and settles near the root | world-space release reconstructed for every seek, original trunk occlusion, projected rest pose; final visual review pending |
 | Wallace | Canopy opens and closes over the gate, exposing and concealing a coherent patch of light | joint groups, projected mask |
@@ -522,3 +522,7 @@ A fixed source repair plate is used per scene. Mountain View required a second r
 ### Harbor mechanism implementation
 
 The source ferry and cargo vessel are two semantic subjects. Two cargo booms and their cables remain parts of one cargo vessel. A new source-pixel tether rig anchors one end to the mast and follows the rigid boom’s rotating endpoint while preserving cable thickness. Shared pose controls reconstruct the same GSAP value for mesh and rigid motion, including arbitrary seeks. A detail repair fixes the exposed vertical tower only under the original boom footprints; the skyline, hull and paper remain original. Full 36-second browser playback and the 23-scene lifecycle check are recorded. Reflection-fragment reassembly and full visual acceptance remain outstanding.
+
+### River subject implementation
+
+Chicago now has three semantic subjects: one two-leaf bridge and two original small vessels. The bridge articulates around fixed abutment hinges; its leaves stay at source scale and reunite at rest. The vessels retain their original orientations, wait/accelerate/recover at different times, and use separate lanes. Two antenna cutouts share the tender pose and use an ivory pigment matte to reject original green shoreline pixels. A single generated repair plate is limited to source footprints. Full playback/source sheets are recorded, but truss-hole depth, contact, mobile presentation and final artistic acceptance remain open.

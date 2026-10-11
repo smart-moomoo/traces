@@ -1,5 +1,5 @@
 import {vertex} from './environment.mjs';
-import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs?v=2-harbor-tether';
+import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs?v=2-truss-matte';
 import {StoryClock} from './timeline.mjs';
 import {surfAt,shorelineSegments} from './surf.mjs';
 import {makeShadowMap,makeReceiverPlanes,shadowPlanesAt} from './shadows.mjs?v=2-projection-planes';

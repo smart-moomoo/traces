@@ -1,0 +1,19 @@
+{
+  "probes": {
+    "id": "Chicago",
+    "fixedDifferences": [
+      0,
+      0,
+      0
+    ],
+    "movingDifferences": [
+      110,
+      113
+    ],
+    "scope": "Authored point samples, not visual acceptance."
+  },
+  "apertures": {
+    "available": false,
+    "reason": "This scene is not entirely confined to fixed apertures."
+  }
+}

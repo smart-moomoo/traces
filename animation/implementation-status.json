@@ -45,11 +45,15 @@
     "Latest fixed-aperture/gold-truss 23 x 1000 lifecycle: every scene mounted, no added image requests; source-hashed evidence in lifecycle-observatory-v2.json",
     "Fixed-mast tether rig preserves cable thickness and shares the exact lifting angle with its rigid boom, checked over 1001 deterministic samples",
     "Seattle: original ferry passage and two staggered cargo hoists with connected reeling cables, constant source scale and fixed cargo hull",
-    "Twenty-three x 1000 lifecycle pass after shared pose-channel/tether integration: zero added requests; source-hashed evidence in lifecycle-harbor-v2.json"
+    "Twenty-three x 1000 lifecycle pass after shared pose-channel/tether integration: zero added requests; source-hashed evidence in lifecycle-harbor-v2.json",
+    "Chicago: two rigid bridge leaves around fixed pier hinges, opening/hold/closure; two original small watercraft depart in independent lanes at original scale",
+    "Separate source-white rigging alpha avoids carrying green shoreline pixels on moving tender antennas",
+    "Three semantic Chicago subjects; source truss and pier views inspected at seven poses; full 36.03-second browser playback completed",
+    "Latest truss/rigging/hinge 23 x 1000 lifecycle passed with zero added image requests; source hashes in lifecycle-river-v2.json. Three authored Chicago fixed probes were unchanged."
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Twenty scenes now have explicit local subject programmes. Dallas, Chicago and Miami remain unimplemented at this standard. Seattle reflection fragment reassembly, coastal wave development and Santa Monica palm articulation also remain. No final visual acceptance or public deployment.",
+    "Twenty-one scenes now have explicit local subject programmes. Dallas and Miami remain unimplemented at this standard. Seattle reflection fragment reassembly, coastal wave development and Santa Monica palm articulation also remain. No final visual acceptance or public deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -143,7 +147,11 @@
     {
       "path": "assets/scenes/Seattle/harbor-mechanisms-clean-plate-v3.png",
       "use": "One full ferry repair plus one crane-detail repair composited into fixed plate; only arm/cable/ferry source footprints are replaced. No generated animation frames."
+    },
+    {
+      "path": "assets/scenes/Chicago/bridge-boats-clean-plate-v2.png",
+      "use": "One fixed plate, applied only to the original central span and two small watercraft/antenna footprints. Source artwork supplies all moving surfaces; zero generated frame sequence."
     }
   ],
-  "tests": "Twenty-one functional tests passed, including 1001-sample shared GSAP/tether/boom parity, fixed anchors, cable width and historical wake. Browser runtime checks are separate from artistic acceptance."
+  "tests": "Twenty-two functional test files passed after river hinge, antenna and truss updates. Chicago has three semantic subjects and six render parts; paired bridge leaves count as one subject. Runtime evidence and point probes do not imply artistic acceptance."
 }
