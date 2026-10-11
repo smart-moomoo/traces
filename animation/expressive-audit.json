@@ -1902,7 +1902,492 @@
         768
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "west-column-reflection-0",
+          "representation": "rigid",
+          "rest": [
+            131.5,
+            448
+          ],
+          "sweptBounds": [
+            108.8671380929317,
+            432.35291890101144,
+            147.0496541101808,
+            459.07786587617
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-column-reflection-1",
+          "representation": "rigid",
+          "rest": [
+            130.5,
+            472
+          ],
+          "sweptBounds": [
+            102.89304371158659,
+            450.64269977987334,
+            148.0401177015618,
+            482.0872053352033
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-column-reflection-2",
+          "representation": "rigid",
+          "rest": [
+            129,
+            494
+          ],
+          "sweptBounds": [
+            96.88708845297946,
+            471.60328918567444,
+            148.04869059619546,
+            505.0990183756447
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-column-reflection-3",
+          "representation": "rigid",
+          "rest": [
+            219.5,
+            454
+          ],
+          "sweptBounds": [
+            187.87416140291307,
+            437.0614944127911,
+            244.04684776519497,
+            465.1320601713164
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-column-reflection-4",
+          "representation": "rigid",
+          "rest": [
+            220,
+            479.5
+          ],
+          "sweptBounds": [
+            185.87325108619544,
+            456.4788882965697,
+            244.0514008184992,
+            491.129785772682
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-column-reflection-5",
+          "representation": "rigid",
+          "rest": [
+            221,
+            504
+          ],
+          "sweptBounds": [
+            181.85495675846866,
+            480.4346446477869,
+            247.05218288091467,
+            516.1398515027729
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "west-column-reflection-6",
+          "representation": "rigid",
+          "rest": [
+            228.5,
+            531.5
+          ],
+          "sweptBounds": [
+            195.8547853123438,
+            508.44401099958554,
+            254.05192048431505,
+            543.139671292198
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-column-reflection-0",
+          "representation": "rigid",
+          "rest": [
+            311.5,
+            454
+          ],
+          "sweptBounds": [
+            284.867748128258,
+            441.5172398242028,
+            331.0495759906317,
+            465.1028648819446
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-column-reflection-1",
+          "representation": "rigid",
+          "rest": [
+            315,
+            480.5
+          ],
+          "sweptBounds": [
+            280.85578635880165,
+            457.48646715969375,
+            339.05089411435887,
+            492.1292158618377
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-column-reflection-2",
+          "representation": "rigid",
+          "rest": [
+            323,
+            513.5
+          ],
+          "sweptBounds": [
+            283.86228109385746,
+            490.43565877435606,
+            349.049354611404,
+            525.1401630095093
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-column-reflection-3",
+          "representation": "rigid",
+          "rest": [
+            352,
+            541
+          ],
+          "sweptBounds": [
+            317.84651351359133,
+            517.4060978567245,
+            379.0551478983257,
+            553.1491707120291
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-column-reflection-4",
+          "representation": "rigid",
+          "rest": [
+            467,
+            475.5
+          ],
+          "sweptBounds": [
+            431.88181380777667,
+            453.4526841165589,
+            492.04638799113536,
+            486.13729389637734
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-column-reflection-5",
+          "representation": "rigid",
+          "rest": [
+            464,
+            497.5
+          ],
+          "sweptBounds": [
+            424.87625510362784,
+            475.4289636262703,
+            490.04611574340873,
+            508.14328293386643
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bow-reflection-0",
+          "representation": "rigid",
+          "rest": [
+            737,
+            470
+          ],
+          "sweptBounds": [
+            713.9507957046822,
+            454.46095096542706,
+            767.1356200286523,
+            481.1244281636958
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bow-reflection-1",
+          "representation": "rigid",
+          "rest": [
+            788,
+            476
+          ],
+          "sweptBounds": [
+            758.9451000968173,
+            455.764265364932,
+            827.1327062807989,
+            488.1616632625458
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bow-reflection-2",
+          "representation": "rigid",
+          "rest": [
+            826,
+            476
+          ],
+          "sweptBounds": [
+            807.945041154536,
+            456.4164054079133,
+            857.1305327514161,
+            488.09294687023976
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bow-reflection-3",
+          "representation": "rigid",
+          "rest": [
+            738.5,
+            501
+          ],
+          "sweptBounds": [
+            709.9457900036548,
+            477.36708626293677,
+            774.1398362649597,
+            513.1573188251186
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bow-reflection-4",
+          "representation": "rigid",
+          "rest": [
+            796.5,
+            505.5
+          ],
+          "sweptBounds": [
+            764.9412392721835,
+            481.29085799071373,
+            838.1521056327792,
+            518.1778788105473
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bow-reflection-5",
+          "representation": "rigid",
+          "rest": [
+            741.5,
+            528.5
+          ],
+          "sweptBounds": [
+            712.9491936711765,
+            505.37468134521174,
+            783.1432814550309,
+            540.1573239053946
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bow-reflection-6",
+          "representation": "rigid",
+          "rest": [
+            793.5,
+            533.5
+          ],
+          "sweptBounds": [
+            766.9484046864624,
+            510.41639987380154,
+            827.1298461900417,
+            545.1454058558787
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bow-reflection-7",
+          "representation": "rigid",
+          "rest": [
+            752,
+            554.5
+          ],
+          "sweptBounds": [
+            724.9512630990066,
+            531.4084231830225,
+            789.1362402790012,
+            566.1457888418087
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "bow-reflection-8",
+          "representation": "rigid",
+          "rest": [
+            802.5,
+            556.5
+          ],
+          "sweptBounds": [
+            781.9477296654536,
+            533.5675289191333,
+            836.1446217654117,
+            568.1086862454478
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
         {
           "id": "reflected-stone",

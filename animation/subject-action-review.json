@@ -404,9 +404,28 @@
         "Boat contact and reflection review",
         "Mobile and public exhibition integration"
       ]
+    },
+    {
+      "id": "Miami",
+      "subjects": 0,
+      "reflectedForms": 3,
+      "parts": 22,
+      "castNote": "Environmental material episode. These are three source reflections, not three physical moving vessels; the stone barge and poles intentionally remain static.",
+      "actions": [
+        "wave response advances from front rows toward stone",
+        "warm source fragments spread left and right along bank",
+        "backwash has row-dependent timing",
+        "reflections reassemble at their original positions"
+      ],
+      "observed": "Seven enlarged composed poses inspected with background effects off. Complete 36.03-second playback rendered 4323 frames, max time step 0.012 seconds. Full protected-region audit initially caught 7 changed edge pixels from background sampling; hard protection mask fixed them. All 1737544 covered pixels stayed unchanged at seven times in both effect modes.",
+      "remaining": [
+        "Full-size matte and exposed-water continuity acceptance",
+        "Environmental performance review against latest subject-first intent",
+        "Mobile and public exhibition integration"
+      ]
     }
   ],
-  "otherScenes": "Dallas and Miami still lack a subject-action programme. Twenty-one authored programmes are not accepted scenes; all 23 final release gates remain pending.",
+  "otherScenes": "Dallas still lacks the new programme. Miami is an environmental reflected-form sequence, explicitly distinguished from physical subject choreography. Final gates remain pending for all scenes.",
   "runtime": {
     "San-Francisco": {
       "frames": 1000,

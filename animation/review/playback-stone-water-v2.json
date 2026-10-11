@@ -1,0 +1,18 @@
+[
+  {
+    "id": "Miami",
+    "duration": 36,
+    "frameIntervalMs": {
+      "p50": 8.3,
+      "p95": 9.1,
+      "p99": 9.5,
+      "over33ms": 0,
+      "maxEvidenceCaptureMs": 12.6
+    },
+    "wallSeconds": 36.03,
+    "renderedFrames": 4323,
+    "maxTimelineStep": 0.012,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

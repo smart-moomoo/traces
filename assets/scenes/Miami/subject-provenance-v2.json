@@ -1,0 +1,14 @@
+{
+  "source": "assets/posters/Miami.png",
+  "sourceCrop": [
+    0,
+    768,
+    1024,
+    768
+  ],
+  "generatedRepair": "/Users/haoren/.codex/generated_images/01a103aa-ebb7-7371-9c20-5a9727835b25/exec-bfcdd9de-b940-48e1-9768-ac212b986ef8.png",
+  "prompt": "water-repair-prompt.txt",
+  "usage": "Original warm source pigment only; fixed clean-water repair under footprints. No bitmap animation frames.",
+  "cast": "Three reflected forms, zero new physical vessels or human actors.",
+  "acceptance": "pending"
+}

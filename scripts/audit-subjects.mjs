@@ -12,7 +12,8 @@ const scenes=expressiveCatalog.map(scene=>{
  if(!report.subjects)missing.push('No semantic subject/action programme is wired to the renderer');
  if(!scene.subjectBeats?.length)missing.push('No staged subject event sequence');
  if(unassigned.length)missing.push('Existing moving layers have not been assigned to semantic subjects');
- return {id:scene.id,source:scene.source,subjects:report.subjects,renderParts:report.renderParts,
+ const reflectedForms=(scene.subjects||[]).filter(s=>s.subjectClass==='reflected-form').length;
+ return {id:scene.id,source:scene.source,subjects:report.subjects,reflectedForms,physicalOrMaterialSubjects:report.subjects-reflectedForms,castNote:scene.castNote||null,renderParts:report.renderParts,
   rigs:parts.filter(p=>p.rig).map(p=>({part:p.id,kind:p.rig.kind,pin:p.rig.pin})),
   joints:parts.filter(p=>p.follows?.kind==='joint').map(p=>({part:p.id,parent:p.follows.actor})),
   actions:report.actionNames,unassigned,missing,errors:report.errors,

@@ -1,5 +1,5 @@
 import {vertex} from './environment.mjs';
-import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs?v=2-truss-matte';
+import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs?v=2-gold-water';
 import {StoryClock} from './timeline.mjs';
 import {surfAt,shorelineSegments} from './surf.mjs';
 import {makeShadowMap,makeReceiverPlanes,shadowPlanesAt} from './shadows.mjs?v=2-projection-planes';
@@ -63,6 +63,9 @@ float contactWave(vec2 p,vec4 contact,vec4 motion,float t){
 void main(){
  vec2 p=vSceneCoord,uv=vTextureCoord,n=p/uSize;
  vec4 original=texture(uTexture,uv),regions=texture(uRegions,n),anchor=texture(uAnchors,n);
+ // Transparent region texels are authored immutable structures, including
+ // their sampling border. They bypass displacement and every lighting pass.
+ if(regions.a<.5){finalColor=original;return;}
  float pigment=smoothstep(.025,.12,max(original.r,max(original.g,original.b))-min(original.r,min(original.g,original.b)));
  float t=uScore.x,progress=uScore.z;
  float span=max(.001,abs(uDirection.x)+abs(uDirection.y));
@@ -156,6 +159,11 @@ export class MaterialScene{
    rc.globalCompositeOperation='lighter';draw(rc,r,`rgb(${channel.join(',')})`);
    draw(ac,r,`rgb(${Math.round(r.anchor[0]*255)},${Math.round(r.anchor[1]*255)},${r.kind==='cloth'?255:r.kind==='body'?192:r.kind==='moss'?128:r.palette==='warm'?32:0})`);
   }
+  if(scene.protectedRegions?.length){
+   rc.save();rc.globalCompositeOperation='destination-out';rc.fillStyle=rc.strokeStyle='white';rc.lineWidth=2;rc.lineJoin='round';
+   for(const polygon of scene.protectedRegions){rc.beginPath();polygon.forEach(([x,y],i)=>i?rc.lineTo(x,y):rc.moveTo(x,y));rc.closePath();rc.fill();rc.stroke();}
+   rc.restore();
+  }
   player.regionTexture=PIXI.Texture.from(regions);player.anchorTexture=PIXI.Texture.from(anchors);
   const origin=scene.regions.find(r=>r.kind==='water')?.anchor||[.5,.5];
   const shore=shorelineSegments(scene);while(shore.length<4)shore.push([0,0,0,0]);
@@ -206,6 +214,30 @@ export class MaterialScene{
     reports.push({time,outsideChanged,insideChanged,maxOutsideDelta,maxInsideDelta});
    }
    return {id:this.scene.id,width:base.w,height:base.h,backgroundEffects:false,edgeAllowanceSourcePixels:1.5,reports,scope:'Every rendered pixel outside fixed apertures compared at seven times. Engineering containment/rest evidence only, not artistic acceptance.'};
+  }finally{this.setBackgroundEffects(effects);this.seek(restore);}
+ }
+ async auditProtectedRegions(){
+  const polygons=this.scene.protectedRegions;
+  if(!polygons?.length)return {available:false,reason:'No full protected-region polygons authored for this scene.'};
+  this.pause();const restore=this.clock.time,effects=this.backgroundEffects,gl=this.app.renderer.gl;
+  const capture=t=>{this.render(t);gl.finish();const [,,w,h]=gl.getParameter(gl.VIEWPORT),pixels=new Uint8Array(w*h*4);gl.readPixels(0,0,w,h,gl.RGBA,gl.UNSIGNED_BYTE,pixels);return {w,h,pixels};};
+  try{
+   const result=[];
+   for(const enabled of [false,true]){
+    this.setBackgroundEffects(enabled);const base=capture(0),mask=document.createElement('canvas');mask.width=base.w;mask.height=base.h;
+    const ctx=mask.getContext('2d');ctx.scale(base.w/this.scene.crop[2],base.h/this.scene.crop[3]);ctx.fillStyle='white';
+    for(const polygon of polygons){ctx.beginPath();polygon.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();}
+    const coverage=ctx.getImageData(0,0,base.w,base.h).data,offsets=[];
+    for(let y=0;y<base.h;y++)for(let x=0;x<base.w;x++)if(coverage[((base.h-1-y)*base.w+x)*4+3]===255)offsets.push((y*base.w+x)*4);
+    const reports=[];
+    for(const fraction of [.1,.25,.4,.5,.65,.8,1]){
+     const time=this.scene.duration*fraction,frame=capture(time);let changed=0,maxDelta=0;
+     for(const i of offsets){const delta=Math.max(Math.abs(base.pixels[i]-frame.pixels[i]),Math.abs(base.pixels[i+1]-frame.pixels[i+1]),Math.abs(base.pixels[i+2]-frame.pixels[i+2]));maxDelta=Math.max(maxDelta,delta);if(delta>1)changed++;}
+     reports.push({time,changed,maxDelta});
+    }
+    result.push({backgroundEffects:enabled,checkedPixels:offsets.length,reports});
+   }
+   return {id:this.scene.id,modes:result,scope:'Every fully covered pixel in authored protected polygons, at seven times with effects off and on. This checks containment, not artistic acceptance.'};
   }finally{this.setBackgroundEffects(effects);this.seek(restore);}
  }
  async benchmark(count=1000){

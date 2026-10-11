@@ -236,7 +236,7 @@ never invent a conspicuous new protagonist just to satisfy a template.
 | Wallace | Canopy opens and closes over the gate, exposing and concealing a coherent patch of light | joint groups, projected mask |
 | Charleston | Moving canopy shadow traverses successive facade/porch planes and resolves | layered light, occlusion |
 | Savannah | Moss strands bend from fixed attachments; a travelling gust produces delayed recovery | rope mesh, damped response |
-| Miami | Water divides around the fixed stone vessel; reflection separates and closes after the swell | obstacle-aware wave/receiver |
+| Miami | Original reflected forms respond in depth order, split along the fixed stone edge, backwash and reassemble at source positions; stone vessel and poles remain static | bank-constrained rigid source-fragment swell, historical receivers, immutable protection; environmental episode, final review pending |
 | Miami Beach | Wave reaches the jetty, splits, breaks at exposed edges and retreats with sparse foam fragments | segmented mesh, obstacle contacts |
 | Everglades | Original animal raises its head, holds, sweeps its tail and rests; two source lotus blades cup/unfurl at different times | Root-preserving backbone and leaf meshes implemented locally; source seams, foreground occlusion and full visual acceptance remain pending |
 
@@ -526,3 +526,9 @@ The source ferry and cargo vessel are two semantic subjects. Two cargo booms and
 ### River subject implementation
 
 Chicago now has three semantic subjects: one two-leaf bridge and two original small vessels. The bridge articulates around fixed abutment hinges; its leaves stay at source scale and reunite at rest. The vessels retain their original orientations, wait/accelerate/recover at different times, and use separate lanes. Two antenna cutouts share the tender pose and use an ivory pigment matte to reject original green shoreline pixels. A single generated repair plate is limited to source footprints. Full playback/source sheets are recorded, but truss-hole depth, contact, mobile presentation and final artistic acceptance remain open.
+
+### Material swell and immutable structures
+
+Miami uses 22 source reflection fragments driven by one reusable approach/split/recede/rejoin clip, with delay derived from position and a piece-size-aware bank constraint. These are three reflected forms, not three physical moving vessels; the static sculpture stays static. The inventory now records that distinction explicitly. Source pigment mattes and one fixed cool-water repair are reused for every frame. A new protected-region inspection compares every covered pixel at seven timestamps with effects off and on. It exposed a seven-pixel sampling leak, fixed by bypassing all background displacement and lighting inside the declared immutable mask. All 1,737,544 covered pixels are now stable. Final material/readability review remains open.
+
+Local review should use `python3 scripts/serve-preview.py --port 4173`; the preview serves code and artwork with `Cache-Control: no-store`. This affects local review only, not GitHub Pages caching.

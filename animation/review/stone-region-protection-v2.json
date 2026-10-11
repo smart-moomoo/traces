@@ -1,0 +1,106 @@
+{
+  "probes": {
+    "id": "Miami",
+    "fixedDifferences": [
+      0,
+      0
+    ],
+    "movingDifferences": [
+      9,
+      6
+    ],
+    "scope": "Authored point samples, not visual acceptance."
+  },
+  "apertures": {
+    "available": false,
+    "reason": "This scene is not entirely confined to fixed apertures."
+  },
+  "protectedRegions": {
+    "id": "Miami",
+    "modes": [
+      {
+        "backgroundEffects": false,
+        "checkedPixels": 1737544,
+        "reports": [
+          {
+            "time": 3.6,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 9,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 14.4,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 18,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 23.400000000000002,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 28.8,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 36,
+            "changed": 0,
+            "maxDelta": 0
+          }
+        ]
+      },
+      {
+        "backgroundEffects": true,
+        "checkedPixels": 1737544,
+        "reports": [
+          {
+            "time": 3.6,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 9,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 14.4,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 18,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 23.400000000000002,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 28.8,
+            "changed": 0,
+            "maxDelta": 0
+          },
+          {
+            "time": 36,
+            "changed": 0,
+            "maxDelta": 0
+          }
+        ]
+      }
+    ],
+    "scope": "Every fully covered pixel in authored protected polygons, at seven times with effects off and on. This checks containment, not artistic acceptance."
+  }
+}

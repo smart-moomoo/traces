@@ -1,3 +1,4 @@
+import {directStoneWater} from './material-swell.mjs?v=2-stone-protection';
 import {directRiver} from './river-direction.mjs?v=2-truss-matte';
 import {directHarbor} from './harbor-direction.mjs?v=3-complete-arms';
 import {directObservatory} from './observatory-direction.mjs?v=2-gold-matte';
@@ -155,3 +156,5 @@ directObservatory(expressiveCatalog.find(s=>s.id==='Los-Angeles'));
 directHarbor(expressiveCatalog.find(s=>s.id==='Seattle'));
 
 directRiver(expressiveCatalog.find(s=>s.id==='Chicago'));
+
+directStoneWater(expressiveCatalog.find(s=>s.id==='Miami'));

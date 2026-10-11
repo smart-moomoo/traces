@@ -49,11 +49,16 @@
     "Chicago: two rigid bridge leaves around fixed pier hinges, opening/hold/closure; two original small watercraft depart in independent lanes at original scale",
     "Separate source-white rigging alpha avoids carrying green shoreline pixels on moving tender antennas",
     "Three semantic Chicago subjects; source truss and pier views inspected at seven poses; full 36.03-second browser playback completed",
-    "Latest truss/rigging/hinge 23 x 1000 lifecycle passed with zero added image requests; source hashes in lifecycle-river-v2.json. Three authored Chicago fixed probes were unchanged."
+    "Latest truss/rigging/hinge 23 x 1000 lifecycle passed with zero added image requests; source hashes in lifecycle-river-v2.json. Three authored Chicago fixed probes were unchanged.",
+    "Reusable source-fragment swell clip: spatially delayed approach, bank-constrained lateral split, backwash and exact return without stretching shell pieces",
+    "Miami: 22 original reflection fragments in three reflected forms; fixed stone barge and poles are not misclassified as moving vessels",
+    "Authored immutable-region mask bypasses displacement and lighting; 1737544 protected pixels unchanged at seven timestamps with background effects off and on",
+    "Local no-store preview server avoids stale animation modules and fixed repair assets during review",
+    "Latest no-store 23 x 1000 lifecycle pass after immutable-region and material-swell changes: all scenes mounted and every newRequests count was zero; checkout hashes recorded in lifecycle-stone-water-v2.json"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Twenty-one scenes now have explicit local subject programmes. Dallas and Miami remain unimplemented at this standard. Seattle reflection fragment reassembly, coastal wave development and Santa Monica palm articulation also remain. No final visual acceptance or public deployment.",
+    "Twenty-two scenes have explicit local programmes: twenty-one physical/material subject programmes plus Miami’s environmental reflected-form episode. Dallas still needs its new programme. Seattle reflection fragment reassembly, coastal wave development and Santa Monica palm articulation remain. No final visual acceptance or public deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -151,7 +156,11 @@
     {
       "path": "assets/scenes/Chicago/bridge-boats-clean-plate-v2.png",
       "use": "One fixed plate, applied only to the original central span and two small watercraft/antenna footprints. Source artwork supplies all moving surfaces; zero generated frame sequence."
+    },
+    {
+      "path": "assets/scenes/Miami/water-clean-plate-v2.png",
+      "use": "One fixed cool-water repair image only under original warm reflection pigment masks. Every moving fragment is original source artwork."
     }
   ],
-  "tests": "Twenty-two functional test files passed after river hinge, antenna and truss updates. Chicago has three semantic subjects and six render parts; paired bridge leaves count as one subject. Runtime evidence and point probes do not imply artistic acceptance."
+  "tests": "Twenty-three functional test files passed. The swell test checks 1001 samples for bank clearance, rigid scale, opposite-side response, spatial arrival, recovery and deterministic seeking. Pixel containment does not replace artistic acceptance."
 }

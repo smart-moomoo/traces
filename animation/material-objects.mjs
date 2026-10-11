@@ -60,7 +60,7 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
    for(const polygon of sourceHoles){ctx.beginPath();polygon.forEach(([px,py],i)=>i?ctx.lineTo(px-x,py-y):ctx.moveTo(px-x,py-y));ctx.closePath();ctx.fill();}
    ctx.restore();
   }
-  if(['warm-reflection','foliage','vegetation','moss','salt','mechanical-gold','ivory-rigging','rust-structure'].includes(definition.matte)){
+  if(['warm-reflection','foliage','vegetation','moss','salt','mechanical-gold','ivory-rigging','rust-structure','gold-water'].includes(definition.matte)){
    // Retain warm/dark reflected pigment, not the surrounding cyan water tile.
    // This is a source-pixel matte; no synthetic mirrored replacement artwork.
    const data=ctx.getImageData(0,0,w,h);
@@ -77,7 +77,8 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
     const gold=Math.min((r-60)/45,(g-35)/30,(r-b-20)/25);
     const ivory=Math.min((r-175)/40,(g-170)/40,(b-150)/45);
     const structure=1-Math.max(0,Math.min(1,(g-r-3)/10));
-    const pigment=definition.matte==='rust-structure'?structure:definition.matte==='ivory-rigging'?ivory:definition.matte==='mechanical-gold'?gold:definition.matte==='salt'?salt:definition.matte==='moss'?moss:definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
+    const reflectedGold=Math.min((r-b-6)/16,(g-b-2)/12,(r-120)/40);
+    const pigment=definition.matte==='gold-water'?reflectedGold:definition.matte==='rust-structure'?structure:definition.matte==='ivory-rigging'?ivory:definition.matte==='mechanical-gold'?gold:definition.matte==='salt'?salt:definition.matte==='moss'?moss:definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
     const alpha=Math.max(0,Math.min(1,definition.matte==='vegetation'?(pigment-.25)/.5:pigment));data.data[i+3]*=alpha*alpha*(3-2*alpha);
    }
    if(coverage)closeMaterialMatte(data.data,w,h,definition.matteClose,coverage);
@@ -88,7 +89,7 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
   const plate=canvas.getContext('2d');
   if(definition.repair===false)return {definition,cutout,texture:PIXI.Texture.from(cutout)};
   if(repairPlate){
-   if(['foliage','vegetation','moss','salt','ivory-rigging'].includes(definition.matte)){
+   if(['foliage','vegetation','moss','salt','ivory-rigging','gold-water'].includes(definition.matte)){
     // Repair the pigment mask, not its bounding polygon: blue/cream sky tiles
     // between leaves must stay original instead of moving as a textured patch.
     const patch=document.createElement('canvas');patch.width=w;patch.height=h;
