@@ -27,11 +27,15 @@
     "Top-pinned material strands with independent free-tip lag and fixed branch attachments",
     "Source-constrained one-pixel matte closing preserves explicit holes and exterior transparency",
     "Canopy receiving light reads the exact two articulated branch controls",
-    "Latest 23 x 1000 lifecycle pass includes moss and gate-canopy subjects; zero new requests; source hashes recorded in lifecycle-canopy-v2.json"
+    "Latest 23 x 1000 lifecycle pass includes moss and gate-canopy subjects; zero new requests; source hashes recorded in lifecycle-canopy-v2.json",
+    "Three fixed receiving planes packed in a source-derived shadow texture; movement reads the same subject control channels, with fixed architectural boundaries",
+    "Sunnyvale original two near boughs and far crown articulate separately; optional dark-pigment inclusion preserves grey-brown twigs",
+    "Charleston original two roof twig groups and palm crown articulate separately; per-facade projection configured",
+    "Latest 23 x 1000 lifecycle pass includes three receiving planes and Sunnyvale/Charleston subjects: no new image requests; source hashes in lifecycle-park-street-v2.json"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Fourteen scenes now have explicit local subject programmes, adding Savannah and Wallace. Nine remain unimplemented at this standard. Additional planned coastal events and Santa Monica palms also remain. No final visual acceptance or public deployment.",
+    "Sixteen scenes now have explicit local subject programmes, adding Sunnyvale and Charleston. Seven remain unimplemented at this standard. Planned coastal waves and Santa Monica palm articulation remain. No final visual acceptance or deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -101,6 +105,14 @@
     {
       "path": "assets/scenes/Wallace/two-limbs-clean-plate-v2.png",
       "use": "Fixed source repair only under two original limb pigment footprints; no frame generation"
+    },
+    {
+      "path": "assets/scenes/Sunnyvale/canopy-clean-plate-v4.png",
+      "use": "Assembly of two fixed generated clean plates; applied only under three source pigment masks; original fixed trunks preserved"
+    },
+    {
+      "path": "assets/scenes/Charleston/canopy-clean-plate-v2.png",
+      "use": "Fixed repair under two original twig groups and one palm crown; no generated animation frames"
     }
   ],
   "tests": "Fourteen functional test files passed, including radial attachment invariance, stem root invariance, low material strain, delayed seed-head response, boat/buoy timing, deterministic seek and prior regression checks. Runtime evidence and artistic acceptance remain separate."

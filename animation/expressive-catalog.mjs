@@ -1,3 +1,4 @@
+import {directParkCanopy,directStreetCanopy} from './park-street-direction.mjs';
 import {catalog} from './catalog.mjs';
 import {directBayDuet,directLakeTrio,directParkPair} from './subject-direction.mjs';
 import {directCoastalFlags} from './cloth-direction.mjs';
@@ -136,3 +137,6 @@ directChannelPassage(expressiveCatalog.find(s=>s.id==='Miami-Beach'));
 directReeds(expressiveCatalog.find(s=>s.id==='Mountain-View'));
 directMoss(expressiveCatalog.find(s=>s.id==='Savannah'));
 directGateCanopy(expressiveCatalog.find(s=>s.id==='Wallace'));
+
+directParkCanopy(expressiveCatalog.find(s=>s.id==='Sunnyvale'));
+directStreetCanopy(expressiveCatalog.find(s=>s.id==='Charleston'));

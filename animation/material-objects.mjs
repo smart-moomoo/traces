@@ -71,7 +71,7 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
     const green=(Math.min(g-r,g-b)+2)/8;
     // Gold leaves and lit brown twigs need full opacity too; a luminance cap
     // left half of each lit twig in the base and produced a duplicate branch.
-    const vegetation=Math.max(green,Math.min((g-b-10)/18,(r-b-35)/25));
+    const vegetation=Math.max(green,Math.min((g-b-10)/18,(r-b-35)/25),definition.matteDark===undefined?0:(definition.matteDark-b)/24);
     const moss=Math.min((r-110)/45,(g-100)/45,(r-g+5)/12,(g-b+8)/25);
     const pigment=definition.matte==='moss'?moss:definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
     const alpha=Math.max(0,Math.min(1,definition.matte==='vegetation'?(pigment-.25)/.5:pigment));data.data[i+3]*=alpha*alpha*(3-2*alpha);

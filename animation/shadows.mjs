@@ -19,3 +19,24 @@ export function makeShadowMap(source,scene){
  }
  return result;
 }
+
+// Three static receiving planes packed in RGB. Their boundaries never move;
+// only the source-derived shadow coordinates do. This prevents an entire
+// facade, roof or paper margin being translated with its illumination.
+export function makeReceiverPlanes(source,scene){
+ const c=document.createElement('canvas');c.width=scene.shadowPlanes?.length?source.width:1;c.height=scene.shadowPlanes?.length?source.height:1;
+ const ctx=c.getContext('2d');ctx.fillStyle='black';ctx.fillRect(0,0,c.width,c.height);
+ for(const [i,p] of (scene.shadowPlanes||[]).entries()){
+  if(i>=3)throw new Error('At most three independent receiving planes per scene');
+  ctx.save();ctx.globalCompositeOperation='lighter';ctx.fillStyle=['red','lime','blue'][i];ctx.beginPath();
+  for(const poly of [p.points,...(p.exclusions||[])]){poly.forEach(([x,y],j)=>j?ctx.lineTo(x*c.width,y*c.height):ctx.moveTo(x*c.width,y*c.height));ctx.closePath();}
+  ctx.fill('evenodd');ctx.restore();
+ }
+ return c;
+}
+export function shadowPlanesAt(scene,controls){
+ return (scene.shadowPlanes||[]).map(p=>{
+  const value=controls[p.channel];if(!Number.isFinite(value))throw new Error(`Missing shadow plane channel: ${p.channel}`);
+  return [p.travel[0]*value,p.travel[1]*value,p.strength,1];
+ });
+}

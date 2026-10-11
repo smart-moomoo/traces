@@ -1,7 +1,7 @@
 {
   "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
   "total": 23,
-  "authored": 14,
+  "authored": 16,
   "scenes": [
     {
       "id": "Seattle",
@@ -198,18 +198,37 @@
     {
       "id": "Sunnyvale",
       "source": "assets/posters/Sunnyvale.png",
-      "subjects": 0,
-      "renderParts": 0,
-      "rigs": [],
-      "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "subjects": 3,
+      "renderParts": 3,
+      "rigs": [
+        {
+          "part": "near-upper-bough",
+          "kind": "spine",
+          "pin": "right"
+        },
+        {
+          "part": "near-lower-bough",
+          "kind": "spine",
+          "pin": "right"
+        },
+        {
+          "part": "far-tree-crown",
+          "kind": "stem",
+          "pin": "bottom"
+        }
       ],
+      "joints": [],
+      "actions": [
+        "yield-at-fixed-root",
+        "open-canopy",
+        "elastic-rebound",
+        "weaker-second-bend",
+        "return-to-rest"
+      ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",
@@ -619,18 +638,40 @@
     {
       "id": "Charleston",
       "source": "assets/posters/Charleston.png",
-      "subjects": 0,
-      "renderParts": 0,
-      "rigs": [],
-      "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "subjects": 3,
+      "renderParts": 3,
+      "rigs": [
+        {
+          "part": "blue-roof-twig",
+          "kind": "stem",
+          "pin": "top"
+        },
+        {
+          "part": "pink-roof-twig",
+          "kind": "stem",
+          "pin": "top"
+        },
+        {
+          "part": "street-palm",
+          "kind": "radial-fronds"
+        }
       ],
+      "joints": [],
+      "actions": [
+        "branch-attachment-fixed",
+        "lower-and-bend",
+        "tip-lag",
+        "lift-and-release",
+        "settle",
+        "crown-root-fixed",
+        "frond-pressure",
+        "tip-curl",
+        "unfurl"
+      ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",

@@ -2,7 +2,7 @@ import {vertex} from './environment.mjs';
 import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs';
 import {StoryClock} from './timeline.mjs';
 import {surfAt,shorelineSegments} from './surf.mjs';
-import {makeShadowMap} from './shadows.mjs';
+import {makeShadowMap,makeReceiverPlanes,shadowPlanesAt} from './shadows.mjs?v=2-projection-planes';
 import {loadScoreEngine,createScore} from './expressive-score.mjs';
 import {actorsAt,receiversAt,lightResponse} from './scene-state.mjs';
 
@@ -14,6 +14,10 @@ uniform sampler2D uTexture;
 uniform sampler2D uRegions;
 uniform sampler2D uAnchors;
 uniform sampler2D uShadows;
+uniform sampler2D uReceiverPlanes;
+uniform vec4 uPlane0;
+uniform vec4 uPlane1;
+uniform vec4 uPlane2;
 uniform vec4 uInputSize;
 uniform vec4 uInputClamp;
 uniform vec2 uSize;
@@ -95,6 +99,10 @@ void main(){
  float projected=texture(uShadows,clamp(n+vec2(sin(localTime*.55)*.014,cos(localTime*.4)*.004)*energy,vec2(0.),vec2(1.))).r;
  float shade=uMode==4.?0.:-(cloud*.18+projected*.16)*regions.b*energy;
  shade+=projected*regions.b*uControls.w;
+ vec3 receivers=texture(uReceiverPlanes,n).rgb;
+ float restShadow=texture(uShadows,n).r;
+ vec3 movedShadow=vec3(texture(uShadows,clamp(n-uPlane0.xy,vec2(0.),vec2(1.))).r,texture(uShadows,clamp(n-uPlane1.xy,vec2(0.),vec2(1.))).r,texture(uShadows,clamp(n-uPlane2.xy,vec2(0.),vec2(1.))).r);
+ shade+=dot(receivers,(vec3(restShadow)-movedShadow)*vec3(uPlane0.z,uPlane1.z,uPlane2.z));
  float sparkle=(travelling*.027+ring*.04)*regions.r*energy;
  float foliarLight=sin(patch.x*.017+patch.y*.009-t*.7)*foliage*.035*energy;
  color.rgb*=1.+(shade+sparkle+foliarLight)*pigment;
@@ -130,6 +138,7 @@ export class MaterialScene{
   let repairPlate=null;
   if(scene.repairPlate){player.repairUrl=new URL('../'+scene.repairPlate,import.meta.url).href;repairPlate=new Image();repairPlate.src=player.repairUrl;await repairPlate.decode();}
   player.shadowTexture=PIXI.Texture.from(makeShadowMap(canvas,scene));
+  player.receiverTexture=PIXI.Texture.from(makeReceiverPlanes(canvas,scene));
   const objectMaterials=prepareObjects(canvas,scene.objects,repairPlate,{preciseRepair:scene.version===2});
   player.auditAssets={source:im,cleanPlate:canvas,objects:objectMaterials};
   player.art=PIXI.Texture.from(canvas);
@@ -152,7 +161,7 @@ export class MaterialScene{
   const shore=shorelineSegments(scene);while(shore.length<4)shore.push([0,0,0,0]);
   const contacts=(scene.version===2?receiversAt(scene,0).map(c=>[...c.position,c.born,c.strength]):contactOrigins(scene)).slice(0,3);while(contacts.length<3)contacts.push([0,0,0,0]);
   const emissions=scene.version===2?receiversAt(scene,0).map(c=>[c.velocity?.vx||0,c.velocity?.vy||0,0,0]):[];while(emissions.length<3)emissions.push([0,0,0,0]);
-  player.filter=new PIXI.Filter({glProgram:PIXI.GlProgram.from({vertex,fragment}),resources:{uShadows:player.shadowTexture.source,uRegions:player.regionTexture.source,uAnchors:player.anchorTexture.source,sceneUniforms:{uControls:{value:new Float32Array(4),type:'vec4<f32>'},uVersion:{value:scene.version||1,type:'f32'},uMotion0:{value:new Float32Array(emissions[0]),type:'vec4<f32>'},uMotion1:{value:new Float32Array(emissions[1]),type:'vec4<f32>'},uMotion2:{value:new Float32Array(emissions[2]),type:'vec4<f32>'},uShore0:{value:new Float32Array(shore[0]),type:'vec4<f32>'},uShore1:{value:new Float32Array(shore[1]),type:'vec4<f32>'},uShore2:{value:new Float32Array(shore[2]),type:'vec4<f32>'},uShore3:{value:new Float32Array(shore[3]),type:'vec4<f32>'},uSurf:{value:new Float32Array(4),type:'vec4<f32>'},uSize:{value:new Float32Array([w,h]),type:'vec2<f32>'},uScore:{value:new Float32Array(4),type:'vec4<f32>'},uOrigin:{value:new Float32Array(origin),type:'vec2<f32>'},uDirection:{value:new Float32Array(scene.score.direction),type:'vec2<f32>'},uTiming:{value:new Float32Array([scene.score.onset,scene.score.peak,scene.score.decay,scene.score.settle]),type:'vec4<f32>'},uContact0:{value:new Float32Array(contacts[0]),type:'vec4<f32>'},uContact1:{value:new Float32Array(contacts[1]),type:'vec4<f32>'},uContact2:{value:new Float32Array(contacts[2]),type:'vec4<f32>'},uMode:{value:({ripple:1,surf:2,dusk:3,glint:4})[scene.mode]||0,type:'f32'}}}});
+  player.filter=new PIXI.Filter({glProgram:PIXI.GlProgram.from({vertex,fragment}),resources:{uReceiverPlanes:player.receiverTexture.source,uShadows:player.shadowTexture.source,uRegions:player.regionTexture.source,uAnchors:player.anchorTexture.source,sceneUniforms:{uPlane0:{value:new Float32Array(4),type:'vec4<f32>'},uPlane1:{value:new Float32Array(4),type:'vec4<f32>'},uPlane2:{value:new Float32Array(4),type:'vec4<f32>'},uControls:{value:new Float32Array(4),type:'vec4<f32>'},uVersion:{value:scene.version||1,type:'f32'},uMotion0:{value:new Float32Array(emissions[0]),type:'vec4<f32>'},uMotion1:{value:new Float32Array(emissions[1]),type:'vec4<f32>'},uMotion2:{value:new Float32Array(emissions[2]),type:'vec4<f32>'},uShore0:{value:new Float32Array(shore[0]),type:'vec4<f32>'},uShore1:{value:new Float32Array(shore[1]),type:'vec4<f32>'},uShore2:{value:new Float32Array(shore[2]),type:'vec4<f32>'},uShore3:{value:new Float32Array(shore[3]),type:'vec4<f32>'},uSurf:{value:new Float32Array(4),type:'vec4<f32>'},uSize:{value:new Float32Array([w,h]),type:'vec2<f32>'},uScore:{value:new Float32Array(4),type:'vec4<f32>'},uOrigin:{value:new Float32Array(origin),type:'vec2<f32>'},uDirection:{value:new Float32Array(scene.score.direction),type:'vec2<f32>'},uTiming:{value:new Float32Array([scene.score.onset,scene.score.peak,scene.score.decay,scene.score.settle]),type:'vec4<f32>'},uContact0:{value:new Float32Array(contacts[0]),type:'vec4<f32>'},uContact1:{value:new Float32Array(contacts[1]),type:'vec4<f32>'},uContact2:{value:new Float32Array(contacts[2]),type:'vec4<f32>'},uMode:{value:({ripple:1,surf:2,dusk:3,glint:4})[scene.mode]||0,type:'f32'}}}});
   const sprite=new PIXI.Sprite(player.art);player.backgroundSprite=sprite;player.backgroundEffects=true;sprite.filters=[player.filter];sprite.filterArea=new PIXI.Rectangle(0,0,w,h);player.app.stage.addChild(sprite);
   player.objects=mountObjects(player.app.stage,objectMaterials,w,h);
   player.clock=new StoryClock(scene.duration);player.render(0);
@@ -163,6 +172,7 @@ export class MaterialScene{
  render(t){
   const s=scoreAt(this.scene,t),surf=surfAt(this.scene,t);
   const delayed=this.expression?.sample(Math.max(0,t-2.8)),controls=this.expression?.sample(t);
+  if(controls){const planes=shadowPlanesAt(this.scene,controls);for(let i=0;i<3;i++)this.filter.resources.sceneUniforms.uniforms['uPlane'+i].set(planes[i]||[0,0,0,0]);}
   if(controls)this.filter.resources.sceneUniforms.uniforms.uControls.set([controls.wind||0,delayed.wind||0,controls.lightPosition||0,lightResponse(this.scene,controls)]);this.filter.resources.sceneUniforms.uniforms.uScore.set([t,s.energy,s.progress,0]);this.filter.resources.sceneUniforms.uniforms.uSurf.set([surf.front,surf.width,surf.energy,surf.foam]);renderObjects(this.objects,t,controls,this.scene.version===2?actorsAt(this.scene,t):null);this.app.render();this.onTime(t,s);}
  play(){this.clock.play();} pause(){this.clock.pause();} seek(t){this.clock.seek(t);this.render(this.clock.time);}
  setBackgroundEffects(enabled){this.backgroundEffects=!!enabled;this.backgroundSprite.filters=enabled?[this.filter]:[];this.render(this.clock.time);}
@@ -177,7 +187,7 @@ export class MaterialScene{
  async benchmark(count=1000){
   this.pause();const restore=this.clock.time,start=performance.now(),before=performance.getEntriesByType('resource').length;let max=0;
   for(let i=0;i<count;i++){const b=performance.now();this.render(this.scene.duration*i/(count-1));max=Math.max(max,performance.now()-b);if(i%25===24){this.app.renderer.gl.finish();await new Promise(requestAnimationFrame);}}
-  const result={frames:count,elapsedMs:Math.round(performance.now()-start),maxSubmissionMs:+max.toFixed(2),downloadedImages:1+(this.repairUrl?1:0),derivedMaskTextures:3+this.objects.filter(o=>o.maskTexture).length,derivedObjectTextures:this.objects.length,newRequests:performance.getEntriesByType('resource').length-before,visualReview:this.scene.visualReview};this.seek(restore);return result;
+  const result={frames:count,elapsedMs:Math.round(performance.now()-start),maxSubmissionMs:+max.toFixed(2),downloadedImages:1+(this.repairUrl?1:0),derivedMaskTextures:4+this.objects.filter(o=>o.maskTexture).length,derivedObjectTextures:this.objects.length,newRequests:performance.getEntriesByType('resource').length-before,visualReview:this.scene.visualReview};this.seek(restore);return result;
  }
- async destroy(){cancelAnimationFrame(this.raf);document.removeEventListener('visibilitychange',this.visibility);this.expression?.destroy();this.app.destroy(true,{children:true,texture:false});this.filter.destroy();for(const o of this.objects){o.rig?.geometry?.destroy(true);o.texture.destroy(true);o.maskTexture?.destroy(true);}this.art.destroy(true);this.regionTexture.destroy(true);this.anchorTexture.destroy(true);this.shadowTexture.destroy(true);}
+ async destroy(){cancelAnimationFrame(this.raf);document.removeEventListener('visibilitychange',this.visibility);this.expression?.destroy();this.app.destroy(true,{children:true,texture:false});this.filter.destroy();for(const o of this.objects){o.rig?.geometry?.destroy(true);o.texture.destroy(true);o.maskTexture?.destroy(true);}this.art.destroy(true);this.regionTexture.destroy(true);this.anchorTexture.destroy(true);this.shadowTexture.destroy(true);this.receiverTexture.destroy(true);}
 }

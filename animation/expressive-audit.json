@@ -513,18 +513,57 @@
         794
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "near-upper-bough",
+          "representation": "spine",
+          "rest": [
+            676,
+            269
+          ],
+          "sweptBounds": [
+            510.14,
+            156.14,
+            716.86,
+            339.86
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "near-lower-bough",
+          "representation": "spine",
+          "rest": [
+            706,
+            319
+          ],
+          "sweptBounds": [
+            545.76,
+            254.76,
+            748.24,
+            413.24
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "far-tree-crown",
+          "representation": "stem",
+          "rest": [
+            193,
+            340
+          ],
+          "sweptBounds": [
+            94.08,
+            186.07999999999998,
+            310.92,
+            380.92
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
-        {
-          "id": "right-tree",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "left-tree",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
         {
           "id": "lawn",
           "kind": "light",
@@ -1304,13 +1343,57 @@
         695
       ],
       "status": "source-audit",
-      "objects": [],
-      "environment": [
+      "objects": [
         {
-          "id": "canopy",
-          "kind": "foliage",
+          "id": "blue-roof-twig",
+          "representation": "stem",
+          "rest": [
+            233,
+            147
+          ],
+          "sweptBounds": [
+            138.75,
+            94.75,
+            350.25,
+            301.25
+          ],
+          "issues": [],
           "visualStatus": "unreviewed"
         },
+        {
+          "id": "pink-roof-twig",
+          "representation": "stem",
+          "rest": [
+            453,
+            226
+          ],
+          "sweptBounds": [
+            337.175,
+            171.175,
+            562.825,
+            379.825
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "street-palm",
+          "representation": "radial-fronds",
+          "rest": [
+            873,
+            443
+          ],
+          "sweptBounds": [
+            792.7072,
+            339.7072,
+            943.2928,
+            487.2928
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
+      "environment": [
         {
           "id": "house-fronts",
           "kind": "light",

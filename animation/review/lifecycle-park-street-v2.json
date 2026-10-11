@@ -1,0 +1,269 @@
+{
+  "scope": "Engineering lifecycle evidence only, not artistic acceptance.",
+  "reports": [
+    {
+      "id": "Seattle",
+      "frames": 1000,
+      "elapsedMs": 2421,
+      "maxSubmissionMs": 0.8,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 5,
+      "derivedObjectTextures": 1,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Bellevue",
+      "frames": 1000,
+      "elapsedMs": 1493,
+      "maxSubmissionMs": 0.7,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 5,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "San-Francisco",
+      "frames": 1000,
+      "elapsedMs": 1536,
+      "maxSubmissionMs": 0.9,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 8,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Stanford",
+      "frames": 1000,
+      "elapsedMs": 2380,
+      "maxSubmissionMs": 0.8,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 5,
+      "derivedObjectTextures": 3,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Mountain-View",
+      "frames": 1000,
+      "elapsedMs": 1673,
+      "maxSubmissionMs": 0.9,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 3,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Sunnyvale",
+      "frames": 1000,
+      "elapsedMs": 1580,
+      "maxSubmissionMs": 0.6,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 3,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "San-Jose",
+      "frames": 1000,
+      "elapsedMs": 1480,
+      "maxSubmissionMs": 0.5,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 0,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Los-Gatos",
+      "frames": 1000,
+      "elapsedMs": 1540,
+      "maxSubmissionMs": 0.5,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 7,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Santa-Cruz",
+      "frames": 1000,
+      "elapsedMs": 1480,
+      "maxSubmissionMs": 0.8,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 2,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Los-Angeles",
+      "frames": 1000,
+      "elapsedMs": 1469,
+      "maxSubmissionMs": 0.5,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 0,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Santa-Monica",
+      "frames": 1000,
+      "elapsedMs": 1537,
+      "maxSubmissionMs": 0.7,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 2,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "San-Diego",
+      "frames": 1000,
+      "elapsedMs": 1507,
+      "maxSubmissionMs": 0.7,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 3,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Dallas",
+      "frames": 1000,
+      "elapsedMs": 1472,
+      "maxSubmissionMs": 0.4,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 0,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Fort-Worth",
+      "frames": 1000,
+      "elapsedMs": 1507,
+      "maxSubmissionMs": 0.5,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 1,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Chicago",
+      "frames": 1000,
+      "elapsedMs": 2358,
+      "maxSubmissionMs": 0.7,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 5,
+      "derivedObjectTextures": 1,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Champaign-Urbana",
+      "frames": 1000,
+      "elapsedMs": 1482,
+      "maxSubmissionMs": 0.5,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 3,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "New-Orleans",
+      "frames": 1000,
+      "elapsedMs": 2391,
+      "maxSubmissionMs": 1.3,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 5,
+      "derivedObjectTextures": 3,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Wallace",
+      "frames": 1000,
+      "elapsedMs": 1487,
+      "maxSubmissionMs": 0.7,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 2,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Charleston",
+      "frames": 1000,
+      "elapsedMs": 329,
+      "maxSubmissionMs": 0.8,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 3,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Savannah",
+      "frames": 1000,
+      "elapsedMs": 1533,
+      "maxSubmissionMs": 0.8,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 4,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Miami",
+      "frames": 1000,
+      "elapsedMs": 1471,
+      "maxSubmissionMs": 0.5,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 0,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Miami-Beach",
+      "frames": 1000,
+      "elapsedMs": 2366,
+      "maxSubmissionMs": 0.6,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 5,
+      "derivedObjectTextures": 3,
+      "newRequests": 0,
+      "visualReview": "pending"
+    },
+    {
+      "id": "Everglades",
+      "frames": 1000,
+      "elapsedMs": 2419,
+      "maxSubmissionMs": 0.8,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 5,
+      "derivedObjectTextures": 4,
+      "newRequests": 0,
+      "visualReview": "pending"
+    }
+  ],
+  "visualReview": "pending",
+  "sourceSha256": {
+    "park-street-direction.mjs": "10c48ec714b6b5117e23a7053c5f3f15801be4e0cc7e3c1b519e5da177b1e862",
+    "material-objects.mjs": "b33501e7a267b56021f57a20a736114483bef4228809ce8037cc79debc9c7bbd",
+    "material-rig.mjs": "bf943b755da40c7035af3bf1694ef1650d720d58ed14782221e581de7124ac6d",
+    "material-scene.mjs": "6911aaba207427f42e2b2839fca575983a3b84491c81ebab3247690591bbb00c",
+    "shadows.mjs": "3481fbc2301d694937bb7f6d01251459f1ae8fc7f501916ea8ac288cdc8e2534",
+    "scene-state.mjs": "6bbee9582e378de3aa0ca011cacb5994d808bd418e88826f712b7d3db043e889",
+    "expressive-catalog.mjs": "6dc0062aa2ab024f851354bf43570b5807dddd197c735a37e5feca3624b96eed",
+    "expressive-score.mjs": "d691a0264ffdf7c77bdf26be3d1c9d34312a17e51a93ab12090aa2bd65ea3935"
+  }
+}

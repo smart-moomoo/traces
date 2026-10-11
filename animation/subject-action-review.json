@@ -215,6 +215,38 @@
         "Source material and fixed-root seam acceptance at exhibition scale",
         "Complete visual and integration acceptance"
       ]
+    },
+    {
+      "id": "Sunnyvale",
+      "subjects": 3,
+      "parts": 3,
+      "actions": [
+        "two near boughs bend from fixed roots at separate times",
+        "far crown bends with delayed tips",
+        "rebound, weaker second loading and rest",
+        "three fixed lawn receiving planes sample the same subject channels"
+      ],
+      "observed": "Seven composite poses and source/alpha/repair views inspected. Initial repair retained crown pigment; rebuilt fixed repair using second generated empty-tree plate. Then included grey-brown twig pigment after seeing residual fine branches. Final enlarged 9.8-second crown inspected. Full playback with background disabled: 32.03 seconds, 3843 frames, max step 0.010 seconds, p99 interval 9.4 ms, no intervals over 33 ms; all 24 captured states inspected.",
+      "remaining": [
+        "Exhibition-scale source edge and root acceptance",
+        "Complete receiving-light and full-site visual review"
+      ]
+    },
+    {
+      "id": "Charleston",
+      "subjects": 3,
+      "parts": 3,
+      "actions": [
+        "blue-roof twig bends from its branch attachment",
+        "pink-roof twig responds later with tip lag",
+        "original palm fronds bend and curl around fixed heart",
+        "three fixed facade receivers follow subject channels"
+      ],
+      "observed": "Seven enlarged composite poses inspected with background off; subject-only full playback recorded separately. After adding three receiving planes, full playback completed in 32.03 seconds, 3843 rendered frames, max step 0.017 seconds, p99 interval 12.7 ms, no intervals over 33 ms; all 24 full-scene states inspected. Module cache initially retained old shadows export, resolved with explicit module version and successful scene mount.",
+      "remaining": [
+        "Fine twig/roof source seams and source material acceptance",
+        "Final projection and full-site visual acceptance"
+      ]
     }
   ],
   "otherScenes": "14 scenes still lack the new explicit subject programme. All 23 final release gates remain pending; authored counts are not acceptance.",
@@ -434,6 +466,7 @@
     "animation/review/subject-actions-local.jpg",
     "animation/review/wetland-subject-actions.jpg",
     "animation/review/arboreal-subject-actions.jpg",
-    "animation/review/canopy-subject-actions.jpg"
+    "animation/review/canopy-subject-actions.jpg",
+    "animation/review/park-street-subject-actions.jpg"
   ]
 }
