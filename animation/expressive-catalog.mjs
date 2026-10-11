@@ -5,6 +5,7 @@ import {directWetland} from './wetland-direction.mjs';
 import {directArboreal,directAutumn} from './arboreal-direction.mjs';
 import {directCoastalPalms,directChannelPassage} from './coastal-subjects.mjs';
 import {directReeds} from './reed-direction.mjs';
+import {directMoss,directGateCanopy} from './canopy-direction.mjs';
 
 // Version 2 is explicit and local until all production gates have passed.
 // Previous demo acceptance is never inherited by the new scene definitions.
@@ -133,3 +134,5 @@ directAutumn(expressiveCatalog.find(s=>s.id==='Champaign-Urbana'));
 directCoastalPalms(expressiveCatalog.find(s=>s.id==='San-Diego'));
 directChannelPassage(expressiveCatalog.find(s=>s.id==='Miami-Beach'));
 directReeds(expressiveCatalog.find(s=>s.id==='Mountain-View'));
+directMoss(expressiveCatalog.find(s=>s.id==='Savannah'));
+directGateCanopy(expressiveCatalog.find(s=>s.id==='Wallace'));

@@ -23,11 +23,15 @@
     "Rooted stem beam with separate upper-stem lag, bounded material strain and rest recovery",
     "Original boat passage and two source navigation markers reacting in delayed sequence",
     "Workbench controls remain disabled while a scene is mounting",
-    "Latest 23 x 1000 lifecycle pass includes radial-frond, rooted-stem and channel-passage scenes; all 23 have zero new requests, source hashes recorded in lifecycle-coastal-v2.json"
+    "Latest 23 x 1000 lifecycle pass includes radial-frond, rooted-stem and channel-passage scenes; all 23 have zero new requests, source hashes recorded in lifecycle-coastal-v2.json",
+    "Top-pinned material strands with independent free-tip lag and fixed branch attachments",
+    "Source-constrained one-pixel matte closing preserves explicit holes and exterior transparency",
+    "Canopy receiving light reads the exact two articulated branch controls",
+    "Latest 23 x 1000 lifecycle pass includes moss and gate-canopy subjects; zero new requests; source hashes recorded in lifecycle-canopy-v2.json"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Twelve scenes now have explicit local subject programmes, adding San Diego, Miami Beach and Mountain View. Eleven remain unimplemented at this standard. No final visual acceptance or public deployment.",
+    "Fourteen scenes now have explicit local subject programmes, adding Savannah and Wallace. Nine remain unimplemented at this standard. Additional planned coastal events and Santa Monica palms also remain. No final visual acceptance or public deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -89,6 +93,14 @@
     {
       "path": "assets/scenes/Mountain-View/reeds-clean-plate-v3.png",
       "use": "Fixed repair plate only under source subject masks. Every animated surface uses original pixels; no generated frame sequence."
+    },
+    {
+      "path": "assets/scenes/Savannah/moss-clean-plate-v2.png",
+      "use": "Fixed source repair only under four original pigment footprints; no frame generation"
+    },
+    {
+      "path": "assets/scenes/Wallace/two-limbs-clean-plate-v2.png",
+      "use": "Fixed source repair only under two original limb pigment footprints; no frame generation"
     }
   ],
   "tests": "Fourteen functional test files passed, including radial attachment invariance, stem root invariance, low material strain, delayed seed-head response, boat/buoy timing, deterministic seek and prior regression checks. Runtime evidence and artistic acceptance remain separate."

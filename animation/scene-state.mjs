@@ -1,6 +1,20 @@
 import {objectPose} from './material-objects.mjs';
 import {rigPadding} from './material-rig.mjs';
 
+// A receiving surface follows the same sampled controls as its casting actor.
+// This response can be removed by the background-effects switch without
+// removing the independently articulated subjects.
+export function lightResponse(scene,controls={}){
+ const receiver=scene.lightReceiver;if(!receiver)return 0;
+ let opening=0;
+ for(const source of receiver.sources){
+  const value=controls[source.channel];
+  if(!Number.isFinite(value))throw new Error(`Missing light source control: ${source.channel}`);
+  opening+=Math.max(0,Math.min(1,value))*source.weight;
+ }
+ return Math.max(0,Math.min(1,opening))*receiver.gain;
+}
+
 function transformOffset(pose,[x,y]){
  const c=Math.cos(pose.rotation),s=Math.sin(pose.rotation);
  return [pose.x+x*pose.scaleX*c-y*pose.scaleY*s,pose.y+x*pose.scaleX*s+y*pose.scaleY*c];

@@ -4,7 +4,7 @@ import {StoryClock} from './timeline.mjs';
 import {surfAt,shorelineSegments} from './surf.mjs';
 import {makeShadowMap} from './shadows.mjs';
 import {loadScoreEngine,createScore} from './expressive-score.mjs';
-import {actorsAt,receiversAt} from './scene-state.mjs';
+import {actorsAt,receiversAt,lightResponse} from './scene-state.mjs';
 
 const fragment=`
 precision highp float;
@@ -94,6 +94,7 @@ void main(){
  float cloud=exp(-pow((position-(uVersion>1.?uControls.z:-.3+progress*1.6))/.23,2.));
  float projected=texture(uShadows,clamp(n+vec2(sin(localTime*.55)*.014,cos(localTime*.4)*.004)*energy,vec2(0.),vec2(1.))).r;
  float shade=uMode==4.?0.:-(cloud*.18+projected*.16)*regions.b*energy;
+ shade+=projected*regions.b*uControls.w;
  float sparkle=(travelling*.027+ring*.04)*regions.r*energy;
  float foliarLight=sin(patch.x*.017+patch.y*.009-t*.7)*foliage*.035*energy;
  color.rgb*=1.+(shade+sparkle+foliarLight)*pigment;
@@ -162,7 +163,7 @@ export class MaterialScene{
  render(t){
   const s=scoreAt(this.scene,t),surf=surfAt(this.scene,t);
   const delayed=this.expression?.sample(Math.max(0,t-2.8)),controls=this.expression?.sample(t);
-  if(controls)this.filter.resources.sceneUniforms.uniforms.uControls.set([controls.wind||0,delayed.wind||0,controls.lightPosition||0,0]);this.filter.resources.sceneUniforms.uniforms.uScore.set([t,s.energy,s.progress,0]);this.filter.resources.sceneUniforms.uniforms.uSurf.set([surf.front,surf.width,surf.energy,surf.foam]);renderObjects(this.objects,t,controls,this.scene.version===2?actorsAt(this.scene,t):null);this.app.render();this.onTime(t,s);}
+  if(controls)this.filter.resources.sceneUniforms.uniforms.uControls.set([controls.wind||0,delayed.wind||0,controls.lightPosition||0,lightResponse(this.scene,controls)]);this.filter.resources.sceneUniforms.uniforms.uScore.set([t,s.energy,s.progress,0]);this.filter.resources.sceneUniforms.uniforms.uSurf.set([surf.front,surf.width,surf.energy,surf.foam]);renderObjects(this.objects,t,controls,this.scene.version===2?actorsAt(this.scene,t):null);this.app.render();this.onTime(t,s);}
  play(){this.clock.play();} pause(){this.clock.pause();} seek(t){this.clock.seek(t);this.render(this.clock.time);}
  setBackgroundEffects(enabled){this.backgroundEffects=!!enabled;this.backgroundSprite.filters=enabled?[this.filter]:[];this.render(this.clock.time);}
  async auditStability(){

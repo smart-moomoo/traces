@@ -1,7 +1,7 @@
 {
   "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
   "total": 23,
-  "authored": 12,
+  "authored": 14,
   "scenes": [
     {
       "id": "Seattle",
@@ -580,18 +580,33 @@
     {
       "id": "Wallace",
       "source": "assets/posters/Wallace.png",
-      "subjects": 0,
-      "renderParts": 0,
-      "rigs": [],
-      "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "subjects": 2,
+      "renderParts": 2,
+      "rigs": [
+        {
+          "part": "west-inner-limb",
+          "kind": "spine",
+          "pin": "left"
+        },
+        {
+          "part": "east-inner-limb",
+          "kind": "spine",
+          "pin": "right"
+        }
       ],
+      "joints": [],
+      "actions": [
+        "lift-inner-tip",
+        "open-canopy",
+        "hold",
+        "lower-tip",
+        "settle",
+        "delayed-lift"
+      ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",
@@ -628,18 +643,42 @@
     {
       "id": "Savannah",
       "source": "assets/posters/Savannah.png",
-      "subjects": 0,
-      "renderParts": 0,
-      "rigs": [],
-      "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "subjects": 4,
+      "renderParts": 4,
+      "rigs": [
+        {
+          "part": "left-high-tuft",
+          "kind": "stem",
+          "pin": "top"
+        },
+        {
+          "part": "left-low-tuft",
+          "kind": "stem",
+          "pin": "top"
+        },
+        {
+          "part": "right-high-tuft",
+          "kind": "stem",
+          "pin": "top"
+        },
+        {
+          "part": "right-low-tuft",
+          "kind": "stem",
+          "pin": "top"
+        }
       ],
+      "joints": [],
+      "actions": [
+        "hold-at-branch",
+        "bend-down-strand",
+        "tip-lag",
+        "counter-swing",
+        "hang-at-rest"
+      ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",

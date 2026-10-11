@@ -16,12 +16,12 @@ export function deformGrid(grid,rig,amount,output=new Float32Array(grid.vertices
    // Small-angle cantilever: integrate a root-to-tip angle field. The upper
    // stem's delayed response is its own channel, not translation of the head.
    // Cross sections rotate with the local tangent; root position/tangent stay fixed.
-   const t=1-v,a=(rig.angle||0)*amount,b=(rig.tipAngle||0)*secondary;
+   const top=rig.pin==='top',t=top?v:1-v,a=(rig.angle||0)*amount,b=(rig.tipAngle||0)*secondary;
    const theta=a*t+b*t*t*t,side=x-rig.center;
    const bend=height*(a*t*t/2+b*t*t*t*t/4);
    const along=height*(t-a*a*t*t*t/6-a*b*t**5/5-b*b*t**7/14);
    output[i]=rig.center+bend+side*Math.cos(theta);
-   output[i+1]=height-along+side*Math.sin(theta);
+   output[i+1]=top?along-side*Math.sin(theta):height-along+side*Math.sin(theta);
    continue;
   }
   if(rig.kind==='radial-fronds'){

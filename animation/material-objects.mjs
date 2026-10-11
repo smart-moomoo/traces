@@ -1,6 +1,28 @@
 import {evaluateTrack} from './scene-contract.mjs';
 import {mountRig,sampleRig} from './material-rig.mjs';
 
+// Close sub-pixel pigment holes inside an authored silhouette. The original
+// coverage is a hard upper bound: intentionally cut source holes and exterior
+// sky never become part of the moving object. Runs once during extraction.
+export function closeMaterialMatte(rgba,width,height,radius,coverage){
+ const count=width*height,dilated=new Uint8ClampedArray(count),closed=new Uint8ClampedArray(count);
+ for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+  let maximum=0;
+  for(let dy=-radius;dy<=radius;dy++)for(let dx=-radius;dx<=radius;dx++){
+   const xx=x+dx,yy=y+dy;if(xx>=0&&xx<width&&yy>=0&&yy<height)maximum=Math.max(maximum,rgba[(yy*width+xx)*4+3]);
+  }
+  dilated[y*width+x]=maximum;
+ }
+ for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+  let minimum=255;
+  for(let dy=-radius;dy<=radius;dy++)for(let dx=-radius;dx<=radius;dx++){
+   const xx=Math.max(0,Math.min(width-1,x+dx)),yy=Math.max(0,Math.min(height-1,y+dy));minimum=Math.min(minimum,dilated[yy*width+xx]);
+  }
+  const i=y*width+x;closed[i]=Math.min(minimum,coverage[i]);
+ }
+ for(let i=0;i<count;i++)rgba[i*4+3]=closed[i];
+}
+
 // Small authored fragments share the original material, world coordinates and
 // time score. No generated frames and no free-running physics state.
 export function objectPose(object,time){
@@ -38,19 +60,23 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
    for(const polygon of sourceHoles){ctx.beginPath();polygon.forEach(([px,py],i)=>i?ctx.lineTo(px-x,py-y):ctx.moveTo(px-x,py-y));ctx.closePath();ctx.fill();}
    ctx.restore();
   }
-  if(['warm-reflection','foliage','vegetation'].includes(definition.matte)){
+  if(['warm-reflection','foliage','vegetation','moss'].includes(definition.matte)){
    // Retain warm/dark reflected pigment, not the surrounding cyan water tile.
    // This is a source-pixel matte; no synthetic mirrored replacement artwork.
    const data=ctx.getImageData(0,0,w,h);
+   const coverage=definition.matteClose?new Uint8ClampedArray(w*h):null;
+   if(coverage)for(let i=0;i<coverage.length;i++)coverage[i]=data.data[i*4+3];
    for(let i=0;i<data.data.length;i+=4){
     const r=data.data[i],g=data.data[i+1],b=data.data[i+2],warm=Math.max(r-b,g-b);
     const green=(Math.min(g-r,g-b)+2)/8;
     // Gold leaves and lit brown twigs need full opacity too; a luminance cap
     // left half of each lit twig in the base and produced a duplicate branch.
     const vegetation=Math.max(green,Math.min((g-b-10)/18,(r-b-35)/25));
-    const pigment=definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
+    const moss=Math.min((r-110)/45,(g-100)/45,(r-g+5)/12,(g-b+8)/25);
+    const pigment=definition.matte==='moss'?moss:definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
     const alpha=Math.max(0,Math.min(1,definition.matte==='vegetation'?(pigment-.25)/.5:pigment));data.data[i+3]*=alpha*alpha*(3-2*alpha);
    }
+   if(coverage)closeMaterialMatte(data.data,w,h,definition.matteClose,coverage);
    ctx.putImageData(data,0,0);
   }
   // Repair only the exact source footprint, with a declared existing material
@@ -58,7 +84,7 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
   const plate=canvas.getContext('2d');
   if(definition.repair===false)return {definition,cutout,texture:PIXI.Texture.from(cutout)};
   if(repairPlate){
-   if(['foliage','vegetation'].includes(definition.matte)){
+   if(['foliage','vegetation','moss'].includes(definition.matte)){
     // Repair the pigment mask, not its bounding polygon: blue/cream sky tiles
     // between leaves must stay original instead of moving as a textured patch.
     const patch=document.createElement('canvas');patch.width=w;patch.height=h;

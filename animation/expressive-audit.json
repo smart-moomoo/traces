@@ -1244,18 +1244,41 @@
         768
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "west-inner-limb",
+          "representation": "spine",
+          "rest": [
+            347,
+            179
+          ],
+          "sweptBounds": [
+            303.8,
+            93.80000000000001,
+            506.2,
+            304.2
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "east-inner-limb",
+          "representation": "spine",
+          "rest": [
+            783,
+            203
+          ],
+          "sweptBounds": [
+            644.6,
+            107.6,
+            822.4,
+            284.4
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
-        {
-          "id": "oak-left",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "oak-right",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
         {
           "id": "gate-ground",
           "kind": "light",
@@ -1313,31 +1336,76 @@
         768
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "left-high-tuft",
+          "representation": "stem",
+          "rest": [
+            326,
+            192
+          ],
+          "sweptBounds": [
+            278.02,
+            157.01999999999998,
+            374.98,
+            304.98
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "left-low-tuft",
+          "representation": "stem",
+          "rest": [
+            363,
+            303
+          ],
+          "sweptBounds": [
+            317.98,
+            271.98,
+            409.02,
+            398.02
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "right-high-tuft",
+          "representation": "stem",
+          "rest": [
+            696,
+            151
+          ],
+          "sweptBounds": [
+            648.02,
+            116.02,
+            747.98,
+            261.98
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "right-low-tuft",
+          "representation": "stem",
+          "rest": [
+            665,
+            276
+          ],
+          "sweptBounds": [
+            617.67,
+            242.67000000000002,
+            715.33,
+            379.33
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
         {
           "id": "avenue",
           "kind": "light",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "left-high-moss",
-          "kind": "moss",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "left-low-moss",
-          "kind": "moss",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "right-high-moss",
-          "kind": "moss",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "right-low-moss",
-          "kind": "moss",
           "visualStatus": "unreviewed"
         }
       ],

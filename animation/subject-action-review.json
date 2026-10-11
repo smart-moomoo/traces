@@ -183,6 +183,38 @@
         "Thin side-branch edges, foreground crossings and exposed background still need final source/contact acceptance",
         "Whole-scene story readability and final site review"
       ]
+    },
+    {
+      "id": "Savannah",
+      "subjects": 4,
+      "parts": 4,
+      "actions": [
+        "four original moss tufts bend from fixed branch attachments",
+        "independent delayed free-tip response",
+        "counter-swing and weaker second wind",
+        "return to hanging rest"
+      ],
+      "observed": "24 sampled whole-scene poses inspected with background effects disabled. First real-time pass had max timeline step 0.141 s and is retained in playback-canopy-v2-first.json. Instrumented repeat completed in 34.03 s with 4084 rendered frames, p99 interval 13.2 ms and no intervals above 33 ms. No final artistic acceptance inferred.",
+      "remaining": [
+        "Fine pale source-matte and branch depth review",
+        "Exhibition-scale event readability and complete visual acceptance"
+      ]
+    },
+    {
+      "id": "Wallace",
+      "subjects": 2,
+      "parts": 2,
+      "actions": [
+        "two original inner oak limbs lift with staggered timing",
+        "brief canopy opening",
+        "receiving light follows the same limb channels",
+        "lower, small rebound, settle"
+      ],
+      "observed": "Seven whole-subject poses inspected; found small pigment gaps and added bounded matte closing, then reinspected peak pose. Complete playback with background light enabled took 30.03 s, 3632 rendered frames, p99 interval 12.8 ms, no intervals above 33 ms; 24 full-scene samples inspected.",
+      "remaining": [
+        "Source material and fixed-root seam acceptance at exhibition scale",
+        "Complete visual and integration acceptance"
+      ]
     }
   ],
   "otherScenes": "14 scenes still lack the new explicit subject programme. All 23 final release gates remain pending; authored counts are not acceptance.",
@@ -401,6 +433,7 @@
   "screenshots": [
     "animation/review/subject-actions-local.jpg",
     "animation/review/wetland-subject-actions.jpg",
-    "animation/review/arboreal-subject-actions.jpg"
+    "animation/review/arboreal-subject-actions.jpg",
+    "animation/review/canopy-subject-actions.jpg"
   ]
 }

@@ -36,19 +36,20 @@ async function playbackAudit(items){
  try{
   for(const item of items){
    await open(item.id);if(!player)throw new Error(item.id+' failed to mount');
-   $('#scene').disabled=true;lock(true);const active=player,original=active.onTime,start=performance.now();let frames=0,cursor=0,last=0,maxStep=0;
+   $('#scene').disabled=true;lock(true);const active=player,original=active.onTime,start=performance.now();let frames=0,cursor=0,last=0,maxStep=0,maxCaptureMs=0;const steps=[];
    const panel=document.createElement('details');panel.open=true;panel.dataset.scene=item.id;const heading=document.createElement('summary');heading.textContent=item.id+' · 播放中';panel.append(heading);
    const grid=document.createElement('div');grid.style.cssText='display:grid;grid-template-columns:repeat(4,1fr);gap:6px';panel.append(grid);archive.append(panel);
    await new Promise(resolve=>{
-    active.onTime=(t,state)=>{original(t,state);frames++;maxStep=Math.max(maxStep,t-last);last=t;
+    active.onTime=(t,state)=>{original(t,state);frames++;const step=t-last;if(step>0)steps.push(step);maxStep=Math.max(maxStep,step);last=t;
      if(cursor<24&&t>=item.duration*cursor/23){
-      const c=document.createElement('canvas');c.width=384;c.height=Math.round(384*item.crop[3]/item.crop[2]);c.getContext('2d').drawImage(active.app.canvas,0,0,c.width,c.height);
-      const figure=document.createElement('figure');figure.style.margin='0';const image=document.createElement('img');image.src=c.toDataURL('image/jpeg',.85);image.alt=item.id+' '+t.toFixed(2)+' seconds';image.style.width='100%';const caption=document.createElement('figcaption');caption.textContent=t.toFixed(2)+' 秒';figure.append(image,caption);grid.append(figure);cursor++;
+      const captureStart=performance.now();const c=document.createElement('canvas');c.width=384;c.height=Math.round(384*item.crop[3]/item.crop[2]);c.getContext('2d').drawImage(active.app.canvas,0,0,c.width,c.height);
+      const figure=document.createElement('figure');figure.style.margin='0';const image=document.createElement('img');image.src=c.toDataURL('image/jpeg',.85);image.alt=item.id+' '+t.toFixed(2)+' seconds';image.style.width='100%';const caption=document.createElement('figcaption');caption.textContent=t.toFixed(2)+' 秒';figure.append(image,caption);grid.append(figure);cursor++;maxCaptureMs=Math.max(maxCaptureMs,performance.now()-captureStart);
      }
      if(state.ended){active.onTime=original;resolve();}
     };active.seek(0);active.play();
    });
-   const report={id:item.id,duration:item.duration,wallSeconds:+((performance.now()-start)/1000).toFixed(2),renderedFrames:frames,maxTimelineStep:+maxStep.toFixed(3),sampledImages:cursor,scope:'Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance.'};
+   const sorted=[...steps].sort((a,b)=>a-b),percentile=p=>+(1000*(sorted[Math.min(sorted.length-1,Math.floor(sorted.length*p))]||0)).toFixed(2);
+   const report={id:item.id,duration:item.duration,frameIntervalMs:{p50:percentile(.5),p95:percentile(.95),p99:percentile(.99),over33ms:steps.filter(s=>s>1/30).length,maxEvidenceCaptureMs:+maxCaptureMs.toFixed(2)},wallSeconds:+((performance.now()-start)/1000).toFixed(2),renderedFrames:frames,maxTimelineStep:+maxStep.toFixed(3),sampledImages:cursor,scope:'Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance.'};
    reports.push(report);heading.textContent=item.id+' · 已播完';panel.open=false;$('#results').textContent=JSON.stringify(reports,null,2);
   }
   document.body.dataset.playbackAudit='complete';
