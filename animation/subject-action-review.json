@@ -88,55 +88,272 @@
         "Review complete visual sequence for material plausibility; playback counters do not pass this gate",
         "Final visual and integration acceptance"
       ]
+    },
+    {
+      "id": "Stanford",
+      "subjects": 3,
+      "parts": 3,
+      "actions": [
+        "two garden crowns yield and rebound at different times",
+        "original leaf follows its parent until release",
+        "free flight changes projected orientation",
+        "leaf passes behind original lamp and rests flat with contact shadow"
+      ],
+      "observed": "Current projected-leaf version completed a 30.03-second pass, 3604 rendered frames, max timeline step 0.015 s, 24 captured states. Seven earlier full subject poses inspected; release point continuity additionally checked numerically. Needs final material/edge review at exhibition scale.",
+      "remaining": [
+        "Final source, material and contact visual acceptance",
+        "Full exhibition integration"
+      ]
+    },
+    {
+      "id": "New-Orleans",
+      "subjects": 3,
+      "parts": 3,
+      "actions": [
+        "two original oak twig groups yield and recover",
+        "a source leaf is attached to the upper twig before release",
+        "leaf follows a multistage descent with original trunk occlusion",
+        "projected final rest pose persists near the root"
+      ],
+      "observed": "Latest projected-landing version completed 34.02 seconds, 4084 rendered frames, maximum timeline step 0.012 s, 24 captured states. Full sequence sheet and full-size final rest inspected with background effects disabled. Lit twig matte residual was corrected before this pass. No browser errors.",
+      "remaining": [
+        "Final source-seam and material acceptance",
+        "Full exhibition integration"
+      ]
+    },
+    {
+      "id": "Champaign-Urbana",
+      "subjects": 3,
+      "parts": 3,
+      "actions": [
+        "original foreground twig yields and rebounds",
+        "two original leaves release at 7 and 12 seconds",
+        "each leaf turns and follows an independent descent",
+        "leaves land at 24 and 28 seconds and remain flat on snow"
+      ],
+      "observed": "Current version completed 30.03 seconds, 3603 rendered frames, max timeline step 0.015 s and 24 captured states. Whole 24-state sheet and full-size final rest image inspected. Leaves keep source scale and separate final landing positions.",
+      "remaining": [
+        "Detailed twig matte and attachment inspection",
+        "Final material and integration acceptance"
+      ]
     }
   ],
-  "otherScenes": "17 scenes have no explicit semantic subject programme yet. All 23 final visual gates remain pending.",
+  "otherScenes": "14 scenes still lack the new explicit subject programme. All 23 final release gates remain pending; authored counts are not acceptance.",
   "runtime": {
     "San-Francisco": {
       "frames": 1000,
-      "derivedObjectTextures": 8,
+      "elapsedMs": 316,
+      "maxSubmissionMs": 0.7,
       "downloadedImages": 2,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 8,
       "newRequests": 0
     },
     "Los-Gatos": {
       "frames": 1000,
-      "derivedObjectTextures": 7,
+      "elapsedMs": 319,
+      "maxSubmissionMs": 0.5,
       "downloadedImages": 2,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 7,
       "newRequests": 0
     },
     "artisticAcceptance": "pending, not implied by runtime measurements",
     "Bellevue": {
       "frames": 1000,
-      "derivedObjectTextures": 5,
+      "elapsedMs": 319,
+      "maxSubmissionMs": 0.3,
       "downloadedImages": 2,
-      "newRequests": 0,
-      "elapsedMs": 328
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 5,
+      "newRequests": 0
     },
     "Santa-Monica": {
       "frames": 1000,
-      "derivedObjectTextures": 2,
+      "elapsedMs": 317,
+      "maxSubmissionMs": 0.3,
       "downloadedImages": 2,
-      "newRequests": 0,
-      "elapsedMs": 354
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 2,
+      "newRequests": 0
     },
     "Santa-Cruz": {
       "frames": 1000,
-      "derivedObjectTextures": 2,
+      "elapsedMs": 319,
+      "maxSubmissionMs": 0.3,
       "downloadedImages": 2,
-      "newRequests": 0,
-      "elapsedMs": 329
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 2,
+      "newRequests": 0
     },
     "Everglades": {
       "frames": 1000,
-      "derivedObjectTextures": 4,
+      "elapsedMs": 1301,
+      "maxSubmissionMs": 0.6,
       "downloadedImages": 2,
-      "newRequests": 0,
-      "elapsedMs": 1459
-    }
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 4,
+      "newRequests": 0
+    },
+    "Stanford": {
+      "frames": 1000,
+      "elapsedMs": 1268,
+      "maxSubmissionMs": 0.6,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 3,
+      "newRequests": 0
+    },
+    "Seattle": {
+      "frames": 1000,
+      "elapsedMs": 1353,
+      "maxSubmissionMs": 0.6,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 1,
+      "newRequests": 0
+    },
+    "Mountain-View": {
+      "frames": 1000,
+      "elapsedMs": 319,
+      "maxSubmissionMs": 0.4,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "Sunnyvale": {
+      "frames": 1000,
+      "elapsedMs": 315,
+      "maxSubmissionMs": 0.3,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "San-Jose": {
+      "frames": 1000,
+      "elapsedMs": 313,
+      "maxSubmissionMs": 0.3,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "Los-Angeles": {
+      "frames": 1000,
+      "elapsedMs": 313,
+      "maxSubmissionMs": 0.3,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "San-Diego": {
+      "frames": 1000,
+      "elapsedMs": 314,
+      "maxSubmissionMs": 0.3,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "Dallas": {
+      "frames": 1000,
+      "elapsedMs": 312,
+      "maxSubmissionMs": 0.2,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "Fort-Worth": {
+      "frames": 1000,
+      "elapsedMs": 312,
+      "maxSubmissionMs": 0.2,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 1,
+      "newRequests": 0
+    },
+    "Chicago": {
+      "frames": 1000,
+      "elapsedMs": 1268,
+      "maxSubmissionMs": 0.3,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 1,
+      "newRequests": 0
+    },
+    "Champaign-Urbana": {
+      "frames": 1000,
+      "elapsedMs": 311,
+      "maxSubmissionMs": 0.3,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 3,
+      "newRequests": 0
+    },
+    "New-Orleans": {
+      "frames": 1000,
+      "elapsedMs": 1283,
+      "maxSubmissionMs": 0.7,
+      "downloadedImages": 2,
+      "derivedMaskTextures": 4,
+      "derivedObjectTextures": 3,
+      "newRequests": 0
+    },
+    "Wallace": {
+      "frames": 1000,
+      "elapsedMs": 312,
+      "maxSubmissionMs": 0.2,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "Charleston": {
+      "frames": 1000,
+      "elapsedMs": 313,
+      "maxSubmissionMs": 0.2,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "Savannah": {
+      "frames": 1000,
+      "elapsedMs": 313,
+      "maxSubmissionMs": 0.2,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "Miami": {
+      "frames": 1000,
+      "elapsedMs": 316,
+      "maxSubmissionMs": 0.3,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "Miami-Beach": {
+      "frames": 1000,
+      "elapsedMs": 312,
+      "maxSubmissionMs": 0.3,
+      "downloadedImages": 1,
+      "derivedMaskTextures": 3,
+      "derivedObjectTextures": 0,
+      "newRequests": 0
+    },
+    "scope": "Latest 23-scene runtime lifecycle completed on local Codex in-app browser; no artistic acceptance inferred."
   },
   "screenshot": "animation/review/subject-actions-local.jpg",
   "screenshots": [
     "animation/review/subject-actions-local.jpg",
-    "animation/review/wetland-subject-actions.jpg"
+    "animation/review/wetland-subject-actions.jpg",
+    "animation/review/arboreal-subject-actions.jpg"
   ]
 }

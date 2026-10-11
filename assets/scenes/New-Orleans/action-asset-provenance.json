@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in imagegen",
+  "input": "assets/scenes/New-Orleans/source-v2.png",
+  "prompt": "Edit target is this New Orleans shell material collage. Create one fixed hidden-area repair plate, not new frames. Remove only the uppermost upright leafy twig cluster above the main oak fork: the slim central crown from x486 to575, y10 to213, in this 1024x768 composition. Fill those removed green/gold leaves and slim brown twig with matching pale blue shell sky tiles. Also remove the small upper crown of the secondary oak at the left of the big trunk, roughly x75..201,y330..462; replace its foliage with matching distant foliage/sky shell material. Keep ALL major oak trunks, all remaining large branches, lawn, house, cars, text, paper margins, material tile size, colors and exact composition. Only change the two specified foliage clusters. No new objects or people, no photograph texture. Matte natural mineral-shell collage, same source resolution proportions.",
+  "output": "assets/scenes/New-Orleans/branches-clean-plate-v2.png",
+  "use": "One fixed cleanplate through source vegetation mattes only. All branches and released leaves retain original poster pixels. No generated frame sequence."
+}

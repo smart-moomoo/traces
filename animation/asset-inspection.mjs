@@ -1,4 +1,5 @@
 import {actorsAt} from './scene-state.mjs';
+import {rigPadding} from './material-rig.mjs';
 // Workbench-only visual evidence. No pass/fail is inferred from these images.
 export function inspectAssets(player,host){
  host.replaceChildren();
@@ -26,16 +27,17 @@ export function inspectPoses(player,host){
  host.replaceChildren();const scene=player.scene;
  if(!scene?.objects?.length){host.textContent='此场景没有独立物体；请检查整段环境运动。';return;}
  const restore=player.clock.time;player.pause();
+ const roots=new Set(scene.subjects?.map(s=>s.root));
  for(const t of [...new Set([0,3,5,8,scene.duration*.5,scene.duration*.8,scene.duration])]){
   player.seek(t);const poses=actorsAt(scene,t);
-  for(const object of scene.objects.filter(o=>!o.follows)){
+  for(const object of scene.objects.filter(o=>roots.size?roots.has(o.id):!o.follows)){
    // Follow the whole semantic subject, including articulated children. A hull
    // crop alone hid both sails and made rig-action inspection meaningless.
    const subject=scene.subjects?.find(s=>s.root===object.id);
    const parts=scene.objects.filter(o=>subject?subject.parts.includes(o.id):o.id===object.id||o.follows?.actor===object.id);
    const bounds=[Infinity,Infinity,-Infinity,-Infinity];
    for(const part of parts){
-    const p=poses.get(part.id),c=Math.cos(p.rotation),s=Math.sin(p.rotation),pad=12+Math.abs(part.rig?.amplitude||0);
+    const p=poses.get(part.id),c=Math.cos(p.rotation),s=Math.sin(p.rotation),pad=12+rigPadding(part);
     for(const [xx,yy] of part.outline){
      const dx=(xx-part.pivot[0])*p.scaleX,dy=(yy-part.pivot[1])*p.scaleY;
      const x=p.x+dx*c-dy*s,y=p.y+dx*s+dy*c;

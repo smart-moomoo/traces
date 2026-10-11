@@ -14,11 +14,15 @@
     "Two original Bellevue ducks with separate semantic roles and body/neck joints",
     "Side-pinned and hanging flags with two-channel bend/fold scores and exact fixed attachments",
     "Root-preserving constant-curvature backbone and stem-pinned leaf cupping",
-    "Foreground source exclusion shared with repair preservation and world occlusion"
+    "Foreground source exclusion shared with repair preservation and world occlusion",
+    "Deterministic attachment release preserving the parent world pose and independent free-flight path",
+    "Source child holes prevent a detached leaf remaining duplicated in its parent",
+    "Rigid leaf pitch projection and source-alpha landing contact shadow",
+    "Latest 23-scene x 1000-frame lifecycle pass after attachment-release and projection changes: no added image requests; source-hashed engineering evidence saved separately from release gates"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Six scenes have local explicit subject programmes: San Francisco, Los Gatos, Bellevue, Santa Monica, Santa Cruz and Everglades. Seventeen remain unimplemented at this standard. No final 23-scene acceptance or new deployment.",
+    "Nine scenes now have explicit local subject programmes, including Stanford, New Orleans and Champaign-Urbana. Fourteen remain unimplemented at this standard. No new public deployment or final visual acceptance.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -56,7 +60,19 @@
     {
       "path": "assets/scenes/Everglades/animal-leaves-clean-plate-v3.png",
       "use": "Only head, tail and two leaf footprints; original art supplies every moving surface"
+    },
+    {
+      "path": "assets/scenes/Stanford/branches-clean-plate-v2.png",
+      "use": "One fixed background repair plate under source pigment masks; original branches and leaves rendered continuously"
+    },
+    {
+      "path": "assets/scenes/New-Orleans/branches-clean-plate-v2.png",
+      "use": "One fixed background repair plate under source pigment masks; original branches and leaves rendered continuously"
+    },
+    {
+      "path": "assets/scenes/Champaign-Urbana/branches-clean-plate-v2.png",
+      "use": "One fixed background repair plate under source pigment masks; original branches and leaves rendered continuously"
     }
   ],
-  "tests": "Eleven functional test files passed: subject ownership, joints, rigid contact anchors, bounded cloth/backbone/leaf meshes, rest recovery, random seeking and legacy regression. This does not pass artistic acceptance or release evidence."
+  "tests": "Twelve functional test files passed including attached/released continuity, independent releases, projection bounds, settled contacts, random seek, rig bounds and legacy regressions. Artistic and release acceptance remain separate."
 }

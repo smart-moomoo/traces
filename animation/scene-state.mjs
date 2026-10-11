@@ -9,20 +9,27 @@ function transformOffset(pose,[x,y]){
 // event receivers. No reflection or historical wake has its own movement track.
 export function actorsAt(scene,time){
  const definitions=new Map((scene.objects||[]).map(o=>[o.id,o])),states=new Map(),visiting=new Set();
- function visit(id){
-  if(states.has(id))return states.get(id);
-  if(visiting.has(id))throw new Error(`Cyclic actor attachment: ${id}`);
+ function visit(id,at=time){
+  const key=`${id}@${at}`;
+  if(states.has(key))return states.get(key);
+  if(visiting.has(key))throw new Error(`Cyclic actor attachment: ${id}`);
   const object=definitions.get(id);if(!object)throw new Error(`Missing actor: ${id}`);
-  visiting.add(id);let pose=objectPose(object,time);
+  visiting.add(key);let pose=objectPose(object,at);
   if(object.follows){
-   const parent=visit(object.follows.actor),[x,y]=transformOffset(parent,object.follows.offset||[0,0]);
+   const released=Number.isFinite(object.follows.releaseAt)&&at>=object.follows.releaseAt;
+   const parent=visit(object.follows.actor,released?object.follows.releaseAt:at),[x,y]=transformOffset(parent,object.follows.offset||[0,0]);
    const joint=object.follows.kind==='joint';
-   pose={...parent,x,y,rotation:parent.rotation*(object.follows.rotationFactor??1)+(object.follows.rotation||0)+(joint?pose.rotation:0)};
+   if(released){
+    // Cache-free release: replay and backward seek reconstruct the same world
+    // attachment pose at birth, then add the authored free-flight displacement.
+    const birth=objectPose(object,object.follows.releaseAt);
+    pose={...parent,x:x+pose.x-birth.x,y:y+pose.y-birth.y,scaleX:parent.scaleX*pose.scaleX,scaleY:parent.scaleY*pose.scaleY,
+     rotation:parent.rotation*(object.follows.rotationFactor??1)+(object.follows.rotation||0)+(joint?birth.rotation:0)+pose.rotation-birth.rotation};
+   }else pose={...parent,x,y,scaleX:parent.scaleX*pose.scaleX,scaleY:parent.scaleY*pose.scaleY,rotation:parent.rotation*(object.follows.rotationFactor??1)+(object.follows.rotation||0)+(joint?pose.rotation:0)};
   }
-  states.set(id,pose);visiting.delete(id);return pose;
+  states.set(key,pose);visiting.delete(key);return pose;
  }
- for(const id of definitions.keys())visit(id);
- return states;
+ return new Map([...definitions.keys()].map(id=>[id,visit(id)]));
 }
 export function motionAt(scene,id,time,offset=[0,0]){
  const dt=.01,a=actorsAt(scene,Math.max(0,time-dt)).get(id),b=actorsAt(scene,Math.min(scene.duration,time+dt)).get(id);
@@ -46,6 +53,7 @@ export function validateActors(scene){
   if(ids.has(o.id))errors.push(`${o.id}: duplicate actor`);ids.add(o.id);
   if(!o.materialClass)errors.push(`${o.id}: missing material class`);
   if(!o.motionBounds||o.motionBounds.length!==4)errors.push(`${o.id}: missing world motion bounds`);
+  if(o.follows?.releaseAt!==undefined&&(!Number.isFinite(o.follows.releaseAt)||o.follows.releaseAt<0||o.follows.releaseAt>scene.duration))errors.push(`${o.id}: invalid release time`);
  }
  try{
   for(let i=0;i<=120;i++)for(const [id,p] of actorsAt(scene,scene.duration*i/120)){
@@ -53,6 +61,7 @@ export function validateActors(scene){
    if(!Object.values(p).every(Number.isFinite))throw new Error(`${id}: non-finite pose`);
    if(b&&(p.x<b[0]||p.y<b[1]||p.x>b[2]||p.y>b[3]))throw new Error(`${id}: anchor outside authored bounds`);
    if(o.materialClass==='rigid-shell'&&(p.scaleX!==1||p.scaleY!==1))throw new Error(`${id}: rigid material scale changed`);
+   if(o.materialClass==='projected-shell'&&(p.scale!==1||p.scaleX!==1||p.scaleY<.2||p.scaleY>1))throw new Error(`${id}: invalid rigid leaf projection`);
   }
   receiversAt(scene,scene.duration);
  }catch(e){errors.push(e.message);}

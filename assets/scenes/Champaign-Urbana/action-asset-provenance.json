@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in imagegen",
+  "input": "assets/scenes/Champaign-Urbana/source-v2.png",
+  "prompt": "Precise object edit. Create ONE fixed cleanplate from this exact shell collage, preserving framing and all other artwork. Remove ONLY the hanging brown twig network and little orange leaves in the upper-left sky, roughly the branching object from x142 to415 and y88 to294 in the attached 1024x768 composition. Fill the vacated twig/leaf shapes with matching existing blue sky square shell tiles. Keep original sky tile boundaries and shells; remove twig drawing and leaf pigment only. Keep the bell tower, every tree rooted in the snowy lawn, snow and shadows, all paper margins and lettering. No other changes. Matte mineral/shell texture, original pale blues and warm orange palette, not a new scene, not animation frames.",
+  "output": "assets/scenes/Champaign-Urbana/branches-clean-plate-v2.png",
+  "use": "One fixed cleanplate through source vegetation mattes only. All branches and released leaves retain original poster pixels. No generated frame sequence."
+}

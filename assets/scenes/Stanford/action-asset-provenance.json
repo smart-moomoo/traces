@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in imagegen",
+  "input": "assets/scenes/Stanford/source-v2.png",
+  "prompt": "Edit target is this Stanford shell collage. Create one fixed background repair plate, not animation frames. Remove the full golden-green canopy of the two short broadleaf trees at the lower left (between x137..356,y435..526 in this 1024x767 composition). Keep their brown trunks below y520, the tower, all buildings, the conifer trees behind, lamps, every architectural detail, other trees at right, hedges, pavement and paper margins. Fill the removed canopy footprint with plausible continuation of the darker distant garden/shrubs and source building/tower wall behind, using exactly the same pale shell-tile texture and detail scale. Do not change any other part. No added people, no new objects, no different art style.",
+  "output": "assets/scenes/Stanford/branches-clean-plate-v2.png",
+  "use": "One fixed cleanplate through source vegetation mattes only. All branches and released leaves retain original poster pixels. No generated frame sequence."
+}

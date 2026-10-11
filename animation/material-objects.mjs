@@ -5,7 +5,8 @@ import {mountRig,sampleRig} from './material-rig.mjs';
 // time score. No generated frames and no free-running physics state.
 export function objectPose(object,time){
  const read=(name,fallback)=>object.tracks[name]?evaluateTrack(object.tracks[name],time):fallback;
- return {x:read('x',object.anchor[0]),y:read('y',object.anchor[1]),rotation:read('rotation',0),scale:read('scale',1),scaleX:read('scaleX',read('scale',1)),scaleY:read('scaleY',read('scale',1))};
+ const foreshortening=object.projection?.axis==='x'?Math.cos(read('pitch',0)):1;
+ return {x:read('x',object.anchor[0]),y:read('y',object.anchor[1]),rotation:read('rotation',0),scale:read('scale',1),scaleX:read('scaleX',read('scale',1)),scaleY:read('scaleY',read('scale',1))*foreshortening};
 }
 // A wake belongs to the position where contact happened, not the current actor
 // position. Missing authored contacts produce no invented impact rings.
@@ -31,19 +32,24 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
   definition.outline.forEach(([px,py],i)=>i?ctx.lineTo(px,py):ctx.moveTo(px,py));ctx.closePath();ctx.clip();ctx.drawImage(source,-x,-y);
   // Foreground leaves/rails belong to their own depth plane. Removing their
   // source pixels from an actor prevents the actor carrying a second copy.
-  if(definition.sourceExclusions?.length){
+  const sourceHoles=[...(definition.sourceExclusions||[]),...(definition.sourceHoles||[])];
+  if(sourceHoles.length){
    ctx.save();ctx.globalCompositeOperation='destination-out';
-   for(const polygon of definition.sourceExclusions){ctx.beginPath();polygon.forEach(([px,py],i)=>i?ctx.lineTo(px-x,py-y):ctx.moveTo(px-x,py-y));ctx.closePath();ctx.fill();}
+   for(const polygon of sourceHoles){ctx.beginPath();polygon.forEach(([px,py],i)=>i?ctx.lineTo(px-x,py-y):ctx.moveTo(px-x,py-y));ctx.closePath();ctx.fill();}
    ctx.restore();
   }
-  if(definition.matte==='warm-reflection'||definition.matte==='foliage'){
+  if(['warm-reflection','foliage','vegetation'].includes(definition.matte)){
    // Retain warm/dark reflected pigment, not the surrounding cyan water tile.
    // This is a source-pixel matte; no synthetic mirrored replacement artwork.
    const data=ctx.getImageData(0,0,w,h);
    for(let i=0;i<data.data.length;i+=4){
     const r=data.data[i],g=data.data[i+1],b=data.data[i+2],warm=Math.max(r-b,g-b);
-    const pigment=definition.matte==='foliage'?(Math.min(g-r,g-b)+2)/8:(warm-3)/14;
-    const alpha=Math.max(0,Math.min(1,pigment));data.data[i+3]*=alpha*alpha*(3-2*alpha);
+    const green=(Math.min(g-r,g-b)+2)/8;
+    // Gold leaves and lit brown twigs need full opacity too; a luminance cap
+    // left half of each lit twig in the base and produced a duplicate branch.
+    const vegetation=Math.max(green,Math.min((g-b-10)/18,(r-b-35)/25));
+    const pigment=definition.matte==='vegetation'?vegetation:definition.matte==='foliage'?green:(warm-3)/14;
+    const alpha=Math.max(0,Math.min(1,definition.matte==='vegetation'?(pigment-.25)/.5:pigment));data.data[i+3]*=alpha*alpha*(3-2*alpha);
    }
    ctx.putImageData(data,0,0);
   }
@@ -52,12 +58,15 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
   const plate=canvas.getContext('2d');
   if(definition.repair===false)return {definition,cutout,texture:PIXI.Texture.from(cutout)};
   if(repairPlate){
-   if(definition.matte==='foliage'){
+   if(['foliage','vegetation'].includes(definition.matte)){
     // Repair the pigment mask, not its bounding polygon: blue/cream sky tiles
     // between leaves must stay original instead of moving as a textured patch.
     const patch=document.createElement('canvas');patch.width=w;patch.height=h;
     const pc=patch.getContext('2d');pc.drawImage(repairPlate,-x,-y,canvas.width,canvas.height);
     pc.globalCompositeOperation='destination-in';pc.drawImage(cutout,0,0);plate.drawImage(patch,x,y);
+    // Detached children are erased from the base as part of the parent, but
+    // are restored separately by their own attached/released draw state.
+    if(definition.sourceHoles?.length){plate.save();plate.beginPath();for(const polygon of definition.sourceHoles){polygon.forEach(([px,py],i)=>i?plate.lineTo(px,py):plate.moveTo(px,py));plate.closePath();}plate.clip();plate.drawImage(repairPlate,0,0,canvas.width,canvas.height);plate.restore();}
     return {definition,cutout,texture:PIXI.Texture.from(cutout)};
    }
    if(preciseRepair){
@@ -80,16 +89,21 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
 }
 export function mountObjects(stage,prepared,width,height){
  return prepared.map(({definition,texture})=>{
-  const group=new PIXI.Container(),rig=mountRig(texture,definition),sprite=rig.display;sprite.pivot.set(...definition.pivot);group.addChild(sprite);stage.addChild(group);
+  const group=new PIXI.Container(),rig=mountRig(texture,definition),sprite=rig.display;sprite.pivot.set(...definition.pivot);
+  let contactShadow;
+  if(definition.landingTime!==undefined){contactShadow=new PIXI.Sprite(texture);contactShadow.pivot.set(...definition.pivot);contactShadow.tint=0x625743;contactShadow.alpha=0;group.addChild(contactShadow);}
+  group.addChild(sprite);stage.addChild(group);
   let maskTexture;
   if(definition.occluders?.length){
    const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,width,height);ctx.globalCompositeOperation='destination-out';
    for(const polygon of definition.occluders){ctx.beginPath();polygon.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();}
    maskTexture=PIXI.Texture.from(canvas);const mask=new PIXI.Sprite(maskTexture);stage.addChild(mask);group.mask=mask;
   }
-  return {definition,texture,maskTexture,sprite,rig};
+  return {definition,texture,maskTexture,sprite,rig,contactShadow};
  });
 }
 export function renderObjects(objects,time,state={},poses=null){
- for(const {definition,sprite,rig} of objects){const pose=poses?.get(definition.id)||objectPose(definition,time);sprite.position.set(pose.x,pose.y);sprite.rotation=pose.rotation;sprite.scale.set(pose.scaleX,pose.scaleY);sampleRig(rig,definition,state);}
+ for(const {definition,sprite,rig,contactShadow} of objects){const pose=poses?.get(definition.id)||objectPose(definition,time);sprite.position.set(pose.x,pose.y);sprite.rotation=pose.rotation;sprite.scale.set(pose.scaleX,pose.scaleY);sampleRig(rig,definition,state);
+  if(contactShadow){const p=Math.max(0,Math.min(1,(time-definition.landingTime)/.6));contactShadow.position.set(pose.x+1,pose.y+1.5);contactShadow.rotation=pose.rotation;contactShadow.scale.set(pose.scaleX,pose.scaleY*.55);contactShadow.alpha=p*p*(3-2*p)*.2;}
+ }
 }

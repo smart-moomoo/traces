@@ -219,7 +219,7 @@ never invent a conspicuous new protagonist just to satisfy a template.
 | Seattle | Existing small ferry crosses; its spreading wake interrupts the cargo reflection, which reassembles after passage | path, receivers, fragment displacement |
 | Bellevue | Two original ducks: ledge duck braces/preens/raises its head, swimmer dips/pauses/departs; feet and reflections stay attached | paired subjects, neck joints, contacts |
 | San Francisco | Both original boats fill sails at different times, heel/recover, cross in separate lanes and release wind pressure | multiple subjects, pinned mesh, coupled motion |
-| Stanford | Branch flexes; a leaf detaches, passes the lamp, touches down and settles | joints, release, occlusion, contact |
+| Stanford | Two original garden crowns yield in sequence; an attached leaf releases continuously, turns in air, passes the lamp and rests flat on the ground | authored joint release, rigid leaf projection and source-alpha contact shadow; local implementation, final visual review pending |
 | Mountain View | Gust traverses reeds in depth order; tips recover with delayed motion as water responds | articulated chains, shared field |
 | Sunnyvale | Canopy parts under wind; a moving sun patch crosses lawn and closes again | mesh/groups, source-derived shadow |
 | San Jose | Original source is salt ponds, not facades. Author a material crystallization/redistribution event along existing pond boundaries; a light sweep alone is insufficient | source fragment assembly, boundary constraints |
@@ -231,8 +231,8 @@ never invent a conspicuous new protagonist just to satisfy a template.
 | Dallas | Cloud shadow passes between facade groups, revealing distinct depth and reflected light changes | grouped masks, delayed reflection |
 | Fort Worth | Source leaf tumbles onto the pool, makes contact, then drifts with decaying ripples | pose changes, collision event, receiver |
 | Chicago | Existing launch emerges from bridge occlusion; wake remains behind and reaches the bank | depth/path, persistent trail |
-| Champaign | Branch releases autumn fragments; they turn, settle on snow and leave a changed composition | joints, seeded particles, settlement |
-| New Orleans | Oak branch gives under wind; leaf releases, catches a second gust and lands behind a root | articulated chain, multistage trajectory |
+| Champaign | Original overhead twig releases two distinct source leaves at different times; each turns, descends and stays flat on snow | two deterministic releases from one attachment, separate trajectories and persistent contact; final visual review pending |
+| New Orleans | Two source oak twig groups yield; a leaf attached to the upper twig releases, catches a second gust and settles near the root | world-space release reconstructed for every seek, original trunk occlusion, projected rest pose; final visual review pending |
 | Wallace | Canopy opens and closes over the gate, exposing and concealing a coherent patch of light | joint groups, projected mask |
 | Charleston | Moving canopy shadow traverses successive facade/porch planes and resolves | layered light, occlusion |
 | Savannah | Moss strands bend from fixed attachments; a travelling gust produces delayed recovery | rope mesh, damped response |

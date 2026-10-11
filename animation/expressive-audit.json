@@ -363,7 +363,39 @@
       "status": "source-audit",
       "objects": [
         {
-          "id": "courtyard-leaf",
+          "id": "west-courtyard-crown",
+          "representation": "rigid",
+          "rest": [
+            207,
+            527
+          ],
+          "sweptBounds": [
+            135.24705875075625,
+            431.7555419457092,
+            241.53372080109588,
+            532.1734193527815
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "east-courtyard-crown",
+          "representation": "rigid",
+          "rest": [
+            282,
+            532
+          ],
+          "sweptBounds": [
+            241.40803973253688,
+            437.15263821317853,
+            356.0990053809402,
+            535.105408193767
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "released-courtyard-leaf",
           "representation": "rigid",
           "rest": [
             268,
@@ -371,31 +403,15 @@
           ],
           "sweptBounds": [
             257,
-            494,
-            511.39974382354825,
-            637.2800316162593
+            493.2878486625923,
+            517.5921873866448,
+            630.4186315711331
           ],
-          "issues": [
-            {
-              "kind": "source",
-              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
-              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
-            }
-          ],
+          "issues": [],
           "visualStatus": "unreviewed"
         }
       ],
       "environment": [
-        {
-          "id": "left-canopy",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "right-canopy",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
         {
           "id": "courtyard",
           "kind": "light",
@@ -983,18 +999,57 @@
         768
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "overhead-twig",
+          "representation": "rigid",
+          "rest": [
+            175,
+            94
+          ],
+          "sweptBounds": [
+            140.6465571168562,
+            87.62434502013345,
+            417.5945615211927,
+            296.33970934182213
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "first-autumn-leaf",
+          "representation": "rigid",
+          "rest": [
+            232,
+            275
+          ],
+          "sweptBounds": [
+            216.35124296180936,
+            266,
+            355.13533878639095,
+            616.162310671375
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "second-autumn-leaf",
+          "representation": "rigid",
+          "rest": [
+            393,
+            161
+          ],
+          "sweptBounds": [
+            375.6996853449687,
+            143.33231998046745,
+            667.4025475562353,
+            608.4358494061319
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
-        {
-          "id": "autumn-left",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "autumn-right",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
         {
           "id": "snow",
           "kind": "light",
@@ -1022,39 +1077,55 @@
       "status": "source-audit",
       "objects": [
         {
-          "id": "falling-shell-leaf",
+          "id": "main-oak-twig",
           "representation": "rigid",
           "rest": [
-            253,
-            49
+            520,
+            211
           ],
           "sweptBounds": [
-            241.99999999999997,
-            37.99999999999999,
-            591.7442726708323,
-            648.9747275634318
+            479.54519914138297,
+            11.449031473070875,
+            573.9403196080387,
+            212.01781740691277
           ],
-          "issues": [
-            {
-              "kind": "source",
-              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
-              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
-            },
-            {
-              "kind": "alpha",
-              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
-              "action": "Review cutout on contrasting mattes at source and exhibition size."
-            }
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "neighbor-oak-twig",
+          "representation": "rigid",
+          "rest": [
+            178,
+            458
           ],
+          "sweptBounds": [
+            72.01229501691277,
+            334.8354062931854,
+            203.8891600264344,
+            460.1037123084556
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "released-oak-leaf",
+          "representation": "rigid",
+          "rest": [
+            525,
+            26
+          ],
+          "sweptBounds": [
+            451.6522932826672,
+            13.746407009484855,
+            560.0173280713979,
+            622.6364716497102
+          ],
+          "issues": [],
           "visualStatus": "unreviewed"
         }
       ],
       "environment": [
-        {
-          "id": "oak-crown",
-          "kind": "foliage",
-          "visualStatus": "unreviewed"
-        },
         {
           "id": "grass",
           "kind": "light",
