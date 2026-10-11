@@ -1,0 +1,14 @@
+{
+  "channel": "review-preview",
+  "version": "subject-actions-v2-review1",
+  "sceneVersion": 2,
+  "scope": "All 23 authored subject-action programmes, default exhibition integration",
+  "publicationBasis": "User explicitly requested wrapping up and publishing the current version online before remaining visual acceptance is complete.",
+  "visualAcceptance": "pending",
+  "knownLimitations": [
+    "Source edges, exposed backgrounds and contact details still need final per-scene artistic review.",
+    "Some small subject actions remain subtle at mobile exhibition size.",
+    "Seattle reflection reassembly and coastal shore developments remain unfinished."
+  ],
+  "strictGate": "REQUIRE_VISUAL_ACCEPTANCE=1 node --test tests/exhibition-release.test.mjs"
+}

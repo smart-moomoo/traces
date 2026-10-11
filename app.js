@@ -8,7 +8,7 @@ let continuousPlayer=null,continuousModules,mapPlayer=null,mapTime=0;
 async function loadContinuousModules(){
  if(!continuousModules)continuousModules=(async()=>{
   if(!window.PIXI)await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='vendor/pixi.min.js';script.onload=resolve;script.onerror=()=>reject(new Error('Renderer unavailable'));document.head.append(script);});
-  const [{catalog},{MaterialScene},{SeattleScene}]=await Promise.all([import('./animation/catalog.mjs'),import('./animation/material-scene.mjs'),import('./animation/seattle.mjs')]);return {catalog,MaterialScene,SeattleScene};
+  const [{expressiveCatalog:catalog},{MaterialScene}]=await Promise.all([import('./animation/expressive-catalog.mjs'),import('./animation/material-scene.mjs')]);return {catalog,MaterialScene};
  })().catch(e=>{continuousModules=null;throw e;});return continuousModules;
 }
 function disposeContinuous(){const previous=continuousPlayer;continuousPlayer=null;previous?.destroy();$('#continuous-scene')?.remove();}
@@ -64,12 +64,12 @@ async function openPoster(i){
   if(!dialog.open)dialog.showModal();
   try{
     if(continuousPreview){
-      const {catalog,MaterialScene,SeattleScene}=await loadContinuousModules();
+      const {catalog,MaterialScene}=await loadContinuousModules();
       if(version!==loadVersion||!dialog.open)return;
       const scene=catalog.find(s=>s.id===p.id),host=document.createElement('div');
-      host.id='continuous-scene';host.setAttribute('role','img');host.setAttribute('aria-label',p.name+'：'+scene.title);host.style.cssText='width:100%;height:100%;position:absolute;inset:0';
+      host.id='continuous-scene';host.dataset.sceneVersion=String(scene.version);host.dataset.sceneId=scene.id;host.setAttribute('role','img');host.setAttribute('aria-label',p.name+'：'+scene.title);host.style.cssText='width:100%;height:100%;position:absolute;inset:0';
       const ratio=scene.crop[2]/scene.crop[3];$('#scene-stage').style.setProperty('--film-ratio',ratio);dialog.style.setProperty('--film-ratio',ratio);
-      const renderer=await (p.id==='Seattle'?SeattleScene:MaterialScene).mount(host,{scene,onTime:(t,state)=>{
+      const renderer=await MaterialScene.mount(host,{scene,onTime:(t,state)=>{
         if(version!==loadVersion)return;
         if(state.ended){storyEnded=true;scenePaused=true;$('#pause-scene').textContent='↻';$('#pause-scene').setAttribute('aria-label','重播故事');$('#pause-scene').setAttribute('aria-pressed','true');}
       }});

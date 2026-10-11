@@ -10,9 +10,8 @@ export function directBayDuet(scene){
  scene.title='同一阵风，两艘帆船';
  scene.repairPlate='assets/scenes/San-Francisco/two-vessels-clean-plate-v2.png';
  const near=scene.objects.find(o=>o.id==='vessel-hull');
- // The source footprint includes the fine rigging between the opaque pieces.
- // Repair it once as a whole; rendering masks remain tight to each material.
- near.eraseOutline=[[47,-107],[56,-107],[58,-76],[94,7],[98,12],[95,22],[78,26],[10,23],[-2,10],[13,-8],[43,-69]];
+ // Final source silhouettes and their individual repair footprints are applied
+ // by refineBaySource after this motion score has established parent relations.
  near.tracks={
   x:track([[0,880],[6,880],[12,830],[18,710],[25,546],[30,494],[32,494]]),
   y:track([[0,523],[6,523],[12,524],[18,528],[25,530],[30,531],[32,531]]),
@@ -31,7 +30,6 @@ export function directBayDuet(scene){
   follows:{actor:'far-hull',offset:[0,0]},rig,
   materialClass:rig?'pinned-cloth':'rigid-shell',motionBounds:[135,487,638,503]});
  const far=part('far-hull',[112,480,50,14],[[1,3],[16,4],[25,2],[30,4],[49,4],[47,8],[40,12],[9,12],[4,9]]);
- far.eraseOutline=[[24,-58],[29,-58],[29,-43],[50,3],[51,8],[40,14],[5,14],[-1,6],[3,-4],[23,-39]];
  delete far.follows;
  far.tracks={
   x:track([[0,137],[3,137],[8,185],[15,326],[22,495],[29,635],[32,635]]),

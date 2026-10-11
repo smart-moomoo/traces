@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Verify scene release evidence
+      - name: Verify runtime and declared release channel
         run: node --test tests/*.test.mjs
       - uses: actions/configure-pages@v5
         with:

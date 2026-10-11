@@ -1,0 +1,18 @@
+[
+  {
+    "id": "San-Francisco",
+    "duration": 32,
+    "frameIntervalMs": {
+      "p50": 8.3,
+      "p95": 9.2,
+      "p99": 9.4,
+      "over33ms": 0,
+      "maxEvidenceCaptureMs": 11.2
+    },
+    "wallSeconds": 32.03,
+    "renderedFrames": 3844,
+    "maxTimelineStep": 0.013,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

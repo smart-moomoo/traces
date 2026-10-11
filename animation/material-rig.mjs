@@ -12,6 +12,16 @@ export function deformGrid(grid,rig,amount,output=new Float32Array(grid.vertices
  const {width,height,vertices}=grid;
  for(let i=0;i<vertices.length;i+=2){
   const x=vertices[i],y=vertices[i+1],u=x/width,v=y/height;
+  if(rig.kind==='sail'){
+   // The foot follows the boom angle while the mast edge and sail head stay
+   // attached. Pressure billows the interior independently of sheet trim.
+   // At the foot, the clew is the same circular endpoint as the rigid boom.
+   const q=rig.pin==='right'?width-x:x,sign=rig.pin==='right'?-1:1;
+   const foot=Math.max(0,Math.min(1,y/(rig.foot||height))),angle=secondary;
+   output[i]=x+sign*q*(Math.cos(angle)-1)*foot+rig.amplitude*amount*(q/width)*Math.sin(Math.PI*foot);
+   output[i+1]=y+sign*q*Math.sin(angle)*foot;
+   continue;
+  }
   if(rig.kind==='tether'){
    const [ax,ay]=rig.start,[bx,by]=rig.end,[px,py]=rig.pivot,angle=amount;
    const ex=px+(bx-px)*Math.cos(angle)-(by-py)*Math.sin(angle),ey=py+(bx-px)*Math.sin(angle)+(by-py)*Math.cos(angle);
@@ -88,6 +98,7 @@ export function inspectGrid(grid,vertices){
 }
 export function rigPadding(actor){
  const rig=actor.rig;if(!rig)return 0;
+ if(rig.kind==='sail')return actor.crop[2]*Math.abs(rig.maxTrim||0)+Math.abs(rig.amplitude||0);
  if(rig.kind==='tether')return Math.hypot(rig.end[0]-rig.pivot[0],rig.end[1]-rig.pivot[1])*(rig.maxAngle||0);
  if(rig.kind==='spine')return (actor.crop[2]+actor.crop[3])*Math.abs(rig.angle||0);
  if(rig.kind==='stem')return (actor.crop[2]+actor.crop[3])*(Math.abs(rig.angle||0)+Math.abs(rig.tipAngle||0));

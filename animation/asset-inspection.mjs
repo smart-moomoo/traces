@@ -19,6 +19,7 @@ export function inspectAssets(player,host){
  });
  for(const {definition,cutout} of objects){
   const pad=12,ww=cutout.width+2*pad,hh=cutout.height+2*pad;
+  add(`${definition.id} · 原位露出`,ctx=>ctx.drawImage(cleanPlate,definition.crop[0]-pad,definition.crop[1]-pad,ww,hh,0,0,ww,hh),ww,hh);
   for(const color of ['#f8f6ef','#263539'])add(`${definition.id} · ${color}`,ctx=>{ctx.fillStyle=color;ctx.fillRect(0,0,ww,hh);ctx.drawImage(cutout,pad,pad);},ww,hh);
  }
 }

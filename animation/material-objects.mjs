@@ -104,7 +104,13 @@ export function prepareObjects(canvas,definitions=[],repairPlate=null,{preciseRe
     return {definition,cutout,texture:PIXI.Texture.from(cutout)};
    }
    if(preciseRepair){
+    if(definition.eraseDilation){
+     const pad=Math.ceil(definition.eraseDilation)+1,patch=document.createElement('canvas'),mask=document.createElement('canvas');patch.width=mask.width=w+2*pad;patch.height=mask.height=h+2*pad;
+     const pc=patch.getContext('2d'),mc=mask.getContext('2d');pc.drawImage(repairPlate,-x+pad,-y+pad,canvas.width,canvas.height);
+     mc.fillStyle=mc.strokeStyle='white';mc.lineWidth=2*definition.eraseDilation;mc.lineJoin='round';mc.beginPath();(definition.eraseOutline||definition.outline).forEach(([a,b],i)=>i?mc.lineTo(a+pad,b+pad):mc.moveTo(a+pad,b+pad));mc.closePath();mc.fill();mc.stroke();pc.globalCompositeOperation='destination-in';pc.drawImage(mask,0,0);plate.drawImage(patch,x-pad,y-pad);
+    }else{
     plate.save();plate.beginPath();(definition.eraseOutline||definition.outline).forEach(([px,py],i)=>i?plate.lineTo(x+px,y+py):plate.moveTo(x+px,y+py));plate.closePath();plate.clip();plate.drawImage(repairPlate,0,0,canvas.width,canvas.height);plate.restore();
+    }
     if(definition.sourceExclusions?.length){plate.save();plate.beginPath();for(const polygon of definition.sourceExclusions){polygon.forEach(([px,py],i)=>i?plate.lineTo(px,py):plate.moveTo(px,py));plate.closePath();}plate.clip();plate.drawImage(source,0,0);plate.restore();}
     return {definition,cutout,texture:PIXI.Texture.from(cutout)};
    }

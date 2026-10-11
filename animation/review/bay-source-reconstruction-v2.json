@@ -1,0 +1,169 @@
+{
+  "id": "San-Francisco",
+  "width": 1024,
+  "height": 767,
+  "pixels": 785408,
+  "threshold": 6,
+  "changedPixels": 1951,
+  "outsideDeclaredPixels": 0,
+  "edgePixels": 0,
+  "maxDelta": 166,
+  "meanChannelDelta": 0.06885635661125597,
+  "objects": [
+    {
+      "id": "near-forestay",
+      "crop": [
+        846,
+        428,
+        34,
+        82
+      ],
+      "alphaPixels": 192,
+      "partialAlphaPixels": 107,
+      "changedPixels": 648,
+      "maxDelta": 166,
+      "meanMaxDelta": 7.766140602582497
+    },
+    {
+      "id": "jib",
+      "crop": [
+        852,
+        430,
+        29,
+        76
+      ],
+      "alphaPixels": 697,
+      "partialAlphaPixels": 76,
+      "changedPixels": 603,
+      "maxDelta": 151,
+      "meanMaxDelta": 9.451905626134302
+    },
+    {
+      "id": "vessel-hull",
+      "crop": [
+        833,
+        505,
+        96,
+        25
+      ],
+      "alphaPixels": 1206,
+      "partialAlphaPixels": 106,
+      "changedPixels": 521,
+      "maxDelta": 166,
+      "meanMaxDelta": 10.292083333333334
+    },
+    {
+      "id": "main-sail",
+      "crop": [
+        878,
+        411,
+        45,
+        95
+      ],
+      "alphaPixels": 1978,
+      "partialAlphaPixels": 132,
+      "changedPixels": 401,
+      "maxDelta": 151,
+      "meanMaxDelta": 3.221052631578947
+    },
+    {
+      "id": "far-hull",
+      "crop": [
+        112,
+        480,
+        50,
+        14
+      ],
+      "alphaPixels": 406,
+      "partialAlphaPixels": 28,
+      "changedPixels": 242,
+      "maxDelta": 157,
+      "meanMaxDelta": 14.485714285714286
+    },
+    {
+      "id": "far-forestay",
+      "crop": [
+        113,
+        438,
+        24,
+        45
+      ],
+      "alphaPixels": 96,
+      "partialAlphaPixels": 57,
+      "changedPixels": 171,
+      "maxDelta": 78,
+      "meanMaxDelta": 3.9990740740740742
+    },
+    {
+      "id": "far-main-sail",
+      "crop": [
+        136,
+        433,
+        23,
+        48
+      ],
+      "alphaPixels": 578,
+      "partialAlphaPixels": 75,
+      "changedPixels": 123,
+      "maxDelta": 115,
+      "meanMaxDelta": 4.515398550724638
+    },
+    {
+      "id": "far-jib",
+      "crop": [
+        117,
+        440,
+        19,
+        41
+      ],
+      "alphaPixels": 374,
+      "partialAlphaPixels": 25,
+      "changedPixels": 121,
+      "maxDelta": 78,
+      "meanMaxDelta": 3.7522464698331195
+    },
+    {
+      "id": "far-mast",
+      "crop": [
+        135,
+        425,
+        5,
+        62
+      ],
+      "alphaPixels": 175,
+      "partialAlphaPixels": 91,
+      "changedPixels": 83,
+      "maxDelta": 115,
+      "meanMaxDelta": 7.583870967741936
+    },
+    {
+      "id": "mast",
+      "crop": [
+        881,
+        403,
+        4,
+        112
+      ],
+      "alphaPixels": 258,
+      "partialAlphaPixels": 73,
+      "changedPixels": 66,
+      "maxDelta": 110,
+      "meanMaxDelta": 4.560267857142857
+    },
+    {
+      "id": "near-boom",
+      "crop": [
+        878,
+        503,
+        45,
+        3
+      ],
+      "alphaPixels": 129,
+      "partialAlphaPixels": 33,
+      "changedPixels": 2,
+      "maxDelta": 58,
+      "meanMaxDelta": 0.8
+    }
+  ],
+  "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+}

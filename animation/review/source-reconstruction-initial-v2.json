@@ -1,0 +1,2111 @@
+[
+  {
+    "id": "Seattle",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 269,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 46,
+    "meanChannelDelta": 0.003739251030815972,
+    "objects": [
+      {
+        "id": "harbor-ferry",
+        "crop": [
+          106,
+          439,
+          109,
+          34
+        ],
+        "alphaPixels": 2336,
+        "partialAlphaPixels": 175,
+        "changedPixels": 154,
+        "maxDelta": 39,
+        "meanMaxDelta": 0.6435509983810038
+      },
+      {
+        "id": "cargo-forward-boom",
+        "crop": [
+          774,
+          315,
+          47,
+          28
+        ],
+        "alphaPixels": 457,
+        "partialAlphaPixels": 56,
+        "changedPixels": 51,
+        "maxDelta": 46,
+        "meanMaxDelta": 0.8366261398176292
+      },
+      {
+        "id": "cargo-aft-boom",
+        "crop": [
+          824,
+          337,
+          36,
+          24
+        ],
+        "alphaPixels": 414,
+        "partialAlphaPixels": 45,
+        "changedPixels": 40,
+        "maxDelta": 29,
+        "meanMaxDelta": 0.6388888888888888
+      },
+      {
+        "id": "aft-hoist-cable",
+        "crop": [
+          826,
+          313,
+          25,
+          27
+        ],
+        "alphaPixels": 87,
+        "partialAlphaPixels": 50,
+        "changedPixels": 21,
+        "maxDelta": 18,
+        "meanMaxDelta": 0.4414814814814815
+      },
+      {
+        "id": "forward-hoist-cable",
+        "crop": [
+          777,
+          291,
+          27,
+          27
+        ],
+        "alphaPixels": 77,
+        "partialAlphaPixels": 52,
+        "changedPixels": 13,
+        "maxDelta": 23,
+        "meanMaxDelta": 0.40329218106995884
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Bellevue",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 534,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 196,
+    "meanChannelDelta": 0.020679050021701388,
+    "objects": [
+      {
+        "id": "duck-reflection",
+        "crop": [
+          483,
+          565,
+          47,
+          17
+        ],
+        "alphaPixels": 434,
+        "partialAlphaPixels": 87,
+        "changedPixels": 231,
+        "maxDelta": 179,
+        "meanMaxDelta": 12.038798498122654
+      },
+      {
+        "id": "pool-duck",
+        "crop": [
+          478,
+          548,
+          53,
+          19
+        ],
+        "alphaPixels": 358,
+        "partialAlphaPixels": 60,
+        "changedPixels": 204,
+        "maxDelta": 147,
+        "meanMaxDelta": 7.721946375372394
+      },
+      {
+        "id": "ledge-duck-body",
+        "crop": [
+          504,
+          504,
+          29,
+          16
+        ],
+        "alphaPixels": 266,
+        "partialAlphaPixels": 36,
+        "changedPixels": 72,
+        "maxDelta": 196,
+        "meanMaxDelta": 8.609913793103448
+      },
+      {
+        "id": "duck-head",
+        "crop": [
+          479,
+          548,
+          18,
+          17
+        ],
+        "alphaPixels": 181,
+        "partialAlphaPixels": 23,
+        "changedPixels": 39,
+        "maxDelta": 86,
+        "meanMaxDelta": 3.689542483660131
+      },
+      {
+        "id": "ledge-duck-head",
+        "crop": [
+          498,
+          496,
+          17,
+          17
+        ],
+        "alphaPixels": 169,
+        "partialAlphaPixels": 34,
+        "changedPixels": 26,
+        "maxDelta": 77,
+        "meanMaxDelta": 1.9169550173010381
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "San-Francisco",
+    "width": 1024,
+    "height": 767,
+    "pixels": 785408,
+    "threshold": 6,
+    "changedPixels": 3104,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 193,
+    "meanChannelDelta": 0.1190786614515428,
+    "objects": [
+      {
+        "id": "vessel-hull",
+        "crop": [
+          833,
+          505,
+          96,
+          25
+        ],
+        "alphaPixels": 1255,
+        "partialAlphaPixels": 135,
+        "changedPixels": 1024,
+        "maxDelta": 189,
+        "meanMaxDelta": 19.316666666666666
+      },
+      {
+        "id": "jib",
+        "crop": [
+          850,
+          434,
+          30,
+          69
+        ],
+        "alphaPixels": 629,
+        "partialAlphaPixels": 101,
+        "changedPixels": 759,
+        "maxDelta": 178,
+        "meanMaxDelta": 13.979227053140097
+      },
+      {
+        "id": "main-sail",
+        "crop": [
+          879,
+          411,
+          43,
+          94
+        ],
+        "alphaPixels": 2027,
+        "partialAlphaPixels": 148,
+        "changedPixels": 418,
+        "maxDelta": 144,
+        "meanMaxDelta": 3.8767936665017317
+      },
+      {
+        "id": "mast",
+        "crop": [
+          879,
+          400,
+          7,
+          115
+        ],
+        "alphaPixels": 369,
+        "partialAlphaPixels": 168,
+        "changedPixels": 296,
+        "maxDelta": 156,
+        "meanMaxDelta": 15.829813664596273
+      },
+      {
+        "id": "far-hull",
+        "crop": [
+          112,
+          480,
+          50,
+          14
+        ],
+        "alphaPixels": 375,
+        "partialAlphaPixels": 42,
+        "changedPixels": 271,
+        "maxDelta": 169,
+        "meanMaxDelta": 19.06714285714286
+      },
+      {
+        "id": "far-jib",
+        "crop": [
+          116,
+          445,
+          20,
+          37
+        ],
+        "alphaPixels": 349,
+        "partialAlphaPixels": 50,
+        "changedPixels": 188,
+        "maxDelta": 193,
+        "meanMaxDelta": 12.881081081081081
+      },
+      {
+        "id": "far-main-sail",
+        "crop": [
+          138,
+          435,
+          21,
+          47
+        ],
+        "alphaPixels": 480,
+        "partialAlphaPixels": 40,
+        "changedPixels": 161,
+        "maxDelta": 158,
+        "meanMaxDelta": 9.21985815602837
+      },
+      {
+        "id": "far-mast",
+        "crop": [
+          135,
+          424,
+          5,
+          62
+        ],
+        "alphaPixels": 198,
+        "partialAlphaPixels": 91,
+        "changedPixels": 90,
+        "maxDelta": 145,
+        "meanMaxDelta": 10.074193548387097
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Stanford",
+    "width": 1024,
+    "height": 767,
+    "pixels": 785408,
+    "threshold": 6,
+    "changedPixels": 745,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 95,
+    "meanChannelDelta": 0.013323860549760973,
+    "objects": [
+      {
+        "id": "east-courtyard-crown",
+        "crop": [
+          242,
+          438,
+          114,
+          99
+        ],
+        "alphaPixels": 7627,
+        "partialAlphaPixels": 520,
+        "changedPixels": 390,
+        "maxDelta": 95,
+        "meanMaxDelta": 0.6861598440545809
+      },
+      {
+        "id": "west-courtyard-crown",
+        "crop": [
+          137,
+          433,
+          104,
+          102
+        ],
+        "alphaPixels": 7487,
+        "partialAlphaPixels": 605,
+        "changedPixels": 355,
+        "maxDelta": 53,
+        "meanMaxDelta": 0.6482843137254902
+      },
+      {
+        "id": "released-courtyard-leaf",
+        "crop": [
+          256,
+          494,
+          24,
+          23
+        ],
+        "alphaPixels": 309,
+        "partialAlphaPixels": 51,
+        "changedPixels": 67,
+        "maxDelta": 95,
+        "meanMaxDelta": 3.2083333333333335
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Mountain-View",
+    "width": 1024,
+    "height": 801,
+    "pixels": 820224,
+    "threshold": 6,
+    "changedPixels": 990,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 51,
+    "meanChannelDelta": 0.01679256723366625,
+    "objects": [
+      {
+        "id": "middle-seed-stalk",
+        "crop": [
+          151,
+          348,
+          43,
+          281
+        ],
+        "alphaPixels": 2331,
+        "partialAlphaPixels": 561,
+        "changedPixels": 439,
+        "maxDelta": 51,
+        "meanMaxDelta": 0.708350575188281
+      },
+      {
+        "id": "east-seed-stalk",
+        "crop": [
+          184,
+          366,
+          57,
+          262
+        ],
+        "alphaPixels": 2003,
+        "partialAlphaPixels": 580,
+        "changedPixels": 351,
+        "maxDelta": 47,
+        "meanMaxDelta": 0.47462166867550554
+      },
+      {
+        "id": "west-seed-stalk",
+        "crop": [
+          98,
+          347,
+          46,
+          262
+        ],
+        "alphaPixels": 2979,
+        "partialAlphaPixels": 543,
+        "changedPixels": 280,
+        "maxDelta": 46,
+        "meanMaxDelta": 0.43528045137736476
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Sunnyvale",
+    "width": 1024,
+    "height": 794,
+    "pixels": 813056,
+    "threshold": 6,
+    "changedPixels": 729,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 53,
+    "meanChannelDelta": 0.01590214368178002,
+    "objects": [
+      {
+        "id": "far-tree-crown",
+        "crop": [
+          135,
+          227,
+          135,
+          113
+        ],
+        "alphaPixels": 7844,
+        "partialAlphaPixels": 388,
+        "changedPixels": 312,
+        "maxDelta": 53,
+        "meanMaxDelta": 0.4801704359226483
+      },
+      {
+        "id": "near-upper-bough",
+        "crop": [
+          551,
+          197,
+          125,
+          102
+        ],
+        "alphaPixels": 5700,
+        "partialAlphaPixels": 293,
+        "changedPixels": 252,
+        "maxDelta": 52,
+        "meanMaxDelta": 0.5365490196078432
+      },
+      {
+        "id": "near-lower-bough",
+        "crop": [
+          588,
+          297,
+          118,
+          74
+        ],
+        "alphaPixels": 3581,
+        "partialAlphaPixels": 450,
+        "changedPixels": 175,
+        "maxDelta": 50,
+        "meanMaxDelta": 0.5699725148877691
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "San-Jose",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 334,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 30,
+    "meanChannelDelta": 0.004747178819444444,
+    "objects": [
+      {
+        "id": "west-tip",
+        "crop": [
+          443,
+          394,
+          45,
+          20
+        ],
+        "alphaPixels": 312,
+        "partialAlphaPixels": 79,
+        "changedPixels": 64,
+        "maxDelta": 30,
+        "meanMaxDelta": 1.4355555555555555
+      },
+      {
+        "id": "west-wide",
+        "crop": [
+          258,
+          386,
+          62,
+          20
+        ],
+        "alphaPixels": 975,
+        "partialAlphaPixels": 151,
+        "changedPixels": 50,
+        "maxDelta": 23,
+        "meanMaxDelta": 0.6298387096774194
+      },
+      {
+        "id": "middle-small",
+        "crop": [
+          535,
+          382,
+          34,
+          20
+        ],
+        "alphaPixels": 458,
+        "partialAlphaPixels": 74,
+        "changedPixels": 41,
+        "maxDelta": 22,
+        "meanMaxDelta": 1.0161764705882352
+      },
+      {
+        "id": "east-wide",
+        "crop": [
+          613,
+          390,
+          48,
+          22
+        ],
+        "alphaPixels": 766,
+        "partialAlphaPixels": 118,
+        "changedPixels": 40,
+        "maxDelta": 16,
+        "meanMaxDelta": 0.6060606060606061
+      },
+      {
+        "id": "east-tip",
+        "crop": [
+          824,
+          409,
+          49,
+          19
+        ],
+        "alphaPixels": 585,
+        "partialAlphaPixels": 90,
+        "changedPixels": 37,
+        "maxDelta": 28,
+        "meanMaxDelta": 0.6713211600429646
+      },
+      {
+        "id": "middle-wide",
+        "crop": [
+          492,
+          393,
+          40,
+          22
+        ],
+        "alphaPixels": 662,
+        "partialAlphaPixels": 64,
+        "changedPixels": 32,
+        "maxDelta": 27,
+        "meanMaxDelta": 0.678409090909091
+      },
+      {
+        "id": "east-small",
+        "crop": [
+          668,
+          411,
+          49,
+          14
+        ],
+        "alphaPixels": 510,
+        "partialAlphaPixels": 58,
+        "changedPixels": 30,
+        "maxDelta": 26,
+        "meanMaxDelta": 0.6924198250728864
+      },
+      {
+        "id": "middle-tip",
+        "crop": [
+          567,
+          403,
+          35,
+          16
+        ],
+        "alphaPixels": 347,
+        "partialAlphaPixels": 58,
+        "changedPixels": 26,
+        "maxDelta": 18,
+        "meanMaxDelta": 0.7285714285714285
+      },
+      {
+        "id": "west-small",
+        "crop": [
+          367,
+          378,
+          33,
+          15
+        ],
+        "alphaPixels": 367,
+        "partialAlphaPixels": 33,
+        "changedPixels": 14,
+        "maxDelta": 23,
+        "meanMaxDelta": 0.47878787878787876
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Los-Gatos",
+    "width": 1024,
+    "height": 799,
+    "pixels": 818176,
+    "threshold": 6,
+    "changedPixels": 2118,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 204,
+    "meanChannelDelta": 0.10605175414580725,
+    "objects": [
+      {
+        "id": "lake-duck-reflection",
+        "crop": [
+          256,
+          542,
+          54,
+          25
+        ],
+        "alphaPixels": 183,
+        "partialAlphaPixels": 151,
+        "changedPixels": 689,
+        "maxDelta": 174,
+        "meanMaxDelta": 33.67629629629629
+      },
+      {
+        "id": "feeding-duck-reflection",
+        "crop": [
+          735,
+          596,
+          36,
+          27
+        ],
+        "alphaPixels": 52,
+        "partialAlphaPixels": 33,
+        "changedPixels": 467,
+        "maxDelta": 146,
+        "meanMaxDelta": 21.00102880658436
+      },
+      {
+        "id": "feeding-duck",
+        "crop": [
+          734,
+          560,
+          39,
+          39
+        ],
+        "alphaPixels": 442,
+        "partialAlphaPixels": 79,
+        "changedPixels": 388,
+        "maxDelta": 160,
+        "meanMaxDelta": 13.476660092044707
+      },
+      {
+        "id": "shore-duck-body",
+        "crop": [
+          472,
+          590,
+          66,
+          29
+        ],
+        "alphaPixels": 1197,
+        "partialAlphaPixels": 86,
+        "changedPixels": 324,
+        "maxDelta": 204,
+        "meanMaxDelta": 11.191222570532915
+      },
+      {
+        "id": "lake-duck",
+        "crop": [
+          256,
+          519,
+          54,
+          25
+        ],
+        "alphaPixels": 550,
+        "partialAlphaPixels": 66,
+        "changedPixels": 257,
+        "maxDelta": 158,
+        "meanMaxDelta": 10.331111111111111
+      },
+      {
+        "id": "shore-duck-head",
+        "crop": [
+          521,
+          577,
+          27,
+          26
+        ],
+        "alphaPixels": 369,
+        "partialAlphaPixels": 57,
+        "changedPixels": 101,
+        "maxDelta": 181,
+        "meanMaxDelta": 6.565527065527066
+      },
+      {
+        "id": "lake-duck-head",
+        "crop": [
+          289,
+          518,
+          22,
+          21
+        ],
+        "alphaPixels": 252,
+        "partialAlphaPixels": 41,
+        "changedPixels": 91,
+        "maxDelta": 128,
+        "meanMaxDelta": 8.402597402597403
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Santa-Cruz",
+    "width": 1024,
+    "height": 765,
+    "pixels": 783360,
+    "threshold": 6,
+    "changedPixels": 792,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 218,
+    "meanChannelDelta": 0.04396063112745098,
+    "objects": [
+      {
+        "id": "hanging-flag",
+        "crop": [
+          724,
+          172,
+          26,
+          119
+        ],
+        "alphaPixels": 1360,
+        "partialAlphaPixels": 132,
+        "changedPixels": 384,
+        "maxDelta": 211,
+        "meanMaxDelta": 8.657401422107304
+      },
+      {
+        "id": "tree-tip",
+        "crop": [
+          201,
+          254,
+          41,
+          47
+        ],
+        "alphaPixels": 984,
+        "partialAlphaPixels": 392,
+        "changedPixels": 292,
+        "maxDelta": 49,
+        "meanMaxDelta": 3.7960560456668397
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Los-Angeles",
+    "width": 1024,
+    "height": 767,
+    "pixels": 785408,
+    "threshold": 6,
+    "changedPixels": 609,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 164,
+    "meanChannelDelta": 0.01970568163298566,
+    "objects": [
+      {
+        "id": "west-telescope-truss",
+        "crop": [
+          198,
+          295,
+          36,
+          51
+        ],
+        "alphaPixels": 1038,
+        "partialAlphaPixels": 254,
+        "changedPixels": 571,
+        "maxDelta": 164,
+        "meanMaxDelta": 12.867647058823529
+      },
+      {
+        "id": "east-observatory-shutter",
+        "crop": [
+          784,
+          179,
+          34,
+          79
+        ],
+        "alphaPixels": 2474,
+        "partialAlphaPixels": 44,
+        "changedPixels": 38,
+        "maxDelta": 29,
+        "meanMaxDelta": 0.24087862993298587
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Santa-Monica",
+    "width": 1024,
+    "height": 798,
+    "pixels": 817152,
+    "threshold": 6,
+    "changedPixels": 2355,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 184,
+    "meanChannelDelta": 0.04748117037385129,
+    "objects": [
+      {
+        "id": "cafe-east-palm",
+        "crop": [
+          696,
+          51,
+          134,
+          137
+        ],
+        "alphaPixels": 8448,
+        "partialAlphaPixels": 1107,
+        "changedPixels": 823,
+        "maxDelta": 55,
+        "meanMaxDelta": 0.8875694520100229
+      },
+      {
+        "id": "cafe-west-palm",
+        "crop": [
+          337,
+          116,
+          109,
+          138
+        ],
+        "alphaPixels": 7363,
+        "partialAlphaPixels": 908,
+        "changedPixels": 682,
+        "maxDelta": 48,
+        "meanMaxDelta": 0.9095864911580906
+      },
+      {
+        "id": "cafe-middle-palm",
+        "crop": [
+          431,
+          126,
+          97,
+          108
+        ],
+        "alphaPixels": 4570,
+        "partialAlphaPixels": 581,
+        "changedPixels": 469,
+        "maxDelta": 52,
+        "meanMaxDelta": 0.8846888125238641
+      },
+      {
+        "id": "california-flag",
+        "crop": [
+          264,
+          345,
+          44,
+          47
+        ],
+        "alphaPixels": 1458,
+        "partialAlphaPixels": 83,
+        "changedPixels": 206,
+        "maxDelta": 119,
+        "meanMaxDelta": 3.088007736943907
+      },
+      {
+        "id": "us-flag",
+        "crop": [
+          545,
+          360,
+          37,
+          38
+        ],
+        "alphaPixels": 1029,
+        "partialAlphaPixels": 86,
+        "changedPixels": 195,
+        "maxDelta": 184,
+        "meanMaxDelta": 7.957325746799431
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "San-Diego",
+    "width": 1024,
+    "height": 767,
+    "pixels": 785408,
+    "threshold": 6,
+    "changedPixels": 425,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 57,
+    "meanChannelDelta": 0.010459956269013472,
+    "objects": [
+      {
+        "id": "west-palm",
+        "crop": [
+          750,
+          121,
+          46,
+          44
+        ],
+        "alphaPixels": 645,
+        "partialAlphaPixels": 201,
+        "changedPixels": 175,
+        "maxDelta": 53,
+        "meanMaxDelta": 2.524209486166008
+      },
+      {
+        "id": "middle-palm",
+        "crop": [
+          788,
+          146,
+          39,
+          41
+        ],
+        "alphaPixels": 543,
+        "partialAlphaPixels": 191,
+        "changedPixels": 149,
+        "maxDelta": 52,
+        "meanMaxDelta": 2.462789243277048
+      },
+      {
+        "id": "east-palm",
+        "crop": [
+          845,
+          142,
+          36,
+          40
+        ],
+        "alphaPixels": 492,
+        "partialAlphaPixels": 129,
+        "changedPixels": 109,
+        "maxDelta": 57,
+        "meanMaxDelta": 2.303472222222222
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Dallas",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 176,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 41,
+    "meanChannelDelta": 0.0027597215440538195,
+    "objects": [
+      {
+        "id": "green-facade-0-1",
+        "crop": [
+          806,
+          421,
+          22,
+          24
+        ],
+        "alphaPixels": 428,
+        "partialAlphaPixels": 28,
+        "changedPixels": 28,
+        "maxDelta": 28,
+        "meanMaxDelta": 0.7329545454545454
+      },
+      {
+        "id": "blue-facade-0-0",
+        "crop": [
+          388,
+          369,
+          29,
+          25
+        ],
+        "alphaPixels": 435,
+        "partialAlphaPixels": 51,
+        "changedPixels": 27,
+        "maxDelta": 27,
+        "meanMaxDelta": 0.5820689655172414
+      },
+      {
+        "id": "green-facade-1-1",
+        "crop": [
+          806,
+          440,
+          22,
+          23
+        ],
+        "alphaPixels": 406,
+        "partialAlphaPixels": 28,
+        "changedPixels": 21,
+        "maxDelta": 23,
+        "meanMaxDelta": 0.5968379446640316
+      },
+      {
+        "id": "ivory-facade-1-0",
+        "crop": [
+          192,
+          450,
+          20,
+          18
+        ],
+        "alphaPixels": 239,
+        "partialAlphaPixels": 27,
+        "changedPixels": 20,
+        "maxDelta": 37,
+        "meanMaxDelta": 0.7583333333333333
+      },
+      {
+        "id": "ivory-facade-1-1",
+        "crop": [
+          212,
+          456,
+          21,
+          18
+        ],
+        "alphaPixels": 261,
+        "partialAlphaPixels": 27,
+        "changedPixels": 20,
+        "maxDelta": 41,
+        "meanMaxDelta": 0.9708994708994709
+      },
+      {
+        "id": "green-facade-0-0",
+        "crop": [
+          789,
+          419,
+          17,
+          21
+        ],
+        "alphaPixels": 316,
+        "partialAlphaPixels": 25,
+        "changedPixels": 19,
+        "maxDelta": 27,
+        "meanMaxDelta": 0.8235294117647058
+      },
+      {
+        "id": "ivory-facade-0-1",
+        "crop": [
+          212,
+          440,
+          21,
+          22
+        ],
+        "alphaPixels": 345,
+        "partialAlphaPixels": 27,
+        "changedPixels": 17,
+        "maxDelta": 31,
+        "meanMaxDelta": 0.5757575757575758
+      },
+      {
+        "id": "ivory-facade-2-0",
+        "crop": [
+          192,
+          461,
+          20,
+          22
+        ],
+        "alphaPixels": 309,
+        "partialAlphaPixels": 28,
+        "changedPixels": 16,
+        "maxDelta": 15,
+        "meanMaxDelta": 0.4863636363636364
+      },
+      {
+        "id": "green-facade-2-1",
+        "crop": [
+          806,
+          458,
+          22,
+          17
+        ],
+        "alphaPixels": 286,
+        "partialAlphaPixels": 30,
+        "changedPixels": 15,
+        "maxDelta": 23,
+        "meanMaxDelta": 0.6925133689839572
+      },
+      {
+        "id": "ivory-facade-2-1",
+        "crop": [
+          212,
+          468,
+          21,
+          22
+        ],
+        "alphaPixels": 335,
+        "partialAlphaPixels": 28,
+        "changedPixels": 14,
+        "maxDelta": 34,
+        "meanMaxDelta": 0.5497835497835498
+      },
+      {
+        "id": "green-facade-1-0",
+        "crop": [
+          789,
+          436,
+          17,
+          22
+        ],
+        "alphaPixels": 307,
+        "partialAlphaPixels": 21,
+        "changedPixels": 14,
+        "maxDelta": 15,
+        "meanMaxDelta": 0.45454545454545453
+      },
+      {
+        "id": "green-facade-2-0",
+        "crop": [
+          789,
+          453,
+          17,
+          18
+        ],
+        "alphaPixels": 245,
+        "partialAlphaPixels": 22,
+        "changedPixels": 12,
+        "maxDelta": 12,
+        "meanMaxDelta": 0.4477124183006536
+      },
+      {
+        "id": "ivory-facade-0-0",
+        "crop": [
+          192,
+          434,
+          20,
+          22
+        ],
+        "alphaPixels": 332,
+        "partialAlphaPixels": 27,
+        "changedPixels": 8,
+        "maxDelta": 17,
+        "meanMaxDelta": 0.3181818181818182
+      },
+      {
+        "id": "blue-facade-1-0",
+        "crop": [
+          388,
+          382,
+          29,
+          24
+        ],
+        "alphaPixels": 380,
+        "partialAlphaPixels": 51,
+        "changedPixels": 7,
+        "maxDelta": 19,
+        "meanMaxDelta": 0.23275862068965517
+      },
+      {
+        "id": "blue-facade-0-1",
+        "crop": [
+          417,
+          365,
+          18,
+          17
+        ],
+        "alphaPixels": 231,
+        "partialAlphaPixels": 29,
+        "changedPixels": 6,
+        "maxDelta": 21,
+        "meanMaxDelta": 0.4738562091503268
+      },
+      {
+        "id": "blue-facade-2-0",
+        "crop": [
+          388,
+          394,
+          29,
+          28
+        ],
+        "alphaPixels": 451,
+        "partialAlphaPixels": 51,
+        "changedPixels": 5,
+        "maxDelta": 13,
+        "meanMaxDelta": 0.1933497536945813
+      },
+      {
+        "id": "blue-facade-1-1",
+        "crop": [
+          417,
+          376,
+          18,
+          18
+        ],
+        "alphaPixels": 224,
+        "partialAlphaPixels": 31,
+        "changedPixels": 4,
+        "maxDelta": 25,
+        "meanMaxDelta": 0.37037037037037035
+      },
+      {
+        "id": "blue-facade-2-1",
+        "crop": [
+          417,
+          387,
+          18,
+          20
+        ],
+        "alphaPixels": 252,
+        "partialAlphaPixels": 32,
+        "changedPixels": 2,
+        "maxDelta": 22,
+        "meanMaxDelta": 0.275
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Fort-Worth",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 872,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 63,
+    "meanChannelDelta": 0.017303466796875,
+    "objects": [
+      {
+        "id": "pool-west-crown",
+        "crop": [
+          626,
+          258,
+          77,
+          86
+        ],
+        "alphaPixels": 4636,
+        "partialAlphaPixels": 905,
+        "changedPixels": 569,
+        "maxDelta": 63,
+        "meanMaxDelta": 1.90048323769254
+      },
+      {
+        "id": "pool-east-crown",
+        "crop": [
+          760,
+          274,
+          92,
+          75
+        ],
+        "alphaPixels": 4916,
+        "partialAlphaPixels": 609,
+        "changedPixels": 303,
+        "maxDelta": 50,
+        "meanMaxDelta": 0.9555072463768116
+      },
+      {
+        "id": "pool-falling-leaf",
+        "crop": [
+          651,
+          304,
+          13,
+          15
+        ],
+        "alphaPixels": 110,
+        "partialAlphaPixels": 44,
+        "changedPixels": 37,
+        "maxDelta": 63,
+        "meanMaxDelta": 4.369230769230769
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Chicago",
+    "width": 1024,
+    "height": 767,
+    "pixels": 785408,
+    "threshold": 6,
+    "changedPixels": 536,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 134,
+    "meanChannelDelta": 0.012287032132768362,
+    "objects": [
+      {
+        "id": "bridge-west-leaf",
+        "crop": [
+          368,
+          461,
+          101,
+          57
+        ],
+        "alphaPixels": 3900,
+        "partialAlphaPixels": 148,
+        "changedPixels": 186,
+        "maxDelta": 134,
+        "meanMaxDelta": 0.9244398124022929
+      },
+      {
+        "id": "bridge-east-leaf",
+        "crop": [
+          469,
+          461,
+          99,
+          57
+        ],
+        "alphaPixels": 3711,
+        "partialAlphaPixels": 158,
+        "changedPixels": 151,
+        "maxDelta": 108,
+        "meanMaxDelta": 0.6597554492291334
+      },
+      {
+        "id": "river-tender",
+        "crop": [
+          768,
+          510,
+          74,
+          54
+        ],
+        "alphaPixels": 2455,
+        "partialAlphaPixels": 143,
+        "changedPixels": 124,
+        "maxDelta": 104,
+        "meanMaxDelta": 0.8761261261261262
+      },
+      {
+        "id": "river-launch",
+        "crop": [
+          426,
+          505,
+          50,
+          51
+        ],
+        "alphaPixels": 1547,
+        "partialAlphaPixels": 113,
+        "changedPixels": 94,
+        "maxDelta": 54,
+        "meanMaxDelta": 0.7529411764705882
+      },
+      {
+        "id": "tender-forward-antenna",
+        "crop": [
+          806,
+          471,
+          5,
+          62
+        ],
+        "alphaPixels": 97,
+        "partialAlphaPixels": 64,
+        "changedPixels": 44,
+        "maxDelta": 104,
+        "meanMaxDelta": 4.961290322580645
+      },
+      {
+        "id": "tender-aft-antenna",
+        "crop": [
+          778,
+          502,
+          5,
+          33
+        ],
+        "alphaPixels": 37,
+        "partialAlphaPixels": 28,
+        "changedPixels": 14,
+        "maxDelta": 74,
+        "meanMaxDelta": 2.8484848484848486
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Champaign-Urbana",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 2167,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 199,
+    "meanChannelDelta": 0.0559844970703125,
+    "objects": [
+      {
+        "id": "overhead-twig",
+        "crop": [
+          143,
+          88,
+          275,
+          208
+        ],
+        "alphaPixels": 6413,
+        "partialAlphaPixels": 2199,
+        "changedPixels": 2167,
+        "maxDelta": 199,
+        "meanMaxDelta": 1.2582692307692307
+      },
+      {
+        "id": "second-autumn-leaf",
+        "crop": [
+          377,
+          146,
+          31,
+          33
+        ],
+        "alphaPixels": 171,
+        "partialAlphaPixels": 77,
+        "changedPixels": 435,
+        "maxDelta": 199,
+        "meanMaxDelta": 30.853372434017594
+      },
+      {
+        "id": "first-autumn-leaf",
+        "crop": [
+          220,
+          266,
+          26,
+          29
+        ],
+        "alphaPixels": 265,
+        "partialAlphaPixels": 48,
+        "changedPixels": 157,
+        "maxDelta": 151,
+        "meanMaxDelta": 8.493368700265252
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "New-Orleans",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 1613,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 108,
+    "meanChannelDelta": 0.02912351820203993,
+    "objects": [
+      {
+        "id": "main-oak-twig",
+        "crop": [
+          486,
+          12,
+          89,
+          202
+        ],
+        "alphaPixels": 8158,
+        "partialAlphaPixels": 1269,
+        "changedPixels": 891,
+        "maxDelta": 108,
+        "meanMaxDelta": 1.0293692290577372
+      },
+      {
+        "id": "neighbor-oak-twig",
+        "crop": [
+          73,
+          335,
+          132,
+          129
+        ],
+        "alphaPixels": 10198,
+        "partialAlphaPixels": 1790,
+        "changedPixels": 722,
+        "maxDelta": 47,
+        "meanMaxDelta": 0.9295278365045807
+      },
+      {
+        "id": "released-oak-leaf",
+        "crop": [
+          515,
+          14,
+          20,
+          20
+        ],
+        "alphaPixels": 247,
+        "partialAlphaPixels": 66,
+        "changedPixels": 95,
+        "maxDelta": 108,
+        "meanMaxDelta": 7.9725
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Wallace",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 1237,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 55,
+    "meanChannelDelta": 0.023158603244357638,
+    "objects": [
+      {
+        "id": "west-inner-limb",
+        "crop": [
+          347,
+          137,
+          116,
+          124
+        ],
+        "alphaPixels": 6156,
+        "partialAlphaPixels": 1374,
+        "changedPixels": 938,
+        "maxDelta": 55,
+        "meanMaxDelta": 1.4473720800889878
+      },
+      {
+        "id": "east-inner-limb",
+        "crop": [
+          684,
+          147,
+          99,
+          98
+        ],
+        "alphaPixels": 4470,
+        "partialAlphaPixels": 939,
+        "changedPixels": 299,
+        "maxDelta": 49,
+        "meanMaxDelta": 0.5918367346938775
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Charleston",
+    "width": 1024,
+    "height": 695,
+    "pixels": 711680,
+    "threshold": 6,
+    "changedPixels": 1703,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 55,
+    "meanChannelDelta": 0.03573703537170264,
+    "objects": [
+      {
+        "id": "street-palm",
+        "crop": [
+          818,
+          365,
+          100,
+          97
+        ],
+        "alphaPixels": 5729,
+        "partialAlphaPixels": 1010,
+        "changedPixels": 802,
+        "maxDelta": 55,
+        "meanMaxDelta": 2.0429896907216496
+      },
+      {
+        "id": "blue-roof-twig",
+        "crop": [
+          191,
+          147,
+          107,
+          102
+        ],
+        "alphaPixels": 4248,
+        "partialAlphaPixels": 809,
+        "changedPixels": 525,
+        "maxDelta": 51,
+        "meanMaxDelta": 1.0630382994319223
+      },
+      {
+        "id": "pink-roof-twig",
+        "crop": [
+          392,
+          226,
+          116,
+          99
+        ],
+        "alphaPixels": 4965,
+        "partialAlphaPixels": 1135,
+        "changedPixels": 376,
+        "maxDelta": 44,
+        "meanMaxDelta": 0.683820968303727
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Savannah",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 818,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 46,
+    "meanChannelDelta": 0.013607872856987847,
+    "objects": [
+      {
+        "id": "right-high-tuft",
+        "crop": [
+          683,
+          151,
+          30,
+          76
+        ],
+        "alphaPixels": 1274,
+        "partialAlphaPixels": 677,
+        "changedPixels": 379,
+        "maxDelta": 46,
+        "meanMaxDelta": 2.637719298245614
+      },
+      {
+        "id": "left-high-tuft",
+        "crop": [
+          313,
+          192,
+          27,
+          79
+        ],
+        "alphaPixels": 1371,
+        "partialAlphaPixels": 516,
+        "changedPixels": 214,
+        "maxDelta": 42,
+        "meanMaxDelta": 1.6849507735583684
+      },
+      {
+        "id": "right-low-tuft",
+        "crop": [
+          651,
+          276,
+          31,
+          70
+        ],
+        "alphaPixels": 1379,
+        "partialAlphaPixels": 394,
+        "changedPixels": 115,
+        "maxDelta": 37,
+        "meanMaxDelta": 0.9732718894009217
+      },
+      {
+        "id": "left-low-tuft",
+        "crop": [
+          349,
+          303,
+          29,
+          65
+        ],
+        "alphaPixels": 1126,
+        "partialAlphaPixels": 205,
+        "changedPixels": 110,
+        "maxDelta": 45,
+        "meanMaxDelta": 1.0679045092838195
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Miami",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 896,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 45,
+    "meanChannelDelta": 0.00963592529296875,
+    "objects": [
+      {
+        "id": "bow-reflection-3",
+        "crop": [
+          713,
+          492,
+          51,
+          18
+        ],
+        "alphaPixels": 597,
+        "partialAlphaPixels": 145,
+        "changedPixels": 102,
+        "maxDelta": 25,
+        "meanMaxDelta": 1.622004357298475
+      },
+      {
+        "id": "bow-reflection-6",
+        "crop": [
+          770,
+          525,
+          47,
+          17
+        ],
+        "alphaPixels": 571,
+        "partialAlphaPixels": 154,
+        "changedPixels": 90,
+        "maxDelta": 24,
+        "meanMaxDelta": 1.7334167709637047
+      },
+      {
+        "id": "bow-reflection-1",
+        "crop": [
+          762,
+          467,
+          52,
+          18
+        ],
+        "alphaPixels": 909,
+        "partialAlphaPixels": 85,
+        "changedPixels": 63,
+        "maxDelta": 26,
+        "meanMaxDelta": 1.0950854700854702
+      },
+      {
+        "id": "bow-reflection-4",
+        "crop": [
+          768,
+          496,
+          57,
+          19
+        ],
+        "alphaPixels": 679,
+        "partialAlphaPixels": 99,
+        "changedPixels": 62,
+        "maxDelta": 33,
+        "meanMaxDelta": 0.9759926131117267
+      },
+      {
+        "id": "bow-reflection-0",
+        "crop": [
+          717,
+          462,
+          40,
+          16
+        ],
+        "alphaPixels": 572,
+        "partialAlphaPixels": 103,
+        "changedPixels": 59,
+        "maxDelta": 29,
+        "meanMaxDelta": 1.4625
+      },
+      {
+        "id": "bow-reflection-5",
+        "crop": [
+          716,
+          520,
+          51,
+          17
+        ],
+        "alphaPixels": 556,
+        "partialAlphaPixels": 104,
+        "changedPixels": 59,
+        "maxDelta": 21,
+        "meanMaxDelta": 1.0599769319492502
+      },
+      {
+        "id": "middle-column-reflection-4",
+        "crop": [
+          445,
+          468,
+          44,
+          15
+        ],
+        "alphaPixels": 343,
+        "partialAlphaPixels": 87,
+        "changedPixels": 55,
+        "maxDelta": 31,
+        "meanMaxDelta": 1.5636363636363637
+      },
+      {
+        "id": "west-column-reflection-6",
+        "crop": [
+          206,
+          523,
+          45,
+          17
+        ],
+        "alphaPixels": 336,
+        "partialAlphaPixels": 106,
+        "changedPixels": 52,
+        "maxDelta": 28,
+        "meanMaxDelta": 1.1464052287581699
+      },
+      {
+        "id": "bow-reflection-2",
+        "crop": [
+          811,
+          467,
+          30,
+          18
+        ],
+        "alphaPixels": 386,
+        "partialAlphaPixels": 84,
+        "changedPixels": 46,
+        "maxDelta": 26,
+        "meanMaxDelta": 1.4981481481481482
+      },
+      {
+        "id": "west-column-reflection-5",
+        "crop": [
+          198,
+          495,
+          46,
+          18
+        ],
+        "alphaPixels": 411,
+        "partialAlphaPixels": 66,
+        "changedPixels": 44,
+        "maxDelta": 35,
+        "meanMaxDelta": 0.9794685990338164
+      },
+      {
+        "id": "west-column-reflection-3",
+        "crop": [
+          198,
+          446,
+          43,
+          16
+        ],
+        "alphaPixels": 436,
+        "partialAlphaPixels": 55,
+        "changedPixels": 42,
+        "maxDelta": 31,
+        "meanMaxDelta": 1.0392441860465116
+      },
+      {
+        "id": "west-column-reflection-4",
+        "crop": [
+          199,
+          471,
+          42,
+          17
+        ],
+        "alphaPixels": 374,
+        "partialAlphaPixels": 60,
+        "changedPixels": 39,
+        "maxDelta": 29,
+        "meanMaxDelta": 0.8949579831932774
+      },
+      {
+        "id": "middle-column-reflection-5",
+        "crop": [
+          441,
+          490,
+          46,
+          15
+        ],
+        "alphaPixels": 209,
+        "partialAlphaPixels": 48,
+        "changedPixels": 28,
+        "maxDelta": 26,
+        "meanMaxDelta": 0.6536231884057971
+      },
+      {
+        "id": "bow-reflection-7",
+        "crop": [
+          728,
+          546,
+          48,
+          17
+        ],
+        "alphaPixels": 320,
+        "partialAlphaPixels": 70,
+        "changedPixels": 28,
+        "maxDelta": 18,
+        "meanMaxDelta": 0.5392156862745098
+      },
+      {
+        "id": "middle-column-reflection-1",
+        "crop": [
+          294,
+          472,
+          42,
+          17
+        ],
+        "alphaPixels": 215,
+        "partialAlphaPixels": 34,
+        "changedPixels": 24,
+        "maxDelta": 45,
+        "meanMaxDelta": 0.5798319327731093
+      },
+      {
+        "id": "middle-column-reflection-3",
+        "crop": [
+          328,
+          532,
+          48,
+          18
+        ],
+        "alphaPixels": 85,
+        "partialAlphaPixels": 31,
+        "changedPixels": 23,
+        "maxDelta": 24,
+        "meanMaxDelta": 0.4837962962962963
+      },
+      {
+        "id": "bow-reflection-8",
+        "crop": [
+          785,
+          548,
+          35,
+          17
+        ],
+        "alphaPixels": 94,
+        "partialAlphaPixels": 59,
+        "changedPixels": 20,
+        "maxDelta": 18,
+        "meanMaxDelta": 0.5579831932773109
+      },
+      {
+        "id": "middle-column-reflection-0",
+        "crop": [
+          295,
+          446,
+          33,
+          16
+        ],
+        "alphaPixels": 259,
+        "partialAlphaPixels": 29,
+        "changedPixels": 18,
+        "maxDelta": 29,
+        "meanMaxDelta": 0.7178030303030303
+      },
+      {
+        "id": "west-column-reflection-2",
+        "crop": [
+          113,
+          486,
+          32,
+          16
+        ],
+        "alphaPixels": 156,
+        "partialAlphaPixels": 34,
+        "changedPixels": 13,
+        "maxDelta": 20,
+        "meanMaxDelta": 0.42578125
+      },
+      {
+        "id": "west-column-reflection-1",
+        "crop": [
+          116,
+          465,
+          29,
+          14
+        ],
+        "alphaPixels": 156,
+        "partialAlphaPixels": 33,
+        "changedPixels": 12,
+        "maxDelta": 24,
+        "meanMaxDelta": 0.5812807881773399
+      },
+      {
+        "id": "west-column-reflection-0",
+        "crop": [
+          119,
+          440,
+          25,
+          16
+        ],
+        "alphaPixels": 197,
+        "partialAlphaPixels": 14,
+        "changedPixels": 10,
+        "maxDelta": 24,
+        "meanMaxDelta": 0.445
+      },
+      {
+        "id": "middle-column-reflection-2",
+        "crop": [
+          300,
+          505,
+          46,
+          17
+        ],
+        "alphaPixels": 196,
+        "partialAlphaPixels": 23,
+        "changedPixels": 10,
+        "maxDelta": 23,
+        "meanMaxDelta": 0.25191815856777494
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Miami-Beach",
+    "width": 1024,
+    "height": 768,
+    "pixels": 786432,
+    "threshold": 6,
+    "changedPixels": 62,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 46,
+    "meanChannelDelta": 0.001053280300564236,
+    "objects": [
+      {
+        "id": "channel-launch",
+        "crop": [
+          302,
+          267,
+          31,
+          20
+        ],
+        "alphaPixels": 324,
+        "partialAlphaPixels": 42,
+        "changedPixels": 33,
+        "maxDelta": 46,
+        "meanMaxDelta": 1.2096774193548387
+      },
+      {
+        "id": "outer-channel-buoy",
+        "crop": [
+          862,
+          260,
+          14,
+          26
+        ],
+        "alphaPixels": 171,
+        "partialAlphaPixels": 35,
+        "changedPixels": 23,
+        "maxDelta": 39,
+        "meanMaxDelta": 1.304945054945055
+      },
+      {
+        "id": "red-channel-buoy",
+        "crop": [
+          659,
+          259,
+          13,
+          22
+        ],
+        "alphaPixels": 144,
+        "partialAlphaPixels": 25,
+        "changedPixels": 6,
+        "maxDelta": 33,
+        "meanMaxDelta": 0.5944055944055944
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  },
+  {
+    "id": "Everglades",
+    "width": 1024,
+    "height": 760,
+    "pixels": 778240,
+    "threshold": 6,
+    "changedPixels": 705,
+    "outsideDeclaredPixels": 0,
+    "edgePixels": 0,
+    "maxDelta": 56,
+    "meanChannelDelta": 0.012615217242324561,
+    "objects": [
+      {
+        "id": "alligator-tail",
+        "crop": [
+          683,
+          357,
+          180,
+          103
+        ],
+        "alphaPixels": 10260,
+        "partialAlphaPixels": 312,
+        "changedPixels": 256,
+        "maxDelta": 51,
+        "meanMaxDelta": 0.2749730312837109
+      },
+      {
+        "id": "alligator-head",
+        "crop": [
+          208,
+          330,
+          139,
+          80
+        ],
+        "alphaPixels": 7241,
+        "partialAlphaPixels": 244,
+        "changedPixels": 204,
+        "maxDelta": 56,
+        "meanMaxDelta": 0.3989208633093525
+      },
+      {
+        "id": "near-lotus-leaf",
+        "crop": [
+          470,
+          505,
+          92,
+          38
+        ],
+        "alphaPixels": 1774,
+        "partialAlphaPixels": 156,
+        "changedPixels": 138,
+        "maxDelta": 43,
+        "meanMaxDelta": 0.8435354691075515
+      },
+      {
+        "id": "far-lotus-leaf",
+        "crop": [
+          573,
+          534,
+          81,
+          39
+        ],
+        "alphaPixels": 1525,
+        "partialAlphaPixels": 132,
+        "changedPixels": 107,
+        "maxDelta": 40,
+        "meanMaxDelta": 0.6682494460272238
+      }
+    ],
+    "scope": "Source-placement CPU composite, not animated GPU frame. Coverage includes a one-pixel seam allowance. Counts identify review targets, not artistic acceptance."
+  }
+]

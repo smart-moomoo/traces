@@ -574,3 +574,24 @@ restoring the original score and comparing 0/11-second frames.
 
 Shared hinge changes passed 23 x 1000 fixed-asset rendering with no added image
 requests. These engineering checks remain separate from final visual acceptance.
+
+
+### Current preview publication and subject trim
+
+The user requested wrapping up and publishing the current version before the
+remaining final visual gates are complete. `deployment.json` declares a
+`review-preview` release; no old artistic verdict or source hash is transferred
+to v2. CI runs all functional checks and explicitly reports the final artistic
+gate as skipped for this channel. `REQUIRE_VISUAL_ACCEPTANCE=1` keeps the strict
+gate available. The full objective remains active.
+
+The exhibition entry now loads all 23 v2 programmes and the same MaterialScene
+renderer as the workbench, including Seattle. The previous entry still loaded
+v1 and Seattle's separate renderer, hiding the newer subject work from visitors.
+
+San Francisco uses independent source silhouettes instead of whole triangular
+erasures. Its two booms articulate about fixed mast joints, while each sail foot
+uses the exact same angle. Pressure and sheet adjustment are separate channels,
+staggered between the vessels. The complete background-off playback and current
+23 x 1000 fixed-asset rendering evidence are saved. Source edge/contact/artistic
+acceptance remains pending; this publication is a reviewable version.

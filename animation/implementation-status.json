@@ -1,6 +1,6 @@
 {
   "goal": "active",
-  "release": "not-published",
+  "release": "review-preview-ready",
   "version": 2,
   "completedEngineering": [
     "23-scene structural asset preflight",
@@ -177,10 +177,11 @@
       "use": "One fixed material backing under exact source panel masks; all original tile sprites hinge procedurally."
     }
   ],
-  "tests": "26 functional test files pass. New action-authoring coverage includes all 23 scene round-trips, unchanged catalogue/endpoints, rejected invalid edits and deterministic state comparisons. Exhibition release gate remains unpassed pending visual review.",
+  "tests": "30 checks pass, 0 fail. Final artistic release evidence is explicitly skipped only for the user-requested preview channel; REQUIRE_VISUAL_ACCEPTANCE=1 retains the strict gate.",
   "latestSubjectWork": {
     "Santa-Monica": "Three original crowns with fixed hearts, delayed curl/recovery, and two original flags; complete local playback recorded, visual acceptance pending.",
     "Dallas": "Eighteen fixed-seam planar hinges in three facade groups, one backing plate; former white-paper-hole trial superseded. Full local playback recorded; source/composition/mobile acceptance pending.",
-    "publication": "Local only; not released."
+    "publication": "Default exhibition now uses v2 for all 23 scenes, including Seattle. Preview deployment requested; final artistic acceptance still pending.",
+    "San-Francisco": "Two original vessels; 12 rendered parts. Independent sail trim drives each rigid boom and its sail foot from one angle; source silhouettes replace broad erasures. Complete 32.03-second local playback checked."
   }
 }

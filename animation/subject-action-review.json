@@ -1,21 +1,40 @@
 {
-  "scope": "Local v2 subject-first revision; not deployed or full 23-scene acceptance",
+  "scope": "V2 subject-first preview release requested by user; full artistic acceptance remains pending",
   "priority": "Several semantic subjects with their own actions. Background effects are optional.",
   "scenes": [
     {
       "id": "San-Francisco",
       "subjects": 2,
-      "parts": 8,
+      "parts": 12,
       "actions": [
         "staggered sail fill and release",
         "hull heel and recovery",
         "opposite travel in distinct depth lanes",
-        "pass and settle"
+        "pass and settle",
+        "Two shared boom/sail trim channels, independently staged"
       ],
       "observed": "32-second playback completed; 24 captured states inspected with background effects disabled. Original rigging/hull residuals discovered and fixed using a separate source footprint; final still inspected afterward. Final version also completed 32.02 seconds (3,843 rendered frames, maximum step 0.016 s); enlarged whole-subject views inspected at seven timestamps.",
       "remaining": [
-        "Materials/contact/full-site visual acceptance"
-      ]
+        "Fine source edges and sail/stay clearance",
+        "Full-exhibition and mobile artistic acceptance"
+      ],
+      "latestSourceReview": "Broad triangular erasures replaced with independent sail/hull/mast/stay masks and 1.5px edge clearance. Pre-trim source audit: 1951 changed pixels, zero outside declared repair footprints. Intermediate 407-pixel result left ghost outlines and was superseded; reconstruction metrics do not pass artistic review.",
+      "latestPlayback": {
+        "id": "San-Francisco",
+        "duration": 32,
+        "frameIntervalMs": {
+          "p50": 8.3,
+          "p95": 9.2,
+          "p99": 9.4,
+          "over33ms": 0,
+          "maxEvidenceCaptureMs": 11.2
+        },
+        "wallSeconds": 32.03,
+        "renderedFrames": 3844,
+        "maxTimelineStep": 0.013,
+        "sampledImages": 24,
+        "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+      }
     },
     {
       "id": "Los-Gatos",

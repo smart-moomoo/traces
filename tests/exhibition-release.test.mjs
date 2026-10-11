@@ -1,7 +1,10 @@
+import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {catalog} from '../animation/catalog.mjs';
+const deployment=JSON.parse(readFileSync(new URL('../animation/deployment.json',import.meta.url)));
+test('Final artistic release evidence', {skip:deployment.channel==='review-preview' && process.env.REQUIRE_VISUAL_ACCEPTANCE!=='1' ? 'Explicit preview release; final artistic acceptance is pending, not passed.' : false},()=>{
 const path=new URL('../animation/release-review.json',import.meta.url);
 assert.ok(existsSync(path),'The default exhibition requires a completed release review.');
 const review=JSON.parse(readFileSync(path));
@@ -24,3 +27,5 @@ for(const [file,hash] of Object.entries(review.sourceHashes)){
  assert.equal(actual,hash,`${file}: implementation changed after visual review; review affected scenes again`);
 }
 console.log('PASS: all 23 scene decisions, real-time playback, fixed-asset rendering, and reviewed source hashes.');
+
+});

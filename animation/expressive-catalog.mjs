@@ -1,3 +1,5 @@
+import {refineBaySource} from './bay-source.mjs';
+import {directSailTrim} from './sail-trim.mjs';
 import {directBeachCanopy} from './beach-canopy.mjs';
 import {directCityAssembly} from './city-assembly.mjs';
 import {directStoneWater} from './material-swell.mjs?v=2-stone-protection';
@@ -164,3 +166,6 @@ directStoneWater(expressiveCatalog.find(s=>s.id==='Miami'));
 directCityAssembly(expressiveCatalog.find(s=>s.id==='Dallas'));
 
 directBeachCanopy(expressiveCatalog.find(s=>s.id==='Santa-Monica'));
+
+refineBaySource(expressiveCatalog.find(s=>s.id==='San-Francisco'));
+directSailTrim(expressiveCatalog.find(s=>s.id==='San-Francisco'));
