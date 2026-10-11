@@ -18,11 +18,16 @@
     "Deterministic attachment release preserving the parent world pose and independent free-flight path",
     "Source child holes prevent a detached leaf remaining duplicated in its parent",
     "Rigid leaf pitch projection and source-alpha landing contact shadow",
-    "Latest 23-scene x 1000-frame lifecycle pass after attachment-release and projection changes: no added image requests; source-hashed engineering evidence saved separately from release gates"
+    "Latest 23-scene x 1000-frame lifecycle pass after attachment-release and projection changes: no added image requests; source-hashed engineering evidence saved separately from release gates",
+    "Root-pinned radial frond articulation with independent pressure and curl channels",
+    "Rooted stem beam with separate upper-stem lag, bounded material strain and rest recovery",
+    "Original boat passage and two source navigation markers reacting in delayed sequence",
+    "Workbench controls remain disabled while a scene is mounting",
+    "Latest 23 x 1000 lifecycle pass includes radial-frond, rooted-stem and channel-passage scenes; all 23 have zero new requests, source hashes recorded in lifecycle-coastal-v2.json"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Nine scenes now have explicit local subject programmes, including Stanford, New Orleans and Champaign-Urbana. Fourteen remain unimplemented at this standard. No new public deployment or final visual acceptance.",
+    "Twelve scenes now have explicit local subject programmes, adding San Diego, Miami Beach and Mountain View. Eleven remain unimplemented at this standard. No final visual acceptance or public deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -72,7 +77,19 @@
     {
       "path": "assets/scenes/Champaign-Urbana/branches-clean-plate-v2.png",
       "use": "One fixed background repair plate under source pigment masks; original branches and leaves rendered continuously"
+    },
+    {
+      "path": "assets/scenes/San-Diego/palm-crowns-clean-plate-v2.png",
+      "use": "Fixed repair plate only under source subject masks. Every animated surface uses original pixels; no generated frame sequence."
+    },
+    {
+      "path": "assets/scenes/Miami-Beach/boat-buoys-clean-plate-v2.png",
+      "use": "Fixed repair plate only under source subject masks. Every animated surface uses original pixels; no generated frame sequence."
+    },
+    {
+      "path": "assets/scenes/Mountain-View/reeds-clean-plate-v3.png",
+      "use": "Fixed repair plate only under source subject masks. Every animated surface uses original pixels; no generated frame sequence."
     }
   ],
-  "tests": "Twelve functional test files passed including attached/released continuity, independent releases, projection bounds, settled contacts, random seek, rig bounds and legacy regressions. Artistic and release acceptance remain separate."
+  "tests": "Fourteen functional test files passed, including radial attachment invariance, stem root invariance, low material strain, delayed seed-head response, boat/buoy timing, deterministic seek and prior regression checks. Runtime evidence and artistic acceptance remain separate."
 }

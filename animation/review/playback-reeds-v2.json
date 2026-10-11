@@ -1,0 +1,11 @@
+[
+  {
+    "id": "Mountain-View",
+    "duration": 32,
+    "wallSeconds": 32.02,
+    "renderedFrames": 3843,
+    "maxTimelineStep": 0.011,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

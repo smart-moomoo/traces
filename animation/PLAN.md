@@ -509,3 +509,12 @@ moored boats are protected from water displacement. Savannah has four narrow
 attached moss groups; warm foliage selection supports orange leaves and dry
 reeds. Fort Worth's water boundary no longer includes the lawn and white tree.
 The remaining story and full-playback issues remain in `visual-review.json`.
+
+
+### Subject-action implementation update: coastal vegetation and channel passage
+
+The subject-first revision now has twelve authored scene programmes, not twelve accepted scenes. San Diego uses three original palm crowns with fixed hearts and spatially varying frond bend/curl; Mountain View uses three original rooted seed stalks with separate stem loading and delayed upper-stem response. Miami Beach uses the original small launch and two source navigation markers; the markers react in order after the vessel passes their positions. Source scale is retained.
+
+The reusable renderer now supports `radial-fronds` and `stem` rigs. Both preserve their attachments and reconstruct any time without accumulated simulation. New tests measure inversion, strain, fixed roots, delayed response, deterministic seeking and boat/marker timing. Fourteen functional test files pass. These results establish mechanics, not material or story acceptance.
+
+A fixed source repair plate is used per scene. Mountain View required a second repair because the first plate left a stalk behind; the scene uses the corrected v3 plate only inside traced pigment masks. No generated animation frames were added. Source/alpha edge inspection and exhibition-scale readability remain release gates. Eleven scenes still lack the subject-action programme; v2 remains local and unreleased.

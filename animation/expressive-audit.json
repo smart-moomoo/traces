@@ -437,16 +437,60 @@
         801
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "west-seed-stalk",
+          "representation": "stem",
+          "rest": [
+            120,
+            609
+          ],
+          "sweptBounds": [
+            62.04,
+            312.04,
+            179.96,
+            645.96
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-seed-stalk",
+          "representation": "stem",
+          "rest": [
+            155,
+            629
+          ],
+          "sweptBounds": [
+            108.88,
+            305.88,
+            231.12,
+            671.12
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "east-seed-stalk",
+          "representation": "stem",
+          "rest": [
+            193,
+            628
+          ],
+          "sweptBounds": [
+            140.34,
+            321.34,
+            285.66,
+            672.66
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
         {
           "id": "tidal-channels",
           "kind": "water",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "reeds",
-          "kind": "foliage",
           "visualStatus": "unreviewed"
         }
       ],
@@ -840,7 +884,56 @@
         767
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "west-palm",
+          "representation": "radial-fronds",
+          "rest": [
+            772,
+            143
+          ],
+          "sweptBounds": [
+            740.1696,
+            111.1696,
+            805.8304,
+            173.8304
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "middle-palm",
+          "representation": "radial-fronds",
+          "rest": [
+            806,
+            165
+          ],
+          "sweptBounds": [
+            778.5536,
+            136.5536,
+            836.4464,
+            195.4464
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "east-palm",
+          "representation": "radial-fronds",
+          "rest": [
+            862,
+            159
+          ],
+          "sweptBounds": [
+            835.9376,
+            132.9376,
+            890.0624,
+            190.0624
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
         {
           "id": "surf",
@@ -1294,7 +1387,56 @@
         768
       ],
       "status": "source-audit",
-      "objects": [],
+      "objects": [
+        {
+          "id": "channel-launch",
+          "representation": "rigid",
+          "rest": [
+            317,
+            285
+          ],
+          "sweptBounds": [
+            301.99999999999994,
+            259.9348109261248,
+            939,
+            286.00000000000006
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "red-channel-buoy",
+          "representation": "rigid",
+          "rest": [
+            665,
+            279
+          ],
+          "sweptBounds": [
+            658.9172829889794,
+            258.90062588344273,
+            671.2469975234686,
+            280.8728040151864
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "outer-channel-buoy",
+          "representation": "rigid",
+          "rest": [
+            869,
+            284
+          ],
+          "sweptBounds": [
+            861.7559735694291,
+            259.9169239753513,
+            875.2340451049264,
+            286.89056278576743
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        }
+      ],
       "environment": [
         {
           "id": "right-sea",

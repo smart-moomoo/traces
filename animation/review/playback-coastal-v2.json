@@ -1,0 +1,20 @@
+[
+  {
+    "id": "San-Diego",
+    "duration": 32,
+    "wallSeconds": 32.02,
+    "renderedFrames": 3844,
+    "maxTimelineStep": 0.015,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Miami-Beach",
+    "duration": 36,
+    "wallSeconds": 36.03,
+    "renderedFrames": 4325,
+    "maxTimelineStep": 0.014,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

@@ -1,7 +1,7 @@
 {
   "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
   "total": 23,
-  "authored": 9,
+  "authored": 12,
   "scenes": [
     {
       "id": "Seattle",
@@ -155,18 +155,37 @@
     {
       "id": "Mountain-View",
       "source": "assets/posters/Mountain-View.png",
-      "subjects": 0,
-      "renderParts": 0,
-      "rigs": [],
-      "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "subjects": 3,
+      "renderParts": 3,
+      "rigs": [
+        {
+          "part": "west-seed-stalk",
+          "kind": "stem",
+          "pin": "bottom"
+        },
+        {
+          "part": "middle-seed-stalk",
+          "kind": "stem",
+          "pin": "bottom"
+        },
+        {
+          "part": "east-seed-stalk",
+          "kind": "stem",
+          "pin": "bottom"
+        }
       ],
+      "joints": [],
+      "actions": [
+        "rooted-bend",
+        "seed-head-lag",
+        "elastic-rebound",
+        "second-yield",
+        "settle"
+      ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",
@@ -364,18 +383,33 @@
     {
       "id": "San-Diego",
       "source": "assets/posters/San-Diego.png",
-      "subjects": 0,
-      "renderParts": 0,
-      "rigs": [],
-      "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "subjects": 3,
+      "renderParts": 3,
+      "rigs": [
+        {
+          "part": "west-palm",
+          "kind": "radial-fronds"
+        },
+        {
+          "part": "middle-palm",
+          "kind": "radial-fronds"
+        },
+        {
+          "part": "east-palm",
+          "kind": "radial-fronds"
+        }
       ],
+      "joints": [],
+      "actions": [
+        "fronds-open",
+        "tips-curl",
+        "opposed-fronds-recover",
+        "settle-at-trunk"
+      ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",
@@ -642,18 +676,25 @@
     {
       "id": "Miami-Beach",
       "source": "assets/posters/Miami-Beach.png",
-      "subjects": 0,
-      "renderParts": 0,
+      "subjects": 3,
+      "renderParts": 3,
       "rigs": [],
       "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "actions": [
+        "accelerate",
+        "pitch-over-chop",
+        "pass-behind-jetty",
+        "coast",
+        "wait-for-passage",
+        "lean-at-wake",
+        "counter-roll",
+        "settle",
+        "wait-longer"
       ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",

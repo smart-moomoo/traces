@@ -136,6 +136,53 @@
         "Detailed twig matte and attachment inspection",
         "Final material and integration acceptance"
       ]
+    },
+    {
+      "id": "San-Diego",
+      "subjects": 3,
+      "parts": 3,
+      "actions": [
+        "pinned crown heart",
+        "fronds bend and curl independently of rigid trunks",
+        "staggered loading, rebound and settle"
+      ],
+      "observed": "Seven enlarged composite poses and normal-size image inspected with background effects disabled. Full 32.02-second playback recorded 3,844 frames, maximum timeline step 0.015 s, 24 sampled states. No automatic artistic acceptance.",
+      "remaining": [
+        "Source crown edges and normal display-scale readability require final acceptance",
+        "Full-site integration acceptance"
+      ]
+    },
+    {
+      "id": "Miami-Beach",
+      "subjects": 3,
+      "parts": 3,
+      "actions": [
+        "original small launch accelerates and pitches",
+        "passes behind stone jetty",
+        "red marker reacts after passage then counter-rolls",
+        "outer marker reacts later and settles"
+      ],
+      "observed": "Enlarged poses and all 24 playback snapshots inspected with background effects disabled. Boat endpoint moved inward after seeing its bow reach the paper edge. Final 36.03-second playback recorded 4,325 frames, maximum step 0.014 s.",
+      "remaining": [
+        "Tiny subjects limit action readability; do not enlarge source boat into a new hero",
+        "Water contact and exact marker source edges need final visual acceptance"
+      ]
+    },
+    {
+      "id": "Mountain-View",
+      "subjects": 3,
+      "parts": 3,
+      "actions": [
+        "three original stems bend from fixed roots",
+        "upper stem and seed-head response lags",
+        "separate recovery and weaker second loading",
+        "all settle at source pose"
+      ],
+      "observed": "Initial clean plate left the third seed stalk in place; a second fixed repair removed it. Final normal-size 8-second pose, enlarged source area and 24 full-playback states inspected. Full 32.02-second playback recorded 3,843 frames, maximum step 0.011 s. Grid tests preserve roots and keep maximum local stretch below 1.04.",
+      "remaining": [
+        "Thin side-branch edges, foreground crossings and exposed background still need final source/contact acceptance",
+        "Whole-scene story readability and final site review"
+      ]
     }
   ],
   "otherScenes": "14 scenes still lack the new explicit subject programme. All 23 final release gates remain pending; authored counts are not acceptance.",

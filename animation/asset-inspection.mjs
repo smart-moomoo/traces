@@ -28,7 +28,7 @@ export function inspectPoses(player,host){
  if(!scene?.objects?.length){host.textContent='此场景没有独立物体；请检查整段环境运动。';return;}
  const restore=player.clock.time;player.pause();
  const roots=new Set(scene.subjects?.map(s=>s.root));
- for(const t of [...new Set([0,3,5,8,scene.duration*.5,scene.duration*.8,scene.duration])]){
+ for(const t of [...new Set(scene.inspectionTimes||[0,3,5,8,scene.duration*.5,scene.duration*.8,scene.duration])]){
   player.seek(t);const poses=actorsAt(scene,t);
   for(const object of scene.objects.filter(o=>roots.size?roots.has(o.id):!o.follows)){
    // Follow the whole semantic subject, including articulated children. A hull

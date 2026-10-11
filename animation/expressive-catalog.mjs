@@ -3,6 +3,8 @@ import {directBayDuet,directLakeTrio,directParkPair} from './subject-direction.m
 import {directCoastalFlags} from './cloth-direction.mjs';
 import {directWetland} from './wetland-direction.mjs';
 import {directArboreal,directAutumn} from './arboreal-direction.mjs';
+import {directCoastalPalms,directChannelPassage} from './coastal-subjects.mjs';
+import {directReeds} from './reed-direction.mjs';
 
 // Version 2 is explicit and local until all production gates have passed.
 // Previous demo acceptance is never inherited by the new scene definitions.
@@ -128,3 +130,6 @@ for(const id of ['Santa-Monica','Santa-Cruz'])directCoastalFlags(expressiveCatal
 directWetland(expressiveCatalog.find(s=>s.id==='Everglades'));
 for(const id of ['New-Orleans','Stanford'])directArboreal(expressiveCatalog.find(s=>s.id===id));
 directAutumn(expressiveCatalog.find(s=>s.id==='Champaign-Urbana'));
+directCoastalPalms(expressiveCatalog.find(s=>s.id==='San-Diego'));
+directChannelPassage(expressiveCatalog.find(s=>s.id==='Miami-Beach'));
+directReeds(expressiveCatalog.find(s=>s.id==='Mountain-View'));

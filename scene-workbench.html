@@ -2,6 +2,8 @@
 import {catalog as legacyCatalog} from './animation/catalog.mjs';import {expressiveCatalog} from './animation/expressive-catalog.mjs';const catalog=new URLSearchParams(location.search).get('version')==='2'?expressiveCatalog:legacyCatalog;import {MaterialScene} from './animation/material-scene.mjs';import {SeattleScene} from './animation/seattle.mjs';
 import {inspectAssets,inspectPoses} from './animation/asset-inspection.mjs';import {sweptBounds} from './animation/scene-state.mjs';
 const $=s=>document.querySelector(s);let player,current;
+const loadingControls=()=>document.querySelectorAll('button,input,#scene');
+function mountLock(value){loadingControls().forEach(c=>c.disabled=value);}
 for(const s of catalog){const o=document.createElement('option');o.value=s.id;o.textContent=s.id.replaceAll('-',' ');$('#scene').append(o);}
 function showRegions(){
  $('#stage svg')?.remove();if(!$('#regions').checked||!current)return;
@@ -14,9 +16,9 @@ $('#regions').onchange=showRegions;
 $('#background-effects').onchange=e=>player?.setBackgroundEffects?.(e.target.checked);
 $('#pose-inspection').onclick=()=>inspectPoses(player,$('#storyboard'));
 $('#asset-inspection').onclick=()=>{player.pause();inspectAssets(player,$('#storyboard'));};
-async function open(id){document.body.dataset.ready='false';$('#scene').disabled=true;$('#play').disabled=$('#replay').disabled=$('#benchmark').disabled=true;if(player){await player.destroy();player=null;}$('#stage').replaceChildren();$('#storyboard').replaceChildren();current=catalog.find(s=>s.id===id);$('#seek').max=current.duration;$('#title').textContent=current.title;$('#remaining').textContent=current.remaining.length?'待完成：'+current.remaining.join(' '):'本版已完成演示验收。';$('#results').textContent='';
+async function open(id){document.body.dataset.ready='false';mountLock(true);if(player){await player.destroy();player=null;}$('#stage').replaceChildren();$('#storyboard').replaceChildren();current=catalog.find(s=>s.id===id);$('#seek').max=current.duration;$('#title').textContent=current.title;$('#remaining').textContent=current.remaining.length?'待完成：'+current.remaining.join(' '):'本版已完成演示验收。';$('#results').textContent='';
 try{const options={scene:current,onTime:(t,s)=>{$('#subject-beat').textContent=current.subjectBeats?.find(b=>t>=b.from&&t<=b.to)?.label||'';$('#seek').value=t;$('#time').textContent=t.toFixed(1)+' / '+current.duration+' 秒';$('#play').textContent=s.ended?'重播':(player?.clock.paused?'播放':'暂停');}};player=await (id==='Seattle'&&current.version!==2?SeattleScene:MaterialScene).mount($('#stage'),options);player.setBackgroundEffects?.($('#background-effects').checked);$('#play').textContent='播放';showRegions();document.body.dataset.ready='true';document.body.dataset.scene=id;const address=new URL(location.href);address.searchParams.set('scene',id);history.replaceState(null,'',address);$('#scene').value=id;$('#play').disabled=$('#replay').disabled=$('#benchmark').disabled=false;}
-catch(e){$('#results').textContent=e.message;console.error(e);}finally{$('#scene').disabled=false;}}
+catch(e){$('#results').textContent=e.message;console.error(e);}finally{mountLock(false);if(!player)loadingControls().forEach(c=>{if(c.id!=='scene')c.disabled=true;});}}
 $('#protected-pixels').onclick=async()=>{$('#results').textContent=JSON.stringify(player.auditStability?await player.auditStability():{available:false},null,2);};
 $('#story-stages').onclick=()=>{
  const restore=player.clock.time;player.pause();$('#storyboard').replaceChildren();
