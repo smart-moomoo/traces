@@ -41,5 +41,8 @@ export function evaluateTrack(keys,t){
   if(t<=keys[0].time)return keys[0].value;
   if(t>=keys.at(-1).time)return keys.at(-1).value;
   const i=keys.findIndex(k=>k.time>t),a=keys[i-1],b=keys[i],dt=b.time-a.time,u=(t-a.time)/dt;
+  // A held pose is exactly constant. Evaluating complementary Hermite terms
+  // separately can otherwise introduce a few ulps of drift on other runtimes.
+  if(a.value===b.value&&!(a.velocity??0)&&!(b.velocity??0))return a.value;
   return (2*u**3-3*u*u+1)*a.value+(u**3-2*u*u+u)*dt*(a.velocity??0)+(-2*u**3+3*u*u)*b.value+(u**3-u*u)*dt*(b.velocity??0);
 }

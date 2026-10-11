@@ -15,4 +15,8 @@ assert.equal(validateScene(approved,{release:true}).valid,true);
 const track=[{time:0,value:0},{time:10,value:1}];
 assert.equal(evaluateTrack(track,-1),0);assert.equal(evaluateTrack(track,11),1);assert.equal(evaluateTrack(track,5),.5);
 for(let i=1;i<=1000;i++)assert.ok(evaluateTrack(track,i*.01)>=evaluateTrack(track,(i-1)*.01));
+const hold=[{time:0,value:1.18,velocity:0},{time:10,value:1.18,velocity:0}];
+for(let i=0;i<=1000;i++)assert.equal(evaluateTrack(hold,i*.01),1.18,'Authored holds must remain bit-exact');
+const excursion=[{time:0,value:1,velocity:.5},{time:10,value:1,velocity:-.5}];
+assert.ok(evaluateTrack(excursion,5)>1,'Equal endpoints with nonzero tangents still describe motion');
 console.log('PASS: rejected visual work stays unreleasable; causal cycles and missing dependencies rejected; deterministic continuous tracks.');
