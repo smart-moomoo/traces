@@ -1,26 +1,40 @@
 {
   "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
   "total": 23,
-  "authored": 19,
+  "authored": 20,
   "scenes": [
     {
       "id": "Seattle",
       "source": "assets/posters/Seattle.png",
-      "subjects": 0,
-      "renderParts": 1,
-      "rigs": [],
+      "subjects": 2,
+      "renderParts": 5,
+      "rigs": [
+        {
+          "part": "forward-hoist-cable",
+          "kind": "tether"
+        },
+        {
+          "part": "aft-hoist-cable",
+          "kind": "tether"
+        }
+      ],
       "joints": [],
-      "actions": [],
-      "unassigned": [
-        "harbor-ferry"
+      "actions": [
+        "accelerate",
+        "cross-harbor",
+        "respond-to-swell",
+        "pass-behind-cargo",
+        "clear-frame",
+        "forward-boom-elevates",
+        "aft-boom-follows",
+        "hoist-cables-reel",
+        "hold",
+        "lower-and-stow"
       ],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence",
-        "Existing moving layers have not been assigned to semantic subjects"
-      ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",

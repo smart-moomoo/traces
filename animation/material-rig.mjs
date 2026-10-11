@@ -12,6 +12,17 @@ export function deformGrid(grid,rig,amount,output=new Float32Array(grid.vertices
  const {width,height,vertices}=grid;
  for(let i=0;i<vertices.length;i+=2){
   const x=vertices[i],y=vertices[i+1],u=x/width,v=y/height;
+  if(rig.kind==='tether'){
+   const [ax,ay]=rig.start,[bx,by]=rig.end,[px,py]=rig.pivot,angle=amount;
+   const ex=px+(bx-px)*Math.cos(angle)-(by-py)*Math.sin(angle),ey=py+(bx-px)*Math.sin(angle)+(by-py)*Math.cos(angle);
+   const dx=bx-ax,dy=by-ay,len=Math.hypot(dx,dy),next=Math.hypot(ex-ax,ey-ay);
+   const along=((x-ax)*dx+(y-ay)*dy)/(len*len),across=(-(x-ax)*dy+(y-ay)*dx)/len;
+   // Preserve cable thickness. Length changes represent paid-in/out cable,
+   // while its mast anchor and moving boom endpoint remain exact.
+   output[i]=ax+along*(ex-ax)-across*(ey-ay)/next;
+   output[i+1]=ay+along*(ey-ay)+across*(ex-ax)/next;
+   continue;
+  }
   if(rig.kind==='stem'){
    // Small-angle cantilever: integrate a root-to-tip angle field. The upper
    // stem's delayed response is its own channel, not translation of the head.
@@ -77,6 +88,7 @@ export function inspectGrid(grid,vertices){
 }
 export function rigPadding(actor){
  const rig=actor.rig;if(!rig)return 0;
+ if(rig.kind==='tether')return Math.hypot(rig.end[0]-rig.pivot[0],rig.end[1]-rig.pivot[1])*(rig.maxAngle||0);
  if(rig.kind==='spine')return (actor.crop[2]+actor.crop[3])*Math.abs(rig.angle||0);
  if(rig.kind==='stem')return (actor.crop[2]+actor.crop[3])*(Math.abs(rig.angle||0)+Math.abs(rig.tipAngle||0));
  if(rig.kind==='radial-fronds')return (Math.abs(rig.amplitude||0)+Math.abs(rig.lift||0)+Math.abs(rig.curl||0)*1.6)*2.56;

@@ -370,9 +370,26 @@
         "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
       },
       "containment": "2048 x 1534 rendered pixels checked at seven timestamps with background disabled. Zero changed pixels outside aperture allowance; exact final rest recovery. This is containment evidence, not artistic acceptance."
+    },
+    {
+      "id": "Seattle",
+      "subjects": 2,
+      "parts": 5,
+      "actions": [
+        "ferry crosses at original scale",
+        "front cargo boom elevates and holds",
+        "aft boom follows then stows later",
+        "hoist cables reel with boom endpoints"
+      ],
+      "observed": "Original masks and seven composite poses inspected with effects off. Initial clipped boom left a stub; mask expanded and tower behind arm repaired using a fixed detail image. Full 36.02-second playback: 4323 rendered frames, max time step 0.012 seconds, 24 evidence states captured.",
+      "remaining": [
+        "Final source-edge and material continuity acceptance",
+        "Original reflection-fragment reassembly",
+        "Full exhibition/mobile integration acceptance"
+      ]
     }
   ],
-  "otherScenes": "14 scenes still lack the new explicit subject programme. All 23 final release gates remain pending; authored counts are not acceptance.",
+  "otherScenes": "Dallas, Chicago and Miami lack the new subject programme. Twenty authored programmes are not twenty accepted scenes; all final gates remain pending.",
   "runtime": {
     "San-Francisco": {
       "frames": 1000,

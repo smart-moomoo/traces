@@ -27,6 +27,82 @@
           ],
           "issues": [],
           "visualStatus": "unreviewed"
+        },
+        {
+          "id": "forward-hoist-cable",
+          "representation": "tether",
+          "rest": [
+            777,
+            291
+          ],
+          "sweptBounds": [
+            765.0088477277477,
+            279.0088477277477,
+            815.9911522722523,
+            329.9911522722523
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "aft-hoist-cable",
+          "representation": "tether",
+          "rest": [
+            826,
+            313
+          ],
+          "sweptBounds": [
+            816.0980331898887,
+            303.1510202227356,
+            860.9019668101113,
+            349.8489797772644
+          ],
+          "issues": [
+            {
+              "kind": "alpha",
+              "symptom": "Coarse source polygon needs thin-edge and negative-space inspection",
+              "action": "Review cutout on contrasting mattes at source and exhibition size."
+            }
+          ],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "cargo-forward-boom",
+          "representation": "rigid",
+          "rest": [
+            814,
+            337
+          ],
+          "sweptBounds": [
+            774,
+            304.8025544145985,
+            818.3969330503713,
+            340.71223326062466
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "cargo-aft-boom",
+          "representation": "rigid",
+          "rest": [
+            856,
+            357
+          ],
+          "sweptBounds": [
+            824,
+            329.4456227767608,
+            858.7040216119454,
+            361
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
         }
       ],
       "environment": [

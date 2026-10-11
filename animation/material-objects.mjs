@@ -1,5 +1,5 @@
 import {evaluateTrack} from './scene-contract.mjs';
-import {mountRig,sampleRig} from './material-rig.mjs';
+import {mountRig,sampleRig} from './material-rig.mjs?v=2-harbor-tether';
 
 // Close sub-pixel pigment holes inside an authored silhouette. The original
 // coverage is a hard upper bound: intentionally cut source holes and exterior

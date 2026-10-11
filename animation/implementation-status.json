@@ -42,11 +42,14 @@
     "Los Angeles: original shutter retraction/hold/closure and original telescope elevation/observation/recovery, using two fixed images",
     "Source gold-truss alpha removes dark aperture pixels from the moving telescope",
     "Every rendered pixel outside the fixed apertures checked at seven times with background effects disabled; final closed pose matches the initial rendered pose",
-    "Latest fixed-aperture/gold-truss 23 x 1000 lifecycle: every scene mounted, no added image requests; source-hashed evidence in lifecycle-observatory-v2.json"
+    "Latest fixed-aperture/gold-truss 23 x 1000 lifecycle: every scene mounted, no added image requests; source-hashed evidence in lifecycle-observatory-v2.json",
+    "Fixed-mast tether rig preserves cable thickness and shares the exact lifting angle with its rigid boom, checked over 1001 deterministic samples",
+    "Seattle: original ferry passage and two staggered cargo hoists with connected reeling cables, constant source scale and fixed cargo hull",
+    "Twenty-three x 1000 lifecycle pass after shared pose-channel/tether integration: zero added requests; source-hashed evidence in lifecycle-harbor-v2.json"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Nineteen scenes now have explicit local subject programmes. Four remain unimplemented at this standard: Seattle, Dallas, Chicago and Miami. Coastal wave development and Santa Monica palm articulation also remain. No final visual acceptance or public deployment.",
+    "Twenty scenes now have explicit local subject programmes. Dallas, Chicago and Miami remain unimplemented at this standard. Seattle reflection fragment reassembly, coastal wave development and Santa Monica palm articulation also remain. No final visual acceptance or public deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -136,7 +139,11 @@
     {
       "path": "assets/scenes/Los-Angeles/interiors-clean-plate-v2.png",
       "use": "One fixed hidden-interior image only under the source shutter and telescope footprints; original pixels provide all moving mechanisms"
+    },
+    {
+      "path": "assets/scenes/Seattle/harbor-mechanisms-clean-plate-v3.png",
+      "use": "One full ferry repair plus one crane-detail repair composited into fixed plate; only arm/cable/ferry source footprints are replaced. No generated animation frames."
     }
   ],
-  "tests": "Twenty functional test files passed before the final gold-alpha refinement. Observatory motion and source-matte regressions rechecked afterward. Browser runtime and source containment are separate from artistic acceptance."
+  "tests": "Twenty-one functional tests passed, including 1001-sample shared GSAP/tether/boom parity, fixed anchors, cable width and historical wake. Browser runtime checks are separate from artistic acceptance."
 }

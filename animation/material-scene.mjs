@@ -1,10 +1,10 @@
 import {vertex} from './environment.mjs';
-import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs?v=2-mechanical-gold';
+import {prepareObjects,mountObjects,renderObjects,contactOrigins} from './material-objects.mjs?v=2-harbor-tether';
 import {StoryClock} from './timeline.mjs';
 import {surfAt,shorelineSegments} from './surf.mjs';
 import {makeShadowMap,makeReceiverPlanes,shadowPlanesAt} from './shadows.mjs?v=2-projection-planes';
 import {loadScoreEngine,createScore} from './expressive-score.mjs';
-import {actorsAt,receiversAt,lightResponse} from './scene-state.mjs';
+import {actorsAt,receiversAt,lightResponse} from './scene-state.mjs?v=2-harbor-tether';
 
 const fragment=`
 precision highp float;

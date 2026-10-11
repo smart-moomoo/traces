@@ -1,5 +1,5 @@
-import {actorsAt} from './scene-state.mjs';
-import {rigPadding} from './material-rig.mjs';
+import {actorsAt} from './scene-state.mjs?v=2-harbor-tether';
+import {rigPadding} from './material-rig.mjs?v=2-harbor-tether';
 // Workbench-only visual evidence. No pass/fail is inferred from these images.
 export function inspectAssets(player,host){
  host.replaceChildren();

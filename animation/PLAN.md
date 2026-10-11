@@ -216,7 +216,7 @@ never invent a conspicuous new protagonist just to satisfy a template.
 
 | Place | Main event and consequent development | Capability family |
 | --- | --- | --- |
-| Seattle | Existing small ferry crosses; its spreading wake interrupts the cargo reflection, which reassembles after passage | path, receivers, fragment displacement |
+| Seattle | Original ferry crosses at source scale while the cargo vessel’s two hoists elevate/hold/stow at different times; cables share boom endpoints. Wake-driven reflection-fragment reassembly remains | rigid hinges, shared-control tether, historical receivers; final art review pending |
 | Bellevue | Two original ducks: ledge duck braces/preens/raises its head, swimmer dips/pauses/departs; feet and reflections stay attached | paired subjects, neck joints, contacts |
 | San Francisco | Both original boats fill sails at different times, heel/recover, cross in separate lanes and release wind pressure | multiple subjects, pinned mesh, coupled motion |
 | Stanford | Two original garden crowns yield in sequence; an attached leaf releases continuously, turns in air, passes the lamp and rests flat on the ground | authored joint release, rigid leaf projection and source-alpha contact shadow; local implementation, final visual review pending |
@@ -518,3 +518,7 @@ The subject-first revision now has twelve authored scene programmes, not twelve 
 The reusable renderer now supports `radial-fronds` and `stem` rigs. Both preserve their attachments and reconstruct any time without accumulated simulation. New tests measure inversion, strain, fixed roots, delayed response, deterministic seeking and boat/marker timing. Fourteen functional test files pass. These results establish mechanics, not material or story acceptance.
 
 A fixed source repair plate is used per scene. Mountain View required a second repair because the first plate left a stalk behind; the scene uses the corrected v3 plate only inside traced pigment masks. No generated animation frames were added. Source/alpha edge inspection and exhibition-scale readability remain release gates. Eleven scenes still lack the subject-action programme; v2 remains local and unreleased.
+
+### Harbor mechanism implementation
+
+The source ferry and cargo vessel are two semantic subjects. Two cargo booms and their cables remain parts of one cargo vessel. A new source-pixel tether rig anchors one end to the mast and follows the rigid boom’s rotating endpoint while preserving cable thickness. Shared pose controls reconstruct the same GSAP value for mesh and rigid motion, including arbitrary seeks. A detail repair fixes the exposed vertical tower only under the original boom footprints; the skyline, hull and paper remain original. Full 36-second browser playback and the 23-scene lifecycle check are recorded. Reflection-fragment reassembly and full visual acceptance remain outstanding.

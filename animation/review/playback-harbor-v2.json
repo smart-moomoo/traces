@@ -1,0 +1,18 @@
+[
+  {
+    "id": "Seattle",
+    "duration": 36,
+    "frameIntervalMs": {
+      "p50": 8.3,
+      "p95": 9.9,
+      "p99": 10.4,
+      "over33ms": 0,
+      "maxEvidenceCaptureMs": 10
+    },
+    "wallSeconds": 36.02,
+    "renderedFrames": 4323,
+    "maxTimelineStep": 0.012,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

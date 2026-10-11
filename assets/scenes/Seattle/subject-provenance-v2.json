@@ -1,0 +1,15 @@
+{
+  "prompt": "Use case: precise-object-edit. This is ONE fixed hidden-background plate for the attached 1024x768 Seattle LOWER-HALF shell collage. Preserve exact composition, all tile scale, paper, skyline, large cargo hull, vertical masts, text, vivid pale pigments and shadows. Remove only (1) the small white ferry at x=106..215,y=439..473, restoring quiet blue shell water and shoreline behind it; (2) TWO SHORT DIAGONAL ORANGE CRANE BOOMS on the large cargo vessel, the first from x=780,y=313 to x=820,y=340, the second from x=824,y=337 to x=859,y=361, and their thin diagonal lifting wires approximately from (803,292) to (784,315) and (850,314) to (827,339). Preserve every vertical gold tower, horizontal tower collar, the third rightmost boom, deck, buildings and rigging not connected to these two short booms. Reconstruct the same natural blue/cream mineral shell sky behind only those removed booms/cables, with no orange remnants. Do not remove the whole crane or ship! No animation frames, no new object, no re-layout. The original ferry, booms and thin cables will be put back and animated by code; only their precise masks will use this repair plate.",
+  "output": "Generated images are saved to /Users/haoren/.codex/generated_images/01a103aa-ebb7-7371-9c20-5a9727835b25 as /Users/haoren/.codex/generated_images/01a103aa-ebb7-7371-9c20-5a9727835b25/exec-e87a98ae-3ba0-45dd-8da6-da93942043c0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "use": "One fixed repair plate under original ferry and two crane boom/cable footprints. Original material pixels supply all moving surfaces. No frame generation.",
+  "craneRepair": {
+    "sourceCrop": [
+      740,
+      265,
+      155,
+      120
+    ],
+    "generatedOutput": "/Users/haoren/.codex/generated_images/01a103aa-ebb7-7371-9c20-5a9727835b25/exec-1b7450d4-e9dc-40c6-a275-9ed8f1bd0d48.png",
+    "composition": "Resize crop into 1024x768 fixed plate; runtime applies only original articulated arm/cable footprints. Original tower pixels outside those footprints stay unchanged."
+  }
+}

@@ -1,5 +1,5 @@
 import {objectPose} from './material-objects.mjs';
-import {rigPadding,deformGrid} from './material-rig.mjs';
+import {rigPadding,deformGrid} from './material-rig.mjs?v=2-harbor-tether';
 import {controlAt} from './expressive-score.mjs';
 
 // A receiving surface follows the same sampled controls as its casting actor.
@@ -30,6 +30,10 @@ export function actorsAt(scene,time){
   if(visiting.has(key))throw new Error(`Cyclic actor attachment: ${id}`);
   const object=definitions.get(id);if(!object)throw new Error(`Missing actor: ${id}`);
   visiting.add(key);let pose=objectPose(object,at);
+  for(const [property,channel] of Object.entries(object.poseChannels||{})){
+   if(!['x','y','rotation'].includes(property))throw new Error(`Unsupported shared pose control: ${property}`);
+   pose[property]=controlAt(scene.expression,channel,at);
+  }
   if(object.follows){
    const released=Number.isFinite(object.follows.releaseAt)&&at>=object.follows.releaseAt;
    const parentTime=released?object.follows.releaseAt:at,parent=visit(object.follows.actor,parentTime);

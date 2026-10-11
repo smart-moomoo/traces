@@ -1,3 +1,4 @@
+import {directHarbor} from './harbor-direction.mjs?v=3-complete-arms';
 import {directObservatory} from './observatory-direction.mjs?v=2-gold-matte';
 import {directPoolLeaf} from './pool-direction.mjs';
 import {directSaltAssembly} from './salt-direction.mjs';
@@ -149,3 +150,5 @@ directSaltAssembly(expressiveCatalog.find(s=>s.id==='San-Jose'));
 directPoolLeaf(expressiveCatalog.find(s=>s.id==='Fort-Worth'));
 
 directObservatory(expressiveCatalog.find(s=>s.id==='Los-Angeles'));
+
+directHarbor(expressiveCatalog.find(s=>s.id==='Seattle'));
