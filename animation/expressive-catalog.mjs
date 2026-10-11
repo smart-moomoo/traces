@@ -1,3 +1,5 @@
+import {directBeachCanopy} from './beach-canopy.mjs';
+import {directCityAssembly} from './city-assembly.mjs';
 import {directStoneWater} from './material-swell.mjs?v=2-stone-protection';
 import {directRiver} from './river-direction.mjs?v=2-truss-matte';
 import {directHarbor} from './harbor-direction.mjs?v=3-complete-arms';
@@ -158,3 +160,7 @@ directHarbor(expressiveCatalog.find(s=>s.id==='Seattle'));
 directRiver(expressiveCatalog.find(s=>s.id==='Chicago'));
 
 directStoneWater(expressiveCatalog.find(s=>s.id==='Miami'));
+
+directCityAssembly(expressiveCatalog.find(s=>s.id==='Dallas'));
+
+directBeachCanopy(expressiveCatalog.find(s=>s.id==='Santa-Monica'));

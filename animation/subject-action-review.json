@@ -48,16 +48,18 @@
     },
     {
       "id": "Santa-Monica",
-      "subjects": 2,
-      "parts": 2,
+      "subjects": 5,
+      "parts": 5,
       "actions": [
-        "California flag free-edge lift, folds, release",
-        "USA flag delayed lift, independent folds, settle"
+        "three source crowns open around fixed hearts",
+        "leaf tips curl after pressure subsides",
+        "two source flags respond at distinct times",
+        "crowns and cloth recover to exact source rest"
       ],
-      "observed": "Seven enlarged poses inspected. 30.02-second real-time pass, 3603 rendered frames, maximum timeline step 0.017 s, 24 sampled states with background effects off. Later water-mask exclusion protects poles and does not change subject motion.",
+      "observed": "Seven enlarged subject poses inspected with background off; original crown hearts/trunks stay attached. Full 30.02-second playback completed: 3603 frames, maximum timeline step .012 s. Material strain maximum 1.147 across 1001 samples per crown. Quantitative checks are not artistic acceptance.",
       "remaining": [
-        "Final visual and integration acceptance",
-        "Palm articulation remains outside this revision"
+        "Thin frond matte and exposed repair registration",
+        "Mobile and full-exhibition visual acceptance"
       ]
     },
     {
@@ -422,6 +424,22 @@
         "Full-size matte and exposed-water continuity acceptance",
         "Environmental performance review against latest subject-first intent",
         "Mobile and public exhibition integration"
+      ]
+    },
+    {
+      "id": "Dallas",
+      "subjects": 3,
+      "parts": 18,
+      "subjectClass": "material-assembly",
+      "actions": [
+        "source shell pieces release in sequence",
+        "spread and hold",
+        "dock and settle"
+      ],
+      "observed": "34.03-second playback completed. At 11 seconds exposed paper reads as holes in the facade, with insufficiently coherent floating-piece staging. Replaced arbitrary rectangles with seam-traced source fragments, but the visual failure remains.",
+      "visualReview": "failed",
+      "remaining": [
+        "Redesign material backing and staging; this is not an accepted city scene"
       ]
     }
   ],

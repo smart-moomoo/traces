@@ -54,11 +54,14 @@
     "Miami: 22 original reflection fragments in three reflected forms; fixed stone barge and poles are not misclassified as moving vessels",
     "Authored immutable-region mask bypasses displacement and lighting; 1737544 protected pixels unchanged at seven timestamps with background effects off and on",
     "Local no-store preview server avoids stale animation modules and fixed repair assets during review",
-    "Latest no-store 23 x 1000 lifecycle pass after immutable-region and material-swell changes: all scenes mounted and every newRequests count was zero; checkout hashes recorded in lifecycle-stone-water-v2.json"
+    "Latest no-store 23 x 1000 lifecycle pass after immutable-region and material-swell changes: all scenes mounted and every newRequests count was zero; checkout hashes recorded in lifecycle-stone-water-v2.json",
+    "Three original Santa Monica crowns join the two flags; fixed crown hearts/trunk exclusions, delayed tip curl and exact rest. One fixed crown repair image, no generated frames.",
+    "Shared lift channel supports source-alpha shadows during material assembly; Dallas source-seam pieces recover exactly, but current artwork is explicitly failed.",
+    "25 functional tests passed; 23 scenes each rendered 1000 frames with zero added requests. Release test remains blocked by outstanding renewed visual review."
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Twenty-two scenes have explicit local programmes: twenty-one physical/material subject programmes plus Miami’s environmental reflected-form episode. Dallas still needs its new programme. Seattle reflection fragment reassembly, coastal wave development and Santa Monica palm articulation remain. No final visual acceptance or public deployment.",
+    "All 23 scenes now have explicit local programmes. This includes Miami reflected forms and a Dallas material-assembly programme that FAILED visual review. Seattle reflection reassembly, coastal wave development and all release gates remain; no final acceptance or deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -160,7 +163,16 @@
     {
       "path": "assets/scenes/Miami/water-clean-plate-v2.png",
       "use": "One fixed cool-water repair image only under original warm reflection pigment masks. Every moving fragment is original source artwork."
+    },
+    {
+      "path": "assets/scenes/Santa-Monica/crowns-flags-clean-plate-v2.png",
+      "use": "One generated fixed repair under three original crown pigment masks and two flag footprints. All moving textures come from original artwork."
     }
   ],
-  "tests": "Twenty-three functional test files passed. The swell test checks 1001 samples for bank clearance, rigid scale, opposite-side response, spatial arrival, recovery and deterministic seeking. Pixel containment does not replace artistic acceptance."
+  "tests": "25 functional test files pass. The exhibition release gate remains failed because the revised implementation has not completed renewed visual review. Do not refresh its hashes as a substitute for review.",
+  "latestSubjectWork": {
+    "Santa-Monica": "Three original crowns with fixed hearts, delayed curl/recovery, and two original flags; complete local playback recorded, visual acceptance pending.",
+    "Dallas": "18 seam-traced source pieces in three material groups. Engineering programme exists, artistic review FAILED: exposed-paper holes and weak composition.",
+    "publication": "Local only; not released."
+  }
 }

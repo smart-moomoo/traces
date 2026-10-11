@@ -28,7 +28,7 @@ export function closeMaterialMatte(rgba,width,height,radius,coverage){
 export function objectPose(object,time){
  const read=(name,fallback)=>object.tracks[name]?evaluateTrack(object.tracks[name],time):fallback;
  const foreshortening=object.projection?.axis==='x'?Math.cos(read('pitch',0)):1;
- return {x:read('x',object.anchor[0]),y:read('y',object.anchor[1]),rotation:read('rotation',0),scale:read('scale',1),scaleX:read('scaleX',read('scale',1)),scaleY:read('scaleY',read('scale',1))*foreshortening};
+ return {lift:read('lift',0),x:read('x',object.anchor[0]),y:read('y',object.anchor[1]),rotation:read('rotation',0),scale:read('scale',1),scaleX:read('scaleX',read('scale',1)),scaleY:read('scaleY',read('scale',1))*foreshortening};
 }
 // A wake belongs to the position where contact happened, not the current actor
 // position. Missing authored contacts produce no invented impact rings.
@@ -122,7 +122,7 @@ export function mountObjects(stage,prepared,width,height){
  return prepared.map(({definition,texture})=>{
   const group=new PIXI.Container(),rig=mountRig(texture,definition),sprite=rig.display;sprite.pivot.set(...definition.pivot);
   let contactShadow;
-  if(definition.landingTime!==undefined){contactShadow=new PIXI.Sprite(texture);contactShadow.pivot.set(...definition.pivot);contactShadow.tint=0x625743;contactShadow.alpha=0;group.addChild(contactShadow);}
+  if((definition.landingTime!==undefined||definition.liftShadow)){contactShadow=new PIXI.Sprite(texture);contactShadow.pivot.set(...definition.pivot);contactShadow.tint=0x625743;contactShadow.alpha=0;group.addChild(contactShadow);}
   group.addChild(sprite);stage.addChild(group);
   let maskTexture;
   if(definition.occluders?.length||definition.clipPolygon){
@@ -140,6 +140,7 @@ export function mountObjects(stage,prepared,width,height){
 }
 export function renderObjects(objects,time,state={},poses=null){
  for(const {definition,sprite,rig,contactShadow} of objects){const pose=poses?.get(definition.id)||objectPose(definition,time);sprite.position.set(pose.x,pose.y);sprite.rotation=pose.rotation;sprite.scale.set(pose.scaleX,pose.scaleY);sampleRig(rig,definition,state);
-  if(contactShadow){const p=Math.max(0,Math.min(1,(time-definition.landingTime)/.6));contactShadow.position.set(pose.x+1,pose.y+1.5);contactShadow.rotation=pose.rotation;contactShadow.scale.set(pose.scaleX,pose.scaleY*.55);contactShadow.alpha=p*p*(3-2*p)*.2;}
+  if(contactShadow&&definition.liftShadow){const lift=Math.max(0,Math.min(1,pose.lift));contactShadow.position.set(pose.x+lift*3,pose.y+lift*4);contactShadow.rotation=pose.rotation;contactShadow.scale.set(pose.scaleX,pose.scaleY);contactShadow.alpha=lift*.18;}
+  else if(contactShadow){const p=Math.max(0,Math.min(1,(time-definition.landingTime)/.6));contactShadow.position.set(pose.x+1,pose.y+1.5);contactShadow.rotation=pose.rotation;contactShadow.scale.set(pose.scaleX,pose.scaleY*.55);contactShadow.alpha=p*p*(3-2*p)*.2;}
  }
 }

@@ -1,7 +1,7 @@
 {
   "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
   "total": 23,
-  "authored": 22,
+  "authored": 23,
   "scenes": [
     {
       "id": "Seattle",
@@ -429,11 +429,11 @@
     {
       "id": "Santa-Monica",
       "source": "assets/posters/Santa-Monica.png",
-      "subjects": 2,
+      "subjects": 5,
       "reflectedForms": 0,
-      "physicalOrMaterialSubjects": 2,
+      "physicalOrMaterialSubjects": 5,
       "castNote": null,
-      "renderParts": 2,
+      "renderParts": 5,
       "rigs": [
         {
           "part": "california-flag",
@@ -444,6 +444,18 @@
           "part": "us-flag",
           "kind": "flag",
           "pin": "right"
+        },
+        {
+          "part": "cafe-west-palm",
+          "kind": "radial-fronds"
+        },
+        {
+          "part": "cafe-middle-palm",
+          "kind": "radial-fronds"
+        },
+        {
+          "part": "cafe-east-palm",
+          "kind": "radial-fronds"
         }
       ],
       "joints": [],
@@ -452,7 +464,11 @@
         "fold-travel",
         "tension",
         "release",
-        "delayed-lift"
+        "delayed-lift",
+        "open-fronds-from-fixed-heart",
+        "lagging-tip-curl",
+        "counter-recover",
+        "settle"
       ],
       "unassigned": [],
       "missing": [],
@@ -512,27 +528,30 @@
     {
       "id": "Dallas",
       "source": "assets/posters/Dallas.png",
-      "subjects": 0,
+      "subjects": 3,
       "reflectedForms": 0,
-      "physicalOrMaterialSubjects": 0,
-      "castNote": null,
-      "renderParts": 0,
+      "physicalOrMaterialSubjects": 3,
+      "castNote": "Material-art reconstruction of three existing facade groups, not literal buildings bending or new physical actors. Eighteen source panels reveal the original paper substrate and return to their exact positions.",
+      "renderParts": 18,
       "rigs": [],
       "joints": [],
-      "actions": [],
-      "unassigned": [],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence"
+      "actions": [
+        "release-from-paper",
+        "spread-as-rigid-pieces",
+        "suspend-in-order",
+        "dock-to-original-seams",
+        "rest"
       ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
-      "visualReview": "pending",
+      "authored": true,
+      "visualReview": "failed",
       "gates": {
         "source": "pending",
         "rig": "pending",
         "interaction": "pending",
-        "artwork": "pending",
+        "artwork": "failed",
         "runtime": "pending"
       }
     },

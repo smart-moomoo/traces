@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen",
+  "mode": "precise-object-edit",
+  "input": "assets/scenes/Santa-Monica/flags-clean-plate-v2.png",
+  "generatedSource": "/Users/haoren/.codex/generated_images/01a103aa-ebb7-7371-9c20-5a9727835b25/exec-b53ca40d-5bb0-4b10-b032-5efe183fb3e2.png",
+  "output": "assets/scenes/Santa-Monica/crowns-flags-clean-plate-v2.png",
+  "promptFile": "assets/scenes/Santa-Monica/crown-repair-prompt.txt",
+  "application": "Only source crown pigment alpha and existing flag footprints. Original trunks are excluded; original artwork supplies all moving surfaces.",
+  "frameGeneration": false,
+  "visualAcceptance": "pending",
+  "sha256": "ca2a6a4d1a337cce259104eb0bf7ee43e6c58085dbae67b02d6956013c17d111"
+}

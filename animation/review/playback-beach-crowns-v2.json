@@ -1,0 +1,18 @@
+[
+  {
+    "id": "Santa-Monica",
+    "duration": 30,
+    "frameIntervalMs": {
+      "p50": 8.3,
+      "p95": 9.9,
+      "p99": 10.4,
+      "over33ms": 0,
+      "maxEvidenceCaptureMs": 13
+    },
+    "wallSeconds": 30.02,
+    "renderedFrames": 3603,
+    "maxTimelineStep": 0.012,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

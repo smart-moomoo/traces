@@ -1,4 +1,4 @@
-import {objectPose} from './material-objects.mjs';
+import {objectPose} from './material-objects.mjs?v=2-lift-shadow';
 import {rigPadding,deformGrid} from './material-rig.mjs?v=2-harbor-tether';
 import {controlAt} from './expressive-score.mjs';
 

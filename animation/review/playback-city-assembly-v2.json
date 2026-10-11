@@ -1,0 +1,18 @@
+[
+  {
+    "id": "Dallas",
+    "duration": 34,
+    "frameIntervalMs": {
+      "p50": 8.3,
+      "p95": 9.7,
+      "p99": 12.2,
+      "over33ms": 0,
+      "maxEvidenceCaptureMs": 11
+    },
+    "wallSeconds": 34.03,
+    "renderedFrames": 4083,
+    "maxTimelineStep": 0.021,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

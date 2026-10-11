@@ -532,3 +532,23 @@ Chicago now has three semantic subjects: one two-leaf bridge and two original sm
 Miami uses 22 source reflection fragments driven by one reusable approach/split/recede/rejoin clip, with delay derived from position and a piece-size-aware bank constraint. These are three reflected forms, not three physical moving vessels; the static sculpture stays static. The inventory now records that distinction explicitly. Source pigment mattes and one fixed cool-water repair are reused for every frame. A new protected-region inspection compares every covered pixel at seven timestamps with effects off and on. It exposed a seven-pixel sampling leak, fixed by bypassing all background displacement and lighting inside the declared immutable mask. All 1,737,544 covered pixels are now stable. Final material/readability review remains open.
 
 Local review should use `python3 scripts/serve-preview.py --port 4173`; the preview serves code and artwork with `Cache-Control: no-store`. This affects local review only, not GitHub Pages caching.
+
+### Subject-priority checkpoint: beach canopy and city materials
+
+Santa Monica now has three original palm crowns and two original flags. Crown
+hearts and excluded trunk pixels remain fixed; radial frond pressure and delayed
+curl are authored separately from the flag fold channels. The background crown
+warp has been removed so it cannot move the same subject twice. Seven enlarged
+poses and a complete 30-second background-off playback are recorded. One fixed
+repair image is reused under exact source alpha; no generated frame sequence.
+
+Dallas now has an experimental material assembly made from 18 traced source
+pieces in three facade groups. Full playback and numeric mechanics pass, but the
+11-second view fails artistic review: exposed paper resembles facade holes and
+the displaced pieces do not yet form a coherent composition. This failed trial
+is kept reviewable locally and must not be released or counted as accepted.
+
+All 23 scenes have a programme, including the failed city trial and Miami's
+explicit reflected-form exception. This is an inventory milestone only. The
+latest 23 x 1000 rendering run added zero requests; 25 functional tests pass.
+The release test intentionally remains failed until affected artwork is reviewed.

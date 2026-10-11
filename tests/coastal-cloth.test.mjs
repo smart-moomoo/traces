@@ -7,9 +7,9 @@ import {subjectInventory} from '../animation/subject-direction.mjs';
 const require=createRequire(import.meta.url),{gsap}=require('../vendor/gsap.min.js');
 for(const id of ['Santa-Monica','Santa-Cruz']){
  const scene=expressiveCatalog.find(s=>s.id===id),score=createScore(scene.expression,gsap);
- assert.equal(subjectInventory(scene).subjects,2);assert.deepEqual(subjectInventory(scene).errors,[]);
+ assert.equal(subjectInventory(scene).subjects,id==='Santa-Monica'?5:2);assert.deepEqual(subjectInventory(scene).errors,[]);
  assert.ok(!scene.regions.some(r=>r.kind==='cloth'),'Old background flag warp cannot run underneath the actual flag');
- for(const o of scene.objects.filter(o=>o.rig)){
+ for(const o of scene.objects.filter(o=>['flag','hanging'].includes(o.rig?.kind))){
   const grid=restGrid(o.crop[2],o.crop[3]);let moved=0;
   for(let n=0;n<=1000;n++){
    const t=scene.duration*n/1000,state=score.sample(t);
