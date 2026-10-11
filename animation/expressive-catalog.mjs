@@ -1,10 +1,11 @@
+import {directPoolLeaf} from './pool-direction.mjs';
 import {directSaltAssembly} from './salt-direction.mjs';
 import {directParkCanopy,directStreetCanopy} from './park-street-direction.mjs';
 import {catalog} from './catalog.mjs';
 import {directBayDuet,directLakeTrio,directParkPair} from './subject-direction.mjs';
 import {directCoastalFlags} from './cloth-direction.mjs';
 import {directWetland} from './wetland-direction.mjs';
-import {directArboreal,directAutumn} from './arboreal-direction.mjs';
+import {directArboreal,directAutumn} from './arboreal-direction.mjs?v=2-surface-release';
 import {directCoastalPalms,directChannelPassage} from './coastal-subjects.mjs';
 import {directReeds} from './reed-direction.mjs';
 import {directMoss,directGateCanopy} from './canopy-direction.mjs';
@@ -143,3 +144,5 @@ directParkCanopy(expressiveCatalog.find(s=>s.id==='Sunnyvale'));
 directStreetCanopy(expressiveCatalog.find(s=>s.id==='Charleston'));
 
 directSaltAssembly(expressiveCatalog.find(s=>s.id==='San-Jose'));
+
+directPoolLeaf(expressiveCatalog.find(s=>s.id==='Fort-Worth'));

@@ -23,3 +23,20 @@ export function createScore(definition,gsap){
  }
  return {sample(time){timeline.totalTime(Math.max(0,Math.min(definition.duration,time)),true);return {...state};},destroy(){timeline.kill();}};
 }
+
+// Historical surface attachments need the same numeric curve without moving
+// the live GSAP playhead. Keep supported easing explicit and parity-tested.
+export function controlAt(definition,id,time){
+ const channel=definition.channels[id];if(!channel)throw new Error(`Missing surface control: ${id}`);
+ let last=0,value=channel.initial;
+ for(const key of channel.keys){
+  if(time<=key.time){
+   const p=Math.max(0,Math.min(1,(time-last)/(key.time-last))),ease=key.ease||'sine.inOut';
+   if(!['sine.inOut','none','linear'].includes(ease))throw new Error(`Unsupported surface easing: ${ease}`);
+   const q=ease==='sine.inOut'?(1-Math.cos(Math.PI*p))/2:p;
+   return Math.round((value+(key.value-value)*q)*1e6)/1e6;
+  }
+  last=key.time;value=key.value;
+ }
+ return value;
+}

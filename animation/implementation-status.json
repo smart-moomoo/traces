@@ -33,11 +33,15 @@
     "Charleston original two roof twig groups and palm crown articulate separately; per-facade projection configured",
     "Latest 23 x 1000 lifecycle pass includes three receiving planes and Sunnyvale/Charleston subjects: no new image requests; source hashes in lifecycle-park-street-v2.json",
     "Nine conserved source salt fragments form three staggered assemblies, rotate at rigid material scale, approach declared pigment docking edges and persist at new resting locations",
-    "Salt trajectories are checked over 1001 samples for whole-fragment containment inside the authored brine domain and continuity"
+    "Salt trajectories are checked over 1001 samples for whole-fragment containment inside the authored brine domain and continuity",
+    "Mesh-surface attachments share the parent deformation equations and historical GSAP channel values; detachment preserves the deformed surface position and tangent",
+    "Fort Worth: two original crowns articulate independently; one original leaf detaches, tumbles, flattens on pool contact and drifts with shared contact origins",
+    "Stanford, New Orleans and Champaign branches now bend locally at fixed roots instead of rotating whole cutouts; attached leaves follow the deformed surface",
+    "Latest 23 x 1000 lifecycle pass includes deformed-surface attachment and four scene integrations; all zero new requests, source hashes in lifecycle-pool-v2.json"
   ],
   "visualAcceptance": "No v2 scene has final full-playback acceptance yet. Prior v1 acceptance is not inherited.",
   "currentWork": [
-    "Seventeen scenes now have explicit local subject programmes, adding San Jose material salt assembly. Six remain unimplemented at this standard: Seattle, Los Angeles, Dallas, Fort Worth, Chicago and Miami. Planned coastal waves and Santa Monica palm articulation also remain. No final visual acceptance or public deployment.",
+    "Eighteen scenes now have explicit local subject programmes. Five remain unimplemented at this standard: Seattle, Los Angeles, Dallas, Chicago and Miami. Coastal wave development and Santa Monica palm articulation also remain. No final visual acceptance or public deployment.",
     "Finish source and contact review of Seattle, Bellevue, San Francisco and Chicago",
     "Add needed articulated/pose/fragment capabilities to remaining scenes rather than counting new forcing curves as completion",
     "Review all source masks and protected structures against new forcing amplitude",
@@ -119,7 +123,11 @@
     {
       "path": "assets/scenes/San-Jose/rafts-clean-plate-v2.png",
       "use": "One fixed clean-water repair image only under selected original salt pigment masks; no generated animation frames"
+    },
+    {
+      "path": "assets/scenes/Fort-Worth/crowns-clean-plate-v2.png",
+      "use": "One fixed source repair image only under the two original crown pigment footprints; no generated animation frames"
     }
   ],
-  "tests": "Fourteen functional test files passed, including radial attachment invariance, stem root invariance, low material strain, delayed seed-head response, boat/buoy timing, deterministic seek and prior regression checks. Runtime evidence and artistic acceptance remain separate."
+  "tests": "Nineteen functional test files passed, including historical GSAP parity, deforming-surface attachment, release continuity, fixed impact location, bounded branch strain, deterministic seek and prior regressions. Browser runtime evidence remains separate from artistic acceptance."
 }

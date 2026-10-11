@@ -5,6 +5,15 @@ const track=points=>points.map(([time,value],i)=>{
 const part=(id,crop,anchor,outline,rotation)=>({id,crop,anchor,pivot:[anchor[0]-crop[0],anchor[1]-crop[1]],outline,
  matte:'vegetation',tracks:{rotation:track(rotation)},materialClass:'rigid-shell',motionBounds:[anchor[0]-.01,anchor[1]-.01,anchor[0]+.01,anchor[1]+.01]});
 const worldOutline=o=>o.outline.map(([x,y])=>[x+o.crop[0],y+o.crop[1]]);
+// Convert the original rigid swing score into local cantilever articulation.
+// The root stays fixed while the tip yields; leaves use the deformed surface.
+function articulate(scene,object,pin='bottom'){
+ const name=`${object.id}-bend`,sign=pin==='top'?-1:1;
+ scene.expression.channels[name]={initial:0,keys:object.tracks.rotation.filter(k=>k.time>0).map(k=>({time:k.time,value:k.value*sign/.055}))};
+ object.tracks={};object.materialClass='articulated-shell';object.matteClose=1;
+ object.rig={kind:'stem',pin,center:object.pivot[0],angle:.11,channel:name};
+}
+
 
 export function directArboreal(scene){
  const oak=scene.id==='New-Orleans',oldLeaf=scene.objects[0];
@@ -21,9 +30,9 @@ export function directArboreal(scene){
    [[0,0],[3,0],[6,.035],[9,.025],[13,-.012],[17,.03],[23,-.008],[30,0],[34,0]]);
   leaf=part('released-oak-leaf',[515,14,20,20],[525,26],[[1,3],[5,0],[15,0],[19,5],[18,13],[13,18],[5,18],[0,12]],[[0,0],[7,0],[11,.5],[16,-.4],[21,.55],[25,-.25],[29,.18],[34,.18]]);
   leaf.follows={kind:'joint',actor:left.id,offset:[5,-185],releaseAt:7};
-  leaf.tracks.x=track([[0,525],[7,525],[11,558],[16,493],[21,520],[25,472],[29,560],[34,560]]);
-  leaf.tracks.y=track([[0,26],[7,26],[11,135],[16,255],[21,411],[25,518],[29,620],[34,620]]);
-  leaf.motionBounds=[450,10,590,650];leaf.occluders=oldLeaf.occluders;
+  leaf.tracks.x=track([[0,525],[7,525],[11,558],[16,493],[21,520],[25,472],[29,452],[34,452]]);
+  leaf.tracks.y=track([[0,26],[7,26],[11,135],[16,255],[21,411],[25,518],[29,638],[34,638]]);
+  leaf.motionBounds=[435,10,590,650];leaf.occluders=oldLeaf.occluders;
  }else{
   scene.title='庭院里，一片叶子离开枝头';
   left=part('west-courtyard-crown',[137,433,104,102],[207,527],
@@ -39,6 +48,8 @@ export function directArboreal(scene){
     rotation:track([[0,0],[7,0],[11,.6],[16,-.35],[20,.45],[25,.14],[30,.14]])},
    materialClass:'rigid-shell',motionBounds:[260,497,511,632]};
  }
+ for(const branch of [left,right])articulate(scene,branch);
+ leaf.follows.surface=true;
  const owner=oak?left:right;owner.sourceHoles=[worldOutline(leaf)];leaf.repair=false;
  leaf.materialClass='projected-shell';leaf.projection={axis:'x'};leaf.landingTime=oak?29:25;
  leaf.tracks.pitch=track(oak?[[0,0],[7,0],[11,.65],[16,.2],[21,.9],[25,.3],[29,1.18],[34,1.18]]:[[0,0],[7,0],[11,.7],[16,.15],[20,.8],[23,.3],[25,1.18],[30,1.18]]);
@@ -79,6 +90,8 @@ export function directAutumn(scene){
  second.tracks.pitch=track([[0,0],[12,0],[16,.85],[20,.1],[24,.8],[26,.25],[28,1.18],[30,1.18]]);
  second.motionBounds=[388,155,663,610];second.landingTime=28;
  for(const leaf of [first,second]){leaf.materialClass='projected-shell';leaf.projection={axis:'x'};leaf.repair=false;}
+ articulate(scene,branch,'top');
+ first.follows.surface=true;second.follows.surface=true;
  branch.sourceHoles=[worldOutline(first),worldOutline(second)];
  scene.objects=[branch,first,second];scene.contacts=[];
  scene.subjects=[

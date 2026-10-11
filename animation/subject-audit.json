@@ -1,7 +1,7 @@
 {
   "scope": "Implementation inventory only. Authored does not mean reviewed, natural, accepted or released.",
   "total": 23,
-  "authored": 17,
+  "authored": 18,
   "scenes": [
     {
       "id": "Seattle",
@@ -120,7 +120,18 @@
       "source": "assets/posters/Stanford.png",
       "subjects": 3,
       "renderParts": 3,
-      "rigs": [],
+      "rigs": [
+        {
+          "part": "west-courtyard-crown",
+          "kind": "stem",
+          "pin": "bottom"
+        },
+        {
+          "part": "east-courtyard-crown",
+          "kind": "stem",
+          "pin": "bottom"
+        }
+      ],
       "joints": [
         {
           "part": "released-courtyard-leaf",
@@ -468,21 +479,43 @@
     {
       "id": "Fort-Worth",
       "source": "assets/posters/Fort-Worth.png",
-      "subjects": 0,
-      "renderParts": 1,
-      "rigs": [],
-      "joints": [],
-      "actions": [],
-      "unassigned": [
-        "pond-leaf"
+      "subjects": 3,
+      "renderParts": 3,
+      "rigs": [
+        {
+          "part": "pool-west-crown",
+          "kind": "stem",
+          "pin": "bottom"
+        },
+        {
+          "part": "pool-east-crown",
+          "kind": "stem",
+          "pin": "bottom"
+        }
       ],
-      "missing": [
-        "No semantic subject/action programme is wired to the renderer",
-        "No staged subject event sequence",
-        "Existing moving layers have not been assigned to semantic subjects"
+      "joints": [
+        {
+          "part": "pool-falling-leaf",
+          "parent": "pool-west-crown"
+        }
       ],
+      "actions": [
+        "rooted-bend",
+        "release-leaf",
+        "rebound",
+        "settle",
+        "delayed-bend",
+        "follow-deformed-surface",
+        "release",
+        "tumble",
+        "land-on-water",
+        "flatten",
+        "drift-with-trailing-contact"
+      ],
+      "unassigned": [],
+      "missing": [],
       "errors": [],
-      "authored": false,
+      "authored": true,
       "visualReview": "pending",
       "gates": {
         "source": "pending",
@@ -524,7 +557,13 @@
       "source": "assets/posters/Champaign-Urbana.png",
       "subjects": 3,
       "renderParts": 3,
-      "rigs": [],
+      "rigs": [
+        {
+          "part": "overhead-twig",
+          "kind": "stem",
+          "pin": "top"
+        }
+      ],
       "joints": [
         {
           "part": "first-autumn-leaf",
@@ -567,7 +606,18 @@
       "source": "assets/posters/New-Orleans.png",
       "subjects": 3,
       "renderParts": 3,
-      "rigs": [],
+      "rigs": [
+        {
+          "part": "main-oak-twig",
+          "kind": "stem",
+          "pin": "bottom"
+        },
+        {
+          "part": "neighbor-oak-twig",
+          "kind": "stem",
+          "pin": "bottom"
+        }
+      ],
       "joints": [
         {
           "part": "released-oak-leaf",

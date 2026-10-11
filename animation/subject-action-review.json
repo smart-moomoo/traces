@@ -102,8 +102,27 @@
       "observed": "Current projected-leaf version completed a 30.03-second pass, 3604 rendered frames, max timeline step 0.015 s, 24 captured states. Seven earlier full subject poses inspected; release point continuity additionally checked numerically. Needs final material/edge review at exhibition scale.",
       "remaining": [
         "Final source, material and contact visual acceptance",
-        "Full exhibition integration"
-      ]
+        "Full exhibition integration",
+        "Detached yellow leaf retains a dark source rim; inspect it on a contrasting matte at exhibition size."
+      ],
+      "latestMechanics": "Fixed-root local branch bending replaces rigid cutout rotation; leaf attachment follows the exact deformed surface and tangent. Prior playback records do not accept this revision.",
+      "latestPlayback": {
+        "id": "Stanford",
+        "duration": 30,
+        "frameIntervalMs": {
+          "p50": 8.3,
+          "p95": 9.2,
+          "p99": 9.4,
+          "over33ms": 0,
+          "maxEvidenceCaptureMs": 14.6
+        },
+        "wallSeconds": 30.02,
+        "renderedFrames": 3603,
+        "maxTimelineStep": 0.017,
+        "sampledImages": 24,
+        "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+      },
+      "latestPoseReview": "Seven whole-subject composite views inspected after mesh-surface update. Artistic/source acceptance remains pending."
     },
     {
       "id": "New-Orleans",
@@ -119,7 +138,25 @@
       "remaining": [
         "Final source-seam and material acceptance",
         "Full exhibition integration"
-      ]
+      ],
+      "latestMechanics": "Fixed-root local branch bending replaces rigid cutout rotation; leaf attachment follows the exact deformed surface and tangent. Prior playback records do not accept this revision. Landing moved outside the root occluder so the ending remains visible.",
+      "latestPlayback": {
+        "id": "New-Orleans",
+        "duration": 34,
+        "frameIntervalMs": {
+          "p50": 8.3,
+          "p95": 9.2,
+          "p99": 9.4,
+          "over33ms": 0,
+          "maxEvidenceCaptureMs": 10.5
+        },
+        "wallSeconds": 34.02,
+        "renderedFrames": 4083,
+        "maxTimelineStep": 0.017,
+        "sampledImages": 24,
+        "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+      },
+      "latestPoseReview": "Seven whole-subject composite views inspected after mesh-surface update. Artistic/source acceptance remains pending."
     },
     {
       "id": "Champaign-Urbana",
@@ -134,8 +171,27 @@
       "observed": "Current version completed 30.03 seconds, 3603 rendered frames, max timeline step 0.015 s and 24 captured states. Whole 24-state sheet and full-size final rest image inspected. Leaves keep source scale and separate final landing positions.",
       "remaining": [
         "Detailed twig matte and attachment inspection",
-        "Final material and integration acceptance"
-      ]
+        "Final material and integration acceptance",
+        "Second original leaf has a fragmented silhouette; review source ownership and material readability before accepting the scene."
+      ],
+      "latestMechanics": "Fixed-root local branch bending replaces rigid cutout rotation; leaf attachment follows the exact deformed surface and tangent. Prior playback records do not accept this revision.",
+      "latestPlayback": {
+        "id": "Champaign-Urbana",
+        "duration": 30,
+        "frameIntervalMs": {
+          "p50": 8.3,
+          "p95": 9.3,
+          "p99": 9.4,
+          "over33ms": 0,
+          "maxEvidenceCaptureMs": 13.5
+        },
+        "wallSeconds": 30.03,
+        "renderedFrames": 3603,
+        "maxTimelineStep": 0.011,
+        "sampledImages": 24,
+        "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+      },
+      "latestPoseReview": "Seven whole-subject composite views inspected after mesh-surface update. Artistic/source acceptance remains pending."
     },
     {
       "id": "San-Diego",
@@ -262,6 +318,23 @@
         "Fine original footprint remnants and reflected streak ownership",
         "Actual material contact on all fragment edges, not just declared docking extrema",
         "Complete exhibition-scale and full-site visual acceptance"
+      ]
+    },
+    {
+      "id": "Fort-Worth",
+      "subjects": 3,
+      "parts": 3,
+      "actions": [
+        "independent fixed-root crown bending and recovery",
+        "leaf follows bending surface before release",
+        "free tumble and foreshortened pool landing",
+        "persistent drift with weaker later water contacts"
+      ],
+      "observed": "Seven composite poses inspected. Complete 34.03-second browser playback rendered 4,084 frames, max timeline step 0.011 seconds; 24 states captured. Two authored fixed probes unchanged. Small original leaf remains small, with no scale enlargement.",
+      "remaining": [
+        "Source edge and clean-plate inspection at peak bend",
+        "Leaf-water contact readability at exhibition size",
+        "Full-site visual acceptance"
       ]
     }
   ],
@@ -484,6 +557,7 @@
     "animation/review/arboreal-subject-actions.jpg",
     "animation/review/canopy-subject-actions.jpg",
     "animation/review/park-street-subject-actions.jpg",
-    "animation/review/salt-subject-actions.jpg"
+    "animation/review/salt-subject-actions.jpg",
+    "animation/review/pool-subject-actions.jpg"
   ]
 }

@@ -364,32 +364,32 @@
       "objects": [
         {
           "id": "west-courtyard-crown",
-          "representation": "rigid",
+          "representation": "stem",
           "rest": [
             207,
             527
           ],
           "sweptBounds": [
-            135.24705875075625,
-            431.7555419457092,
-            241.53372080109588,
-            532.1734193527815
+            114.34,
+            410.34,
+            262.66,
+            554.66
           ],
           "issues": [],
           "visualStatus": "unreviewed"
         },
         {
           "id": "east-courtyard-crown",
-          "representation": "rigid",
+          "representation": "stem",
           "rest": [
             282,
             532
           ],
           "sweptBounds": [
-            241.40803973253688,
-            437.15263821317853,
-            356.0990053809402,
-            535.105408193767
+            218.57,
+            414.57,
+            378.43,
+            558.43
           ],
           "issues": [],
           "visualStatus": "unreviewed"
@@ -403,9 +403,9 @@
           ],
           "sweptBounds": [
             257,
-            493.2878486625923,
-            517.5921873866448,
-            630.4186315711331
+            493.5160226597501,
+            516.6747871711849,
+            630.6262577099479
           ],
           "issues": [],
           "visualStatus": "unreviewed"
@@ -1215,25 +1215,51 @@
       "status": "source-audit",
       "objects": [
         {
-          "id": "pond-leaf",
+          "id": "pool-west-crown",
+          "representation": "stem",
+          "rest": [
+            666,
+            344
+          ],
+          "sweptBounds": [
+            594.215,
+            226.215,
+            734.785,
+            375.785
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "pool-east-crown",
+          "representation": "stem",
+          "rest": [
+            801,
+            349
+          ],
+          "sweptBounds": [
+            736.62,
+            250.62,
+            874.38,
+            371.38
+          ],
+          "issues": [],
+          "visualStatus": "unreviewed"
+        },
+        {
+          "id": "pool-falling-leaf",
           "representation": "rigid",
           "rest": [
             657,
             311
           ],
           "sweptBounds": [
-            650.9999999999999,
-            303.99999999999994,
-            691.142439070182,
-            470.0412309920355
+            651,
+            303.7373512986864,
+            762.6532180739691,
+            480.45506055739907
           ],
-          "issues": [
-            {
-              "kind": "source",
-              "symptom": "Repair uses a resized neighbouring sample, not an inspected hidden-area reconstruction",
-              "action": "Inspect exposed swept area for repeated structure, stretched tiles and residual subject pixels."
-            }
-          ],
+          "issues": [],
           "visualStatus": "unreviewed"
         }
       ],
@@ -1241,11 +1267,6 @@
         {
           "id": "pool",
           "kind": "water",
-          "visualStatus": "unreviewed"
-        },
-        {
-          "id": "garden",
-          "kind": "foliage",
           "visualStatus": "unreviewed"
         }
       ],
@@ -1321,16 +1342,16 @@
       "objects": [
         {
           "id": "overhead-twig",
-          "representation": "rigid",
+          "representation": "stem",
           "rest": [
             175,
             94
           ],
           "sweptBounds": [
-            140.6465571168562,
-            87.62434502013345,
-            417.5945615211927,
-            296.33970934182213
+            89.87,
+            35.87,
+            470.13,
+            348.13
           ],
           "issues": [],
           "visualStatus": "unreviewed"
@@ -1343,10 +1364,10 @@
             275
           ],
           "sweptBounds": [
-            216.35124296180936,
+            216.57255320050743,
             266,
-            355.13533878639095,
-            616.162310671375
+            355.3246333404717,
+            617.0282617166703
           ],
           "issues": [],
           "visualStatus": "unreviewed"
@@ -1359,10 +1380,10 @@
             161
           ],
           "sweptBounds": [
-            375.6996853449687,
-            143.33231998046745,
-            667.4025475562353,
-            608.4358494061319
+            376.5238387795066,
+            144.12976607044897,
+            666.9289637459783,
+            609.2219341281838
           ],
           "issues": [],
           "visualStatus": "unreviewed"
@@ -1397,32 +1418,32 @@
       "objects": [
         {
           "id": "main-oak-twig",
-          "representation": "rigid",
+          "representation": "stem",
           "rest": [
             520,
             211
           ],
           "sweptBounds": [
-            479.54519914138297,
-            11.449031473070875,
-            573.9403196080387,
-            212.01781740691277
+            453.99,
+            -20.009999999999998,
+            603.01,
+            244.01
           ],
           "issues": [],
           "visualStatus": "unreviewed"
         },
         {
           "id": "neighbor-oak-twig",
-          "representation": "rigid",
+          "representation": "stem",
           "rest": [
             178,
             458
           ],
           "sweptBounds": [
-            72.01229501691277,
-            334.8354062931854,
-            203.8891600264344,
-            460.1037123084556
+            44.29,
+            307.29,
+            229.71,
+            488.71
           ],
           "issues": [],
           "visualStatus": "unreviewed"
@@ -1435,10 +1456,10 @@
             26
           ],
           "sweptBounds": [
-            451.6522932826672,
-            13.746407009484855,
-            560.0173280713979,
-            622.6364716497102
+            433.26760550810224,
+            13.39398794473924,
+            559.6809290824664,
+            640.3441119277043
           ],
           "issues": [],
           "visualStatus": "unreviewed"

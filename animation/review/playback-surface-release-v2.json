@@ -1,0 +1,50 @@
+[
+  {
+    "id": "New-Orleans",
+    "duration": 34,
+    "frameIntervalMs": {
+      "p50": 8.3,
+      "p95": 9.2,
+      "p99": 9.4,
+      "over33ms": 0,
+      "maxEvidenceCaptureMs": 10.5
+    },
+    "wallSeconds": 34.02,
+    "renderedFrames": 4083,
+    "maxTimelineStep": 0.017,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Stanford",
+    "duration": 30,
+    "frameIntervalMs": {
+      "p50": 8.3,
+      "p95": 9.2,
+      "p99": 9.4,
+      "over33ms": 0,
+      "maxEvidenceCaptureMs": 14.6
+    },
+    "wallSeconds": 30.02,
+    "renderedFrames": 3603,
+    "maxTimelineStep": 0.017,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  },
+  {
+    "id": "Champaign-Urbana",
+    "duration": 30,
+    "frameIntervalMs": {
+      "p50": 8.3,
+      "p95": 9.3,
+      "p99": 9.4,
+      "over33ms": 0,
+      "maxEvidenceCaptureMs": 13.5
+    },
+    "wallSeconds": 30.03,
+    "renderedFrames": 3603,
+    "maxTimelineStep": 0.011,
+    "sampledImages": 24,
+    "scope": "Real-time complete playback; visual evidence sampled at 24 timestamps, not automatic artistic acceptance."
+  }
+]

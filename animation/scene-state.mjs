@@ -1,5 +1,6 @@
 import {objectPose} from './material-objects.mjs';
-import {rigPadding} from './material-rig.mjs';
+import {rigPadding,deformGrid} from './material-rig.mjs';
+import {controlAt} from './expressive-score.mjs';
 
 // A receiving surface follows the same sampled controls as its casting actor.
 // This response can be removed by the background-effects switch without
@@ -31,15 +32,27 @@ export function actorsAt(scene,time){
   visiting.add(key);let pose=objectPose(object,at);
   if(object.follows){
    const released=Number.isFinite(object.follows.releaseAt)&&at>=object.follows.releaseAt;
-   const parent=visit(object.follows.actor,released?object.follows.releaseAt:at),[x,y]=transformOffset(parent,object.follows.offset||[0,0]);
+   const parentTime=released?object.follows.releaseAt:at,parent=visit(object.follows.actor,parentTime);
+   let offset=object.follows.offset||[0,0],surfaceAngle=0;
+   if(object.follows.surface){
+    const owner=definitions.get(object.follows.actor),rig=owner.rig;
+    if(!rig)throw new Error(`Surface attachment requires a rig: ${owner.id}`);
+    const local=[owner.pivot[0]+offset[0],owner.pivot[1]+offset[1]];
+    const grid={width:owner.crop[2],height:owner.crop[3],vertices:new Float32Array([...local,local[0]+1,local[1]])};
+    const primary=controlAt(scene.expression,rig.channel,parentTime),secondary=rig.secondaryChannel?controlAt(scene.expression,rig.secondaryChannel,parentTime):0;
+    const deformed=deformGrid(grid,rig,primary,undefined,secondary);
+    offset=[deformed[0]-owner.pivot[0],deformed[1]-owner.pivot[1]];
+    surfaceAngle=Math.atan2(deformed[3]-deformed[1],deformed[2]-deformed[0]);
+   }
+   const [x,y]=transformOffset(parent,offset);
    const joint=object.follows.kind==='joint';
    if(released){
     // Cache-free release: replay and backward seek reconstruct the same world
     // attachment pose at birth, then add the authored free-flight displacement.
     const birth=objectPose(object,object.follows.releaseAt);
     pose={...parent,x:x+pose.x-birth.x,y:y+pose.y-birth.y,scaleX:parent.scaleX*pose.scaleX,scaleY:parent.scaleY*pose.scaleY,
-     rotation:parent.rotation*(object.follows.rotationFactor??1)+(object.follows.rotation||0)+(joint?birth.rotation:0)+pose.rotation-birth.rotation};
-   }else pose={...parent,x,y,scaleX:parent.scaleX*pose.scaleX,scaleY:parent.scaleY*pose.scaleY,rotation:parent.rotation*(object.follows.rotationFactor??1)+(object.follows.rotation||0)+(joint?pose.rotation:0)};
+     rotation:parent.rotation*(object.follows.rotationFactor??1)+(object.follows.rotation||0)+surfaceAngle+(joint?birth.rotation:0)+pose.rotation-birth.rotation};
+   }else pose={...parent,x,y,scaleX:parent.scaleX*pose.scaleX,scaleY:parent.scaleY*pose.scaleY,rotation:parent.rotation*(object.follows.rotationFactor??1)+(object.follows.rotation||0)+surfaceAngle+(joint?pose.rotation:0)};
   }
   states.set(key,pose);visiting.delete(key);return pose;
  }
